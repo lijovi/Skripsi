@@ -256,7 +256,17 @@
             android:paddingVertical="8dp"
             android:textColor="@color/black"
             android:drawableRight="@drawable/plus"
+            />
 
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="Daftar"
+            android:backgroundTint="#50526D82"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/btnDaftar"
             />
 
     </LinearLayout>
