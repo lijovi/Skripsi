@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PopUpRiwayatPenyakit"
+    android:background="#27374D">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingVertical="50dp"
+        >
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_background"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="25dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp"
+                android:text="Silakan Masukkan Riwayat Penyakit Yang Dimiliki"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TBC"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="HYPERTENSI"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="JANTUNG DAN PEMBULUH DARAH"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TUKAK LAMBUNG"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BATU DAN INFEKSI SALURAN KEMIH"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ANAL FISTULA"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RADANG KANDUNG DAN BATU EMPEDU"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="JARI TANGAN DAN KAKI YANG BERJUMLAH LEBIH"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TUMOR YANG TAMPAK DAN TIDAK TAMPAK"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DIABETES MELLITUS"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ENDOMETRIOSIS"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="WASIR ATAU AMBEIEN"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="OPERASI AMANDEL"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="OPERASI NASAL SEPTUM / SEKAT RONGGA HIDUNG"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="GONDOK"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="KATARAK"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SINUS"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:gravity="center_vertical"
+                >
+                <CheckBox
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="EPILEPSI"
+                    android:textColor="@color/black"
+                    android:paddingLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Simpan"
+                android:background="@drawable/rounded_corner_button"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:id="@+id/btnSimpan"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>
