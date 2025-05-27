@@ -20,7 +20,7 @@
     <LinearLayout
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="#DDE6ED"
+        android:background="@drawable/rounded_corner_background"
         android:orientation="vertical"
         android:paddingHorizontal="20dp"
         android:paddingVertical="25dp">
@@ -47,7 +47,7 @@
             android:id="@+id/nik"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             />
 
         <TextView
@@ -61,7 +61,7 @@
             android:id="@+id/nama"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white" />
+            android:background="@drawable/rounded_corner_fill" />
 
         <TextView
             android:layout_width="match_parent"
@@ -74,7 +74,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:hint="Input Email"
             android:textSize="12dp"
             android:paddingLeft="8dp" />
@@ -120,7 +120,7 @@
             android:id="@+id/noTelp"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white" />
+            android:background="@drawable/rounded_corner_fill" />
 
         <TextView
             android:layout_width="match_parent"
@@ -133,7 +133,7 @@
             android:id="@+id/alamat"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white" />
+            android:background="@drawable/rounded_corner_fill" />
 
         <TextView
             android:layout_width="match_parent"
@@ -176,7 +176,7 @@
             android:id="@+id/namaKeluarga"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white" />
+            android:background="@drawable/rounded_corner_fill" />
 
         <TextView
             android:layout_width="match_parent"
@@ -189,7 +189,7 @@
             android:id="@+id/planAsuransi"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white" />
+            android:background="@drawable/rounded_corner_fill" />
 
         <TextView
             android:layout_width="match_parent"
@@ -202,7 +202,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:id="@+id/masaPerjalanan"
             />
 
@@ -248,7 +248,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:id="@+id/lamaPerjalanan"
             />
 
@@ -263,7 +263,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:id="@+id/namaAhliWaris"
             />
 
@@ -278,7 +278,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:id="@+id/hubunganDenganAhliWaris"
             />
 
@@ -293,7 +293,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:id="@+id/negaraTujuan"
             />
 
@@ -308,16 +308,16 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:id="@+id/tujuanPerjalanan"
             android:layout_marginBottom="20dp"
             />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="Daftar"
-            android:backgroundTint="#50526D82"
+            android:background="@drawable/rounded_corner_button"
             android:layout_gravity="center"
             android:textColor="@color/black"
             android:layout_marginBottom="10dp"

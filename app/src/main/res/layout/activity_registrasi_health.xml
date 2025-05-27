@@ -19,7 +19,7 @@
     <LinearLayout
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="#DDE6ED"
+        android:background="@drawable/rounded_corner_background"
         android:orientation="vertical"
         android:paddingHorizontal="20dp"
         android:paddingVertical="25dp">
@@ -46,7 +46,7 @@
             android:id="@+id/nik"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             />
 
         <TextView
@@ -60,7 +60,7 @@
             android:id="@+id/nama"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white" />
+            android:background="@drawable/rounded_corner_fill" />
 
         <TextView
             android:layout_width="match_parent"
@@ -73,7 +73,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:hint="Input Email"
             android:textSize="12dp"
             android:paddingLeft="8dp" />
@@ -119,7 +119,7 @@
             android:id="@+id/bod"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:hint="DD/MM/YYYY"
             android:textSize="12dp"
             android:paddingLeft="8dp" />
@@ -135,7 +135,7 @@
             android:id="@+id/noTelp"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:hint="Input Nomor Telepon"
             android:textSize="12dp"
             android:paddingLeft="8dp" />
@@ -151,7 +151,7 @@
             android:id="@+id/alamat"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:hint="Input Alamat"
             android:textSize="12dp"
             android:paddingLeft="8dp" />
@@ -167,23 +167,7 @@
             android:id="@+id/pekerjaan"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
-            android:hint="Input Pekerjaan"
-            android:textSize="12dp"
-            android:paddingLeft="8dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="8dp"
-            android:text="Pekerjaan"
-            android:textColor="@color/black" />
-
-        <EditText
-            android:id="@+id/pekerjaan"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:hint="Input Pekerjaan"
             android:textSize="12dp"
             android:paddingLeft="8dp" />
@@ -199,7 +183,7 @@
             android:id="@+id/periodePertanggungan"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:hint="Input Periode Pertanggungan"
             android:textSize="12dp"
             android:paddingLeft="8dp" />
@@ -214,7 +198,7 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:layout_marginVertical="8dp"
             android:id="@+id/company"
             />
@@ -230,7 +214,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:id="@+id/namaAhliWaris"
             />
 
@@ -245,7 +229,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:id="@+id/hubunganDenganAhliWaris"
             />
 
@@ -258,11 +242,18 @@
             android:drawableRight="@drawable/plus"
             />
 
-        <Button
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/riwayatPenyakit"
+            android:paddingVertical="8dp"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="Daftar"
-            android:backgroundTint="#50526D82"
+            android:background="@drawable/rounded_corner_button"
             android:layout_gravity="center"
             android:textColor="@color/black"
             android:layout_marginBottom="10dp"

@@ -14,7 +14,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#DDE6ED"
+        android:background="@drawable/rounded_corner_background"
         android:paddingHorizontal="20dp"
         android:paddingVertical="25dp"
         android:gravity="center"
@@ -43,7 +43,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:id="@+id/nik"
             />
 
@@ -58,16 +58,16 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corner_fill"
             android:layout_marginBottom="20dp"
             android:id="@+id/nama"
             />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="Masuk"
-            android:backgroundTint="#50526D82"
+            android:background="@drawable/rounded_corner_button"
             android:layout_gravity="center"
             android:textColor="@color/black"
             android:layout_marginBottom="10dp"

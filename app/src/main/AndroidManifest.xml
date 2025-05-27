@@ -13,11 +13,35 @@
         android:theme="@style/Theme.Skripsi"
         tools:targetApi="31">
         <activity
+            android:name=".BuatPasswordNasabah"
+            android:exported="false" />
+        <activity
+            android:name=".UbahPasswordNasabah"
+            android:exported="false" />
+        <activity
+            android:name=".UbahPasswordAsuransi"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileAsuransi"
+            android:exported="false" />
+        <activity
+            android:name=".HomePageAsuransi"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAsuransi"
+            android:exported="false" />
+        <activity
+            android:name=".Pembayaran"
+            android:exported="false" />
+        <activity
+            android:name=".PopUpRiwayatPenyakit"
+            android:exported="false" />
+        <activity
             android:name=".RegistrasiHealth"
             android:exported="false" />
-         <activity
-         android:name=".RegistrasiTravel"
-         android:exported="false" />
+        <activity
+            android:name=".RegistrasiTravel"
+            android:exported="false" />
         <activity
             android:name=".Register"
             android:exported="false" />
