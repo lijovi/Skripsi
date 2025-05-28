@@ -24,11 +24,12 @@
             android:gravity="center_vertical"
             >
 
+<!--        Back Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="16dp"
                 android:layout_height="32dp"
                 android:background="@drawable/back_hitam"
-
+                android:id="@+id/btnBack"
                 />
 
             <TextView
@@ -64,6 +65,7 @@
             android:paddingVertical="50dp"
             >
 
+<!--    NIK-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,13 +91,13 @@
 
         </LinearLayout>
 
+<!--    Nama -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="30dp"
             android:paddingTop="20dp"
-
             >
 
             <TextView
@@ -111,17 +113,17 @@
                 android:textColor="@color/black"
                 android:id="@+id/nama"
                 />
-
         </LinearLayout>
 
+<!--    Email -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="30dp"
             android:paddingTop="20dp"
-
             >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -136,17 +138,18 @@
                 android:textColor="@color/black"
                 android:id="@+id/email"
                 />
-
         </LinearLayout>
 
+
+<!--    Jenis Kelamin -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="30dp"
             android:paddingTop="20dp"
-
             >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -161,9 +164,9 @@
                 android:textColor="@color/black"
                 android:id="@+id/jenisKelamin"
                 />
-
         </LinearLayout>
 
+<!--    Alamat -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -186,16 +189,15 @@
                 android:textColor="@color/black"
                 android:id="@+id/alamat"
                 />
-
         </LinearLayout>
 
+<!--    Jenis Polis -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="30dp"
             android:paddingTop="20dp"
-
             >
 
             <TextView
@@ -212,16 +214,15 @@
                 android:textColor="@color/black"
                 android:id="@+id/jenisPolis"
                 />
-
         </LinearLayout>
 
+<!--    Plan Asuransi -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="30dp"
             android:paddingTop="20dp"
-
             >
 
             <TextView
@@ -238,16 +239,15 @@
                 android:textColor="@color/black"
                 android:id="@+id/planAsuransi"
                 />
-
         </LinearLayout>
 
+<!--    Masa Perjalanan -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="30dp"
             android:paddingTop="20dp"
-
             >
 
             <TextView
@@ -264,16 +264,16 @@
                 android:textColor="@color/black"
                 android:id="@+id/masaPerjalanan"
                 />
-
         </LinearLayout>
 
+
+<!--    Tipe Polis -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="30dp"
             android:paddingTop="20dp"
-
             >
 
             <TextView
@@ -290,16 +290,15 @@
                 android:textColor="@color/black"
                 android:id="@+id/tipePolis"
                 />
-
         </LinearLayout>
 
+<!--    Lama Perjalanan -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="30dp"
             android:paddingTop="20dp"
-
             >
 
             <TextView
@@ -316,16 +315,15 @@
                 android:textColor="@color/black"
                 android:id="@+id/lamaPerjalanan"
                 />
-
         </LinearLayout>
 
+<!--    Nama Ahli Waris -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="30dp"
             android:paddingTop="20dp"
-
             >
 
             <TextView
@@ -342,16 +340,15 @@
                 android:textColor="@color/black"
                 android:id="@+id/namaAhliWaris"
                 />
-
         </LinearLayout>
 
+<!--    Hubungan Dengan Ahli Waris-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="30dp"
             android:paddingTop="20dp"
-
             >
 
             <TextView
@@ -368,16 +365,15 @@
                 android:textColor="@color/black"
                 android:id="@+id/hubunganDenganAhliWaris"
                 />
-
         </LinearLayout>
 
+<!--    Negara Tujuan -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="30dp"
             android:paddingTop="20dp"
-
             >
 
             <TextView
@@ -394,16 +390,15 @@
                 android:textColor="@color/black"
                 android:id="@+id/negaraTujuan"
                 />
-
         </LinearLayout>
 
+<!--    Tujuan Perjalanan -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="30dp"
             android:paddingTop="20dp"
-
             >
 
             <TextView
@@ -420,7 +415,6 @@
                 android:textColor="@color/black"
                 android:id="@+id/tujuanPerjalanan"
                 />
-
         </LinearLayout>
 
         <LinearLayout
@@ -431,6 +425,7 @@
             android:paddingTop="40dp"
             >
 
+<!--        Button Terima -->
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
@@ -442,6 +437,7 @@
                 android:layout_marginEnd="20dp"
                 />
 
+<!--        Button Tolak -->
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
@@ -496,7 +492,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/home"
-
+                    android:id="@+id/btnHome"
                     />
             </LinearLayout>
 
@@ -513,6 +509,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/profile"
+                    android:id="@+id/btnProfile"
                     />
 
             </LinearLayout>

@@ -36,6 +36,7 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
+<!--    NIK -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,8 +49,12 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
+            android:hint="Input NIK"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
             />
 
+<!--    Nama -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,8 +66,13 @@
             android:id="@+id/nama"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@drawable/rounded_corner_fill" />
+            android:background="@drawable/rounded_corner_fill"
+            android:hint="Input Nama"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
+            />
 
+<!--    Email -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,6 +89,8 @@
             android:textSize="12dp"
             android:paddingLeft="8dp" />
 
+
+<!--    Jenis Kelamin -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,6 +121,7 @@
                 android:textColor="@color/black" />
         </RadioGroup>
 
+<!--    No Telepon -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -120,8 +133,13 @@
             android:id="@+id/noTelp"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@drawable/rounded_corner_fill" />
+            android:background="@drawable/rounded_corner_fill"
+            android:hint="Input Nomor Telepon"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
+            />
 
+<!--    Alamat -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -133,8 +151,13 @@
             android:id="@+id/alamat"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@drawable/rounded_corner_fill" />
+            android:background="@drawable/rounded_corner_fill"
+            android:hint="Input Alamat"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
+            />
 
+<!--    Jenis Polis -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -165,6 +188,7 @@
                 android:textColor="@color/black" />
         </RadioGroup>
 
+<!--    Nama Keluarga -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -176,8 +200,13 @@
             android:id="@+id/namaKeluarga"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@drawable/rounded_corner_fill" />
+            android:background="@drawable/rounded_corner_fill"
+            android:hint="Input Nama Keluarga"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
+            />
 
+<!--    Plan Asuransi -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -191,6 +220,7 @@
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill" />
 
+<!--    Masa Perjalanan -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -204,8 +234,12 @@
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
             android:id="@+id/masaPerjalanan"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
+            android:hint="DD/MM/YYYY - DD/MM/YYYY"
             />
 
+<!--    Tipe Polis -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -237,6 +271,7 @@
                 android:textColor="@color/black" />
         </RadioGroup>
 
+<!--    Lama Perjalanan -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -252,6 +287,7 @@
             android:id="@+id/lamaPerjalanan"
             />
 
+<!--    Nama Ahli Waris -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -265,8 +301,12 @@
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
             android:id="@+id/namaAhliWaris"
+            android:hint="Input Ahli Waris"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
             />
 
+<!--    Hubungan Dengan Ahli Waris -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -280,8 +320,12 @@
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
             android:id="@+id/hubunganDenganAhliWaris"
+            android:hint="Input Hubungan Dengan Ahli Waris"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
             />
 
+<!--    Negara Tujuan -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -295,8 +339,12 @@
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
             android:id="@+id/negaraTujuan"
+            android:hint="Input Negara Tujuan"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
             />
 
+<!--    Tujuan Perjalanan -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -311,8 +359,12 @@
             android:background="@drawable/rounded_corner_fill"
             android:id="@+id/tujuanPerjalanan"
             android:layout_marginBottom="20dp"
+            android:hint="Input Tujuan Perjalanan"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
             />
 
+<!--    Button Daftar -->
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"
             android:layout_height="wrap_content"

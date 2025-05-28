@@ -37,7 +37,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/home"
-
+                    android:id="@+id/btnHome"
                     />
             </LinearLayout>
 
@@ -54,6 +54,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/profile"
+                    android:id="@+id/btnProfile"
                     />
 
             </LinearLayout>

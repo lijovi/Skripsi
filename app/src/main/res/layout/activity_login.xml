@@ -32,6 +32,7 @@
             android:textColor="@color/black"
             />
 
+<!--    NIK -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,8 +46,12 @@
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
             android:id="@+id/nik"
+            android:hint="Input NIK"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
             />
 
+<!--    Nama -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,8 +66,12 @@
             android:background="@drawable/rounded_corner_fill"
             android:layout_marginBottom="20dp"
             android:id="@+id/nama"
+            android:hint="Input Nama"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
             />
 
+<!--    Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"
             android:layout_height="wrap_content"
@@ -91,6 +100,7 @@
                 android:textColor="@color/black"
                 />
 
+<!--        Daftar -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -100,10 +110,9 @@
                 android:textColor="@color/black"
                 android:id="@+id/daftar"
                 />
-
         </LinearLayout>
 
-
+<!--    Login Asuransi -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

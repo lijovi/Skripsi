@@ -23,6 +23,7 @@
             android:gravity="center_vertical"
             >
 
+<!--        Button Back -->
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="16dp"
                 android:layout_height="32dp"
@@ -178,6 +179,7 @@
             android:paddingVertical="20dp"
             />
 
+<!--    Ubah Password -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -186,8 +188,10 @@
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
             android:paddingVertical="5dp"
+            android:id="@+id/ubahPassword"
             />
 
+<!--    Ubah Bahasa -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -196,8 +200,10 @@
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
             android:paddingVertical="5dp"
+            android:id="@+id/ubahBahasa"
             />
 
+<!--    FAQ -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -206,8 +212,10 @@
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
             android:paddingVertical="5dp"
+            android:id="@+id/FAQ"
             />
 
+<!--    Syarat dan Ketentuan -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -216,8 +224,10 @@
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
             android:paddingVertical="5dp"
+            android:id="@+id/syaratDanKetentuan"
             />
 
+<!--    Keluar -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -226,6 +236,7 @@
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
             android:paddingVertical="5dp"
+            android:id="@+id/keluar"
             />
 
     </LinearLayout>

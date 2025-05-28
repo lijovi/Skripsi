@@ -23,12 +23,15 @@
             android:gravity="center_vertical"
             >
 
+<!--        Tombol Back    -->
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="16dp"
                 android:layout_height="32dp"
                 android:background="@drawable/back_hitam"
 
                 />
+
+<!--        Bukti Pembayaran -->
 
             <TextView
                 android:layout_width="wrap_content"
@@ -49,9 +52,9 @@
             android:orientation="horizontal"
             android:paddingHorizontal="30dp"
             android:paddingTop="30dp"
-
             >
 
+<!--    NIK -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,6 +81,7 @@
             android:paddingTop="20dp"
             >
 
+<!--        Nama -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -110,6 +114,7 @@
                 android:textColor="@color/black"
                 />
 
+<!--        Besar Premi -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -120,6 +125,7 @@
 
         </LinearLayout>
 
+<!--    Bukti Pembayaran -->
         <ImageView
             android:layout_width="300dp"
             android:layout_height="250dp"
@@ -135,6 +141,7 @@
             android:gravity="center"
             >
 
+<!--        Button Terima -->
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
@@ -146,6 +153,7 @@
                 android:layout_marginEnd="20dp"
                 />
 
+<!--        Button Tolak -->
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
@@ -199,7 +207,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/home"
-
+                    android:id="@+id/btnHome"
                     />
             </LinearLayout>
 
@@ -216,6 +224,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/profile"
+                    android:id="@+id/btnProfile"
                     />
 
             </LinearLayout>

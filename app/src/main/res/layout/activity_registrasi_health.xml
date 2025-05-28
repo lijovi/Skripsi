@@ -35,6 +35,7 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
+<!--    NIK -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,8 +48,12 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
+            android:hint="Input NIK"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
             />
 
+<!--    Nama -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,8 +65,13 @@
             android:id="@+id/nama"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="@drawable/rounded_corner_fill" />
+            android:background="@drawable/rounded_corner_fill"
+            android:hint="Input Nama"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
+            />
 
+<!--    Email -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,6 +95,7 @@
             android:text="Jenis Kelamin"
             android:textColor="@color/black" />
 
+<!--    Jenis Kelamin -->
         <RadioGroup
             android:id="@+id/jenisKelamin"
             android:layout_width="match_parent"
@@ -108,6 +119,7 @@
                 android:textColor="@color/black" />
         </RadioGroup>
 
+<!--    Tanggal Lahir -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -124,6 +136,7 @@
             android:textSize="12dp"
             android:paddingLeft="8dp" />
 
+<!--    No Telepon -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -140,6 +153,7 @@
             android:textSize="12dp"
             android:paddingLeft="8dp" />
 
+<!--    Alamat -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -156,6 +170,7 @@
             android:textSize="12dp"
             android:paddingLeft="8dp" />
 
+<!--    Pekerjaan -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -172,6 +187,7 @@
             android:textSize="12dp"
             android:paddingLeft="8dp" />
 
+<!--    Periode Pertanggungan -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -188,6 +204,8 @@
             android:textSize="12dp"
             android:paddingLeft="8dp" />
 
+
+<!--    Plan Asuransi -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -203,6 +221,7 @@
             android:id="@+id/company"
             />
 
+<!--    Nama Ahli Waris -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -216,8 +235,12 @@
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
             android:id="@+id/namaAhliWaris"
+            android:hint="Input Ahli Waris"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
             />
 
+<!--    Hubungan Dengan Ahli Waris -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -231,8 +254,12 @@
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
             android:id="@+id/hubunganDenganAhliWaris"
+            android:hint="Input Hubungan Dengan Ahli Waris"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
             />
 
+<!--    Riwayat Penyakit -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -249,6 +276,7 @@
             android:paddingVertical="8dp"
             />
 
+<!--    Button Daftar -->
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"
             android:layout_height="wrap_content"

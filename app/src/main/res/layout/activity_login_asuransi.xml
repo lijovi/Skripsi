@@ -32,6 +32,7 @@
             android:textColor="@color/black"
             />
 
+<!--    Username -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,8 +46,12 @@
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
             android:id="@+id/username"
+            android:hint="Input Username"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
             />
 
+<!--    Password -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,8 +66,12 @@
             android:background="@drawable/rounded_corner_fill"
             android:layout_marginBottom="20dp"
             android:id="@+id/password"
+            android:hint="Input Password"
+            android:textSize="12dp"
+            android:paddingLeft="8dp"
             />
 
+<!--    Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"
             android:layout_height="wrap_content"
@@ -74,7 +83,7 @@
             android:id="@+id/btnMasuk"
             />
 
-
+<!--    Login Nasabah -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,7 +92,7 @@
             android:textStyle=""
             android:gravity="center"
             android:textColor="@color/black"
-            android:id="@+id/masukAsuransi"
+            android:id="@+id/masukNasabah"
             />
 
     </LinearLayout>
