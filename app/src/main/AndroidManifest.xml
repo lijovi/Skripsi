@@ -13,6 +13,15 @@
         android:theme="@style/Theme.Skripsi"
         tools:targetApi="31">
         <activity
+            android:name=".DataCalonNasabahTravel"
+            android:exported="false" />
+        <activity
+            android:name=".DataCalonNasabahHealth"
+            android:exported="false" />
+        <activity
+            android:name=".BuktiPembayaranAsuransi"
+            android:exported="false" />
+        <activity
             android:name=".BuatPasswordNasabah"
             android:exported="false" />
         <activity
