@@ -127,14 +127,32 @@
             android:text="Tanggal Lahir"
             android:textColor="@color/black" />
 
-        <EditText
-            android:id="@+id/bod"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="@drawable/rounded_corner_fill"
-            android:hint="DD/MM/YYYY"
-            android:textSize="12dp"
-            android:paddingLeft="8dp" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/bodtext"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/rounded_corner_fill"
+                android:hint="DD/MM/YYYY"
+                android:textSize="12dp"
+                android:paddingLeft="8dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/calendar"
+                android:layout_alignParentRight="true"
+                android:id="@+id/bod"
+                android:onClick="birthOfDate"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="8dp"
+                />
+        </RelativeLayout>
+
+
 
 <!--    No Telepon -->
         <TextView

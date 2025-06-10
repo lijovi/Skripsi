@@ -249,7 +249,7 @@
 <!--    Footer -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:gravity="center"
         android:background="@drawable/footer"
@@ -260,6 +260,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"
+
             >
 
             <LinearLayout
@@ -267,13 +268,13 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingHorizontal="20dp">
+                android:paddingHorizontal="15dp">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/home"
-
+                    android:id="@+id/btnHome"
                     />
             </LinearLayout>
 
@@ -282,8 +283,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:baselineAligned="false"
+                android:background="#526D82"
                 android:gravity="center"
-                android:background="#50526D82"
                 android:orientation="vertical"
                 android:paddingHorizontal="20dp">
 
@@ -291,6 +292,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/profile"
+                    android:id="@+id/btnProfile"
                     />
 
             </LinearLayout>
