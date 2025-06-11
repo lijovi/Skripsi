@@ -13,11 +13,14 @@
         android:theme="@style/Theme.Skripsi"
         tools:targetApi="31">
         <activity
+            android:name=".HomepageNasabah"
+            android:exported="false" />
+        <activity
             android:name=".RegistrasiHealth"
             android:exported="false" />
-         <activity
-         android:name=".RegistrasiTravel"
-         android:exported="false" />
+        <activity
+            android:name=".RegistrasiTravel"
+            android:exported="false" />
         <activity
             android:name=".Register"
             android:exported="false" />
