@@ -48,9 +48,12 @@ public class LoginAsuransi extends AppCompatActivity {
         });
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("company");
-        Asuransi asuransi = new Asuransi(1, "aca", "aca@gmail.com", "aca1234", "ACA", 1234567890);
+        Asuransi asuransi = new Asuransi(1, "aca", "aca@gmail.com", "aca1234", "ACA", "1234567890");
+        Asuransi asuransi2 = new Asuransi(2, "etiqa", "etiqa@gmail.com", "etiqa5678", "ETIQA", "081234567890");
         String newusername1 = "aca";
+        String newusername2 = "etiqa";
         reference.child(newusername1).setValue(asuransi);
+        reference.child(newusername2).setValue(asuransi2);
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
@@ -118,10 +121,16 @@ public class LoginAsuransi extends AppCompatActivity {
                 if (snapshot.exists()){
                     username.setError(null);
                     String PasswordFromDB = snapshot.child(Username).child("companyPassword").getValue(String.class);
-
+                    String Email = snapshot.child(Username).child("companyEmail").getValue(String.class);
+                    String Name = snapshot.child(Username).child("companyName").getValue(String.class);
+                    String VirtualAccount = snapshot.child(Username).child("companyVirtualAccount").getValue(String.class);
                     if (Objects.equals(PasswordFromDB, Password)){
                         username.setError(null);
-                        Intent intent = new Intent(LoginAsuransi.this, HomePageAsuransi.class);
+                        Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
+                        CompanySession.getInstance().setNama(Name);
+                        CompanySession.getInstance().setEmail(Email);
+                        CompanySession.getInstance().setUsername(Username);
+                        CompanySession.getInstance().setVirtualAccount(VirtualAccount);
                         startActivity(intent);
                     } else {
                         password.setError("Incorrect Password");

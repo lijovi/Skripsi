@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Skripsi</string>
+    <string-array name="perusahaan">
+        <item>ACA</item>
+        <item>ETIQA</item>
+        <item>CHINA TAIPING</item>
+    </string-array>
+
+    <string-array name="planHealth">
+        <item>RI 300</item>
+        <item>RI 500</item>
+        <item>RI 750</item>
+        <item>RI 1000</item>
+    </string-array>
 </resources>

@@ -3,15 +3,16 @@ package com.example.skripsi;
 import java.io.Serializable;
 
 public class Nasabah implements Serializable {
-    int nik;
+    String nik;
     String name;
     String email;
     String gender;
     String phoneNumber;
     String address;
     String password;
+    int company;
 
-    public Nasabah(int nik, String name, String email, String gender, String phoneNumber, String address, String password) {
+    public Nasabah(String nik, String name, String email, String gender, String phoneNumber, String address, String password, int company) {
         this.nik = nik;
         this.name = name;
         this.email = email;
@@ -19,9 +20,10 @@ public class Nasabah implements Serializable {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.password = password;
+        this.company = company;
     }
 
-    public int getNik() {
+    public String getNik() {
         return nik;
     }
 
@@ -47,5 +49,9 @@ public class Nasabah implements Serializable {
 
     public String getPassword() {
         return password;
+    }
+
+    public int getCompany() {
+        return company;
     }
 }

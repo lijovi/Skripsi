@@ -13,6 +13,21 @@
         android:theme="@style/Theme.Skripsi"
         tools:targetApi="31">
         <activity
+            android:name=".InsuranceInfoNasabah"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationNasabah"
+            android:exported="false" />
+        <activity
+            android:name=".InsuranceInfo"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileNasabah"
+            android:exported="false" />
+        <activity
+            android:name=".UbahPassword"
+            android:exported="false" />
+        <activity
             android:name=".DataCalonNasabahTravel"
             android:exported="false" />
         <activity

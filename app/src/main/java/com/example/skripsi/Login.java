@@ -51,7 +51,11 @@ public class Login extends AppCompatActivity {
         btnMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (nik.getText().toString().equals())
+                if(!validateNIK() | !validateNama()){
+
+                } else {
+                    cek();
+                }
             }
         });
         masukAsuransi.setOnClickListener(new View.OnClickListener() {
@@ -103,20 +107,72 @@ public class Login extends AppCompatActivity {
         String NIK = nik.getText().toString().trim();
         String Nama = nama.getText().toString().trim();
 
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference("nasabah");
-        Query checkData = database.orderByChild("nik").equalTo(NIK);
+        DatabaseReference databaseHealth = FirebaseDatabase.getInstance().getReference("clientHealth");
+        Query checkDataHealth = databaseHealth.orderByChild("nik").equalTo(NIK);
 
-        checkData.addListenerForSingleValueEvent(new ValueEventListener() {
+
+        DatabaseReference databaseTravel = FirebaseDatabase.getInstance().getReference("clientTravel");
+        Query checkDataTravel = databaseHealth.orderByChild("nik").equalTo(NIK);
+
+        checkDataHealth.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     nik.setError(null);
-                    String NamaFromDB = snapshot.child(NIK).child("nama").getValue(String.class);
-
-                    if (!Objects.equals(NamaFromDB, Nama)){
+                    String NameFromDB = snapshot.child(NIK).child("name").getValue(String.class);
+                    String Email = snapshot.child(NIK).child("email").getValue(String.class);
+                    String Name = snapshot.child(NIK).child("name").getValue(String.class);
+                    String NoTelp = snapshot.child(NIK).child("phoneNumber").getValue(String.class);
+                    if (Objects.equals(NameFromDB, Nama)){
                         nik.setError(null);
-//                        Intent intent = new Intent();
+                        Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
+
+                        ClientSession.getInstance().setNama(Name);
+                        ClientSession.getInstance().setEmail(Email);
+                        ClientSession.getInstance().setNoTelp(NoTelp);
+
+                        startActivity(intent);
+                    } else {
+                        nama.setError("Incorrect Nama");
+                        nama.requestFocus();
                     }
+                } else {
+                    nik.setError("User does not exist");
+                    nik.requestFocus();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        checkDataTravel.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    nik.setError(null);
+                    String NameFromDB = snapshot.child(NIK).child("name").getValue(String.class);
+                    String Email = snapshot.child(NIK).child("email").getValue(String.class);
+                    String Name = snapshot.child(NIK).child("name").getValue(String.class);
+                    String NoTelp = snapshot.child(NIK).child("phoneNumber").getValue(String.class);
+                    if (Objects.equals(NameFromDB, Nama)){
+                        nik.setError(null);
+                        Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
+
+                        ClientSession.getInstance().setNama(Name);
+                        ClientSession.getInstance().setEmail(Email);
+                        ClientSession.getInstance().setNoTelp(NoTelp);
+
+                        startActivity(intent);
+                    } else {
+                        nama.setError("Incorrect Nama");
+                        nama.requestFocus();
+                    }
+                } else {
+                    nik.setError("User does not exist");
+                    nik.requestFocus();
                 }
             }
 

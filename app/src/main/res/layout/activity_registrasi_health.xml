@@ -236,7 +236,7 @@
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
             android:layout_marginVertical="8dp"
-            android:id="@+id/company"
+            android:id="@+id/plan"
             />
 
 <!--    Nama Ahli Waris -->
@@ -278,14 +278,27 @@
             />
 
 <!--    Riwayat Penyakit -->
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Riwayat Penyakit"
-            android:paddingVertical="8dp"
-            android:textColor="@color/black"
-            android:drawableRight="@drawable/plus"
-            />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Riwayat Penyakit"
+                android:paddingVertical="8dp"
+                android:textColor="@color/black"
+                android:paddingRight="10dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/plus"
+                android:id="@+id/plus"
+                />
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="wrap_content"

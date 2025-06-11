@@ -8,9 +8,9 @@ public class Asuransi implements Serializable {
     String companyEmail;
     String companyPassword;
     String companyName;
-    int companyVirtualAccount;
+    String companyVirtualAccount;
 
-    public Asuransi(int companyId, String companyUsername, String companyEmail, String companyPassword, String companyName, int companyVirtualAccount) {
+    public Asuransi(int companyId, String companyUsername, String companyEmail, String companyPassword, String companyName, String companyVirtualAccount) {
         this.companyId = companyId;
         this.companyUsername = companyUsername;
         this.companyEmail = companyEmail;
@@ -39,7 +39,7 @@ public class Asuransi implements Serializable {
         return companyName;
     }
 
-    public int getCompanyVirtualAccount() {
+    public String getCompanyVirtualAccount() {
         return companyVirtualAccount;
     }
 }

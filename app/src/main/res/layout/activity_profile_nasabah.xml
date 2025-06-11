@@ -18,40 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingLeft="25dp"
-            android:paddingTop="15dp"
-            android:gravity="center_vertical"
-            >
-
-<!--        Button Back -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="16dp"
-                android:layout_height="32dp"
-                android:background="@drawable/back_hitam"
-                android:id="@+id/btnBack"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="PROFILE"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:gravity="center"
-                android:paddingRight="35dp"
-                android:layout_weight="1"
-                />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:padding="30dp"
             android:gravity="center"
+            android:background="#9DB2BF"
             >
 
             <androidx.appcompat.widget.AppCompatButton
@@ -75,15 +44,14 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nama Perusahaan:"
-                        android:textColor="@color/black"
-                        />
+                        android:layout_height="match_parent"
+                        android:text="NAMA"
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/namaPerusahaan"
+                        android:id="@+id/nama"
                         android:paddingLeft="3dp"
                         />
 
@@ -98,29 +66,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Username:"
-                        android:textColor="@color/black"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/username"
-                        android:paddingLeft="3dp"
-                        />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Email:"
+                        android:text="EMAIL"
                         android:textColor="@color/black"
                         />
 
@@ -142,31 +88,24 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Virtual Account:"
+                        android:text="NO. TELP"
                         android:textColor="@color/black"
                         />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/virtualAccount"
+                        android:id="@+id/noTelp"
                         android:paddingLeft="3dp"
                         />
 
                 </LinearLayout>
 
+
             </LinearLayout>
 
         </LinearLayout>
 
-<!--        Line -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/black"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="10dp"
-            />
 
         <TextView
             android:layout_width="match_parent"
@@ -174,12 +113,20 @@
             android:text="PENGATURAN"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:paddingVertical="20dp"
+            android:paddingHorizontal="30dp"
+            android:textSize="15dp"
+            android:paddingTop="20dp"
             />
 
-<!--    Ubah Password -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#B0B0B0"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            />
+
+        <!--    Ubah Password -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -191,7 +138,7 @@
             android:id="@+id/ubahPassword"
             />
 
-<!--    Ubah Bahasa -->
+        <!--    Ubah Bahasa -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -203,7 +150,7 @@
             android:id="@+id/ubahBahasa"
             />
 
-<!--    FAQ -->
+        <!--    FAQ -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -215,7 +162,7 @@
             android:id="@+id/FAQ"
             />
 
-<!--    Syarat dan Ketentuan -->
+        <!--    Syarat dan Ketentuan -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -227,7 +174,7 @@
             android:id="@+id/syaratDanKetentuan"
             />
 
-<!--    Keluar -->
+        <!--    Keluar -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -246,7 +193,7 @@
 
 
 
-<!--    Footer -->
+    <!--    Footer -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -257,18 +204,18 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-
             >
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingHorizontal="15dp">
+                android:paddingHorizontal="15dp"
+                android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="40dp"
@@ -276,23 +223,88 @@
                     android:background="@drawable/home"
                     android:id="@+id/btnHome"
                     />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Utama"
+                    android:textSize="12dp"
+                    android:textColor="@color/black"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="15dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/info"
+                    android:id="@+id/btnInfo"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Info Asuransi"
+                    android:textSize="12dp"
+                    android:textColor="@color/black"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="15dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/notifikasi"
+                    android:id="@+id/btnNotifikasi"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notifikasi"
+                    android:textSize="12dp"
+                    android:textColor="@color/black"
+                    />
             </LinearLayout>
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:baselineAligned="false"
                 android:background="#9DB2BF"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingHorizontal="20dp">
+                android:paddingHorizontal="20dp"
+                android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/profile"
                     android:id="@+id/btnProfile"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profil"
+                    android:textSize="12dp"
+                    android:textColor="@color/black"
                     />
 
             </LinearLayout>

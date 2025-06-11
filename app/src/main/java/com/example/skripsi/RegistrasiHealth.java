@@ -4,11 +4,15 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -21,15 +25,21 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
-public class RegistrasiHealth extends AppCompatActivity {
+public class RegistrasiHealth extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     EditText nik, nama, email, bodText, noTelp, alamat, pekerjaan, periodePertanggungan, namaAhliWaris, hubunganDenganAhliWaris;
-    Button btnDaftar, bod;
+    Button btnDaftar, bod, plus;
     RadioGroup jenisKelamin;
     RadioButton selectedGender;
-    DatabaseReference dataref;
+    DatabaseReference reference;
+    FirebaseDatabase database;
+    Spinner plan;
+    String pilihanPlan;
+    TextView riwayatPenyakit;
+    int perusahaan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +54,9 @@ public class RegistrasiHealth extends AppCompatActivity {
             return insets;
         });
 
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference("clientHealth");
+
         nik = findViewById(R.id.nik);
         nama = findViewById(R.id.nama);
         email = findViewById(R.id.email);
@@ -57,6 +70,22 @@ public class RegistrasiHealth extends AppCompatActivity {
         btnDaftar = findViewById(R.id.btnDaftar);
         bod = findViewById(R.id.bod);
         jenisKelamin = findViewById(R.id.jenisKelamin);
+        plan = findViewById(R.id.plan);
+        plus = findViewById(R.id.plus);
+        riwayatPenyakit = findViewById(R.id.riwayatPenyakit);
+
+        ArrayList<String> list = (ArrayList<String>) getIntent().getSerializableExtra("riwayat");
+//        StringBuilder text = new StringBuilder();
+//        int size = list.size();
+//        for (int i = 0; i<size; i++){
+//            riwayatPenyakit.setText(list.get(i));
+//        }
+
+        riwayatPenyakit.setText(String.valueOf(list));
+
+
+//        perusahaan = Integer.parseInt(getIntent().getStringExtra("tipePerusahaan"));
+        perusahaan = getIntent().getIntExtra("tipePerusahaan", 0);
 
         bod.setOnClickListener(view-> {
                     final Calendar calendar = Calendar.getInstance();
@@ -74,7 +103,12 @@ public class RegistrasiHealth extends AppCompatActivity {
                 }
         );
 
-        dataref = FirebaseDatabase.getInstance().getReference().child("nasabah");
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.planHealth, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        plan.setAdapter(adapter);
+        plan.setOnItemSelectedListener(this);
+
+//        dataref = FirebaseDatabase.getInstance().getReference().child("nasabah");
 
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,11 +118,19 @@ public class RegistrasiHealth extends AppCompatActivity {
                 v.getContext().startActivity(masuk);
             }
         });
+
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PopUpRiwayatPenyakit.class);
+                startActivity(intent);
+            }
+        });
     }
     private void insertdata(){
         int selectedId = jenisKelamin.getCheckedRadioButtonId();
         selectedGender = findViewById(selectedId);
-        int NIK = nik.getText().length();
+        String NIK = nik.getText().toString();
         String Nama = nama.getText().toString();
         String Email = email.getText().toString();
         String BodText = bodText.getText().toString();
@@ -99,11 +141,25 @@ public class RegistrasiHealth extends AppCompatActivity {
         String NamaAhliWaris = namaAhliWaris.getText().toString();
         String HubunganDenganAhliWaris = hubunganDenganAhliWaris.getText().toString();
         String JenisKelamin = selectedGender.getText().toString();
+        int Perusahaan = perusahaan;
+        String PilihanPlan = pilihanPlan.toString();
 
 
         NasabahHealth nasabah = new NasabahHealth(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0",
-                BodText, Pekerjaan, PeriodePertanggungan, NamaAhliWaris, HubunganDenganAhliWaris);
-        dataref.push().setValue(nasabah);
+                Perusahaan, BodText, Pekerjaan, PeriodePertanggungan, PilihanPlan, NamaAhliWaris, HubunganDenganAhliWaris);
+//        dataref.push().setValue(nasabah);
+        reference.child(NIK).setValue(nasabah);
         Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String choice = parent.getItemAtPosition(position).toString();
+        pilihanPlan = choice;
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

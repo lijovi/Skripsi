@@ -6,15 +6,25 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class HomePageAsuransi extends AppCompatActivity {
 
     Button btnProfile;
+    FirebaseDatabase database;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +39,16 @@ public class HomePageAsuransi extends AppCompatActivity {
             return insets;
         });
 
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference("company");
+
+
         btnProfile = findViewById(R.id.btnProfile);
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomePageAsuransi.this, ProfileAsuransi.class);
+                Intent intent = new Intent(getApplicationContext(), ProfileAsuransi.class);
                 startActivity(intent);
             }
         });
