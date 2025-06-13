@@ -15,6 +15,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 public class Login extends AppCompatActivity {
-    EditText nik, nama;
+    TextInputLayout nik,nama;
     Button btnMasuk;
     TextView daftar, masukAsuransi;
     @Override
@@ -46,6 +47,9 @@ public class Login extends AppCompatActivity {
         btnMasuk = findViewById(R.id.btnMasuk);
         daftar = findViewById(R.id.daftar);
         masukAsuransi = findViewById(R.id.masukAsuransi);
+
+        nik.setPlaceholderText("Input NIK");
+        nama.setPlaceholderText("Input Nama");
 
 
         btnMasuk.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +83,7 @@ public class Login extends AppCompatActivity {
 
 //    CEK NIK
     private Boolean validateNIK(){
-        String Nik = nik.getText().toString();
+        String Nik = nik.getEditText().getText().toString();
 
         if (Nik.isEmpty()){
             nik.setError("NIK Cannot Be Empty");
@@ -92,7 +96,7 @@ public class Login extends AppCompatActivity {
 
 //    CEK NAMA
     private Boolean validateNama(){
-        String Nama = nama.getText().toString();
+        String Nama = nama.getEditText().getText().toString();
 
         if (Nama.isEmpty()){
             nama.setError("NIK Cannot Be Empty");
@@ -104,8 +108,8 @@ public class Login extends AppCompatActivity {
     }
 
     private void cek(){
-        String NIK = nik.getText().toString().trim();
-        String Nama = nama.getText().toString().trim();
+        String NIK = nik.getEditText().getText().toString().trim();
+        String Nama = nama.getEditText().getText().toString().trim();
 
         DatabaseReference databaseHealth = FirebaseDatabase.getInstance().getReference("clientHealth");
         Query checkDataHealth = databaseHealth.orderByChild("nik").equalTo(NIK);

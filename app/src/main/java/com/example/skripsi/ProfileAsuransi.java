@@ -1,5 +1,6 @@
 package com.example.skripsi;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -94,6 +95,39 @@ public class ProfileAsuransi extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ubahBahasa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ubahPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        FAQ.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
+
+        syaratDanKetentuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
+    private void showDialog() {
+        Dialog dialog = new Dialog(this);
+//        dialog.setContentView();
     }
 
 }

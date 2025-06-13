@@ -16,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,7 +29,7 @@ import java.util.Objects;
 public class LoginAsuransi extends AppCompatActivity {
 
     FirebaseDatabase database;
-    EditText username, password;
+    TextInputLayout username, password;
     Button btnMasuk;
     TextView masukNasabah;
     DatabaseReference reference;
@@ -61,6 +62,9 @@ public class LoginAsuransi extends AppCompatActivity {
         masukNasabah = findViewById(R.id.masukNasabah);
 //        asuransi = (Asuransi) getIntent().getSerializableExtra("company")
 
+//        username.setHint("Input Username");
+        username.setPlaceholderText("Input Username");
+        password.setPlaceholderText("Input Password");
 
         btnMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +88,7 @@ public class LoginAsuransi extends AppCompatActivity {
 
     //    CEK USERNAME
     private Boolean validateUsername(){
-        String Username = username.getText().toString();
+        String Username = username.getEditText().getText().toString();
 
         if (Username.isEmpty()){
             username.setError("Username Cannot Be Empty");
@@ -97,7 +101,7 @@ public class LoginAsuransi extends AppCompatActivity {
 
     //    CEK PASSWORD
     private Boolean validatePassword(){
-        String Password = password.getText().toString();
+        String Password = password.getEditText().getText().toString();
 
         if (Password.isEmpty()){
             password.setError("Password Cannot Be Empty");
@@ -109,8 +113,8 @@ public class LoginAsuransi extends AppCompatActivity {
     }
 
     private void cek(){
-        String Username = username.getText().toString().trim();
-        String Password = password.getText().toString().trim();
+        String Username = username.getEditText().getText().toString().trim();
+        String Password = password.getEditText().getText().toString().trim();
 
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("company");
         Query checkData = database.orderByChild("companyUsername").equalTo(Username);
