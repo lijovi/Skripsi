@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,7 +30,8 @@ public class ProfileAsuransi extends AppCompatActivity {
 
     Button btnHome, btnBack;
     TextView namaPerusahaan, username, email, virtualAccount, ubahPassword, ubahBahasa, FAQ, syaratDanKetentuan, keluar;
-
+    FirebaseAuth mAuth;
+    String Username, Nama, Email, VirtualAccount;
 //    FirebaseAuth auth = FirebaseAuth.getInstance();
 //    String uid = auth.getCurrentUser().getUid().toString();
 //    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("company");
@@ -61,10 +64,10 @@ public class ProfileAsuransi extends AppCompatActivity {
         keluar = findViewById(R.id.keluar);
 
 //        Ambil Data
-        String Username = CompanySession.getInstance().getUsername();
-        String Nama = CompanySession.getInstance().getNama();
-        String Email = CompanySession.getInstance().getEmail();
-        String VirtualAccount = CompanySession.getInstance().getVirtualAccount();
+        Username = CompanySession.getInstance().getUsername();
+        Nama = CompanySession.getInstance().getNama();
+        Email = CompanySession.getInstance().getEmail();
+        VirtualAccount = CompanySession.getInstance().getVirtualAccount();
 
 //        Set Data Ke Tampilan
         namaPerusahaan.setText(Nama);
@@ -103,10 +106,13 @@ public class ProfileAsuransi extends AppCompatActivity {
             }
         });
 
+        mAuth = FirebaseAuth.getInstance();
+
         ubahPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//                ResetPassword();
+                sendEmail(Email, "https://example.skripsi.UbahPasswordAsuransi");
             }
         });
 
@@ -124,6 +130,24 @@ public class ProfileAsuransi extends AppCompatActivity {
             }
         });
     }
+
+    private void sendEmail(String send_email, String send_link) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{send_email});
+        intent.putExtra(Intent.EXTRA_TEXT, send_link);
+        intent.setType("message/rfc822");
+        startActivity(Intent.createChooser(intent, "Choose Email"));
+    }
+
+//    private void ResetPassword() {
+//        mAuth.sendPasswordResetEmail(Email).addOnSuccessListener(new OnSuccessListener<Void>() {
+//            @Override
+//            public void onSuccess(Void unused) {
+//                Intent intent = new Intent(ProfileAsuransi.this, LoginAsuransi.class);
+//                startActivity(intent);
+//            }
+//        });
+//    }
 
     private void showDialog() {
         Dialog dialog = new Dialog(this);
