@@ -129,7 +129,7 @@ public class Login extends AppCompatActivity {
                     String NoTelp = snapshot.child(NIK).child("phoneNumber").getValue(String.class);
                     if (Objects.equals(NameFromDB, Nama)){
                         nik.setError(null);
-                        Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
+                        Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
 
                         ClientSession.getInstance().setNama(Name);
                         ClientSession.getInstance().setEmail(Email);
@@ -163,7 +163,7 @@ public class Login extends AppCompatActivity {
                     String NoTelp = snapshot.child(NIK).child("phoneNumber").getValue(String.class);
                     if (Objects.equals(NameFromDB, Nama)){
                         nik.setError(null);
-                        Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
+                        Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
 
                         ClientSession.getInstance().setNama(Name);
                         ClientSession.getInstance().setEmail(Email);
