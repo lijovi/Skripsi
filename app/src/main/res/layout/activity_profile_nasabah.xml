@@ -51,8 +51,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:id="@+id/nama"
-                        android:paddingLeft="3dp"
+                        android:paddingLeft="5dp"
                         />
 
                 </LinearLayout>
@@ -73,8 +74,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:id="@+id/email"
-                        android:paddingLeft="3dp"
+                        android:paddingLeft="5dp"
                         />
 
                 </LinearLayout>
@@ -95,8 +97,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:id="@+id/noTelp"
-                        android:paddingLeft="3dp"
+                        android:paddingLeft="5dp"
                         />
 
                 </LinearLayout>

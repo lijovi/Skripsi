@@ -229,15 +229,35 @@
             android:textColor="@color/black"
             />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="@drawable/rounded_corner_fill"
-            android:id="@+id/masaPerjalanan"
-            android:textSize="12dp"
-            android:paddingLeft="8dp"
-            android:hint="DD/MM/YYYY - DD/MM/YYYY"
-            />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/rounded_corner_fill"
+                android:id="@+id/masaPerjalanan"
+                android:textSize="12dp"
+                android:paddingLeft="8dp"
+                android:hint="DD/MM/YYYY - DD/MM/YYYY"
+                android:gravity="center_vertical"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/calendar"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="8dp"
+                android:id="@+id/btnMasaPerjalanan"
+                />
+
+        </RelativeLayout>
+
+
 
 <!--    Tipe Polis -->
         <TextView

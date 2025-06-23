@@ -1,15 +1,37 @@
 package com.example.skripsi;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Objects;
+
 public class BuatPasswordNasabah extends AppCompatActivity {
+
+    TextInputLayout passwordBaru, konfirmasiPassword;
+    Button btnBuat;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference databaseHealth = database.getReference("clientHealth");
+    DatabaseReference databaseTravel = database.getReference("clientTravel");
+    String NIK;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,5 +45,96 @@ public class BuatPasswordNasabah extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        NIK = ClientSession.getInstance().getNik();
+
+        Query checkDataHealth = databaseHealth.orderByChild("nik").equalTo(NIK);
+
+        Query checkDataTravel = databaseTravel.orderByChild("nik").equalTo(NIK);
+
+        passwordBaru = findViewById(R.id.passwordBaru);
+        konfirmasiPassword = findViewById(R.id.konfirmasiPassword);
+        btnBuat = findViewById(R.id.btnBuat);
+
+        passwordBaru.setPlaceholderText("Masukkan Password Baru");
+        konfirmasiPassword.setPlaceholderText("Masukkan Password Lagi");
+
+        btnBuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String cekPassword = passwordBaru.getEditText().getText().toString();
+                String cekPasswordKonfirmasi = konfirmasiPassword.getEditText().getText().toString();
+                if (!validatePassword() || !validatePasswordKonfirmasi()){
+
+                } else {
+                    if (Objects.equals(cekPassword, cekPasswordKonfirmasi)){
+                        checkDataHealth.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.exists()){
+//                                    String Password = snapshot.child(NIK).child("password").getValue(String.class);
+                                    databaseHealth.child(NIK).child("password").setValue(cekPassword);
+                                    Toast.makeText(getApplicationContext(), "Password Sudah Dibuat", Toast.LENGTH_SHORT).show();
+                                    ClientSession.getInstance().setPassword(cekPassword);
+                                    Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
+                                    startActivity(intent);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+                        checkDataTravel.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.exists()){
+//                                    String Password = snapshot.child(NIK).child("password").getValue(String.class);
+                                    databaseTravel.child(NIK).child("password").setValue(cekPassword);
+                                    Toast.makeText(getApplicationContext(), "Password Sudah Dibuat", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
+                                    ClientSession.getInstance().setPassword(cekPassword);
+                                    startActivity(intent);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    } else {
+                        konfirmasiPassword.setError("Password berbeda");
+                    }
+                }
+            }
+        });
+
+    }
+
+    private Boolean validatePassword(){
+        String cekPassword = passwordBaru.getEditText().getText().toString();
+
+        if (cekPassword.isEmpty()){
+            passwordBaru.setError("Password Cannot Be Empty");
+            return false;
+        } else {
+            passwordBaru.setError(null);
+            return true;
+        }
+    }
+
+    private Boolean validatePasswordKonfirmasi(){
+        String cekPasswordKonfirmasi = konfirmasiPassword.getEditText().getText().toString();
+
+        if (cekPasswordKonfirmasi.isEmpty()){
+            konfirmasiPassword.setError("Password Cannot Be Empty");
+            return false;
+        } else {
+            konfirmasiPassword.setError(null);
+            return true;
+        }
     }
 }

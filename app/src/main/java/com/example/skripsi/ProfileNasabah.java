@@ -1,6 +1,7 @@
 package com.example.skripsi;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,10 +14,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class ProfileNasabah extends AppCompatActivity {
 
-    TextView nama, email, noTelp;
+    TextView nama, email, noTelp, keluar, syaratDanKetentuan, FAQ, ubahBahasa, ubahPassword;
     Button btnHome, btnInfo, btnNotifikasi;
+//    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +53,8 @@ public class ProfileNasabah extends AppCompatActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
+                startActivity(intent);
             }
         });
 
@@ -66,6 +71,29 @@ public class ProfileNasabah extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), NotificationNasabah.class);
                 startActivity(intent);
+            }
+        });
+
+        keluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+        });
+
+        ubahPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.setData(Uri.parse("mailto:"));
+                email.setType("text/plain");
+
+                email.putExtra(Intent.EXTRA_EMAIL, Email);
+                email.putExtra(Intent.EXTRA_SUBJECT, "Change Password");
+                email.putExtra(Intent.EXTRA_TEXT, "");
+
+//                mAuth.sendPasswordResetEmail(Email);
             }
         });
     }

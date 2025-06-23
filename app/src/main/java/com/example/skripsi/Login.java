@@ -116,7 +116,7 @@ public class Login extends AppCompatActivity {
 
 
         DatabaseReference databaseTravel = FirebaseDatabase.getInstance().getReference("clientTravel");
-        Query checkDataTravel = databaseHealth.orderByChild("nik").equalTo(NIK);
+        Query checkDataTravel = databaseTravel.orderByChild("nik").equalTo(NIK);
 
         checkDataHealth.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -127,6 +127,8 @@ public class Login extends AppCompatActivity {
                     String Email = snapshot.child(NIK).child("email").getValue(String.class);
                     String Name = snapshot.child(NIK).child("name").getValue(String.class);
                     String NoTelp = snapshot.child(NIK).child("phoneNumber").getValue(String.class);
+                    String Gender = snapshot.child(NIK).child("gender").getValue(String.class);
+                    String Password = snapshot.child(NIK).child("password").getValue(String.class);
                     if (Objects.equals(NameFromDB, Nama)){
                         nik.setError(null);
                         Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
@@ -134,6 +136,9 @@ public class Login extends AppCompatActivity {
                         ClientSession.getInstance().setNama(Name);
                         ClientSession.getInstance().setEmail(Email);
                         ClientSession.getInstance().setNoTelp(NoTelp);
+                        ClientSession.getInstance().setNik(NIK);
+                        ClientSession.getInstance().setGender(Gender);
+                        ClientSession.getInstance().setPassword(Password);
 
                         startActivity(intent);
                     } else {
@@ -161,6 +166,8 @@ public class Login extends AppCompatActivity {
                     String Email = snapshot.child(NIK).child("email").getValue(String.class);
                     String Name = snapshot.child(NIK).child("name").getValue(String.class);
                     String NoTelp = snapshot.child(NIK).child("phoneNumber").getValue(String.class);
+                    String Gender = snapshot.child(NIK).child("gender").getValue(String.class);
+                    String Password = snapshot.child(NIK).child("password").getValue(String.class);
                     if (Objects.equals(NameFromDB, Nama)){
                         nik.setError(null);
                         Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
@@ -168,6 +175,9 @@ public class Login extends AppCompatActivity {
                         ClientSession.getInstance().setNama(Name);
                         ClientSession.getInstance().setEmail(Email);
                         ClientSession.getInstance().setNoTelp(NoTelp);
+                        ClientSession.getInstance().setNik(NIK);
+                        ClientSession.getInstance().setGender(Gender);
+                        ClientSession.getInstance().setPassword(Password);
 
                         startActivity(intent);
                     } else {
