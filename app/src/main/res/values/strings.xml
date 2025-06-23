@@ -28,4 +28,15 @@
     <string name="asuransi_kesehatan_n_menanggung_biaya_rumah_sakit_dan_pengobatan_n_perlindungan_terhadap_penyakit_kritis_n_fasilitas_rawat_jalan_dan_rawat_inap_n_jaringan_rumah_sakit_luas_untuk_kenyamanan_anda">Asuransi Kesehatan:\n✅ Menanggung biaya rumah sakit dan pengobatan \n✅ Perlindungan terhadap penyakit kritis\n✅ Fasilitas rawat jalan dan rawat inap\n✅ Jaringan rumah sakit luas untuk kenyamanan Anda</string>
     <string name="asuransi_travel_n_perlindungan_terhadap_pembatalan_penerbangan_n_pertanggungan_biaya_pengobatan_di_luar_negeri_n_kompensasi_untuk_kehilangan_bagasi_n_bantuan_darurat_24_7_selama_perjalanan">Asuransi Travel:\n✅ Perlindungan terhadap pembatalan penerbangan\n✅ Pertanggungan biaya pengobatan di luar negeri\n✅ Kompensasi untuk kehilangan bagasi\n✅ Bantuan darurat 24/7 selama perjalanan</string>
     <string name="warning_icon" />
+    <string name="notifikasi">Notifikasi</string>
+    <string name="info_asuransi">Info Asuransi</string>
+    <string name="waktu">Waktu</string>
+    <string name="profil">Profil</string>
+    <string name="utama">Utama</string>
+    <string name="riwayat_medis">Riwayat Medis</string>
+    <string name="health_sisa_limit">HEALTH - Sisa Limit: xxx.xxx</string>
+    <string name="tgl_pengajuan">Tgl. Pengajuan</string>
+    <string name="status">Status</string>
+    <string name="klaim">Klaim</string>
+    <string name="travel_sisa_limit">TRAVEL - Sisa Limit: xxx.xxx</string>
 </resources>
