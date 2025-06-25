@@ -34,9 +34,9 @@
     <string name="profil">Profil</string>
     <string name="utama">Utama</string>
     <string name="riwayat_medis">Riwayat Medis</string>
-    <string name="health_sisa_limit">HEALTH - Sisa Limit: xxx.xxx</string>
+    <string name="health_sisa_limit">HEALTH - Sisa Limit:</string>
     <string name="tgl_pengajuan">Tgl. Pengajuan</string>
     <string name="status">Status</string>
     <string name="klaim">Klaim</string>
-    <string name="travel_sisa_limit">TRAVEL - Sisa Limit: xxx.xxx</string>
+    <string name="travel_sisa_limit">TRAVEL - Sisa Limit:</string>
 </resources>

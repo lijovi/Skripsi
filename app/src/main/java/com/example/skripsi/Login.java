@@ -111,11 +111,10 @@ public class Login extends AppCompatActivity {
         String NIK = nik.getEditText().getText().toString().trim();
         String Nama = nama.getEditText().getText().toString().trim();
 
-        DatabaseReference databaseHealth = FirebaseDatabase.getInstance().getReference("clientHealth");
+        DatabaseReference databaseHealth = FirebaseDatabase.getInstance().getReference("client");
         Query checkDataHealth = databaseHealth.orderByChild("nik").equalTo(NIK);
 
-
-        DatabaseReference databaseTravel = FirebaseDatabase.getInstance().getReference("clientTravel");
+        DatabaseReference databaseTravel = FirebaseDatabase.getInstance().getReference("client");
         Query checkDataTravel = databaseTravel.orderByChild("nik").equalTo(NIK);
 
         checkDataHealth.addListenerForSingleValueEvent(new ValueEventListener() {

@@ -37,6 +37,8 @@ public class ProfileNasabah extends AppCompatActivity {
         nama = findViewById(R.id.nama);
         email = findViewById(R.id.email);
         noTelp = findViewById(R.id.noTelp);
+        keluar = findViewById(R.id.keluar);
+        ubahPassword = findViewById(R.id.ubahPassword);
 
         btnHome = findViewById(R.id.btnHome);
         btnInfo = findViewById(R.id.btnInfo);

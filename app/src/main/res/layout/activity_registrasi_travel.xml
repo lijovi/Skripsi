@@ -189,22 +189,31 @@
         </RadioGroup>
 
 <!--    Nama Keluarga -->
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="8dp"
-            android:text="Nama Keluarga"
-            android:textColor="@color/black" />
+            android:orientation="vertical"
+            android:id="@+id/namaKeluargaAll"
+            android:visibility="visible"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:text="Nama Keluarga"
+                android:textColor="@color/black" />
 
-        <EditText
-            android:id="@+id/namaKeluarga"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="@drawable/rounded_corner_fill"
-            android:hint="Input Nama Keluarga"
-            android:textSize="12dp"
-            android:paddingLeft="8dp"
-            />
+            <EditText
+                android:id="@+id/namaKeluarga"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/rounded_corner_fill"
+                android:hint="Input Nama Keluarga"
+                android:textSize="12dp"
+                android:paddingLeft="8dp"
+                />
+        </LinearLayout>
+
 
 <!--    Plan Asuransi -->
         <TextView

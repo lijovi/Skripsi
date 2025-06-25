@@ -15,6 +15,8 @@ public class ClientSession {
     private String phoneNumber;
     private String address;
     private String password;
+    private String limitHealth;
+    private String limitTravel;
 
     public String getNik() {
         return nik;
@@ -80,5 +82,19 @@ public class ClientSession {
         this.email = email;
     }
 
+    public String getLimitHealth() {
+        return limitHealth;
+    }
 
+    public void setLimitHealth(String limitHealth) {
+        this.limitHealth = limitHealth;
+    }
+
+    public String getLimitTravel() {
+        return limitTravel;
+    }
+
+    public void setLimitTravel(String limitTravel) {
+        this.limitTravel = limitTravel;
+    }
 }

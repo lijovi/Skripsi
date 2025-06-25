@@ -154,7 +154,8 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:paddingHorizontal="15dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="#9DB2BF">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="40dp"
@@ -177,7 +178,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:baselineAligned="false"
-                android:background="#9DB2BF"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:paddingHorizontal="20dp"

@@ -29,8 +29,8 @@ public class BuatPasswordNasabah extends AppCompatActivity {
     TextInputLayout passwordBaru, konfirmasiPassword;
     Button btnBuat;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference databaseHealth = database.getReference("clientHealth");
-    DatabaseReference databaseTravel = database.getReference("clientTravel");
+    DatabaseReference databaseHealth = database.getReference("client");
+    DatabaseReference databaseTravel = database.getReference("client");
     String NIK;
 
     @Override

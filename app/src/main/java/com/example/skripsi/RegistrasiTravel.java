@@ -1,14 +1,17 @@
 package com.example.skripsi;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.ActionBar;
@@ -20,20 +23,28 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.logging.SimpleFormatter;
 
 public class RegistrasiTravel extends AppCompatActivity {
 
-    EditText nik, nama, email, noTelp, alamat;
-    RadioGroup jenisKelamin;
-    RadioButton selectedGender;
+    EditText nik, nama, email, noTelp, alamat, lamaPerjalanan, namaKeluarga, namaAhliWaris, hubunganDenganAhliWaris, negaraTujuan, tujuanPerjalanan;
+    RadioGroup jenisKelamin, jenisPolis, tipePolis;
+    RadioButton selectedGender, selectedJenis, selectedPolis;
     Button btnDaftar, btnMasaPerjalanan;
     TextView masaPerjalanan;
+    LinearLayout namaKeluargaAll;
+    int perusahaan, selectedID;
+    FirebaseDatabase database;
+    DatabaseReference reference;
+    String JenisPolis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +59,9 @@ public class RegistrasiTravel extends AppCompatActivity {
             return insets;
         });
 
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference("client");
+//
         nik = findViewById(R.id.nik);
         nama = findViewById(R.id.nama);
         email = findViewById(R.id.email);
@@ -57,14 +71,38 @@ public class RegistrasiTravel extends AppCompatActivity {
         masaPerjalanan = findViewById(R.id.masaPerjalanan);
         btnDaftar = findViewById(R.id.btnDaftar);
         btnMasaPerjalanan = findViewById(R.id.btnMasaPerjalanan);
-
+        namaKeluargaAll = findViewById(R.id.namaKeluargaAll);
+        lamaPerjalanan = findViewById(R.id.lamaPerjalanan);
+        tipePolis = findViewById(R.id.tipePolis);
+        namaAhliWaris = findViewById(R.id.namaAhliWaris);
+        hubunganDenganAhliWaris = findViewById(R.id.hubunganDenganAhliWaris);
+        negaraTujuan = findViewById(R.id.negaraTujuan);
+        tujuanPerjalanan = findViewById(R.id.tujuanPerjalanan);
+        jenisPolis = findViewById(R.id.jenisPolis);
+        namaKeluarga = findViewById(R.id.namaKeluarga);
+//
+        perusahaan = getIntent().getIntExtra("tipePerusahaan", 0);
+//
+        selectedID = jenisPolis.getCheckedRadioButtonId();
+        selectedJenis = findViewById(selectedID);
+//        JenisPolis = selectedJenis.getText().toString();
+//
+//
+//        if (selectedJenis.equals(R.id.family)){
+//            namaKeluargaAll.setVisibility(View.VISIBLE);
+//        } else {
+//            namaKeluargaAll.setVisibility(View.GONE);
+//        }
+//
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 insertData();
+                Intent masuk = new Intent(getApplicationContext(), Login.class);
+                startActivity(masuk);
             }
         });
-
+//
         btnMasaPerjalanan.setOnClickListener(view-> {
                     final Calendar calendar = Calendar.getInstance();
                     int year = calendar.get(Calendar.YEAR);
@@ -89,11 +127,43 @@ public class RegistrasiTravel extends AppCompatActivity {
                 }
         );
 
-
     }
 
     private void insertData() {
         int selectedId = jenisKelamin.getCheckedRadioButtonId();
         selectedGender = findViewById(selectedId);
+        int selectedIDPolis = tipePolis.getCheckedRadioButtonId();
+        selectedPolis = findViewById(selectedIDPolis);
+        String NIK = nik.getText().toString();
+        String Nama = nama.getText().toString();
+        String Email = email.getText().toString();
+        String JenisKelamin = selectedGender.getText().toString();
+        String NoTelp = noTelp.getText().toString();
+        String Alamat = alamat.getText().toString();
+        String NamaKeluarga = namaKeluarga.getText().toString();
+        String MasaPerjalanan = masaPerjalanan.getText().toString();
+        String LamaPerjalanan = lamaPerjalanan.getText().toString();
+        String TipePolis = selectedPolis.getText().toString();
+        String NamaAhliWaris = namaAhliWaris.getText().toString();
+        String HubunganDenganAhliWaris = hubunganDenganAhliWaris.getText().toString();
+        String NegaraTujuan = negaraTujuan.getText().toString();
+        String TujuanPerjalanan = tujuanPerjalanan.getText().toString();
+        int Perusahaan = perusahaan;
+
+        if (Objects.equals(JenisPolis, "Family")){
+            NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0",
+                    Perusahaan, JenisPolis, NamaKeluarga, "PLAN", MasaPerjalanan, LamaPerjalanan, TipePolis,
+                    NamaAhliWaris, HubunganDenganAhliWaris, NegaraTujuan, TujuanPerjalanan);
+            reference.child(NIK).setValue(nasabah);
+        } else {
+            NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0",
+                    Perusahaan, JenisPolis, null, "PLAN", MasaPerjalanan, LamaPerjalanan, TipePolis,
+                    NamaAhliWaris, HubunganDenganAhliWaris, NegaraTujuan, TujuanPerjalanan);
+            reference.child(NIK).setValue(nasabah);
+        }
+//        dataref.push().setValue(nasabah);
+
+        Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();
+        }
+
     }
-}

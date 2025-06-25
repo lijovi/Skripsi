@@ -55,7 +55,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         });
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("clientHealth");
+        reference = database.getReference("client");
 
         nik = findViewById(R.id.nik);
         nama = findViewById(R.id.nama);
@@ -114,8 +114,10 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
             @Override
             public void onClick(View v) {
                 insertdata();
-                Intent masuk = new Intent(v.getContext(), Login.class);
-                v.getContext().startActivity(masuk);
+//                Intent masuk = new Intent(v.getContext(), Login.class);
+//                v.getContext().startActivity(masuk);
+                Intent masuk = new Intent(getApplicationContext(), Login.class);
+                startActivity(masuk);
             }
         });
 

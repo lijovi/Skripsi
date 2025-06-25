@@ -109,7 +109,7 @@ public class HomePageNasabah extends AppCompatActivity {
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ProfileNasabah.class);
+                Intent intent = new Intent(HomePageNasabah.this, ProfileNasabah.class);
                 startActivity(intent);
             }
         });

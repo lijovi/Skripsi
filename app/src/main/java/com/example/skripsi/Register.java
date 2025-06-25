@@ -60,11 +60,11 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                 String Tipe = tipe.getText().toString();
                 if (id == R.id.travel){
                     Intent intent1 = new Intent(getApplicationContext(), RegistrasiTravel.class);
-                    intent1.putExtra("tipeAsuransi", pilihan);
+                    intent1.putExtra("tipePerusahaan", pilihan);
                     startActivity(intent1);
                 } else if (id == R.id.health) {
                     Intent intent2 = new Intent(getApplicationContext(), RegistrasiHealth.class);
-                    intent2.putExtra("tipeAsuransi", pilihan);
+                    intent2.putExtra("tipePerusahaan", pilihan);
                     startActivity(intent2);
                 }
 //                tipeAsuransi.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
