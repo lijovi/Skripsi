@@ -17,6 +17,43 @@ public class ClientSession {
     private String password;
     private String limitHealth;
     private String limitTravel;
+    private String planHealth;
+    private String pekerjaan;
+    private String periodePertanggunganHealth;
+
+    public String getPeriodePertanggunganHealth() {
+        return periodePertanggunganHealth;
+    }
+
+    public void setPeriodePertanggunganHealth(String periodePertanggunganHealth) {
+        this.periodePertanggunganHealth = periodePertanggunganHealth;
+    }
+
+    public String getPekerjaan() {
+        return pekerjaan;
+    }
+
+    public void setPekerjaan(String pekerjaan) {
+        this.pekerjaan = pekerjaan;
+    }
+
+    public String getPlanHealth() {
+        return planHealth;
+    }
+
+    public void setPlanHealth(String planHealth) {
+        this.planHealth = planHealth;
+    }
+
+    public String getBod() {
+        return bod;
+    }
+
+    public void setBod(String bod) {
+        this.bod = bod;
+    }
+
+    private String bod;
 
     public String getNik() {
         return nik;

@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="3dp"
+                android:paddingLeft="5dp"
                 android:textColor="@color/black"
                 android:id="@+id/nik"
                 />
@@ -88,7 +88,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="3dp"
+                android:paddingLeft="5dp"
                 android:textColor="@color/black"
                 android:id="@+id/nama"
                 />
@@ -113,7 +113,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="3dp"
+                android:paddingLeft="5dp"
                 android:textColor="@color/black"
                 android:id="@+id/email"
                 />
@@ -138,7 +138,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="3dp"
+                android:paddingLeft="5dp"
                 android:textColor="@color/black"
                 android:id="@+id/jenisKelamin"
                 />
@@ -163,7 +163,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="3dp"
+                android:paddingLeft="5dp"
                 android:textColor="@color/black"
                 android:id="@+id/tanggalLahir"
                 />
@@ -188,7 +188,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="3dp"
+                android:paddingLeft="5dp"
                 android:textColor="@color/black"
                 android:id="@+id/noTelepon"
                 />
@@ -214,7 +214,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="3dp"
+                android:paddingLeft="5dp"
                 android:textColor="@color/black"
                 android:id="@+id/alamat"
                 />
@@ -239,7 +239,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="3dp"
+                android:paddingLeft="5dp"
                 android:textColor="@color/black"
                 android:id="@+id/pekerjaan"
                 />
@@ -264,7 +264,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="3dp"
+                android:paddingLeft="5dp"
                 android:textColor="@color/black"
                 android:id="@+id/periodePertanggungan"
                 />
@@ -289,7 +289,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="3dp"
+                android:paddingLeft="5dp"
                 android:textColor="@color/black"
                 android:id="@+id/planAsuransi"
                 />
@@ -315,7 +315,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="3dp"
+                android:paddingLeft="5dp"
                 android:textColor="@color/black"
                 android:id="@+id/riwayatPenyakit"
                 />

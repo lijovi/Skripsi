@@ -23,6 +23,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class BuatPasswordNasabah extends AppCompatActivity {
 
@@ -116,25 +117,102 @@ public class BuatPasswordNasabah extends AppCompatActivity {
 
     private Boolean validatePassword(){
         String cekPassword = passwordBaru.getEditText().getText().toString();
+        int cek = 0;
 
         if (cekPassword.isEmpty()){
             passwordBaru.setError("Password Cannot Be Empty");
             return false;
         } else {
+
+            if (cekPassword.length()>=8){
+                cek = cek + 1;
+            } else {
+                passwordBaru.setError("Must be more than 8 characters");
+                return false;
+            }
+
+            if (cekPassword.matches(".*[0-9].*")){
+                cek = cek + 1;
+            } else {
+                passwordBaru.setError("Must contain number");
+                return false;
+            }
+
+            if (cekPassword.matches(".*[A-Z].*")){
+                cek = cek + 1;
+            } else {
+                passwordBaru.setError("Must contain capital letter");
+                return false;
+            }
+
+            if (cekPassword.matches("^(?=.*[_.!*()$@]).*$")){
+                cek = cek + 1;
+            } else {
+                passwordBaru.setError("Must contain symbol");
+                return false;
+            }
+
             passwordBaru.setError(null);
             return true;
+
+//            if (cek == 4){
+//
+//            } else {
+//                return false;
+//            }
+
         }
     }
 
     private Boolean validatePasswordKonfirmasi(){
         String cekPasswordKonfirmasi = konfirmasiPassword.getEditText().getText().toString();
+        int cek = 0;
 
         if (cekPasswordKonfirmasi.isEmpty()){
             konfirmasiPassword.setError("Password Cannot Be Empty");
             return false;
         } else {
+            if (cekPasswordKonfirmasi.length()>=8){
+                cek = cek + 1;
+            } else {
+                konfirmasiPassword.setError("Must be more than 8 characters");
+                return false;
+            }
+
+            if (cekPasswordKonfirmasi.matches(".*[0-9].*")){
+                cek = cek + 1;
+            } else {
+                konfirmasiPassword.setError("Must contain number");
+                return false;
+            }
+
+            if (cekPasswordKonfirmasi.matches(".*[A-Z].*")){
+                cek = cek + 1;
+            } else {
+                konfirmasiPassword.setError("Must contain capital letter");
+                return false;
+            }
+
+            if (cekPasswordKonfirmasi.matches("^(?=.*[_.!*()$@]).*$")){
+                cek = cek + 1;
+            } else {
+                konfirmasiPassword.setError("Must contain symbol");
+                return false;
+            }
+
             konfirmasiPassword.setError(null);
             return true;
+
+//            if (cek == 4){
+//
+//            } else {
+//                return false;
+//            }
         }
+    }
+
+    private Boolean cekPassword(String password){
+        String passwordRegex = "^(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&()_+=\\-{}|:;\"'<>,.?/]).{8,}$";
+        return password.matches(passwordRegex);
     }
 }

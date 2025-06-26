@@ -60,7 +60,7 @@ public class RegistrasiTravel extends AppCompatActivity {
         });
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("client");
+        reference = database.getReference("clientSementara");
 //
         nik = findViewById(R.id.nik);
         nama = findViewById(R.id.nama);
@@ -104,10 +104,10 @@ public class RegistrasiTravel extends AppCompatActivity {
         });
 //
         btnMasaPerjalanan.setOnClickListener(view-> {
-                    final Calendar calendar = Calendar.getInstance();
-                    int year = calendar.get(Calendar.YEAR);
-                    int month = calendar.get(Calendar.MONTH);
-                    int day = calendar.get(Calendar.DAY_OF_MONTH);
+//                    final Calendar calendar = Calendar.getInstance();
+//                    int year = calendar.get(Calendar.YEAR);
+//                    int month = calendar.get(Calendar.MONTH);
+//                    int day = calendar.get(Calendar.DAY_OF_MONTH);
 
             MaterialDatePicker<Pair<Long, Long>> materialDatePicker = MaterialDatePicker.Builder.dateRangePicker().setSelection(new Pair<>(
                     MaterialDatePicker.thisMonthInUtcMilliseconds(),

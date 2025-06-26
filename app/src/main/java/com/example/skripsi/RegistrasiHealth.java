@@ -55,7 +55,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         });
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("client");
+        reference = database.getReference("clientSementara");
 
         nik = findViewById(R.id.nik);
         nama = findViewById(R.id.nama);
