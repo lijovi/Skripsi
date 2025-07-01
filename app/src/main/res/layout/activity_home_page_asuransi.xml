@@ -8,7 +8,7 @@
     tools:context=".HomePageAsuransi"
     android:background="#DDE6ED">
 
-
+<!--    Footer-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"

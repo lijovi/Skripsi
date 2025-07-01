@@ -12,6 +12,15 @@
         <item>RI 750</item>
         <item>RI 1000</item>
     </string-array>
+
+    <string-array name="planTravel">
+        <item>VIP</item>
+        <item>Executive</item>
+        <item>Deluxe</item>
+        <item>Superior</item>
+    </string-array>
+
+
     <string name="apabila_mengalami_keadaan_darurat_silahkan_menghubungi_kontak_pihak_asuransi_yang_terdaftar">Apabila mengalami keadaan darurat, silahkan menghubungi kontak pihak asuransi yang terdaftar:</string>
     <string name="daftar_asuransi">Daftar Asuransi</string>
     <string name="icon_3">Icon 3</string>

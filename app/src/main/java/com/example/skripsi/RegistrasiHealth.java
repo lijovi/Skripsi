@@ -34,7 +34,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     Button btnDaftar, bod, plus;
     RadioGroup jenisKelamin;
     RadioButton selectedGender;
-    DatabaseReference reference;
+    DatabaseReference reference, referenceNotif;
     FirebaseDatabase database;
     Spinner plan;
     String pilihanPlan;
@@ -147,7 +147,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         String PilihanPlan = pilihanPlan.toString();
 
 
-        NasabahHealth nasabah = new NasabahHealth(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0",
+        NasabahHealth nasabah = new NasabahHealth(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Health",
                 Perusahaan, BodText, Pekerjaan, PeriodePertanggungan, PilihanPlan, NamaAhliWaris, HubunganDenganAhliWaris);
 //        dataref.push().setValue(nasabah);
         reference.child(NIK).setValue(nasabah);

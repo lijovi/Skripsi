@@ -4,12 +4,15 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +36,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.logging.SimpleFormatter;
 
-public class RegistrasiTravel extends AppCompatActivity {
+public class RegistrasiTravel extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     EditText nik, nama, email, noTelp, alamat, lamaPerjalanan, namaKeluarga, namaAhliWaris, hubunganDenganAhliWaris, negaraTujuan, tujuanPerjalanan;
     RadioGroup jenisKelamin, jenisPolis, tipePolis;
@@ -44,7 +47,8 @@ public class RegistrasiTravel extends AppCompatActivity {
     int perusahaan, selectedID;
     FirebaseDatabase database;
     DatabaseReference reference;
-    String JenisPolis;
+    String JenisPolis, pilihanPlan;
+    Spinner plan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +84,7 @@ public class RegistrasiTravel extends AppCompatActivity {
         tujuanPerjalanan = findViewById(R.id.tujuanPerjalanan);
         jenisPolis = findViewById(R.id.jenisPolis);
         namaKeluarga = findViewById(R.id.namaKeluarga);
+        plan = findViewById(R.id.plan);
 //
         perusahaan = getIntent().getIntExtra("tipePerusahaan", 0);
 //
@@ -102,6 +107,13 @@ public class RegistrasiTravel extends AppCompatActivity {
                 startActivity(masuk);
             }
         });
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.planTravel, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        plan.setAdapter(adapter);
+        plan.setOnItemSelectedListener(this);
+
+
 //
         btnMasaPerjalanan.setOnClickListener(view-> {
 //                    final Calendar calendar = Calendar.getInstance();
@@ -148,16 +160,17 @@ public class RegistrasiTravel extends AppCompatActivity {
         String HubunganDenganAhliWaris = hubunganDenganAhliWaris.getText().toString();
         String NegaraTujuan = negaraTujuan.getText().toString();
         String TujuanPerjalanan = tujuanPerjalanan.getText().toString();
+        String PlanAsuransi = pilihanPlan.toString();
         int Perusahaan = perusahaan;
 
         if (Objects.equals(JenisPolis, "Family")){
-            NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0",
-                    Perusahaan, JenisPolis, NamaKeluarga, "PLAN", MasaPerjalanan, LamaPerjalanan, TipePolis,
+            NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Travel",
+                    Perusahaan, JenisPolis, NamaKeluarga, PlanAsuransi, MasaPerjalanan, LamaPerjalanan, TipePolis,
                     NamaAhliWaris, HubunganDenganAhliWaris, NegaraTujuan, TujuanPerjalanan);
             reference.child(NIK).setValue(nasabah);
         } else {
-            NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0",
-                    Perusahaan, JenisPolis, null, "PLAN", MasaPerjalanan, LamaPerjalanan, TipePolis,
+            NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Travel",
+                    Perusahaan, JenisPolis, null, PlanAsuransi, MasaPerjalanan, LamaPerjalanan, TipePolis,
                     NamaAhliWaris, HubunganDenganAhliWaris, NegaraTujuan, TujuanPerjalanan);
             reference.child(NIK).setValue(nasabah);
         }
@@ -166,4 +179,14 @@ public class RegistrasiTravel extends AppCompatActivity {
         Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();
         }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String choice = parent.getItemAtPosition(position).toString();
+        pilihanPlan = choice;
     }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+}

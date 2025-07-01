@@ -8,9 +8,9 @@ public class NasabahHealth extends Nasabah{
     String namaAhliWaris;
     String hubunganDenganAhliWaris;
 
-    public NasabahHealth(String nik, String name, String email, String gender, String phoneNumber, String address, String password, int company,
+    public NasabahHealth(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, int company,
                          String bod, String pekerjaan, String periodePertanggungan, String plan, String namaAhliWaris, String hubunganDenganAhliWaris) {
-        super(nik, name, email, gender, phoneNumber, address, password, company);
+        super(nik, name, email, gender, phoneNumber, address, password, jenisAsuransi ,company);
         this.bod = bod;
         this.pekerjaan = pekerjaan;
         this.periodePertanggungan = periodePertanggungan;

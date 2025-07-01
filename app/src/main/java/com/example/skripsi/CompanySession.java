@@ -3,11 +3,23 @@ package com.example.skripsi;
 public class CompanySession {
     private static CompanySession instance;
 
-    private String nama, username, email, virtualAccount;
+    private String nama;
+    private String username;
+    private String email;
+    private String virtualAccount;
+    private String password;
 
     public static CompanySession getInstance(){
         if (instance == null) instance = new CompanySession();
         return instance;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getNama() {

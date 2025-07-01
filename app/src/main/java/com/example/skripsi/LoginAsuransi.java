@@ -49,12 +49,12 @@ public class LoginAsuransi extends AppCompatActivity {
         });
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("company");
-        Asuransi asuransi = new Asuransi(1, "aca", "aca@gmail.com", "aca1234", "ACA", "1234567890");
-        Asuransi asuransi2 = new Asuransi(2, "etiqa", "etiqa@gmail.com", "etiqa5678", "ETIQA", "081234567890");
-        String newusername1 = "aca";
-        String newusername2 = "etiqa";
-        reference.child(newusername1).setValue(asuransi);
-        reference.child(newusername2).setValue(asuransi2);
+//        Asuransi asuransi = new Asuransi(1, "aca", "jovita.tanti@gmail.com", "aca1234", "ACA", "1234567890");
+//        Asuransi asuransi2 = new Asuransi(2, "etiqa", "etiqa@gmail.com", "etiqa5678", "ETIQA", "081234567890");
+//        String newusername1 = "aca";
+//        String newusername2 = "etiqa";
+//        reference.child(newusername1).setValue(asuransi);
+//        reference.child(newusername2).setValue(asuransi2);
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
@@ -135,6 +135,7 @@ public class LoginAsuransi extends AppCompatActivity {
                         CompanySession.getInstance().setEmail(Email);
                         CompanySession.getInstance().setUsername(Username);
                         CompanySession.getInstance().setVirtualAccount(VirtualAccount);
+                        CompanySession.getInstance().setPassword(Password);
                         startActivity(intent);
                     } else {
                         password.setError("Incorrect Password");

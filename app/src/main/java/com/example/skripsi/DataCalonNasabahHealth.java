@@ -50,8 +50,19 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
         String NoTelp = ClientSession.getInstance().getNoTelp();
         String Alamat = ClientSession.getInstance().getAddress();
         String Pekerjaan = ClientSession.getInstance().getPekerjaan();
-        String periodePertanggungan = ClientSession.getInstance().getPeriodePertanggunganHealth();
-        String planAsuransi = ClientSession.getInstance().getPlanHealth();
+        String PeriodePertanggungan = ClientSession.getInstance().getPeriodePertanggunganHealth();
+        String PlanAsuransi = ClientSession.getInstance().getPlanHealth();
 
+
+        nik.setText(NIK);
+        nama.setText(Nama);
+        email.setText(Email);
+        jenisKelamin.setText(JenisKelamin);
+        tanggalLahir.setText(TanggalLahir);
+        noTelepon.setText(NoTelp);
+        alamat.setText(Alamat);
+        pekerjaan.setText(Pekerjaan);
+        periodePertanggungan.setText(PeriodePertanggungan);
+        planAsuransi.setText(PlanAsuransi);
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -20,11 +21,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class HomePageAsuransi extends AppCompatActivity {
 
     Button btnProfile;
     FirebaseDatabase database;
-    DatabaseReference reference;
+    DatabaseReference reference, notif;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +46,7 @@ public class HomePageAsuransi extends AppCompatActivity {
         });
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("company");
-
-
+        reference = database.getReference("clientSementara");
         btnProfile = findViewById(R.id.btnProfile);
 
         btnProfile.setOnClickListener(new View.OnClickListener() {

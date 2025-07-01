@@ -87,13 +87,16 @@ public class ProfileNasabah extends AppCompatActivity {
         ubahPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent email = new Intent(Intent.ACTION_SEND);
-                email.setData(Uri.parse("mailto:"));
-                email.setType("text/plain");
+                Intent intent = new Intent(getApplicationContext(), UbahPasswordNasabah.class);
+                startActivity(intent);
 
-                email.putExtra(Intent.EXTRA_EMAIL, Email);
-                email.putExtra(Intent.EXTRA_SUBJECT, "Change Password");
-                email.putExtra(Intent.EXTRA_TEXT, "");
+//                Intent email = new Intent(Intent.ACTION_SEND);
+//                email.setData(Uri.parse("mailto:"));
+//                email.setType("text/plain");
+//
+//                email.putExtra(Intent.EXTRA_EMAIL, Email);
+//                email.putExtra(Intent.EXTRA_SUBJECT, "Change Password");
+//                email.putExtra(Intent.EXTRA_TEXT, "");
 
 //                mAuth.sendPasswordResetEmail(Email);
             }

@@ -2,6 +2,7 @@ package com.example.skripsi;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -112,7 +113,9 @@ public class ProfileAsuransi extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                ResetPassword();
-                sendEmail(Email, "https://example.skripsi.UbahPasswordAsuransi");
+//                sendEmail(Email, "myapp://open/UbahPasswordAsuransi");
+                Intent intent = new Intent(getApplicationContext(), UbahPasswordAsuransi.class);
+                startActivity(intent);
             }
         });
 
@@ -132,11 +135,19 @@ public class ProfileAsuransi extends AppCompatActivity {
     }
 
     private void sendEmail(String send_email, String send_link) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{send_email});
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:" + send_email));
+//        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{send_email});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Ubah Password");
         intent.putExtra(Intent.EXTRA_TEXT, send_link);
-        intent.setType("message/rfc822");
-        startActivity(Intent.createChooser(intent, "Choose Email"));
+//        intent.setType("message/rfc822");
+        if (intent.resolveActivity(getPackageManager()) != null){
+            startActivity(Intent.createChooser(intent, ""));
+            Toast.makeText(this, "Email Sent!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Email tidak terkirim!", Toast.LENGTH_SHORT).show();
+        }
+//        startActivity(Intent.createChooser(intent, "Choose Email"));
     }
 
 //    private void ResetPassword() {

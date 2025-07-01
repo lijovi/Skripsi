@@ -23,13 +23,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 public class UbahPasswordNasabah extends AppCompatActivity {
 
     TextInputLayout passwordBaru, konfirmasiPassword;
     Button btnUbah;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference databaseHealth = database.getReference("clientHealth");
-    DatabaseReference databaseTravel = database.getReference("clientTravel");
+    DatabaseReference databaseHealth = database.getReference("client");
+    DatabaseReference databaseTravel = database.getReference("client");
     String NIK;
 
     @Override
@@ -61,17 +63,20 @@ public class UbahPasswordNasabah extends AppCompatActivity {
         btnUbah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String cekPassword = passwordBaru.getEditText().getText().toString();
+                String cekPasswordKonfirmasi = konfirmasiPassword.getEditText().getText().toString();
                 if (!validatePassword() || !validatePasswordKonfirmasi()){
 
                 } else {
-                    if (passwordBaru.equals(konfirmasiPassword)){
+                    if (Objects.equals(cekPassword, cekPasswordKonfirmasi)){
                         checkDataHealth.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if (snapshot.exists()){
-                                    String Password = snapshot.child(NIK).child("password").getValue(String.class);
-                                    Password.equals(passwordBaru);
-                                    Toast.makeText(getApplicationContext(), "Password Sudah Dibuat", Toast.LENGTH_SHORT).show();
+//                                    String Password = snapshot.child(NIK).child("password").getValue(String.class);
+                                    databaseHealth.child(NIK).child("password").setValue(cekPassword);
+                                    Toast.makeText(getApplicationContext(), "Password Berhasil Diubah!", Toast.LENGTH_SHORT).show();
+                                    ClientSession.getInstance().setPassword(cekPassword);
                                     Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
                                     startActivity(intent);
                                 }
@@ -87,10 +92,11 @@ public class UbahPasswordNasabah extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if (snapshot.exists()){
-                                    String Password = snapshot.child(NIK).child("password").getValue(String.class);
-                                    Password.equals(passwordBaru);
-                                    Toast.makeText(getApplicationContext(), "Password Sudah Dibuat", Toast.LENGTH_SHORT).show();
+//                                    String Password = snapshot.child(NIK).child("password").getValue(String.class);
+                                    databaseTravel.child(NIK).child("password").setValue(cekPassword);
+                                    Toast.makeText(getApplicationContext(), "Password Berhasil Diubah!", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
+                                    ClientSession.getInstance().setPassword(cekPassword);
                                     startActivity(intent);
                                 }
                             }
@@ -111,25 +117,97 @@ public class UbahPasswordNasabah extends AppCompatActivity {
 
     private Boolean validatePassword(){
         String cekPassword = passwordBaru.getEditText().getText().toString();
+        int cek = 0;
 
         if (cekPassword.isEmpty()){
-            passwordBaru.setError("NIK Cannot Be Empty");
+            passwordBaru.setError("Password Cannot Be Empty");
             return false;
         } else {
+
+            if (cekPassword.length()>=8){
+                cek = cek + 1;
+            } else {
+                passwordBaru.setError("Must be more than 8 characters");
+                return false;
+            }
+
+            if (cekPassword.matches(".*[0-9].*")){
+                cek = cek + 1;
+            } else {
+                passwordBaru.setError("Must contain number");
+                return false;
+            }
+
+            if (cekPassword.matches(".*[A-Z].*")){
+                cek = cek + 1;
+            } else {
+                passwordBaru.setError("Must contain capital letter");
+                return false;
+            }
+
+            if (cekPassword.matches("^(?=.*[_.!*()$@]).*$")){
+                cek = cek + 1;
+            } else {
+                passwordBaru.setError("Must contain symbol");
+                return false;
+            }
+
             passwordBaru.setError(null);
             return true;
+
+//            if (cek == 4){
+//
+//            } else {
+//                return false;
+//            }
+
         }
     }
 
     private Boolean validatePasswordKonfirmasi(){
         String cekPasswordKonfirmasi = konfirmasiPassword.getEditText().getText().toString();
+        int cek = 0;
 
         if (cekPasswordKonfirmasi.isEmpty()){
-            konfirmasiPassword.setError("NIK Cannot Be Empty");
+            konfirmasiPassword.setError("Password Cannot Be Empty");
             return false;
         } else {
+            if (cekPasswordKonfirmasi.length()>=8){
+                cek = cek + 1;
+            } else {
+                konfirmasiPassword.setError("Must be more than 8 characters");
+                return false;
+            }
+
+            if (cekPasswordKonfirmasi.matches(".*[0-9].*")){
+                cek = cek + 1;
+            } else {
+                konfirmasiPassword.setError("Must contain number");
+                return false;
+            }
+
+            if (cekPasswordKonfirmasi.matches(".*[A-Z].*")){
+                cek = cek + 1;
+            } else {
+                konfirmasiPassword.setError("Must contain capital letter");
+                return false;
+            }
+
+            if (cekPasswordKonfirmasi.matches("^(?=.*[_.!*()$@]).*$")){
+                cek = cek + 1;
+            } else {
+                konfirmasiPassword.setError("Must contain symbol");
+                return false;
+            }
+
             konfirmasiPassword.setError(null);
             return true;
+
+//            if (cek == 4){
+//
+//            } else {
+//                return false;
+//            }
         }
     }
 }

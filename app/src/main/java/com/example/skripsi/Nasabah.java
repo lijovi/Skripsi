@@ -10,9 +10,10 @@ public class Nasabah implements Serializable {
     String phoneNumber;
     String address;
     String password;
+    String jenisAsuransi;
     int company;
 
-    public Nasabah(String nik, String name, String email, String gender, String phoneNumber, String address, String password, int company) {
+    public Nasabah(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, int company) {
         this.nik = nik;
         this.name = name;
         this.email = email;
@@ -20,7 +21,16 @@ public class Nasabah implements Serializable {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.password = password;
+        this.jenisAsuransi = jenisAsuransi;
         this.company = company;
+    }
+
+    public String getJenisAsuransi() {
+        return jenisAsuransi;
+    }
+
+    public void setJenisAsuransi(String jenisAsuransi) {
+        this.jenisAsuransi = jenisAsuransi;
     }
 
     public String getNik() {
