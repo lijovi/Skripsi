@@ -1,5 +1,7 @@
 package com.example.skripsi;
 
+import java.util.ArrayList;
+
 public class NasabahHealth extends Nasabah{
     String bod;
     String pekerjaan;
@@ -7,9 +9,10 @@ public class NasabahHealth extends Nasabah{
     String plan;
     String namaAhliWaris;
     String hubunganDenganAhliWaris;
+    ArrayList<String> riwayatPenyakit;
 
-    public NasabahHealth(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, int company,
-                         String bod, String pekerjaan, String periodePertanggungan, String plan, String namaAhliWaris, String hubunganDenganAhliWaris) {
+    public NasabahHealth(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, String company,
+                         String bod, String pekerjaan, String periodePertanggungan, String plan, String namaAhliWaris, String hubunganDenganAhliWaris, ArrayList<String> riwayatPenyakit) {
         super(nik, name, email, gender, phoneNumber, address, password, jenisAsuransi ,company);
         this.bod = bod;
         this.pekerjaan = pekerjaan;
@@ -17,6 +20,7 @@ public class NasabahHealth extends Nasabah{
         this.plan = plan;
         this.namaAhliWaris = namaAhliWaris;
         this.hubunganDenganAhliWaris = hubunganDenganAhliWaris;
+        this.riwayatPenyakit = riwayatPenyakit;
     }
 
     public String getBod() {
@@ -41,5 +45,13 @@ public class NasabahHealth extends Nasabah{
 
     public String getHubunganDenganAhliWaris() {
         return hubunganDenganAhliWaris;
+    }
+
+    public ArrayList<String> getRiwayatPenyakit() {
+        return riwayatPenyakit;
+    }
+
+    public void setRiwayatPenyakit(ArrayList<String> riwayatPenyakit) {
+        this.riwayatPenyakit = riwayatPenyakit;
     }
 }

@@ -1,12 +1,15 @@
 package com.example.skripsi;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -17,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -39,7 +43,14 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     Spinner plan;
     String pilihanPlan;
     TextView riwayatPenyakit;
-    int perusahaan;
+    String perusahaan;
+    AlertDialog.Builder dialog;
+    LayoutInflater inflater;
+    View dialogView;
+    CheckBox c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18;
+    ArrayList<String> list = new ArrayList<>();
+//    ArrayList<String> List;
+    Button btnSimpan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,18 +85,15 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         plus = findViewById(R.id.plus);
         riwayatPenyakit = findViewById(R.id.riwayatPenyakit);
 
-        ArrayList<String> list = (ArrayList<String>) getIntent().getSerializableExtra("riwayat");
 //        StringBuilder text = new StringBuilder();
 //        int size = list.size();
 //        for (int i = 0; i<size; i++){
 //            riwayatPenyakit.setText(list.get(i));
 //        }
 
-        riwayatPenyakit.setText(String.valueOf(list));
-
 
 //        perusahaan = Integer.parseInt(getIntent().getStringExtra("tipePerusahaan"));
-        perusahaan = getIntent().getIntExtra("tipePerusahaan", 0);
+        perusahaan = getIntent().getStringExtra("tipePerusahaan");
 
         bod.setOnClickListener(view-> {
                     final Calendar calendar = Calendar.getInstance();
@@ -124,11 +132,59 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PopUpRiwayatPenyakit.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), PopUpRiwayatPenyakit.class);
+//                startActivity(intent);
+                DialogForm();
             }
         });
     }
+
+    private void DialogForm() {
+        dialog = new AlertDialog.Builder(RegistrasiHealth.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.activity_pop_up_riwayat_penyakit, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+
+        c1 = dialogView.findViewById(R.id.c1);
+        c2 = dialogView.findViewById(R.id.c2);
+        c3 = dialogView.findViewById(R.id.c3);
+        c4 = dialogView.findViewById(R.id.c4);
+        c5 = dialogView.findViewById(R.id.c5);
+        c6 = dialogView.findViewById(R.id.c6);
+        c7 = dialogView.findViewById(R.id.c7);
+        c8 = dialogView.findViewById(R.id.c8);
+        c9 = dialogView.findViewById(R.id.c9);
+        c10 = dialogView.findViewById(R.id.c10);
+        c11 = dialogView.findViewById(R.id.c11);
+        c12 = dialogView.findViewById(R.id.c12);
+        c13 = dialogView.findViewById(R.id.c13);
+        c14 = dialogView.findViewById(R.id.c14);
+        c15 = dialogView.findViewById(R.id.c15);
+        c16 = dialogView.findViewById(R.id.c16);
+        c17 = dialogView.findViewById(R.id.c17);
+        c18 = dialogView.findViewById(R.id.c18);
+
+
+        btnSimpan = dialogView.findViewById(R.id.btnSimpan);
+        btnSimpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), RegistrasiHealth.class);
+//                intent.putExtra("riwayat", list);
+                riwayatPenyakit.setText(String.valueOf(list));
+                alertDialog.dismiss();
+            }
+        });
+
+//        List = (ArrayList<String>) getIntent().getSerializableExtra("riwayat");
+
+
+    }
+
     private void insertdata(){
         int selectedId = jenisKelamin.getCheckedRadioButtonId();
         selectedGender = findViewById(selectedId);
@@ -143,12 +199,12 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         String NamaAhliWaris = namaAhliWaris.getText().toString();
         String HubunganDenganAhliWaris = hubunganDenganAhliWaris.getText().toString();
         String JenisKelamin = selectedGender.getText().toString();
-        int Perusahaan = perusahaan;
+        String Perusahaan = perusahaan;
         String PilihanPlan = pilihanPlan.toString();
-
+        ArrayList<String> List = list;
 
         NasabahHealth nasabah = new NasabahHealth(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Health",
-                Perusahaan, BodText, Pekerjaan, PeriodePertanggungan, PilihanPlan, NamaAhliWaris, HubunganDenganAhliWaris);
+                Perusahaan, BodText, Pekerjaan, PeriodePertanggungan, PilihanPlan, NamaAhliWaris, HubunganDenganAhliWaris, List);
 //        dataref.push().setValue(nasabah);
         reference.child(NIK).setValue(nasabah);
         Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();
@@ -164,4 +220,102 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    public void checked(View view) {
+
+        boolean checked = ((CheckBox) view).isChecked();
+
+        if (view.getId() == R.id.c1){
+            if (checked){
+                list.add(c1.getText().toString());
+            }
+        } else if (view.getId() == R.id.c2) {
+            if (checked){
+                list.add(c2.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c3) {
+            if (checked){
+                list.add(c3.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c4) {
+            if (checked){
+                list.add(c4.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c5) {
+            if (checked){
+                list.add(c5.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c6) {
+            if (checked){
+                list.add(c6.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c7) {
+            if (checked){
+                list.add(c7.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c8) {
+            if (checked){
+                list.add(c8.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c9) {
+            if (checked){
+                list.add(c9.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c10) {
+            if (checked){
+                list.add(c10.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c11) {
+            if (checked){
+                list.add(c11.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c12) {
+            if (checked){
+                list.add(c12.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c13) {
+            if (checked){
+                list.add(c13.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c14) {
+            if (checked){
+                list.add(c14.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c15) {
+            if (checked){
+                list.add(c15.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c16) {
+            if (checked){
+                list.add(c16.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c17) {
+            if (checked){
+                list.add(c17.getText().toString());
+            }
+
+        } else if (view.getId() == R.id.c18) {
+            if (checked){
+                list.add(c18.getText().toString());
+            }
+
+        }
+
+    }
+
 }

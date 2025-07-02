@@ -11,9 +11,9 @@ public class Nasabah implements Serializable {
     String address;
     String password;
     String jenisAsuransi;
-    int company;
+    String company;
 
-    public Nasabah(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, int company) {
+    public Nasabah(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, String company) {
         this.nik = nik;
         this.name = name;
         this.email = email;
@@ -61,7 +61,7 @@ public class Nasabah implements Serializable {
         return password;
     }
 
-    public int getCompany() {
+    public String getCompany() {
         return company;
     }
 }

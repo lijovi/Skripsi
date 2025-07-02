@@ -25,7 +25,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
 //    String selectedTipe;
     RadioButton tipe;
     Button btnLanjut;
-    int pilihan;
+    String pilihan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,20 +67,6 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                     intent2.putExtra("tipePerusahaan", pilihan);
                     startActivity(intent2);
                 }
-//                tipeAsuransi.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//                    @Override
-//                    public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                        if (checkedId == R.id.travel){
-//                            Intent intent1 = new Intent(getApplicationContext(), RegistrasiTravel.class);
-//                            intent1.putExtra("tipeAsuransi", pilihan);
-//                            startActivity(intent1);
-//                        } else if (checkedId == R.id.health){
-//                            Intent intent2 = new Intent(getApplicationContext(), RegistrasiHealth.class);
-//                            intent2.putExtra("tipeAsuransi", pilihan);
-//                            startActivity(intent2);
-//                        }
-//                    }
-//                });
             }
         });
     }
@@ -90,7 +76,8 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
 //        String choice = parent.getItemAtPosition(position).toString();
 //        Toast.makeText(getApplicationContext(), choice, Toast.LENGTH_SHORT).show();
 //        pilihan = choice;
-        pilihan = position;
+        String choice = parent.getItemAtPosition(position).toString();
+        pilihan = choice;
     }
 
     @Override

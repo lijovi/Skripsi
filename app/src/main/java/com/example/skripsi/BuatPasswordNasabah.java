@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
 public class BuatPasswordNasabah extends AppCompatActivity {
 
     TextInputLayout passwordBaru, konfirmasiPassword;
-    Button btnBuat;
+    Button btnBuat, btnBack;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference databaseHealth = database.getReference("client");
     DatabaseReference databaseTravel = database.getReference("client");
@@ -56,6 +56,7 @@ public class BuatPasswordNasabah extends AppCompatActivity {
         passwordBaru = findViewById(R.id.passwordBaru);
         konfirmasiPassword = findViewById(R.id.konfirmasiPassword);
         btnBuat = findViewById(R.id.btnBuat);
+        btnBuat = findViewById(R.id.btnBack);
 
         passwordBaru.setPlaceholderText("Masukkan Password Baru");
         konfirmasiPassword.setPlaceholderText("Masukkan Password Lagi");
@@ -110,6 +111,13 @@ public class BuatPasswordNasabah extends AppCompatActivity {
                         konfirmasiPassword.setError("Password berbeda");
                     }
                 }
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

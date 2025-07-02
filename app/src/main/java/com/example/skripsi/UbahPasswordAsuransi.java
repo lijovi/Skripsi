@@ -28,7 +28,7 @@ import java.util.Objects;
 public class UbahPasswordAsuransi extends AppCompatActivity {
 
     TextInputLayout passwordBaru, konfirmasiPassword;
-    Button btnUbah;
+    Button btnUbah, btnBack;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("company");
     String username;
@@ -50,6 +50,7 @@ public class UbahPasswordAsuransi extends AppCompatActivity {
         passwordBaru = findViewById(R.id.passwordBaru);
         konfirmasiPassword = findViewById(R.id.konfirmasiPassword);
         btnUbah = findViewById(R.id.btnUbah);
+        btnBack = findViewById(R.id.btnBack);
 
         Query check = reference.orderByChild("companyUsername").equalTo(username);
 
@@ -87,6 +88,13 @@ public class UbahPasswordAsuransi extends AppCompatActivity {
                         konfirmasiPassword.setError("Password berbeda");
                     }
                 }
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

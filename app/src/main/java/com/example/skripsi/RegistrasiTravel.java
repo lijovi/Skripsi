@@ -44,10 +44,10 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
     Button btnDaftar, btnMasaPerjalanan;
     TextView masaPerjalanan;
     LinearLayout namaKeluargaAll;
-    int perusahaan, selectedID;
+    int selectedID;
     FirebaseDatabase database;
     DatabaseReference reference;
-    String JenisPolis, pilihanPlan;
+    String JenisPolis, pilihanPlan, perusahaan;
     Spinner plan;
 
     @Override
@@ -64,7 +64,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         });
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("clientSementara");
+        reference = database.getReference("client");
 //
         nik = findViewById(R.id.nik);
         nama = findViewById(R.id.nama);
@@ -86,7 +86,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         namaKeluarga = findViewById(R.id.namaKeluarga);
         plan = findViewById(R.id.plan);
 //
-        perusahaan = getIntent().getIntExtra("tipePerusahaan", 0);
+        perusahaan = getIntent().getStringExtra("tipePerusahaan");
 //
         selectedID = jenisPolis.getCheckedRadioButtonId();
         selectedJenis = findViewById(selectedID);
@@ -161,7 +161,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         String NegaraTujuan = negaraTujuan.getText().toString();
         String TujuanPerjalanan = tujuanPerjalanan.getText().toString();
         String PlanAsuransi = pilihanPlan.toString();
-        int Perusahaan = perusahaan;
+        String Perusahaan = perusahaan;
 
         if (Objects.equals(JenisPolis, "Family")){
             NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Travel",
