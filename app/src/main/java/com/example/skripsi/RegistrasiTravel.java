@@ -44,7 +44,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
     RadioButton selectedGender, selectedJenis, selectedPolis;
     Button btnDaftar, btnMasaPerjalanan;
     TextView masaPerjalanan;
-    LinearLayout namaKeluargaAll;
+    LinearLayout namaKeluargaAll, lamaPerjalananAll;
     int selectedID;
     FirebaseDatabase database;
     DatabaseReference reference;
@@ -90,20 +90,39 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         jenisPolis = findViewById(R.id.jenisPolis);
         namaKeluarga = findViewById(R.id.namaKeluarga);
         plan = findViewById(R.id.plan);
-//
+        lamaPerjalananAll = findViewById(R.id.lamaPerjalananAll);
+
         perusahaan = getIntent().getStringExtra("tipePerusahaan");
-//
+
         selectedID = jenisPolis.getCheckedRadioButtonId();
         selectedJenis = findViewById(selectedID);
-//        JenisPolis = selectedJenis.getText().toString();
-//
-//
-//        if (selectedJenis.equals(R.id.family)){
-//            namaKeluargaAll.setVisibility(View.VISIBLE);
-//        } else {
-//            namaKeluargaAll.setVisibility(View.GONE);
-//        }
-//
+
+        tipePolis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                selectedPolis = findViewById(checkedId);
+                String temp = selectedPolis.getText().toString();
+                if (Objects.equals(temp, "Iya")){
+                    lamaPerjalananAll.setVisibility(View.GONE);
+                } else {
+                    lamaPerjalananAll.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        jenisPolis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                selectedJenis = findViewById(checkedId);
+                String temp = selectedJenis.getText().toString();
+                if (Objects.equals(temp, "Individual")){
+                    namaKeluargaAll.setVisibility(View.GONE);
+                } else {
+                    namaKeluargaAll.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,6 +162,8 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
             materialDatePicker.show(getSupportFragmentManager(), "tag");
                 }
         );
+
+//        String temp = selectedPolis.getText().toString();
 
 //        currentTime = LocalTime.now();
 //        date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
