@@ -3,6 +3,8 @@ package com.example.skripsi;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,8 +31,13 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class RegistrasiHealth extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -51,6 +58,10 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     ArrayList<String> list = new ArrayList<>();
 //    ArrayList<String> List;
     Button btnSimpan;
+//    LocalTime currentTime;
+//    String date;
+    Calendar calendar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +78,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("clientSementara");
+        calendar = Calendar.getInstance();
 
         nik = findViewById(R.id.nik);
         nama = findViewById(R.id.nama);
@@ -137,6 +149,12 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
                 DialogForm();
             }
         });
+
+        if (riwayatPenyakit == null){
+            riwayatPenyakit.setText("");
+        }
+//        currentTime = LocalTime.now();
+//        date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
     }
 
     private void DialogForm() {
@@ -168,6 +186,24 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         c17 = dialogView.findViewById(R.id.c17);
         c18 = dialogView.findViewById(R.id.c18);
 
+        c1.setChecked(list.contains(c1.getText().toString()));
+        c2.setChecked(list.contains(c2.getText().toString()));
+        c3.setChecked(list.contains(c3.getText().toString()));
+        c4.setChecked(list.contains(c4.getText().toString()));
+        c5.setChecked(list.contains(c5.getText().toString()));
+        c6.setChecked(list.contains(c6.getText().toString()));
+        c7.setChecked(list.contains(c7.getText().toString()));
+        c8.setChecked(list.contains(c8.getText().toString()));
+        c9.setChecked(list.contains(c9.getText().toString()));
+        c10.setChecked(list.contains(c10.getText().toString()));
+        c11.setChecked(list.contains(c11.getText().toString()));
+        c12.setChecked(list.contains(c12.getText().toString()));
+        c13.setChecked(list.contains(c13.getText().toString()));
+        c14.setChecked(list.contains(c14.getText().toString()));
+        c15.setChecked(list.contains(c15.getText().toString()));
+        c16.setChecked(list.contains(c16.getText().toString()));
+        c17.setChecked(list.contains(c17.getText().toString()));
+        c18.setChecked(list.contains(c18.getText().toString()));
 
         btnSimpan = dialogView.findViewById(R.id.btnSimpan);
         btnSimpan.setOnClickListener(new View.OnClickListener() {
@@ -181,7 +217,6 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         });
 
 //        List = (ArrayList<String>) getIntent().getSerializableExtra("riwayat");
-
 
     }
 
@@ -203,8 +238,17 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         String PilihanPlan = pilihanPlan.toString();
         ArrayList<String> List = list;
 
+        String hour = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
+        String minute = String.valueOf(calendar.get(Calendar.MINUTE));
+        String second = String.valueOf(calendar.get(Calendar.SECOND));
+        String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
+        String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
+        String year = String.valueOf(calendar.get(Calendar.YEAR));
+        String currenttime = hour + ":" + minute + ":" + second;
+        String currentdate = day + "-" + month + "-" + year;
+
         NasabahHealth nasabah = new NasabahHealth(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Health",
-                Perusahaan, BodText, Pekerjaan, PeriodePertanggungan, PilihanPlan, NamaAhliWaris, HubunganDenganAhliWaris, List);
+                Perusahaan, currenttime, currentdate, BodText, Pekerjaan, PeriodePertanggungan, PilihanPlan, NamaAhliWaris, HubunganDenganAhliWaris, List);
 //        dataref.push().setValue(nasabah);
         reference.child(NIK).setValue(nasabah);
         Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();
@@ -228,90 +272,126 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         if (view.getId() == R.id.c1){
             if (checked){
                 list.add(c1.getText().toString());
+            } else {
+                list.remove(c1.getText().toString());
             }
         } else if (view.getId() == R.id.c2) {
             if (checked){
                 list.add(c2.getText().toString());
+            } else {
+                list.remove(c2.getText().toString());
             }
 
         } else if (view.getId() == R.id.c3) {
             if (checked){
                 list.add(c3.getText().toString());
+            } else {
+                list.remove(c3.getText().toString());
             }
 
         } else if (view.getId() == R.id.c4) {
             if (checked){
                 list.add(c4.getText().toString());
+            } else {
+                list.remove(c4.getText().toString());
             }
 
         } else if (view.getId() == R.id.c5) {
             if (checked){
                 list.add(c5.getText().toString());
+            } else {
+                list.remove(c5.getText().toString());
             }
 
         } else if (view.getId() == R.id.c6) {
             if (checked){
                 list.add(c6.getText().toString());
+            } else {
+                list.remove(c6.getText().toString());
             }
 
         } else if (view.getId() == R.id.c7) {
             if (checked){
                 list.add(c7.getText().toString());
+            } else {
+                list.remove(c7.getText().toString());
             }
 
         } else if (view.getId() == R.id.c8) {
             if (checked){
                 list.add(c8.getText().toString());
+            } else {
+                list.remove(c8.getText().toString());
             }
 
         } else if (view.getId() == R.id.c9) {
             if (checked){
                 list.add(c9.getText().toString());
+            } else {
+                list.remove(c9.getText().toString());
             }
 
         } else if (view.getId() == R.id.c10) {
             if (checked){
                 list.add(c10.getText().toString());
+            } else {
+                list.remove(c10.getText().toString());
             }
 
         } else if (view.getId() == R.id.c11) {
             if (checked){
                 list.add(c11.getText().toString());
+            } else {
+                list.remove(c11.getText().toString());
             }
 
         } else if (view.getId() == R.id.c12) {
             if (checked){
                 list.add(c12.getText().toString());
+            } else {
+                list.remove(c12.getText().toString());
             }
 
         } else if (view.getId() == R.id.c13) {
             if (checked){
                 list.add(c13.getText().toString());
+            } else {
+                list.remove(c13.getText().toString());
             }
 
         } else if (view.getId() == R.id.c14) {
             if (checked){
                 list.add(c14.getText().toString());
+            } else {
+                list.remove(c14.getText().toString());
             }
 
         } else if (view.getId() == R.id.c15) {
             if (checked){
                 list.add(c15.getText().toString());
+            } else {
+                list.remove(c15.getText().toString());
             }
 
         } else if (view.getId() == R.id.c16) {
             if (checked){
                 list.add(c16.getText().toString());
+            } else {
+                list.remove(c16.getText().toString());
             }
 
         } else if (view.getId() == R.id.c17) {
             if (checked){
                 list.add(c17.getText().toString());
+            } else {
+                list.remove(c17.getText().toString());
             }
 
         } else if (view.getId() == R.id.c18) {
             if (checked){
                 list.add(c18.getText().toString());
+            } else {
+                list.remove(c18.getText().toString());
             }
 
         }

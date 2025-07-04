@@ -30,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -49,6 +50,9 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
     DatabaseReference reference;
     String JenisPolis, pilihanPlan, perusahaan;
     Spinner plan;
+//    LocalTime currentTime;
+//    String date;
+    Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +68,9 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         });
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("client");
-//
+        reference = database.getReference("clientSementara");
+        calendar = Calendar.getInstance();
+
         nik = findViewById(R.id.nik);
         nama = findViewById(R.id.nama);
         email = findViewById(R.id.email);
@@ -139,6 +144,9 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
                 }
         );
 
+//        currentTime = LocalTime.now();
+//        date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
     }
 
     private void insertData() {
@@ -162,15 +170,27 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         String TujuanPerjalanan = tujuanPerjalanan.getText().toString();
         String PlanAsuransi = pilihanPlan.toString();
         String Perusahaan = perusahaan;
+//        String Time = currentTime.toString();
+//        String Date = date;
+        String hour = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
+        String minute = String.valueOf(calendar.get(Calendar.MINUTE));
+        String second = String.valueOf(calendar.get(Calendar.SECOND));
+
+        String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
+        String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
+        String year = String.valueOf(calendar.get(Calendar.YEAR));
+
+        String currenttime = hour + ":" + minute + ":" + second;
+        String currentdate = day + "-" + month + "-" + year;
 
         if (Objects.equals(JenisPolis, "Family")){
             NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Travel",
-                    Perusahaan, JenisPolis, NamaKeluarga, PlanAsuransi, MasaPerjalanan, LamaPerjalanan, TipePolis,
+                    Perusahaan, currentdate, currenttime, JenisPolis, NamaKeluarga, PlanAsuransi, MasaPerjalanan, LamaPerjalanan, TipePolis,
                     NamaAhliWaris, HubunganDenganAhliWaris, NegaraTujuan, TujuanPerjalanan);
             reference.child(NIK).setValue(nasabah);
         } else {
             NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Travel",
-                    Perusahaan, JenisPolis, null, PlanAsuransi, MasaPerjalanan, LamaPerjalanan, TipePolis,
+                    Perusahaan, currentdate, currenttime, JenisPolis, null, PlanAsuransi, MasaPerjalanan, LamaPerjalanan, TipePolis,
                     NamaAhliWaris, HubunganDenganAhliWaris, NegaraTujuan, TujuanPerjalanan);
             reference.child(NIK).setValue(nasabah);
         }
