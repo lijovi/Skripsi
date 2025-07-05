@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.skripsi" />
+                  <option name="mobileSdkAppId" value="1:7325645874:android:1f8738448fe53e4079102b" />
+                  <option name="projectId" value="skripsi-1cf72" />
+                  <option name="projectNumber" value="7325645874" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

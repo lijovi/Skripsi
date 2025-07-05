@@ -1,5 +1,6 @@
 package com.example.skripsi;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,6 +22,12 @@ public class ProfileNasabah extends AppCompatActivity {
     TextView nama, email, noTelp, keluar, syaratDanKetentuan, FAQ, ubahBahasa, ubahPassword;
     Button btnHome, btnInfo, btnNotifikasi;
 //    FirebaseAuth mAuth;
+
+    // buat ubah bahasa locale
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase, LocaleHelper.getLanguage(newBase)));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,5 +108,17 @@ public class ProfileNasabah extends AppCompatActivity {
 //                mAuth.sendPasswordResetEmail(Email);
             }
         });
+
+        ubahBahasa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String currentLang = LocaleHelper.getLanguage(ProfileNasabah.this);
+                String newLang = currentLang.equals("en") ? "id" : "en";
+
+                LocaleHelper.setLocale(ProfileNasabah.this, newLang);
+                recreate();
+            }
+        });
+
     }
 }

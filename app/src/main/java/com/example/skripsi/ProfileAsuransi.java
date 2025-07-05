@@ -1,6 +1,7 @@
 package com.example.skripsi;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -37,6 +38,12 @@ public class ProfileAsuransi extends AppCompatActivity {
 //    String uid = auth.getCurrentUser().getUid().toString();
 //    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("company");
 //    Asuransi asuransi;
+
+    // buat ubah bahasa locale
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase, LocaleHelper.getLanguage(newBase)));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,23 +139,17 @@ public class ProfileAsuransi extends AppCompatActivity {
 
             }
         });
-    }
 
-    private void sendEmail(String send_email, String send_link) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:" + send_email));
-//        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{send_email});
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Ubah Password");
-        intent.putExtra(Intent.EXTRA_TEXT, send_link);
-//        intent.setType("message/rfc822");
-        if (intent.resolveActivity(getPackageManager()) != null){
-            startActivity(Intent.createChooser(intent, ""));
-            Toast.makeText(this, "Email Sent!", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Email tidak terkirim!", Toast.LENGTH_SHORT).show();
-        }
-//        startActivity(Intent.createChooser(intent, "Choose Email"));
-    }
+        ubahBahasa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String currentLang = LocaleHelper.getLanguage(ProfileAsuransi.this);
+                String newLang = currentLang.equals("en") ? "id" : "en";
+
+                LocaleHelper.setLocale(ProfileAsuransi.this, newLang);
+                recreate();
+            }
+        });
 
 //    private void ResetPassword() {
 //        mAuth.sendPasswordResetEmail(Email).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -160,9 +161,26 @@ public class ProfileAsuransi extends AppCompatActivity {
 //        });
 //    }
 
-    private void showDialog() {
-        Dialog dialog = new Dialog(this);
-//        dialog.setContentView();
-    }
+        private void showDialog () {
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.faq);
+            dialog.setCancelable(true);
+            // dialog.setContentView(...) ← use this to actually show something
+            dialog.show();
+        }
 
+        private void sendEmail (String send_email, String send_link){
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("mailto:" + send_email));
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Ubah Password");
+            intent.putExtra(Intent.EXTRA_TEXT, send_link);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(Intent.createChooser(intent, ""));
+                Toast.makeText(this, "Email Sent!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Email tidak terkirim!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }
+

@@ -1,5 +1,6 @@
 package com.example.skripsi;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -30,6 +31,11 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
     View dialogView;
     TextInputLayout password;
 
+    // buat ubah bahasa locale
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase, LocaleHelper.getLanguage(newBase)));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

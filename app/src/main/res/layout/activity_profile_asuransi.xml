@@ -34,7 +34,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PROFILE"
+                android:text="@string/profile"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="20dp"
@@ -76,7 +76,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nama Perusahaan:"
+                        android:text="@string/nama_perusahaan"
                         android:textColor="@color/black"
                         />
 
@@ -98,7 +98,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Username:"
+                        android:text="@string/username_perusahaan"
                         android:textColor="@color/black"
                         />
 
@@ -120,7 +120,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Email:"
+                        android:text="@string/email_perusahaan"
                         android:textColor="@color/black"
                         />
 
@@ -142,7 +142,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Virtual Account:"
+                        android:text="@string/virtual_account"
                         android:textColor="@color/black"
                         />
 
@@ -171,7 +171,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PENGATURAN"
+            android:text="@string/pengaturan"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textAlignment="center"
@@ -183,7 +183,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ubah kata sandi"
+            android:text="@string/ubah_kata_sandi"
             android:textColor="@color/black"
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
@@ -195,7 +195,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bahasa"
+            android:text="@string/ubah_bahasa"
             android:textColor="@color/black"
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
@@ -207,7 +207,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="FAQ"
+            android:text="@string/faq"
             android:textColor="@color/black"
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
@@ -219,7 +219,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Syarat dan ketentuan"
+            android:text="@string/syarat_dan_ketentuan"
             android:textColor="@color/black"
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
@@ -231,7 +231,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Keluar"
+            android:text="@string/keluar"
             android:textColor="@color/black"
             android:textSize="17dp"
             android:paddingHorizontal="30dp"

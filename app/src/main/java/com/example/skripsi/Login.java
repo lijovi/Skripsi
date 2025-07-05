@@ -1,5 +1,6 @@
 package com.example.skripsi;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,12 @@ public class Login extends AppCompatActivity {
     TextInputLayout nik,nama;
     Button btnMasuk;
     TextView daftar, masukAsuransi;
+
+    // buat ubah bahasa locale
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase, LocaleHelper.getLanguage(newBase)));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

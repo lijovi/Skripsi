@@ -45,7 +45,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="NAMA"
+                        android:text="@string/nama"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -67,7 +67,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="EMAIL"
+                        android:text="@string/email"
                         android:textColor="@color/black"
                         />
 
@@ -90,7 +90,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="NO. TELP"
+                        android:text="@string/no_telp"
                         android:textColor="@color/black"
                         />
 
@@ -113,7 +113,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PENGATURAN"
+            android:text="@string/pengaturan"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:paddingHorizontal="30dp"
@@ -133,7 +133,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ubah kata sandi"
+            android:text="@string/ubah_kata_sandi"
             android:textColor="@color/black"
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
@@ -145,7 +145,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bahasa"
+            android:text="@string/ubah_bahasa"
             android:textColor="@color/black"
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
@@ -157,7 +157,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="FAQ"
+            android:text="@string/faq"
             android:textColor="@color/black"
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
@@ -169,7 +169,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Syarat dan ketentuan"
+            android:text="@string/syarat_dan_ketentuan"
             android:textColor="@color/black"
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
@@ -181,7 +181,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Keluar"
+            android:text="@string/keluar"
             android:textColor="@color/black"
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
@@ -305,7 +305,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Profil"
+                    android:text="@string/profil"
                     android:textSize="12dp"
                     android:textColor="@color/black"
                     />

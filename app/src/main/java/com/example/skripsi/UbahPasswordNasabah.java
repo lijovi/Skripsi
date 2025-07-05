@@ -1,5 +1,6 @@
 package com.example.skripsi;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,12 @@ public class UbahPasswordNasabah extends AppCompatActivity {
     DatabaseReference databaseHealth = database.getReference("client");
     DatabaseReference databaseTravel = database.getReference("client");
     String NIK;
+
+    // buat ubah bahasa locale
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase, LocaleHelper.getLanguage(newBase)));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

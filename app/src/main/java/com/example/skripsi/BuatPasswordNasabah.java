@@ -1,5 +1,6 @@
 package com.example.skripsi;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 import java.util.regex.Pattern;
+import android.content.Context;
 
 public class BuatPasswordNasabah extends AppCompatActivity {
 
@@ -34,6 +36,11 @@ public class BuatPasswordNasabah extends AppCompatActivity {
     DatabaseReference databaseTravel = database.getReference("client");
     String NIK;
 
+    // buat ubah bahasa locale
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase, LocaleHelper.getLanguage(newBase)));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

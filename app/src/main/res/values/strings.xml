@@ -1,5 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Skripsi</string>
+
     <string-array name="perusahaan">
         <item>ACA</item>
         <item>ETIQA</item>
@@ -20,7 +22,6 @@
         <item>Superior</item>
     </string-array>
 
-
     <string name="apabila_mengalami_keadaan_darurat_silahkan_menghubungi_kontak_pihak_asuransi_yang_terdaftar">Apabila mengalami keadaan darurat, silahkan menghubungi kontak pihak asuransi yang terdaftar:</string>
     <string name="daftar_asuransi">Daftar Asuransi</string>
     <string name="icon_3">Icon 3</string>
@@ -34,9 +35,9 @@
     <string name="daftar_rumah_sakit_rekanan">Daftar Rumah Sakit Rekanan</string>
     <string name="rumah_sakit_a_nno_telp_nlink_gmap">Rumah Sakit A\nNo. Telp:\nLink gmap:</string>
     <string name="informasi_umum">Informasi Umum</string>
-    <string name="asuransi_kesehatan_n_menanggung_biaya_rumah_sakit_dan_pengobatan_n_perlindungan_terhadap_penyakit_kritis_n_fasilitas_rawat_jalan_dan_rawat_inap_n_jaringan_rumah_sakit_luas_untuk_kenyamanan_anda">Asuransi Kesehatan:\n✅ Menanggung biaya rumah sakit dan pengobatan \n✅ Perlindungan terhadap penyakit kritis\n✅ Fasilitas rawat jalan dan rawat inap\n✅ Jaringan rumah sakit luas untuk kenyamanan Anda</string>
-    <string name="asuransi_travel_n_perlindungan_terhadap_pembatalan_penerbangan_n_pertanggungan_biaya_pengobatan_di_luar_negeri_n_kompensasi_untuk_kehilangan_bagasi_n_bantuan_darurat_24_7_selama_perjalanan">Asuransi Travel:\n✅ Perlindungan terhadap pembatalan penerbangan\n✅ Pertanggungan biaya pengobatan di luar negeri\n✅ Kompensasi untuk kehilangan bagasi\n✅ Bantuan darurat 24/7 selama perjalanan</string>
-    <string name="warning_icon" />
+    <string name="asuransi_kesehatan_n_menanggung_biaya_rumah_sakit_dan_pengobatan_n_perlindungan_terhadap_penyakit_kritis_n_fasilitas_rawat_jalan_dan_rawat_inap_n_jaringan_rumah_sakit_luas_untuk_kenyamanan_anda">Asuransi Kesehatan:\n✔ Menanggung biaya rumah sakit dan pengobatan\n✔ Perlindungan terhadap penyakit kritis\n✔ Fasilitas rawat jalan dan rawat inap\n✔ Jaringan rumah sakit luas untuk kenyamanan Anda</string>
+    <string name="asuransi_travel_n_perlindungan_terhadap_pembatalan_penerbangan_n_pertanggungan_biaya_pengobatan_di_luar_negeri_n_kompensasi_untuk_kehilangan_bagasi_n_bantuan_darurat_24_7_selama_perjalanan">Asuransi Travel:\n✔ Perlindungan terhadap pembatalan penerbangan\n✔ Pertanggungan biaya pengobatan di luar negeri\n✔ Kompensasi untuk kehilangan bagasi\n✔ Bantuan darurat 24/7 selama perjalanan</string>
+    <string name="warning_icon">!</string>
     <string name="notifikasi">Notifikasi</string>
     <string name="info_asuransi">Info Asuransi</string>
     <string name="waktu">Waktu</string>
@@ -48,4 +49,18 @@
     <string name="status">Status</string>
     <string name="klaim">Klaim</string>
     <string name="travel_sisa_limit">TRAVEL - Sisa Limit:</string>
+    <string name="faq">FAQ</string>
+    <string name="ubah_bahasa">Ubah Bahasa</string>
+    <string name="ubah_kata_sandi">Ubah kata sandi</string>
+    <string name="pengaturan">PENGATURAN</string>
+    <string name="no_telp">NO. TELP</string>
+    <string name="email">EMAIL</string>
+    <string name="nama">NAMA</string>
+    <string name="keluar">Keluar</string>
+    <string name="syarat_dan_ketentuan">Syarat dan ketentuan</string>
+    <string name="email_perusahaan">Email:</string>
+    <string name="username_perusahaan">Username:</string>
+    <string name="nama_perusahaan">Nama Perusahaan:</string>
+    <string name="virtual_account">Virtual Account:</string>
+    <string name="profile">PROFILE</string>
 </resources>

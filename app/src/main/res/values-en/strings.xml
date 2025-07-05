@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Thesis</string>
+
+    <string-array name="perusahaan">
+        <item>ACA</item>
+        <item>ETIQA</item>
+        <item>CHINA TAIPING</item>
+    </string-array>
+
+    <string-array name="planHealth">
+        <item>RI 300</item>
+        <item>RI 500</item>
+        <item>RI 750</item>
+        <item>RI 1000</item>
+    </string-array>
+
+    <string-array name="planTravel">
+        <item>VIP</item>
+        <item>Executive</item>
+        <item>Deluxe</item>
+        <item>Superior</item>
+    </string-array>
+
+    <string name="apabila_mengalami_keadaan_darurat_silahkan_menghubungi_kontak_pihak_asuransi_yang_terdaftar">In case of emergency, please contact the registered insurance provider:</string>
+    <string name="daftar_asuransi">Insurance List</string>
+    <string name="icon_3">Icon 3</string>
+    <string name="riwayat_pembayaran">Payment History</string>
+    <string name="icon_2">Icon 2</string>
+    <string name="bayar_premi">Pay Premium</string>
+    <string name="icon_1">Icon 1</string>
+    <string name="anda_belum_memiliki_password_buat_password_sekarang_untuk_mengakses_data_asuransi_disini">You do not have a password yet! Create one now to access your insurance data here</string>
+    <string name="selamat_datang">Welcome</string>
+    <string name="nama_perusahaan_nnama_contact_person_no_telp">Company Name\nContact Person - Phone Number</string>
+    <string name="daftar_rumah_sakit_rekanan">Partner Hospital List</string>
+    <string name="rumah_sakit_a_nno_telp_nlink_gmap">Hospital A\nPhone Number:\nGMaps link:</string>
+    <string name="informasi_umum">General Information</string>
+    <string name="asuransi_kesehatan_n_menanggung_biaya_rumah_sakit_dan_pengobatan_n_perlindungan_terhadap_penyakit_kritis_n_fasilitas_rawat_jalan_dan_rawat_inap_n_jaringan_rumah_sakit_luas_untuk_kenyamanan_anda">Health Insurance:\n✔ Covers hospital and medical treatment costs\n✔ Protection against critical illnesses\n✔ Outpatient and inpatient facilities\n✔ Wide hospital network for your comfort</string>
+    <string name="asuransi_travel_n_perlindungan_terhadap_pembatalan_penerbangan_n_pertanggungan_biaya_pengobatan_di_luar_negeri_n_kompensasi_untuk_kehilangan_bagasi_n_bantuan_darurat_24_7_selama_perjalanan">Travel Insurance:\n✔ Coverage for flight cancellations\n✔ Medical cost coverage abroad\n✔ Compensation for lost luggage\n✔ 24/7 emergency assistance during your trip</string>
+    <string name="warning_icon">!</string>
+    <string name="notifikasi">Notification</string>
+    <string name="info_asuransi">Insurance Info</string>
+    <string name="waktu">Time</string>
+    <string name="profil">Profile</string>
+    <string name="utama">Home</string>
+    <string name="riwayat_medis">Medical History</string>
+    <string name="health_sisa_limit">HEALTH - Remaining Limit:</string>
+    <string name="tgl_pengajuan">Submission Date</string>
+    <string name="status">Status</string>
+    <string name="klaim">Claim</string>
+    <string name="travel_sisa_limit">TRAVEL - Remaining Limit:</string>
+    <string name="faq">FAQ</string>
+    <string name="ubah_bahasa">Change Language</string>
+    <string name="ubah_kata_sandi">Change Password</string>
+    <string name="pengaturan">SETTINGS</string>
+    <string name="no_telp">PHONE</string>
+    <string name="email">EMAIL</string>
+    <string name="nama">NAME</string>
+    <string name="keluar">Logout</string>
+    <string name="syarat_dan_ketentuan">Terms and Conditions</string>
+    <string name="email_perusahaan">Email:</string>
+    <string name="username_perusahaan">Username:</string>
+    <string name="nama_perusahaan">Company Name:</string>
+    <string name="virtual_account">Virtual Account:</string>
+    <string name="profile">PROFILE</string>
+</resources>
+
+

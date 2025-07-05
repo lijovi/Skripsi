@@ -1,5 +1,6 @@
 package com.example.skripsi;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -13,6 +14,11 @@ public class Pembayaran extends AppCompatActivity {
 
     TextView virtualAccount, jumlah, jatuhTempo;
 
+    // buat ubah bahasa locale
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase, LocaleHelper.getLanguage(newBase)));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
