@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Objects;
 
@@ -102,6 +103,9 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                 String Pekerjaan = snapshot.child("pekerjaan").getValue(String.class);
                 String PeriodePertanggungan = snapshot.child("periodePertanggungan").getValue(String.class);
                 String PlanAsuransi = snapshot.child("plan").getValue(String.class);
+                ArrayList<String> list = (ArrayList<String>) snapshot.child("riwayatPenyakit").getValue();
+
+                StringBuilder sb = new StringBuilder();
 
                 nik.setText(NIK);
                 nama.setText(Nama);
@@ -113,6 +117,10 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                 pekerjaan.setText(Pekerjaan);
                 periodePertanggungan.setText(PeriodePertanggungan);
                 planAsuransi.setText(PlanAsuransi);
+                for (String item : list){
+                    sb.append("- ").append(item).append("\n");
+                }
+                riwayatPenyakit.setText(sb.toString());
             }
 
             @Override

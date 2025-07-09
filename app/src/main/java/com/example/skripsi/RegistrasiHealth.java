@@ -76,6 +76,11 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
             return insets;
         });
 
+        StringBuilder sb = new StringBuilder();
+        for (String item : list){
+            sb.append("- ").append(item).append("\n");
+        }
+
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("clientSementara");
         calendar = Calendar.getInstance();
@@ -211,10 +216,16 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
             public void onClick(View v) {
 //                Intent intent = new Intent(getApplicationContext(), RegistrasiHealth.class);
 //                intent.putExtra("riwayat", list);
+
+                StringBuilder sb = new StringBuilder();
+                for (String item : list){
+                    sb.append("- ").append(item).append("\n");
+                }
+
                 if (list.size() == 0){
                     riwayatPenyakit.setText("");
                 } else {
-                    riwayatPenyakit.setText(String.valueOf(list));
+                    riwayatPenyakit.setText(sb.toString());
                 }
                 alertDialog.dismiss();
             }

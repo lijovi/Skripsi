@@ -57,10 +57,13 @@ public class LoginAsuransi extends AppCompatActivity {
         reference = database.getReference("company");
 //        Asuransi asuransi = new Asuransi(1, "aca", "jovita.tanti@gmail.com", "aca1234", "ACA", "1234567890");
 //        Asuransi asuransi2 = new Asuransi(2, "etiqa", "etiqa@gmail.com", "etiqa5678", "ETIQA", "081234567890");
+//        Asuransi asuransi3 = new Asuransi(3, "china_taiping", "china@gmail.com", "china1234", "CHINA TAIPING", "081234567890");
 //        String newusername1 = "aca";
 //        String newusername2 = "etiqa";
+//        String newusername3 = "china_taiping";
 //        reference.child(newusername1).setValue(asuransi);
 //        reference.child(newusername2).setValue(asuransi2);
+//        reference.child(newusername3).setValue(asuransi3);
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);

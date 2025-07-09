@@ -44,315 +44,333 @@
                 />
         </LinearLayout>
 
-<!--    NIK  -->
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="30dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NIK:"
-                android:textColor="@color/black"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="@color/black"
-                android:id="@+id/nik"
-                />
-        </LinearLayout>
-
-
-<!--    Nama -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="20dp"
             >
 
-            <TextView
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama:"
-                android:textColor="@color/black"
-                />
+                android:orientation="vertical"
+                >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="@color/black"
-                android:id="@+id/nama"
-                />
-        </LinearLayout>
+                <!--    NIK  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="30dp"
+                    android:paddingTop="30dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NIK:"
+                        android:textColor="@color/black"
+                        />
 
-<!--    Email -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="20dp"
-            >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black"
+                        android:id="@+id/nik"
+                        />
+                </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email:"
-                android:textColor="@color/black"
-                />
+                <!--    Nama -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="30dp"
+                    android:paddingTop="20dp"
+                    >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="@color/black"
-                android:id="@+id/email"
-                />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nama:"
+                        android:textColor="@color/black"
+                        />
 
-<!--    Jenis Kelamin -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="20dp"
-            >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black"
+                        android:id="@+id/nama"
+                        />
+                </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jenis Kelamin:"
-                android:textColor="@color/black"
-                />
+                <!--    Email -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="30dp"
+                    android:paddingTop="20dp"
+                    >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="@color/black"
-                android:id="@+id/jenisKelamin"
-                />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email:"
+                        android:textColor="@color/black"
+                        />
 
-<!--    Tanggal Lahir -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="20dp"
-            >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black"
+                        android:id="@+id/email"
+                        />
+                </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tanggal Lahir:"
-                android:textColor="@color/black"
-                />
+                <!--    Jenis Kelamin -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="30dp"
+                    android:paddingTop="20dp"
+                    >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="@color/black"
-                android:id="@+id/tanggalLahir"
-                />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jenis Kelamin:"
+                        android:textColor="@color/black"
+                        />
 
-<!--    No Telepon -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="20dp"
-            >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black"
+                        android:id="@+id/jenisKelamin"
+                        />
+                </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nomor Telepon:"
-                android:textColor="@color/black"
-                />
+                <!--    Tanggal Lahir -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="30dp"
+                    android:paddingTop="20dp"
+                    >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="@color/black"
-                android:id="@+id/noTelepon"
-                />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tanggal Lahir:"
+                        android:textColor="@color/black"
+                        />
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black"
+                        android:id="@+id/tanggalLahir"
+                        />
+                </LinearLayout>
 
-<!--    Alamat -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="20dp"
-            >
+                <!--    No Telepon -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="30dp"
+                    android:paddingTop="20dp"
+                    >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Alamat:"
-                android:textColor="@color/black"
-                />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nomor Telepon:"
+                        android:textColor="@color/black"
+                        />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="@color/black"
-                android:id="@+id/alamat"
-                />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black"
+                        android:id="@+id/noTelepon"
+                        />
 
-<!--    Pekerjaan -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="20dp"
-            >
+                </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pekerjaan:"
-                android:textColor="@color/black"
-                />
+                <!--    Alamat -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="30dp"
+                    android:paddingTop="20dp"
+                    >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="@color/black"
-                android:id="@+id/pekerjaan"
-                />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alamat:"
+                        android:textColor="@color/black"
+                        />
 
-<!--    Periode Pertanggungan -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="20dp"
-            >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black"
+                        android:id="@+id/alamat"
+                        />
+                </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Periode Pertanggungan:"
-                android:textColor="@color/black"
-                />
+                <!--    Pekerjaan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="30dp"
+                    android:paddingTop="20dp"
+                    >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="@color/black"
-                android:id="@+id/periodePertanggungan"
-                />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pekerjaan:"
+                        android:textColor="@color/black"
+                        />
 
-<!--    Plan Asuransi -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="20dp"
-            >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black"
+                        android:id="@+id/pekerjaan"
+                        />
+                </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Plan Asuransi:"
-                android:textColor="@color/black"
-                />
+                <!--    Periode Pertanggungan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="30dp"
+                    android:paddingTop="20dp"
+                    >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="@color/black"
-                android:id="@+id/planAsuransi"
-                />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Periode Pertanggungan:"
+                        android:textColor="@color/black"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black"
+                        android:id="@+id/periodePertanggungan"
+                        />
+                </LinearLayout>
+
+                <!--    Plan Asuransi -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="30dp"
+                    android:paddingTop="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Plan Asuransi:"
+                        android:textColor="@color/black"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black"
+                        android:id="@+id/planAsuransi"
+                        />
+                </LinearLayout>
 
 
-<!--    Riwayat Penyakit -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="20dp"
-            >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Riwayat Penyakit:"
-                android:textColor="@color/black"
-                />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="@color/black"
-                android:id="@+id/riwayatPenyakit"
-                />
-        </LinearLayout>
+                <!--    Riwayat Penyakit -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="30dp"
+                    android:paddingTop="20dp"
+                    >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:paddingTop="40dp"
-            >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Riwayat Penyakit:"
+                        android:textColor="@color/black"
+                        />
 
-<!--        Button Terima -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:text="Terima"
-                android:background="@drawable/rounded_corner_button"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:id="@+id/btnTerima"
-                android:layout_marginEnd="20dp"
-                />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black"
+                        android:id="@+id/riwayatPenyakit"
+                        />
 
-<!--        Button Tolak -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:text="Tolak"
-                android:background="@drawable/rounded_corner_button"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:id="@+id/btnTolak"
-                android:layout_marginStart="20dp"
-                />
-        </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingVertical="20dp"
+                    >
+
+                    <!--        Button Terima -->
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:text="Terima"
+                        android:background="@drawable/rounded_corner_button"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:id="@+id/btnTerima"
+                        android:layout_marginEnd="20dp"
+                        />
+
+                    <!--        Button Tolak -->
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:text="Tolak"
+                        android:background="@drawable/rounded_corner_button"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:id="@+id/btnTolak"
+                        android:layout_marginStart="20dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
 
     </LinearLayout>
 
