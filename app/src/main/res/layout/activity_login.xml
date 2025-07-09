@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MASUK"
+            android:text="@string/masuk"
             android:gravity="center"
             android:textStyle="bold"
             android:textSize="20dp"
@@ -61,7 +61,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama"
+            android:text="@string/nama_huruf_kecil"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
             />
@@ -85,15 +85,14 @@
 
 <!--    Button -->
         <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:text="Masuk"
-            android:background="@drawable/rounded_corner_button"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:layout_marginBottom="10dp"
             android:id="@+id/btnMasuk"
-            />
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_corner_button"
+            android:text="@string/masuk"
+            android:textColor="@color/black" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -117,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12dp"
-                android:text="Daftarkan sekarang"
+                android:text="@string/daftarkan_sekarang"
                 android:paddingHorizontal="2dp"
                 android:textColor="@color/black"
                 android:id="@+id/daftar"

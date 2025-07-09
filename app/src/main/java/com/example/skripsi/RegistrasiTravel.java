@@ -175,6 +175,9 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         selectedGender = findViewById(selectedId);
         int selectedIDPolis = tipePolis.getCheckedRadioButtonId();
         selectedPolis = findViewById(selectedIDPolis);
+        selectedID = jenisPolis.getCheckedRadioButtonId();
+        selectedJenis = findViewById(selectedID);
+        String JenisPolis = selectedJenis.getText().toString();
         String NIK = nik.getText().toString();
         String Nama = nama.getText().toString();
         String Email = email.getText().toString();
@@ -193,16 +196,16 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         String Perusahaan = perusahaan;
 //        String Time = currentTime.toString();
 //        String Date = date;
-        String hour = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
-        String minute = String.valueOf(calendar.get(Calendar.MINUTE));
-        String second = String.valueOf(calendar.get(Calendar.SECOND));
+        String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+        String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+        String second = String.format("%02d", calendar.get(Calendar.SECOND));
 
         String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
         String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
         String year = String.valueOf(calendar.get(Calendar.YEAR));
 
-        String currenttime = hour + ":" + minute + ":" + second;
-        String currentdate = day + "-" + month + "-" + year;
+        String currenttime = hour + " : " + minute + " : " + second;
+        String currentdate = day + " - " + month + " - " + year;
 
         if (Objects.equals(JenisPolis, "Family")){
             NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Travel",

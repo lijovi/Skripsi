@@ -160,27 +160,25 @@ public class ProfileAsuransi extends AppCompatActivity {
 //            }
 //        });
 //    }
+    }
 
-        private void showDialog () {
-            Dialog dialog = new Dialog(this);
-            dialog.setContentView(R.layout.faq);
-            dialog.setCancelable(true);
-            // dialog.setContentView(...) ← use this to actually show something
-            dialog.show();
-        }
-
-        private void sendEmail (String send_email, String send_link){
-            Intent intent = new Intent(Intent.ACTION_SENDTO);
-            intent.setData(Uri.parse("mailto:" + send_email));
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Ubah Password");
-            intent.putExtra(Intent.EXTRA_TEXT, send_link);
-            if (intent.resolveActivity(getPackageManager()) != null) {
-                startActivity(Intent.createChooser(intent, ""));
-                Toast.makeText(this, "Email Sent!", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Email tidak terkirim!", Toast.LENGTH_SHORT).show();
-            }
+    private void sendEmail (String send_email, String send_link){
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:" + send_email));
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Ubah Password");
+        intent.putExtra(Intent.EXTRA_TEXT, send_link);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(Intent.createChooser(intent, ""));
+            Toast.makeText(this, "Email Sent!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Email tidak terkirim!", Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void showDialog() {
+        Dialog dialog = new Dialog(this);
+//        dialog.setContentView();
+    }
+
 }
 

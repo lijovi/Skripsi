@@ -7,6 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".HomePageAsuransi"
     android:background="#DDE6ED">
+    
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rvView"
+        />
 
 <!--    Footer-->
     <RelativeLayout

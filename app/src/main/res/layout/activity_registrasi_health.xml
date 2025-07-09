@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Nama"
+            android:text="@string/nama_huruf_kecil"
             android:textColor="@color/black" />
 
         <EditText
@@ -92,7 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Jenis Kelamin"
+            android:text="@string/jenis_kelamin"
             android:textColor="@color/black" />
 
 <!--    Jenis Kelamin -->
@@ -107,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Laki - laki"
+                android:text="@string/laki"
                 android:textColor="@color/black" />
 
             <RadioButton
@@ -115,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Perempuan"
+                android:text="@string/perempuan"
                 android:textColor="@color/black" />
         </RadioGroup>
 
@@ -124,7 +124,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Tanggal Lahir"
+            android:text="@string/tanggal_lahir"
             android:textColor="@color/black" />
 
         <RelativeLayout
@@ -159,7 +159,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Nomor Telepon"
+            android:text="@string/nomor_telp"
             android:textColor="@color/black" />
 
         <EditText
@@ -176,7 +176,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Alamat"
+            android:text="@string/alamat"
             android:textColor="@color/black" />
 
         <EditText
@@ -193,7 +193,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Pekerjaan"
+            android:text="@string/pekerjaan"
             android:textColor="@color/black" />
 
         <EditText
@@ -311,7 +311,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:text="Daftar"
+            android:text="@string/daftar"
             android:background="@drawable/rounded_corner_button"
             android:layout_gravity="center"
             android:textColor="@color/black"

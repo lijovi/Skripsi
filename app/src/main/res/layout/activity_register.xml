@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="REGISTRASI"
+            android:text="@string/registrasi"
             android:gravity="center"
             android:textStyle="bold"
             android:textSize="20dp"
@@ -35,7 +35,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Perusahaan Asuransi:"
+            android:text="@string/perusahaan"
             android:textColor="@color/black"
             />
 
@@ -51,7 +51,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tipe asuransi:"
+            android:text="@string/tipe_asuransi"
             android:textColor="@color/black"
             />
 
@@ -87,7 +87,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:text="Lanjut"
+            android:text="@string/lanjut"
             android:background="@drawable/rounded_corner_button"
             android:layout_gravity="center"
             android:textColor="@color/black"

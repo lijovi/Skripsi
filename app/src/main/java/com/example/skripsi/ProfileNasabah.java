@@ -46,6 +46,7 @@ public class ProfileNasabah extends AppCompatActivity {
         noTelp = findViewById(R.id.noTelp);
         keluar = findViewById(R.id.keluar);
         ubahPassword = findViewById(R.id.ubahPassword);
+        ubahBahasa = findViewById(R.id.ubahBahasa);
 
         btnHome = findViewById(R.id.btnHome);
         btnInfo = findViewById(R.id.btnInfo);

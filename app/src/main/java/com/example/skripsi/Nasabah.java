@@ -29,6 +29,10 @@ public class Nasabah implements Serializable {
         this.date = date;
     }
 
+    public Nasabah() {
+
+    }
+
     public String getDate() {
         return date;
     }
@@ -83,5 +87,37 @@ public class Nasabah implements Serializable {
 
     public String getCompany() {
         return company;
+    }
+
+    public void setNik(String nik) {
+        this.nik = nik;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
     }
 }

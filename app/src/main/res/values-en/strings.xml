@@ -63,6 +63,32 @@
     <string name="nama_perusahaan">Company Name:</string>
     <string name="virtual_account">Virtual Account:</string>
     <string name="profile">PROFILE</string>
+    <string name="password_baru">New Password</string>
+    <string name="konfirmasi_password">Confirmation Password</string>
+    <string name="ubah">Change</string>
+    <string name="ubah_password">CHANGE PASSWORD</string>
+    <string name="jenis_kelamin">Gender</string>
+    <string name="laki">Man</string>
+    <string name="perempuan">Woman</string>
+    <string name="tanggal_lahir">Birth of Date</string>
+    <string name="nomor_telp">Phone Number</string>
+    <string name="alamat">Address</string>
+    <string name="pekerjaan">Job</string>
+    <string name="iya">Yes</string>
+    <string name="tidak">No</string>
+    <string name="negara_tujuan">Travel Destination</string>
+    <string name="tujuan_perjalanan">Purpose of Travel</string>
+    <string name="daftar">REGISTER</string>
+    <string name="lanjut">NEXT</string>
+    <string name="registrasi">REGISTRATION</string>
+    <string name="perusahaan">Insurance Company</string>
+    <string name="tipe_asuransi">Insurance Type</string>
+    <string name="masuk">LOGIN</string>
+    <string name="daftarkan_sekarang">Register now</string>
+    <string name="nama_huruf_kecil">Name</string>
+    <string name="jenis_polis">Polis Type</string>
+    <string name="plan_asuransi">Insurance Plan</string>
+    <string name="masa_perjalanan">Travel Period</string>
 </resources>
 
 

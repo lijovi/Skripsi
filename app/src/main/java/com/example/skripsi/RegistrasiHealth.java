@@ -211,7 +211,11 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
             public void onClick(View v) {
 //                Intent intent = new Intent(getApplicationContext(), RegistrasiHealth.class);
 //                intent.putExtra("riwayat", list);
-                riwayatPenyakit.setText(String.valueOf(list));
+                if (list.size() == 0){
+                    riwayatPenyakit.setText("");
+                } else {
+                    riwayatPenyakit.setText(String.valueOf(list));
+                }
                 alertDialog.dismiss();
             }
         });
@@ -238,14 +242,14 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         String PilihanPlan = pilihanPlan.toString();
         ArrayList<String> List = list;
 
-        String hour = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
-        String minute = String.valueOf(calendar.get(Calendar.MINUTE));
-        String second = String.valueOf(calendar.get(Calendar.SECOND));
+        String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+        String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+        String second = String.format("%02d",calendar.get(Calendar.SECOND));
         String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
         String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
         String year = String.valueOf(calendar.get(Calendar.YEAR));
-        String currenttime = hour + ":" + minute + ":" + second;
-        String currentdate = day + "-" + month + "-" + year;
+        String currenttime = hour + " : " + minute + " : " + second;
+        String currentdate = day + " - " + month + " - " + year;
 
         NasabahHealth nasabah = new NasabahHealth(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Health",
                 Perusahaan, currenttime, currentdate, BodText, Pekerjaan, PeriodePertanggungan, PilihanPlan, NamaAhliWaris, HubunganDenganAhliWaris, List);

@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Nama"
+            android:text="@string/nama_huruf_kecil"
             android:textColor="@color/black" />
 
         <EditText
@@ -95,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Jenis Kelamin"
+            android:text="@string/jenis_kelamin"
             android:textColor="@color/black" />
 
         <RadioGroup
@@ -109,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Laki - laki"
+                android:text="@string/laki"
                 android:textColor="@color/black" />
 
             <RadioButton
@@ -117,7 +117,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Perempuan"
+                android:text="@string/perempuan"
                 android:textColor="@color/black" />
         </RadioGroup>
 
@@ -126,7 +126,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Nomor Telepon"
+            android:text="@string/nomor_telp"
             android:textColor="@color/black" />
 
         <EditText
@@ -144,7 +144,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Alamat"
+            android:text="@string/alamat"
             android:textColor="@color/black" />
 
         <EditText
@@ -162,7 +162,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Jenis Polis"
+            android:text="@string/jenis_polis"
             android:textColor="@color/black" />
 
         <RadioGroup
@@ -220,7 +220,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Plan Asuransi"
+            android:text="@string/plan_asuransi"
             android:textColor="@color/black" />
 
         <Spinner
@@ -235,7 +235,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Masa Perjalanan"
+            android:text="@string/masa_perjalanan"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
             />
@@ -290,7 +290,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Iya"
+                android:text="@string/iya"
                 android:textColor="@color/black" />
 
             <RadioButton
@@ -298,7 +298,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Tidak"
+                android:text="@string/tidak"
                 android:textColor="@color/black" />
         </RadioGroup>
 
@@ -370,7 +370,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Negara Tujuan"
+            android:text="@string/negara_tujuan"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
             />
@@ -389,7 +389,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tujuan Perjalanan"
+            android:text="@string/tujuan_perjalanan"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
             />
@@ -409,7 +409,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:text="Daftar"
+            android:text="@string/daftar"
             android:background="@drawable/rounded_corner_button"
             android:layout_gravity="center"
             android:textColor="@color/black"

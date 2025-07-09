@@ -221,8 +221,8 @@
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@drawable/home"
                     android:id="@+id/btnHome"
                     />
@@ -230,8 +230,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Utama"
-                    android:textSize="12dp"
+                    android:text="@string/utama"
+                    android:textSize="11dp"
                     android:textColor="@color/black"
                     />
             </LinearLayout>
@@ -245,8 +245,8 @@
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@drawable/info"
                     android:id="@+id/btnInfo"
                     />
@@ -254,8 +254,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Info Asuransi"
-                    android:textSize="12dp"
+                    android:text="@string/info_asuransi"
+                    android:textSize="11dp"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     />
             </LinearLayout>
@@ -269,8 +270,8 @@
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@drawable/notifikasi"
                     android:id="@+id/btnNotifikasi"
                     />
@@ -278,8 +279,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Notifikasi"
-                    android:textSize="12dp"
+                    android:text="@string/notifikasi"
+                    android:textSize="11dp"
                     android:textColor="@color/black"
                     />
             </LinearLayout>
@@ -296,8 +297,8 @@
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@drawable/profile"
                     android:id="@+id/btnProfile"
                     />
@@ -306,7 +307,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/profil"
-                    android:textSize="12dp"
+                    android:textSize="11dp"
                     android:textColor="@color/black"
                     />
 
