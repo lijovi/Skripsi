@@ -44,7 +44,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
     View dialogView;
     TextInputLayout nomorPolis, besarPremi;
     String NIK, BesarPremi, NomorPolis, Company;
-    Calendar calendar;
+    Calendar calendar, calendarJ;
 
     // buat ubah bahasa locale
     @Override
@@ -74,6 +74,8 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
         referenceTransaksi = database.getReference("transaksi").child(NIK);
         referenceNasabah = database.getReference("client").child(NIK);
         calendar = Calendar.getInstance();
+        calendarJ = Calendar.getInstance();
+        calendarJ.add(Calendar.DAY_OF_MONTH, 7);
 
         nik = findViewById(R.id.nik);
         nama = findViewById(R.id.nama);
@@ -188,6 +190,11 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                 String year = String.valueOf(calendar.get(Calendar.YEAR));
                 String currentdate = day + " - " + month + " - " + year;
 
+                String day1 = String.format("%02d" ,calendarJ.get(Calendar.DAY_OF_MONTH));
+                String month1 = String.format("%02d",calendarJ.get(Calendar.MONTH)+1);
+                String year1 = String.valueOf(calendarJ.get(Calendar.YEAR));
+                String jatuhTempo = day1 + " - " + month1 + " - " + year1;
+
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -203,14 +210,16 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                 referenceTransaksi.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (!snapshot.exists()){
-                            Transaksi transaksi = new Transaksi(NIK, BesarPremi, "", NomorPolis, Company, currentdate);
-                            referenceTransaksi.setValue(transaksi);
-                        } else {
-                            String nomorPolisTravel = snapshot.child("nomorPolisTravel").getValue(String.class);
-                            Transaksi transaksi = new Transaksi(NIK, BesarPremi, nomorPolisTravel, NomorPolis, Company, currentdate);
-                            referenceTransaksi.setValue(transaksi);
-                        }
+                        Transaksi transaksi = new Transaksi(NIK, BesarPremi, "", NomorPolis, Company, currentdate, jatuhTempo);
+                        referenceTransaksi.setValue(transaksi);
+//                        if (!snapshot.exists()){
+//                            Transaksi transaksi = new Transaksi(NIK, BesarPremi, "", NomorPolis, Company, currentdate, jatuhTempo);
+//                            referenceTransaksi.setValue(transaksi);
+//                        } else {
+//                            String nomorPolisTravel = snapshot.child("nomorPolisTravel").getValue(String.class);
+//                            Transaksi transaksi = new Transaksi(NIK, BesarPremi, nomorPolisTravel, NomorPolis, Company, currentdate, jatuhTempo);
+//                            referenceTransaksi.setValue(transaksi);
+//                        }
                         Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
                         startActivity(intent);
                         reference.removeValue();

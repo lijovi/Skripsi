@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -108,6 +110,93 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
 //            riwayatPenyakit.setText(list.get(i));
 //        }
 
+        nik.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString();
+                if (text.length()!=12 || text.matches(".*[A-Z].*") || text.matches(".*[a-z].*")){
+                    nik.setError("NIK must contains 12 numbers");
+                } else {
+                    nik.setError(null);
+                }
+            }
+        });
+
+        email.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString();
+                if (!text.contains("@")){
+                    email.setError("Please write your email correctly");
+                } else {
+                    email.setError(null);
+                }
+            }
+        });
+
+        noTelp.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString();
+                if (text.length()<10 || text.length()>13 || text.matches(".*[A-Z].*") || text.matches(".*[a-z].*")){
+                    noTelp.setError("Please input your phone number correctly");
+                } else {
+                    noTelp.setError(null);
+                }
+            }
+        });
+
+        nama.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString();
+                if (text.matches(".*[0-9].*")){
+                    nama.setError("Please input your name correctly");
+                } else {
+                    nama.setError(null);
+                }
+            }
+        });
 
 //        perusahaan = Integer.parseInt(getIntent().getStringExtra("tipePerusahaan"));
         perusahaan = getIntent().getStringExtra("tipePerusahaan");

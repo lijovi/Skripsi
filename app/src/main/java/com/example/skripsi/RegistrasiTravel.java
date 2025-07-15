@@ -3,6 +3,8 @@ package com.example.skripsi;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -123,6 +125,96 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
             }
         });
 
+        nik.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString();
+                if (text.length()!=12 || text.matches(".*[A-Z].*") || text.matches(".*[a-z].*")){
+                    nik.setError("NIK must contains 12 numbers");
+                } else {
+                    nik.setError(null);
+                }
+            }
+        });
+
+        email.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString();
+                if (!text.contains("@")){
+                    email.setError("Please write your email correctly");
+                } else {
+                    email.setError(null);
+                }
+            }
+        });
+
+        noTelp.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString();
+                if (text.length()<10 || text.length()>13 || text.matches(".*[A-Z].*") || text.matches(".*[a-z].*")){
+                    noTelp.setError("Please input your phone number correctly");
+                } else {
+                    noTelp.setError(null);
+                }
+            }
+        });
+
+        nama.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString();
+                if (text.matches(".*[0-9].*")){
+                    nama.setError("Please input your name correctly");
+                } else {
+                    nama.setError(null);
+                }
+            }
+        });
+
+
+
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,7 +230,6 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         plan.setOnItemSelectedListener(this);
 
 
-//
         btnMasaPerjalanan.setOnClickListener(view-> {
 //                    final Calendar calendar = Calendar.getInstance();
 //                    int year = calendar.get(Calendar.YEAR);

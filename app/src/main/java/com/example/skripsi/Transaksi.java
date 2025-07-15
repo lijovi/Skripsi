@@ -7,14 +7,24 @@ public class Transaksi {
     String nomorPolisKesehatan;
     String company;
     String date;
+    String jatuhTempo;
 
-    public Transaksi(String NIK, String besarPremi, String nomorPolisTravel, String nomorPolisKesehatan, String company, String date) {
+    public Transaksi(String NIK, String besarPremi, String nomorPolisTravel, String nomorPolisKesehatan, String company, String date, String jatuhTempo) {
         this.NIK = NIK;
         this.besarPremi = besarPremi;
         this.nomorPolisTravel = nomorPolisTravel;
         this.nomorPolisKesehatan = nomorPolisKesehatan;
         this.company = company;
         this.date = date;
+        this.jatuhTempo = jatuhTempo;
+    }
+
+    public String getJatuhTempo() {
+        return jatuhTempo;
+    }
+
+    public void setJatuhTempo(String jatuhTempo) {
+        this.jatuhTempo = jatuhTempo;
     }
 
     public String getNIK() {

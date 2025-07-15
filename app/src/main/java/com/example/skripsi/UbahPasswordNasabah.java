@@ -3,9 +3,12 @@ package com.example.skripsi;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -34,7 +37,10 @@ public class UbahPasswordNasabah extends AppCompatActivity {
     DatabaseReference databaseHealth = database.getReference("client");
     DatabaseReference databaseTravel = database.getReference("client");
     String NIK;
-
+    EditText editText1, editText2;
+    TextView jumlahKarakter1, jumlahKarakter2, number1, number2, kapital1, kapital2, symbol1, symbol2;
+    int cek1 = 0;
+    int cek2 = 0;
     // buat ubah bahasa locale
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -64,9 +70,123 @@ public class UbahPasswordNasabah extends AppCompatActivity {
         konfirmasiPassword = findViewById(R.id.konfirmasiPassword);
         btnUbah = findViewById(R.id.btnUbah);
         btnBack = findViewById(R.id.btnBack);
+        editText1 = findViewById(R.id.editText1);
+        editText2 = findViewById(R.id.editText2);
+        jumlahKarakter1 = findViewById(R.id.jumlahkarakter1);
+        jumlahKarakter2 = findViewById(R.id.jumlahkarakter2);
+        number1 = findViewById(R.id.number1);
+        number2 = findViewById(R.id.number2);
+        kapital1 = findViewById(R.id.kapital1);
+        kapital2 = findViewById(R.id.kapital2);
+        symbol1 = findViewById(R.id.symbol1);
+        symbol2 = findViewById(R.id.symbol2);
 
         passwordBaru.setPlaceholderText("Masukkan Password Baru");
         konfirmasiPassword.setPlaceholderText("Masukkan Password Lagi");
+
+        editText1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString();
+                if (!(text.length() >=8)){
+                    jumlahKarakter1.setVisibility(View.VISIBLE);
+                    cek1 = 0;
+                } else {
+                    passwordBaru.setError(null);
+                    jumlahKarakter1.setVisibility(View.GONE);
+                    cek1 = 1;
+                }
+
+                if (!text.matches(".*[0-9].*")){
+                    number1.setVisibility(View.VISIBLE);
+                    cek1 = 0;
+                } else {
+                    passwordBaru.setError(null);
+                    number1.setVisibility(View.GONE);
+                    cek1 = 1;
+                }
+
+                if (!text.matches(".*[A-Z].*")){
+                    kapital1.setVisibility(View.VISIBLE);
+                    cek1 = 0;
+                } else {
+                    passwordBaru.setError(null);
+                    kapital1.setVisibility(View.GONE);
+                    cek1 = 1;
+                }
+
+                if (!text.matches("^(?=.*[_.!*()$@]).*$")){
+                    symbol1.setVisibility(View.VISIBLE);
+                    cek1 = 0;
+                } else {
+                    passwordBaru.setError(null);
+                    symbol1.setVisibility(View.GONE);
+                    cek1 = 1;
+                }
+            }
+        });
+
+        editText2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString();
+                if (!(text.length()>=8)){
+                    jumlahKarakter2.setVisibility(View.VISIBLE);
+                    cek2 = 0;
+                } else {
+                    konfirmasiPassword.setError(null);
+                    jumlahKarakter2.setVisibility(View.GONE);
+                    cek2 = 1;
+                }
+
+                if (!text.matches(".*[0-9].*")){
+                    number2.setVisibility(View.VISIBLE);
+                    cek2 = 0;
+                } else {
+                    konfirmasiPassword.setError(null);
+                    number2.setVisibility(View.GONE);
+                    cek2 = 1;
+                }
+
+                if (!text.matches(".*[A-Z].*")){
+                    kapital2.setVisibility(View.VISIBLE);
+                    cek2 = 0;
+                } else {
+                    konfirmasiPassword.setError(null);
+                    kapital2.setVisibility(View.GONE);
+                    cek2 = 1;
+                }
+
+                if (!text.matches("^(?=.*[_.!*()$@]).*$")){
+                    symbol2.setVisibility(View.VISIBLE);
+                    cek2 = 0;
+                } else {
+                    konfirmasiPassword.setError(null);
+                    symbol2.setVisibility(View.GONE);
+                    cek2 = 1;
+                }
+            }
+        });
 
         btnUbah.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,98 +251,18 @@ public class UbahPasswordNasabah extends AppCompatActivity {
     }
 
     private Boolean validatePassword(){
-        String cekPassword = passwordBaru.getEditText().getText().toString();
-        int cek = 0;
-
-        if (cekPassword.isEmpty()){
-            passwordBaru.setError("Password Cannot Be Empty");
-            return false;
-        } else {
-
-            if (cekPassword.length()>=8){
-                cek = cek + 1;
-            } else {
-                passwordBaru.setError("Must be more than 8 characters");
-                return false;
-            }
-
-            if (cekPassword.matches(".*[0-9].*")){
-                cek = cek + 1;
-            } else {
-                passwordBaru.setError("Must contain number");
-                return false;
-            }
-
-            if (cekPassword.matches(".*[A-Z].*")){
-                cek = cek + 1;
-            } else {
-                passwordBaru.setError("Must contain capital letter");
-                return false;
-            }
-
-            if (cekPassword.matches("^(?=.*[_.!*()$@]).*$")){
-                cek = cek + 1;
-            } else {
-                passwordBaru.setError("Must contain symbol");
-                return false;
-            }
-
-            passwordBaru.setError(null);
+        if (cek1 == 1){
             return true;
-
-//            if (cek == 4){
-//
-//            } else {
-//                return false;
-//            }
-
+        } else {
+            return false;
         }
     }
 
     private Boolean validatePasswordKonfirmasi(){
-        String cekPasswordKonfirmasi = konfirmasiPassword.getEditText().getText().toString();
-        int cek = 0;
-
-        if (cekPasswordKonfirmasi.isEmpty()){
-            konfirmasiPassword.setError("Password Cannot Be Empty");
-            return false;
-        } else {
-            if (cekPasswordKonfirmasi.length()>=8){
-                cek = cek + 1;
-            } else {
-                konfirmasiPassword.setError("Must be more than 8 characters");
-                return false;
-            }
-
-            if (cekPasswordKonfirmasi.matches(".*[0-9].*")){
-                cek = cek + 1;
-            } else {
-                konfirmasiPassword.setError("Must contain number");
-                return false;
-            }
-
-            if (cekPasswordKonfirmasi.matches(".*[A-Z].*")){
-                cek = cek + 1;
-            } else {
-                konfirmasiPassword.setError("Must contain capital letter");
-                return false;
-            }
-
-            if (cekPasswordKonfirmasi.matches("^(?=.*[_.!*()$@]).*$")){
-                cek = cek + 1;
-            } else {
-                konfirmasiPassword.setError("Must contain symbol");
-                return false;
-            }
-
-            konfirmasiPassword.setError(null);
+        if (cek2 == 1){
             return true;
-
-//            if (cek == 4){
-//
-//            } else {
-//                return false;
-//            }
+        } else {
+            return false;
         }
     }
 }

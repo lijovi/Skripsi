@@ -84,6 +84,7 @@ public class HomePageNasabah extends AppCompatActivity {
         bayarPremi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ClientSession.getInstance().setCompany(ClientSession.getInstance().getCompany());
                 Intent intent = new Intent(getApplicationContext(), Pembayaran.class);
                 startActivity(intent);
             }
