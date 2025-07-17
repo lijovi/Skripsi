@@ -5,11 +5,11 @@ public class Transaksi {
     String besarPremi;
     String nomorPolisTravel;
     String nomorPolisKesehatan;
-    String company;
+    int company;
     String date;
     String jatuhTempo;
 
-    public Transaksi(String NIK, String besarPremi, String nomorPolisTravel, String nomorPolisKesehatan, String company, String date, String jatuhTempo) {
+    public Transaksi(String NIK, String besarPremi, String nomorPolisTravel, String nomorPolisKesehatan, int company, String date, String jatuhTempo) {
         this.NIK = NIK;
         this.besarPremi = besarPremi;
         this.nomorPolisTravel = nomorPolisTravel;
@@ -59,11 +59,11 @@ public class Transaksi {
         this.nomorPolisKesehatan = nomorPolisKesehatan;
     }
 
-    public String getCompany() {
+    public int getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(int company) {
         this.company = company;
     }
 

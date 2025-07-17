@@ -8,6 +8,7 @@ public class CompanySession {
     private String email;
     private String virtualAccount;
     private String password;
+    private int id;
 
     public static CompanySession getInstance(){
         if (instance == null) instance = new CompanySession();
@@ -54,4 +55,11 @@ public class CompanySession {
         this.virtualAccount = virtualAccount;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

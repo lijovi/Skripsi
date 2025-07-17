@@ -52,7 +52,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     Spinner plan;
     String pilihanPlan;
     TextView riwayatPenyakit;
-    String perusahaan;
+    int perusahaan;
     AlertDialog.Builder dialog;
     LayoutInflater inflater;
     View dialogView;
@@ -199,7 +199,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         });
 
 //        perusahaan = Integer.parseInt(getIntent().getStringExtra("tipePerusahaan"));
-        perusahaan = getIntent().getStringExtra("tipePerusahaan");
+        perusahaan = getIntent().getIntExtra("tipePerusahaan",0);
 
         bod.setOnClickListener(view-> {
                     final Calendar calendar = Calendar.getInstance();
@@ -338,7 +338,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         String NamaAhliWaris = namaAhliWaris.getText().toString();
         String HubunganDenganAhliWaris = hubunganDenganAhliWaris.getText().toString();
         String JenisKelamin = selectedGender.getText().toString();
-        String Perusahaan = perusahaan;
+        int Perusahaan = perusahaan;
         String PilihanPlan = pilihanPlan.toString();
         ArrayList<String> List = list;
 

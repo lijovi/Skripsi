@@ -11,7 +11,7 @@ public class NasabahHealth extends Nasabah{
     String hubunganDenganAhliWaris;
     ArrayList<String> riwayatPenyakit;
 
-    public NasabahHealth(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, String company, String time, String date,
+    public NasabahHealth(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, int company, String time, String date,
                          String bod, String pekerjaan, String periodePertanggungan, String plan, String namaAhliWaris, String hubunganDenganAhliWaris, ArrayList<String> riwayatPenyakit) {
         super(nik, name, email, gender, phoneNumber, address, password, jenisAsuransi ,company, time, date);
         this.bod = bod;

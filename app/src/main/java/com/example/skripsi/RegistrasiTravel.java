@@ -50,7 +50,8 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
     int selectedID;
     FirebaseDatabase database;
     DatabaseReference reference;
-    String JenisPolis, pilihanPlan, perusahaan;
+    String JenisPolis, pilihanPlan;
+    int perusahaan;
     Spinner plan;
 //    LocalTime currentTime;
 //    String date;
@@ -94,7 +95,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         plan = findViewById(R.id.plan);
         lamaPerjalananAll = findViewById(R.id.lamaPerjalananAll);
 
-        perusahaan = getIntent().getStringExtra("tipePerusahaan");
+        perusahaan = getIntent().getIntExtra("tipePerusahaan",0);
 
         selectedID = jenisPolis.getCheckedRadioButtonId();
         selectedJenis = findViewById(selectedID);
@@ -284,7 +285,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         String NegaraTujuan = negaraTujuan.getText().toString();
         String TujuanPerjalanan = tujuanPerjalanan.getText().toString();
         String PlanAsuransi = pilihanPlan.toString();
-        String Perusahaan = perusahaan;
+        int Perusahaan = perusahaan;
 //        String Time = currentTime.toString();
 //        String Date = date;
         String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
