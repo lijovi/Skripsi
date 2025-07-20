@@ -89,4 +89,5 @@
     <string name="jenis_polis">Jenis Polis</string>
     <string name="plan_asuransi">Plan Asuransi</string>
     <string name="masa_perjalanan">Masa Perjalanan</string>
+    <string name="title_activity_pop_up_ubah_bahasa">pop_up_ubah_bahasa</string>
 </resources>

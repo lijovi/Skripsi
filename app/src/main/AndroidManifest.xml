@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Skripsi"
         tools:targetApi="31">
-
+        <activity
+            android:name=".pop_up_ubah_bahasa"
+            android:exported="false"
+            android:label="@string/title_activity_pop_up_ubah_bahasa"
+            android:theme="@style/Theme.Skripsi" />
         <activity
             android:name=".HomePageNasabah"
             android:exported="false" />
@@ -75,17 +79,18 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
 
-<!--                <data-->
-<!--                    android:scheme="myapp"-->
-<!--                    android:host="open"-->
-<!--                    android:path="/UbahPasswordAsuransi"-->
-<!--                    />-->
+                <!-- <data -->
+                <!-- android:scheme="myapp" -->
+                <!-- android:host="open" -->
+                <!-- android:path="/UbahPasswordAsuransi" -->
+                <!-- /> -->
 
-<!--                <data-->
-<!--                    android:scheme="https"-->
-<!--                    android:host="skripsi.com"-->
-<!--                    android:path="/UbahPasswordNasabah"-->
-<!--                    />-->
+
+                <!-- <data -->
+                <!-- android:scheme="https" -->
+                <!-- android:host="skripsi.com" -->
+                <!-- android:path="/UbahPasswordNasabah" -->
+                <!-- /> -->
 
             </intent-filter>
         </activity>

@@ -143,6 +143,7 @@
 
         <!--    Ubah Bahasa -->
         <TextView
+            android:id="@+id/ubahBahasa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ubah_bahasa"
@@ -150,8 +151,8 @@
             android:textSize="17dp"
             android:paddingHorizontal="30dp"
             android:paddingVertical="5dp"
-            android:id="@+id/ubahBahasa"
-            />
+            android:clickable="true"
+            android:focusable="true" />
 
         <!--    FAQ -->
         <TextView
