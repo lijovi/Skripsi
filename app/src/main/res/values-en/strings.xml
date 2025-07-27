@@ -22,21 +22,33 @@
         <item>Superior</item>
     </string-array>
 
-    <string name="apabila_mengalami_keadaan_darurat_silahkan_menghubungi_kontak_pihak_asuransi_yang_terdaftar">In case of emergency, please contact the registered insurance provider:</string>
+    <string name="apabila_mengalami_keadaan_darurat_silahkan_menghubungi_kontak_pihak_asuransi_yang_terdaftar">
+        In case of emergency, please contact the registered insurance provider:
+    </string>
     <string name="daftar_asuransi">Insurance List</string>
     <string name="icon_3">Icon 3</string>
     <string name="riwayat_pembayaran">Payment History</string>
     <string name="icon_2">Icon 2</string>
     <string name="bayar_premi">Pay Premium</string>
     <string name="icon_1">Icon 1</string>
-    <string name="anda_belum_memiliki_password_buat_password_sekarang_untuk_mengakses_data_asuransi_disini">You do not have a password yet! Create one now to access your insurance data here</string>
+    <string name="anda_belum_memiliki_password_buat_password_sekarang_untuk_mengakses_data_asuransi_disini">
+        You do not have a password yet! Create one now to access your insurance data here
+    </string>
     <string name="selamat_datang">Welcome</string>
-    <string name="nama_perusahaan_nnama_contact_person_no_telp">Company Name\nContact Person - Phone Number</string>
+    <string name="nama_perusahaan_nnama_contact_person_no_telp">
+        Company Name\nContact Person - Phone Number
+    </string>
     <string name="daftar_rumah_sakit_rekanan">Partner Hospital List</string>
-    <string name="rumah_sakit_a_nno_telp_nlink_gmap">Hospital A\nPhone Number:\nGMaps link:</string>
+    <string name="rumah_sakit_a_nno_telp_nlink_gmap">
+        Hospital A\nPhone Number:\nGMaps link:
+    </string>
     <string name="informasi_umum">General Information</string>
-    <string name="asuransi_kesehatan_n_menanggung_biaya_rumah_sakit_dan_pengobatan_n_perlindungan_terhadap_penyakit_kritis_n_fasilitas_rawat_jalan_dan_rawat_inap_n_jaringan_rumah_sakit_luas_untuk_kenyamanan_anda">Health Insurance:\n✔ Covers hospital and medical treatment costs\n✔ Protection against critical illnesses\n✔ Outpatient and inpatient facilities\n✔ Wide hospital network for your comfort</string>
-    <string name="asuransi_travel_n_perlindungan_terhadap_pembatalan_penerbangan_n_pertanggungan_biaya_pengobatan_di_luar_negeri_n_kompensasi_untuk_kehilangan_bagasi_n_bantuan_darurat_24_7_selama_perjalanan">Travel Insurance:\n✔ Coverage for flight cancellations\n✔ Medical cost coverage abroad\n✔ Compensation for lost luggage\n✔ 24/7 emergency assistance during your trip</string>
+    <string name="asuransi_kesehatan_n_menanggung_biaya_rumah_sakit_dan_pengobatan_n_perlindungan_terhadap_penyakit_kritis_n_fasilitas_rawat_jalan_dan_rawat_inap_n_jaringan_rumah_sakit_luas_untuk_kenyamanan_anda">
+        Health Insurance:\n✔ Covers hospital and medical treatment costs\n✔ Protection against critical illnesses\n✔ Outpatient and inpatient facilities\n✔ Wide hospital network for your comfort
+    </string>
+    <string name="asuransi_travel_n_perlindungan_terhadap_pembatalan_penerbangan_n_pertanggungan_biaya_pengobatan_di_luar_negeri_n_kompensasi_untuk_kehilangan_bagasi_n_bantuan_darurat_24_7_selama_perjalanan">
+        Travel Insurance:\n✔ Coverage for flight cancellations\n✔ Medical cost coverage abroad\n✔ Compensation for lost luggage\n✔ 24/7 emergency assistance during your trip
+    </string>
     <string name="warning_icon">!</string>
     <string name="notifikasi">Notification</string>
     <string name="info_asuransi">Insurance Info</string>
@@ -64,13 +76,13 @@
     <string name="virtual_account">Virtual Account:</string>
     <string name="profile">PROFILE</string>
     <string name="password_baru">New Password</string>
-    <string name="konfirmasi_password">Confirmation Password</string>
+    <string name="konfirmasi_password">Confirm Password</string>
     <string name="ubah">Change</string>
     <string name="ubah_password">CHANGE PASSWORD</string>
     <string name="jenis_kelamin">Gender</string>
-    <string name="laki">Man</string>
-    <string name="perempuan">Woman</string>
-    <string name="tanggal_lahir">Birth of Date</string>
+    <string name="laki">Male</string>
+    <string name="perempuan">Female</string>
+    <string name="tanggal_lahir">Date of Birth</string>
     <string name="nomor_telp">Phone Number</string>
     <string name="alamat">Address</string>
     <string name="pekerjaan">Job</string>
@@ -86,9 +98,14 @@
     <string name="masuk">LOGIN</string>
     <string name="daftarkan_sekarang">Register now</string>
     <string name="nama_huruf_kecil">Name</string>
-    <string name="jenis_polis">Polis Type</string>
+    <string name="jenis_polis">Policy Type</string>
     <string name="plan_asuransi">Insurance Plan</string>
     <string name="masa_perjalanan">Travel Period</string>
+    <string name="title_activity_pop_up_ubah_bahasa">Change Language</string>
+    <string name="masukkan_besar_premi">ENTER PREMIUM AMOUNT</string>
+    <string name="masukkan_nomor_polis">ENTER POLICY NUMBER</string>
+    <string name="silakan_masukan_password_anda">Please enter your password</string>
+    <string name="lupa_password">Forgot Password?</string>
+    <string name="klik_disini">Click Here</string>
+    <string name="ubah_bahasa_popup">CHANGE LANGUAGE</string>
 </resources>
-
-

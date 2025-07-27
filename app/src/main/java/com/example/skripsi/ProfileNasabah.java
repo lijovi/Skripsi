@@ -5,11 +5,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -113,11 +117,36 @@ public class ProfileNasabah extends AppCompatActivity {
         ubahBahasa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String currentLang = LocaleHelper.getLanguage(ProfileNasabah.this);
-                String newLang = currentLang.equals("en") ? "id" : "en";
+                // Inflate your popup layout
+                LayoutInflater inflater = LayoutInflater.from(ProfileNasabah.this);
+                View popupView = inflater.inflate(R.layout.pop_up_ubah_bahasa, null);
 
-                LocaleHelper.setLocale(ProfileNasabah.this, newLang);
-                recreate();
+                // Build AlertDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileNasabah.this);
+                builder.setView(popupView);
+                AlertDialog dialog = builder.create();
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                // Bind UI elements from the popup
+                ImageView btnClose = popupView.findViewById(R.id.btnClose);
+                LinearLayout btnEnglish = popupView.findViewById(R.id.btnEnglish);
+                LinearLayout btnIndo = popupView.findViewById(R.id.btnIndo);
+
+                btnClose.setOnClickListener(close -> dialog.dismiss());
+
+                btnEnglish.setOnClickListener(lang -> {
+                    LocaleHelper.setLocale(ProfileNasabah.this, "en");
+                    recreate(); // recreate activity to apply language
+                    dialog.dismiss();
+                });
+
+                btnIndo.setOnClickListener(lang -> {
+                    LocaleHelper.setLocale(ProfileNasabah.this, "id");
+                    recreate(); // recreate activity to apply language
+                    dialog.dismiss();
+                });
+
+                dialog.show();
             }
         });
 

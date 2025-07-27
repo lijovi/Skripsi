@@ -1,0 +1,426 @@
+[33mcommit 5f51cad564d8fe1148051f80603b58ba9e7d583c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mAngel[m[33m, [m[1;31morigin/Angel[m[33m)[m
+Author: unknown <rachel.angelica287@gmail.com>
+Date:   Sun Jul 20 20:50:45 2025 +0700
+
+    add pop-up button
+
+[1mdiff --git a/.idea/kotlinc.xml b/.idea/kotlinc.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..fdf8d99[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/kotlinc.xml[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="KotlinJpsPluginSettings">[m
+[32m+[m[32m    <option name="version" value="1.9.0" />[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/app/build.gradle b/app/build.gradle[m
+[1mindex fced4e8..8786c43 100644[m
+[1m--- a/app/build.gradle[m
+[1m+++ b/app/build.gradle[m
+[36m@@ -2,6 +2,7 @@[m [mplugins {[m
+ //    alias(libs.plugins.android.application)[m
+     id 'com.android.application'[m
+     id 'com.google.gms.google-services'[m
+[32m+[m[32m    alias(libs.plugins.kotlin.android)[m
+ }[m
+ [m
+ android {[m
+[36m@@ -16,6 +17,9 @@[m [mandroid {[m
+         versionName "1.0"[m
+ [m
+         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"[m
+[32m+[m[32m        vectorDrawables {[m
+[32m+[m[32m            useSupportLibrary true[m
+[32m+[m[32m        }[m
+     }[m
+ [m
+     buildTypes {[m
+[36m@@ -28,6 +32,20 @@[m [mandroid {[m
+         sourceCompatibility JavaVersion.VERSION_1_8[m
+         targetCompatibility JavaVersion.VERSION_1_8[m
+     }[m
+[32m+[m[32m    kotlinOptions {[m
+[32m+[m[32m        jvmTarget = '1.8'[m
+[32m+[m[32m    }[m
+[32m+[m[32m    buildFeatures {[m
+[32m+[m[32m        compose true[m
+[32m+[m[32m    }[m
+[32m+[m[32m    composeOptions {[m
+[32m+[m[32m        kotlinCompilerExtensionVersion '1.5.1'[m
+[32m+[m[32m    }[m
+[32m+[m[32m    packaging {[m
+[32m+[m[32m        resources {[m
+[32m+[m[32m            excludes += '/META-INF/{AL2.0,LGPL2.1}'[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+ }[m
+ [m
+ dependencies {[m
+[36m@@ -36,6 +54,13 @@[m [mdependencies {[m
+     implementation libs.material[m
+     implementation libs.activity[m
+     implementation libs.constraintlayout[m
+[32m+[m[32m    implementation libs.lifecycle.runtime.ktx[m
+[32m+[m[32m    implementation libs.activity.compose[m
+[32m+[m[32m    implementation platform(libs.compose.bom)[m
+[32m+[m[32m    implementation libs.ui[m
+[32m+[m[32m    implementation libs.ui.graphics[m
+[32m+[m[32m    implementation libs.ui.tooling.preview[m
+[32m+[m[32m    implementation libs.material3[m
+     testImplementation libs.junit[m
+     androidTestImplementation libs.ext.junit[m
+     androidTestImplementation libs.espresso.core[m
+[36m@@ -43,4 +68,8 @@[m [mdependencies {[m
+     implementation 'com.google.firebase:firebase-analytics'[m
+     implementation 'com.google.firebase:firebase-database-ktx'[m
+     implementation 'com.google.firebase:firebase-auth:23.2.1'[m
+[32m+[m[32m    androidTestImplementation platform(libs.compose.bom)[m
+[32m+[m[32m    androidTestImplementation libs.ui.test.junit4[m
+[32m+[m[32m    debugImplementation libs.ui.tooling[m
+[32m+[m[32m    debugImplementation libs.ui.test.manifest[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml[m
+[1mindex 1a753fe..0c25cfa 100644[m
+[1m--- a/app/src/main/AndroidManifest.xml[m
+[1m+++ b/app/src/main/AndroidManifest.xml[m
+[36m@@ -12,7 +12,11 @@[m
+         android:supportsRtl="true"[m
+         android:theme="@style/Theme.Skripsi"[m
+         tools:targetApi="31">[m
+[31m-[m
+[32m+[m[32m        <activity[m
+[32m+[m[32m            android:name=".pop_up_ubah_bahasa"[m
+[32m+[m[32m            android:exported="false"[m
+[32m+[m[32m            android:label="@string/title_activity_pop_up_ubah_bahasa"[m
+[32m+[m[32m            android:theme="@style/Theme.Skripsi" />[m
+         <activity[m
+             android:name=".HomePageNasabah"[m
+             android:exported="false" />[m
+[36m@@ -75,17 +79,18 @@[m
+ [m
+                 <category android:name="android.intent.category.LAUNCHER" />[m
+ [m
+[31m-<!--                <data-->[m
+[31m-<!--                    android:scheme="myapp"-->[m
+[31m-<!--                    android:host="open"-->[m
+[31m-<!--                    android:path="/UbahPasswordAsuransi"-->[m
+[31m-<!--                    />-->[m
+[32m+[m[32m                <!-- <data -->[m
+[32m+[m[32m                <!-- android:scheme="myapp" -->[m
+[32m+[m[32m                <!-- android:host="open" -->[m
+[32m+[m[32m                <!-- android:path="/UbahPasswordAsuransi" -->[m
+[32m+[m[32m                <!-- /> -->[m
+[32m+[m
+ [m
+[31m-<!--                <data-->[m
+[31m-<!--                    android:scheme="https"-->[m
+[31m-<!--                    android:host="skripsi.com"-->[m
+[31m-<!--                    android:path="/UbahPasswordNasabah"-->[m
+[31m-<!--                    />-->[m
+[32m+[m[32m                <!-- <data -->[m
+[32m+[m[32m                <!-- android:scheme="https" -->[m
+[32m+[m[32m                <!-- android:host="skripsi.com" -->[m
+[32m+[m[32m                <!-- android:path="/UbahPasswordNasabah" -->[m
+[32m+[m[32m                <!-- /> -->[m
+ [m
+             </intent-filter>[m
+         </activity>[m
+[1mdiff --git a/app/src/main/java/com/example/skripsi/ProfileAsuransi.java b/app/src/main/java/com/example/skripsi/ProfileAsuransi.java[m
+[1mindex 577781c..a3ffe1d 100644[m
+[1m--- a/app/src/main/java/com/example/skripsi/ProfileAsuransi.java[m
+[1m+++ b/app/src/main/java/com/example/skripsi/ProfileAsuransi.java[m
+[36m@@ -25,6 +25,10 @@[m [mimport com.google.firebase.database.DatabaseError;[m
+ import com.google.firebase.database.DatabaseReference;[m
+ import com.google.firebase.database.FirebaseDatabase;[m
+ import com.google.firebase.database.ValueEventListener;[m
+[32m+[m[32mimport android.view.LayoutInflater;[m
+[32m+[m[32mimport android.widget.ImageView;[m
+[32m+[m[32mimport android.widget.LinearLayout;[m
+[32m+[m[32mimport androidx.appcompat.app.AlertDialog;[m
+ [m
+ import java.util.Objects;[m
+ [m
+[36m@@ -143,14 +147,39 @@[m [mpublic class ProfileAsuransi extends AppCompatActivity {[m
+         ubahBahasa.setOnClickListener(new View.OnClickListener() {[m
+             @Override[m
+             public void onClick(View v) {[m
+[31m-                String currentLang = LocaleHelper.getLanguage(ProfileAsuransi.this);[m
+[31m-                String newLang = currentLang.equals("en") ? "id" : "en";[m
+[31m-[m
+[31m-                LocaleHelper.setLocale(ProfileAsuransi.this, newLang);[m
+[31m-                recreate();[m
+[32m+[m[32m                // Inflate popup layout[m
+[32m+[m[32m                View popupView = getLayoutInflater().inflate(R.layout.pop_up_ubah_bahasa, null);[m
+[32m+[m
+[32m+[m[32m                // Create dialog[m
+[32m+[m[32m                androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(ProfileAsuransi.this);[m
+[32m+[m[32m                builder.setView(popupView);[m
+[32m+[m[32m                final androidx.appcompat.app.AlertDialog dialog = builder.create();[m
+[32m+[m[32m                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);[m
+[32m+[m
+[32m+[m[32m                // Bind UI components[m
+[32m+[m[32m                ImageView btnClose = popupView.findViewById(R.id.btnClose);[m
+[32m+[m[32m                LinearLayout btnEnglish = popupView.findViewById(R.id.btnEnglish);[m
+[32m+[m[32m                LinearLayout btnIndo = popupView.findViewById(R.id.btnIndo);[m
+[32m+[m
+[32m+[m[32m                btnClose.setOnClickListener(close -> dialog.dismiss());[m
+[32m+[m
+[32m+[m[32m                btnEnglish.setOnClickListener(lang -> {[m
+[32m+[m[32m                    LocaleHelper.setLocale(ProfileAsuransi.this, "en");[m
+[32m+[m[32m                    recreate();[m
+[32m+[m[32m                    dialog.dismiss();[m
+[32m+[m[32m                });[m
+[32m+[m
+[32m+[m[32m                btnIndo.setOnClickListener(lang -> {[m
+[32m+[m[32m                    LocaleHelper.setLocale(ProfileAsuransi.this, "id");[m
+[32m+[m[32m                    recreate();[m
+[32m+[m[32m                    dialog.dismiss();[m
+[32m+[m[32m                });[m
+[32m+[m
+[32m+[m[32m                dialog.show();[m
+             }[m
+         });[m
+ [m
+[32m+[m
+ //    private void ResetPassword() {[m
+ //        mAuth.sendPasswordResetEmail(Email).addOnSuccessListener(new OnSuccessListener<Void>() {[m
+ //            @Override[m
+[1mdiff --git a/app/src/main/java/com/example/skripsi/ProfileNasabah.java b/app/src/main/java/com/example/skripsi/ProfileNasabah.java[m
+[1mindex 9a50e5e..711a1e2 100644[m
+[1m--- a/app/src/main/java/com/example/skripsi/ProfileNasabah.java[m
+[1m+++ b/app/src/main/java/com/example/skripsi/ProfileNasabah.java[m
+[36m@@ -5,11 +5,15 @@[m [mimport android.content.Intent;[m
+ import android.net.Uri;[m
+ import android.os.Bundle;[m
+ import android.view.View;[m
+[32m+[m[32mimport android.view.LayoutInflater;[m
+ import android.widget.Button;[m
+ import android.widget.TextView;[m
+[32m+[m[32mimport android.widget.ImageView;[m
+[32m+[m[32mimport android.widget.LinearLayout;[m
+ [m
+ import androidx.activity.EdgeToEdge;[m
+ import androidx.appcompat.app.ActionBar;[m
+[32m+[m[32mimport androidx.appcompat.app.AlertDialog;[m
+ import androidx.appcompat.app.AppCompatActivity;[m
+ import androidx.core.graphics.Insets;[m
+ import androidx.core.view.ViewCompat;[m
+[36m@@ -113,11 +117,36 @@[m [mpublic class ProfileNasabah extends AppCompatActivity {[m
+         ubahBahasa.setOnClickListener(new View.OnClickListener() {[m
+             @Override[m
+             public void onClick(View v) {[m
+[31m-                String currentLang = LocaleHelper.getLanguage(ProfileNasabah.this);[m
+[31m-                String newLang = currentLang.equals("en") ? "id" : "en";[m
+[31m-[m
+[31m-                LocaleHelper.setLocale(ProfileNasabah.this, newLang);[m
+[31m-                recreate();[m
+[32m+[m[32m                // Inflate your popup layout[m
+[32m+[m[32m                LayoutInflater inflater = LayoutInflater.from(ProfileNasabah.this);[m
+[32m+[m[32m                View popupView = inflater.inflate(R.layout.pop_up_ubah_bahasa, null);[m
+[32m+[m
+[32m+[m[32m                // Build AlertDialog[m
+[32m+[m[32m                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileNasabah.this);[m
+[32m+[m[32m                builder.setView(popupView);[m
+[32m+[m[32m                AlertDialog dialog = builder.create();[m
+[32m+[m[32m                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);[m
+[32m+[m
+[32m+[m[32m                // Bind UI elements from the popup[m
+[32m+[m[32m                ImageView btnClose = popupView.findViewById(R.id.btnClose);[m
+[32m+[m[32m                LinearLayout btnEnglish = popupView.findViewById(R.id.btnEnglish);[m
+[32m+[m[32m                LinearLayout btnIndo = popupView.findViewById(R.id.btnIndo);[m
+[32m+[m
+[32m+[m[32m                btnClose.setOnClickListener(close -> dialog.dismiss());[m
+[32m+[m
+[32m+[m[32m                btnEnglish.setOnClickListener(lang -> {[m
+[32m+[m[32m                    LocaleHelper.setLocale(ProfileNasabah.this, "en");[m
+[32m+[m[32m                    recreate(); // recreate activity to apply language[m
+[32m+[m[32m                    dialog.dismiss();[m
+[32m+[m[32m                });[m
+[32m+[m
+[32m+[m[32m                btnIndo.setOnClickListener(lang -> {[m
+[32m+[m[32m                    LocaleHelper.setLocale(ProfileNasabah.this, "id");[m
+[32m+[m[32m                    recreate(); // recreate activity to apply language[m
+[32m+[m[32m                    dialog.dismiss();[m
+[32m+[m[32m                });[m
+[32m+[m
+[32m+[m[32m                dialog.show();[m
+             }[m
+         });[m
+ [m
+[1mdiff --git a/app/src/main/java/com/example/skripsi/ui/theme/Color.kt b/app/src/main/java/com/example/skripsi/ui/theme/Color.kt[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0cd3d88[m
+[1m--- /dev/null[m
+[1m+++ b/app/src/main/java/com/example/skripsi/ui/theme/Color.kt[m
+[36m@@ -0,0 +1,11 @@[m
+[32m+[m[32mpackage com.example.skripsi.ui.theme[m
+[32m+[m
+[32m+[m[32mimport androidx.compose.ui.graphics.Color[m
+[32m+[m
+[32m+[m[32mval Purple80 = Color(0xFFD0BCFF)[m
+[32m+[m[32mval PurpleGrey80 = Color(0xFFCCC2DC)[m
+[32m+[m[32mval Pink80 = Color(0xFFEFB8C8)[m
+[32m+[m
+[32m+[m[32mval Purple40 = Color(0xFF6650a4)[m
+[32m+[m[32mval PurpleGrey40 = Color(0xFF625b71)[m
+[32m+[m[32mval Pink40 = Color(0xFF7D5260)[m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/java/com/example/skripsi/ui/theme/Theme.kt b/app/src/main/java/com/example/skripsi/ui/theme/Theme.kt[m
+[1mnew file mode 100644[m
+[1mindex 0000000..4505d04[m
+[1m--- /dev/null[m
+[1m+++ b/app/src/main/java/com/example/skripsi/ui/theme/Theme.kt[m
+[36m@@ -0,0 +1,58 @@[m
+[32m+[m[32mpackage com.example.skripsi.ui.theme[m
+[32m+[m
+[32m+[m[32mimport android.app.Activity[m
+[32m+[m[32mimport android.os.Build[m
+[32m+[m[32mimport androidx.compose.foundation.isSystemInDarkTheme[m
+[32m+[m[32mimport androidx.compose.material3.MaterialTheme[m
+[32m+[m[32mimport androidx.compose.material3.darkColorScheme[m
+[32m+[m[32mimport androidx.compose.material3.dynamicDarkColorScheme[m
+[32m+[m[32mimport androidx.compose.material3.dynamicLightColorScheme[m
+[32m+[m[32mimport androidx.compose.material3.lightColorScheme[m
+[32m+[m[32mimport androidx.compose.runtime.Composable[m
+[32m+[m[32mimport androidx.compose.ui.platform.LocalContext[m
+[32m+[m
+[32m+[m[32mprivate val DarkColorScheme = darkColorScheme([m
+[32m+[m[32m    primary = Purple80,[m
+[32m+[m[32m    secondary = PurpleGrey80,[m
+[32m+[m[32m    tertiary = Pink80[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32mprivate val LightColorScheme = lightColorScheme([m
+[32m+[m[32m    primary = Purple40,[m
+[32m+[m[32m    secondary = PurpleGrey40,[m
+[32m+[m[32m    tertiary = Pink40[m
+[32m+[m
+[32m+[m[32m    /* Other default colors to override[m
+[32m+[m[32m    background = Color(0xFFFFFBFE),[m
+[32m+[m[32m    surface = Color(0xFFFFFBFE),[m
+[32m+[m[32m    onPrimary = Color.White,[m
+[32m+[m[32m    onSecondary = Color.White,[m
+[32m+[m[32m    onTertiary = Color.White,[m
+[32m+[m[32m    onBackground = Color(0xFF1C1B1F),[m
+[32m+[m[32m    onSurface = Color(0xFF1C1B1F),[m
+[32m+[m[32m    */[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32m@Composable[m
+[32m+[m[32mfun SkripsiTheme([m
+[32m+[m[32m    darkTheme: Boolean = isSystemInDarkTheme(),[m
+[32m+[m[32m    // Dynamic color is available on Android 12+[m
+[32m+[m[32m    dynamicColor: Boolean = true,[m
+[32m+[m[32m    content: @Composable () -> Unit[m
+[32m+[m[32m) {[m
+[32m+[m[32m    val colorScheme = when {[m
+[32m+[m[32m        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {[m
+[32m+[m[32m            val context = LocalContext.current[m
+[32m+[m[32m            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        darkTheme -> DarkColorScheme[m
+[32m+[m[32m        else -> LightColorScheme[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    MaterialTheme([m
+[32m+[m[32m        colorScheme = colorScheme,[m
+[32m+[m[32m        typography = Typography,[m
+[32m+[m[32m        content = content[m
+[32m+[m[32m    )[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/java/com/example/skripsi/ui/theme/Type.kt b/app/src/main/java/com/example/skripsi/ui/theme/Type.kt[m
+[1mnew file mode 100644[m
+[1mindex 0000000..42a6ab8[m
+[1m--- /dev/null[m
+[1m+++ b/app/src/main/java/com/example/skripsi/ui/theme/Type.kt[m
+[36m@@ -0,0 +1,34 @@[m
+[32m+[m[32mpackage com.example.skripsi.ui.theme[m
+[32m+[m
+[32m+[m[32mimport androidx.compose.material3.Typography[m
+[32m+[m[32mimport androidx.compose.ui.text.TextStyle[m
+[32m+[m[32mimport androidx.compose.ui.text.font.FontFamily[m
+[32m+[m[32mimport androidx.compose.ui.text.font.FontWeight[m
+[32m+[m[32mimport androidx.compose.ui.unit.sp[m
+[32m+[m
+[32m+[m[32m// Set of Material typography styles to start with[m
+[32m+[m[32mval Typography = Typography([m
+[32m+[m[32m    bodyLarge = TextStyle([m
+[32m+[m[32m        fontFamily = FontFamily.Default,[m
+[32m+[m[32m        fontWeight = FontWeight.Normal,[m
+[32m+[m[32m        fontSize = 16.sp,[m
+[32m+[m[32m        lineHeight = 24.sp,[m
+[32m+[m[32m        letterSpacing = 0.5.sp[m
+[32m+[m[32m    )[m
+[32m+[m[32m    /* Other default text styles to override[m
+[32m+[m[32m    titleLarge = TextStyle([m
+[32m+[m[32m        fontFamily = FontFamily.Default,[m
+[32m+[m[32m        fontWeight = FontWeight.Normal,[m
+[32m+[m[32m        fontSize = 22.sp,[m
+[32m+[m[32m        lineHeight = 28.sp,[m
+[32m+[m[32m        letterSpacing = 0.sp[m
+[32m+[m[32m    ),[m
+[32m+[m[32m    labelSmall = TextStyle([m
+[32m+[m[32m        fontFamily = FontFamily.Default,[m
+[32m+[m[32m        fontWeight = FontWeight.Medium,[m
+[32m+[m[32m        fontSize = 11.sp,[m
+[32m+[m[32m        lineHeight = 16.sp,[m
+[32m+[m[32m        letterSpacing = 0.5.sp[m
+[32m+[m[32m    )[m
+[32m+[m[32m    */[m
+[32m+[m[32m)[m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/res/drawable/close.png b/app/src/main/res/drawable/close.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b522688[m
+Binary files /dev/null and b/app/src/main/res/drawable/close.png differ
+[1mdiff --git a/app/src/main/res/drawable/indonesia.png b/app/src/main/res/drawable/indonesia.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d5514cd[m
+Binary files /dev/null and b/app/src/main/res/drawable/indonesia.png differ
+[1mdiff --git a/app/src/main/res/drawable/rounded_box_dark.xml b/app/src/main/res/drawable/rounded_box_dark.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..472a0fa[m
+[1m--- /dev/null[m
+[1m+++ b/app/src/main/res/drawable/rounded_box_dark.xml[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<shape xmlns:android="http://schemas.android.com/apk/res/android"[m
+[32m+[m[32m    android:shape="rectangle">[m
+[32m+[m[32m    <solid android:color="#27374d" /> <corners android:radius="12dp" /> </shape>[m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/res/drawable/uk.png b/app/src/main/res/drawable/uk.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6af4057[m
+Binary files /dev/null and b/app/src/main/res/drawable/uk.png differ
+[1mdiff --git a/app/src/main/res/layout/activity_profile_asuransi.xml b/app/src/main/res/layout/activity_profile_asuransi.xml[m
+[1mindex 8f5c0be..c747f92 100644[m
+[1m--- a/app/src/main/res/layout/activity_profile_asuransi.xml[m
+[1m+++ b/app/src/main/res/layout/activity_profile_asuransi.xml[m
+[36m@@ -193,6 +193,7 @@[m
+ [m
+ <!--    Ubah Bahasa -->[m
+         <TextView[m
+[32m+[m[32m            android:id="@+id/ubahBahasa"[m
+             android:layout_width="match_parent"[m
+             android:layout_height="wrap_content"[m
+             android:text="@string/ubah_bahasa"[m
+[36m@@ -200,8 +201,8 @@[m
+             android:textSize="17dp"[m
+             android:paddingHorizontal="30dp"[m
+             android:paddingVertical="5dp"[m
+[31m-            android:id="@+id/ubahBahasa"[m
+[31m-            />[m
+[32m+[m[32m            android:clickable="true"[m
+[32m+[m[32m            android:focusable="true" />[m
+ [m
+ <!--    FAQ -->[m
+         <TextView[m
+[1mdiff --git a/app/src/main/res/layout/activity_profile_nasabah.xml b/app/src/main/res/layout/activity_profile_nasabah.xml[m
+[1mindex c55c68a..2a20b38 100644[m

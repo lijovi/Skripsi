@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:text="MASUKKAN BESAR PREMI"
+        android:text="@string/masukkan_besar_premi"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"

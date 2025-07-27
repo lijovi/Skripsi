@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:text="MASUKKAN NOMOR POLIS"
+        android:text="@string/masukkan_nomor_polis"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"

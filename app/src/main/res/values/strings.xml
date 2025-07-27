@@ -89,4 +89,11 @@
     <string name="jenis_polis">Jenis Polis</string>
     <string name="plan_asuransi">Plan Asuransi</string>
     <string name="masa_perjalanan">Masa Perjalanan</string>
+    <string name="title_activity_pop_up_ubah_bahasa">pop_up_ubah_bahasa</string>
+    <string name="masukkan_besar_premi">MASUKKAN BESAR PREMI</string>
+    <string name="masukkan_nomor_polis">MASUKKAN NOMOR POLIS</string>
+    <string name="silakan_masukan_password_anda">Silakan Masukan Password Anda</string>
+    <string name="lupa_password">Lupa Password?</string>
+    <string name="klik_disini">Klik Disini</string>
+    <string name="ubah_bahasa_popup">UBAH BAHASA</string>
 </resources>

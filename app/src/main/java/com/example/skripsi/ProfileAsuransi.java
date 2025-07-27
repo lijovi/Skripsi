@@ -25,6 +25,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import android.view.LayoutInflater;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.appcompat.app.AlertDialog;
 
 import java.util.Objects;
 
@@ -143,13 +147,38 @@ public class ProfileAsuransi extends AppCompatActivity {
         ubahBahasa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String currentLang = LocaleHelper.getLanguage(ProfileAsuransi.this);
-                String newLang = currentLang.equals("en") ? "id" : "en";
+                // Inflate popup layout
+                View popupView = getLayoutInflater().inflate(R.layout.pop_up_ubah_bahasa, null);
 
-                LocaleHelper.setLocale(ProfileAsuransi.this, newLang);
-                recreate();
+                // Create dialog
+                androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(ProfileAsuransi.this);
+                builder.setView(popupView);
+                final androidx.appcompat.app.AlertDialog dialog = builder.create();
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                // Bind UI components
+                ImageView btnClose = popupView.findViewById(R.id.btnClose);
+                LinearLayout btnEnglish = popupView.findViewById(R.id.btnEnglish);
+                LinearLayout btnIndo = popupView.findViewById(R.id.btnIndo);
+
+                btnClose.setOnClickListener(close -> dialog.dismiss());
+
+                btnEnglish.setOnClickListener(lang -> {
+                    LocaleHelper.setLocale(ProfileAsuransi.this, "en");
+                    recreate();
+                    dialog.dismiss();
+                });
+
+                btnIndo.setOnClickListener(lang -> {
+                    LocaleHelper.setLocale(ProfileAsuransi.this, "id");
+                    recreate();
+                    dialog.dismiss();
+                });
+
+                dialog.show();
             }
         });
+
 
 //    private void ResetPassword() {
 //        mAuth.sendPasswordResetEmail(Email).addOnSuccessListener(new OnSuccessListener<Void>() {
