@@ -56,6 +56,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
 //    LocalTime currentTime;
 //    String date;
     Calendar calendar;
+    int limit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -286,6 +287,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         String TujuanPerjalanan = tujuanPerjalanan.getText().toString();
         String PlanAsuransi = pilihanPlan.toString();
         int Perusahaan = perusahaan;
+        int Limit = limit;
 //        String Time = currentTime.toString();
 //        String Date = date;
         String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
@@ -301,12 +303,12 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
 
         if (Objects.equals(JenisPolis, "Family")){
             NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Travel",
-                    Perusahaan, currenttime, currentdate, JenisPolis, NamaKeluarga, PlanAsuransi, MasaPerjalanan, LamaPerjalanan, TipePolis,
+                    Perusahaan, currenttime, currentdate, Limit, JenisPolis, NamaKeluarga, PlanAsuransi, MasaPerjalanan, LamaPerjalanan, TipePolis,
                     NamaAhliWaris, HubunganDenganAhliWaris, NegaraTujuan, TujuanPerjalanan);
             reference.child(NIK).setValue(nasabah);
         } else {
             NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Travel",
-                    Perusahaan, currenttime, currentdate, JenisPolis, null, PlanAsuransi, MasaPerjalanan, LamaPerjalanan, TipePolis,
+                    Perusahaan, currenttime, currentdate, Limit, JenisPolis, null, PlanAsuransi, MasaPerjalanan, LamaPerjalanan, TipePolis,
                     NamaAhliWaris, HubunganDenganAhliWaris, NegaraTujuan, TujuanPerjalanan);
             reference.child(NIK).setValue(nasabah);
         }
@@ -319,6 +321,15 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String choice = parent.getItemAtPosition(position).toString();
         pilihanPlan = choice;
+        if (Objects.equals(pilihanPlan, "VIP")){
+
+        } else if (Objects.equals(pilihanPlan, "Executive")) {
+
+        } else if (Objects.equals(pilihanPlan, "Deluxe")){
+
+        } else if (Objects.equals(pilihanPlan, "Superior")) {
+
+        }
     }
 
     @Override

@@ -23,10 +23,11 @@
             android:background="#9DB2BF"
             >
 
-            <androidx.appcompat.widget.AppCompatButton
+            <ImageView
                 android:layout_width="66dp"
                 android:layout_height="66dp"
                 android:background="@drawable/profile"
+                android:id="@+id/profile"
                 />
 
             <LinearLayout

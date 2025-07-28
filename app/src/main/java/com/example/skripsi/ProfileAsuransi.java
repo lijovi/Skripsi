@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +34,8 @@ public class ProfileAsuransi extends AppCompatActivity {
     Button btnHome, btnBack;
     TextView namaPerusahaan, username, email, virtualAccount, ubahPassword, ubahBahasa, FAQ, syaratDanKetentuan, keluar;
     FirebaseAuth mAuth;
-    String Username, Nama, Email, VirtualAccount;
+    String Username, Nama, Email, VirtualAccount, ProfilePicture;
+    ImageButton profile;
 //    FirebaseAuth auth = FirebaseAuth.getInstance();
 //    String uid = auth.getCurrentUser().getUid().toString();
 //    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("company");
@@ -64,6 +66,7 @@ public class ProfileAsuransi extends AppCompatActivity {
         email = findViewById(R.id.email);
         virtualAccount = findViewById(R.id.virtualAccount);
         btnBack = findViewById(R.id.btnBack);
+        profile = findViewById(R.id.profile);
 
         ubahPassword = findViewById(R.id.ubahPassword);
         ubahBahasa = findViewById(R.id.ubahBahasa);

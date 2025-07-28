@@ -54,10 +54,11 @@
             android:gravity="center"
             >
 
-            <androidx.appcompat.widget.AppCompatButton
+            <ImageButton
                 android:layout_width="66dp"
                 android:layout_height="66dp"
                 android:background="@drawable/profile"
+                android:id="@+id/profile"
                 />
 
             <LinearLayout

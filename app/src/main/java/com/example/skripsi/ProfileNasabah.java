@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -21,6 +23,7 @@ public class ProfileNasabah extends AppCompatActivity {
 
     TextView nama, email, noTelp, keluar, syaratDanKetentuan, FAQ, ubahBahasa, ubahPassword;
     Button btnHome, btnInfo, btnNotifikasi;
+    ImageView profile;
 //    FirebaseAuth mAuth;
 
     // buat ubah bahasa locale
@@ -47,6 +50,7 @@ public class ProfileNasabah extends AppCompatActivity {
         keluar = findViewById(R.id.keluar);
         ubahPassword = findViewById(R.id.ubahPassword);
         ubahBahasa = findViewById(R.id.ubahBahasa);
+        profile = findViewById(R.id.profile);
 
         btnHome = findViewById(R.id.btnHome);
         btnInfo = findViewById(R.id.btnInfo);
