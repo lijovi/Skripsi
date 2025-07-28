@@ -4,13 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -18,6 +21,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class ProfileNasabah extends AppCompatActivity {
 
@@ -25,6 +32,11 @@ public class ProfileNasabah extends AppCompatActivity {
     Button btnHome, btnInfo, btnNotifikasi;
     ImageView profile;
 //    FirebaseAuth mAuth;
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("company");
+    FirebaseStorage storage;
+    StorageReference storageRef;
+    int PICK_IMAGE_REQUEST = 100;
+    String NIK;
 
     // buat ubah bahasa locale
     @Override
@@ -59,6 +71,7 @@ public class ProfileNasabah extends AppCompatActivity {
         String Nama = ClientSession.getInstance().getNama();
         String Email = ClientSession.getInstance().getEmail();
         String NoTelp = ClientSession.getInstance().getNoTelp();
+        NIK = ClientSession.getInstance().getNik();
 
         nama.setText(Nama);
         email.setText(Email);
@@ -124,6 +137,35 @@ public class ProfileNasabah extends AppCompatActivity {
                 recreate();
             }
         });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+            Uri imageUri = data.getData();
+            profile.setImageURI(imageUri);
+
+            StorageReference fileRef = storageRef.child(NIK + ".jpg");
+
+            fileRef.putFile(imageUri).addOnSuccessListener(taskSnapshot -> {
+                fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                    String downloadurl = uri.toString();
+
+                    reference.child(String.valueOf(NIK)).setValue(downloadurl).addOnSuccessListener(aVoid -> {
+                        Toast.makeText(this, "Profile picture has been changed", Toast.LENGTH_SHORT).show();
+                    });
+                });
+            });
+        }
 
     }
 }
