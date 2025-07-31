@@ -63,6 +63,7 @@ public class ProfileNasabah extends AppCompatActivity {
         ubahPassword = findViewById(R.id.ubahPassword);
         ubahBahasa = findViewById(R.id.ubahBahasa);
         profile = findViewById(R.id.profile);
+        FAQ = findViewById(R.id.FAQ);
 
         btnHome = findViewById(R.id.btnHome);
         btnInfo = findViewById(R.id.btnInfo);
@@ -142,6 +143,14 @@ public class ProfileNasabah extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivity(intent);
+            }
+        });
+
+        FAQ.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), com.example.skripsi.FAQ.class);
                 startActivity(intent);
             }
         });

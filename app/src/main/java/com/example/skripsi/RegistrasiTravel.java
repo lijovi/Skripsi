@@ -322,13 +322,13 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         String choice = parent.getItemAtPosition(position).toString();
         pilihanPlan = choice;
         if (Objects.equals(pilihanPlan, "VIP")){
-
+            limit = 100000000;
         } else if (Objects.equals(pilihanPlan, "Executive")) {
-
+            limit = 70000000;
         } else if (Objects.equals(pilihanPlan, "Deluxe")){
-
+            limit = 50000000;
         } else if (Objects.equals(pilihanPlan, "Superior")) {
-
+            limit = 30000000;
         }
     }
 
