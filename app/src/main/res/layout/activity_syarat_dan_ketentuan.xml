@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SyaratDanKetentuan"
+    android:orientation="vertical"
+    android:background="#DDE6ED">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:background="@drawable/back_hitam"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/btnBack"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="SYARAT DAN KETENTUAN"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:padding="20dp"
+            android:layout_marginRight="15dp"
+            />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="15dp"
+            >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dengan mengunduh dan menggunakan aplikasi ini, Anda setuju untuk mematuhi syarat dan ketentuan berikut:"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="15dp"
+        android:paddingVertical="10dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pendaftaran dan Akun"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="15dp"
+        android:paddingVertical="5dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" - Pengguna wajib memberikan data yang benar, akurat, dan terkini saat melakukan pendaftaran.\n
+- Pengguna bertanggung jawab menjaga kerahasiaan akun dan kata sandi mereka."
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="15dp"
+        android:paddingVertical="5dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Penggunaan Aplikasi"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="15dp"
+        android:paddingVertical="5dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" - Aplikasi ini hanya dapat digunakan sesuai dengan ketentuan yang berlaku dan tidak untuk tujuan yang melanggar hukum.\n
+- Setiap bentuk penyalahgunaan aplikasi akan mengakibatkan penghentian akses secara sepihak."
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="15dp"
+        android:paddingVertical="5dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Informasi Polis dan Layanan"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="15dp"
+        android:paddingVertical="5dp"
+        android:textStyle="bold"
+        />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:paddingVertical="5dp"
+                android:text=" - Informasi yang ditampilkan pada aplikasi mengacu pada data polis asuransi yang tercatat di sistem perusahaan.\n
+- Perusahaan berhak memperbarui atau mengubah informasi layanan tanpa pemberitahuan sebelumnya."
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Klaim dan Pembayaran"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="15dp"
+        android:paddingVertical="5dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" - Semua klaim dan pembayaran premi dilakukan sesuai prosedur yang tercantum dalam polis asuransi masing-masing.\n
+-  Perusahaan berhak menolak klaim yang tidak memenuhi persyaratan."
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="15dp"
+        android:paddingVertical="5dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Privasi dan Keamanan Data"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="15dp"
+        android:paddingVertical="5dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" - Perusahaan berkomitmen untuk melindungi data pribadi pengguna sesuai dengan peraturan yang berlaku.\n
+-  Data pengguna tidak akan dibagikan kepada pihak ketiga tanpa persetujuan pengguna, kecuali diwajibkan oleh hukum."
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="15dp"
+        android:paddingVertical="5dp"
+        />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

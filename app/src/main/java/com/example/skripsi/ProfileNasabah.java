@@ -64,6 +64,7 @@ public class ProfileNasabah extends AppCompatActivity {
         ubahBahasa = findViewById(R.id.ubahBahasa);
         profile = findViewById(R.id.profile);
         FAQ = findViewById(R.id.FAQ);
+        syaratDanKetentuan = findViewById(R.id.syaratDanKetentuan);
 
         btnHome = findViewById(R.id.btnHome);
         btnInfo = findViewById(R.id.btnInfo);
@@ -150,7 +151,15 @@ public class ProfileNasabah extends AppCompatActivity {
         FAQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), com.example.skripsi.FAQ.class);
+                Intent intent = new Intent(getApplicationContext(), FAQ.class);
+                startActivity(intent);
+            }
+        });
+
+        syaratDanKetentuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SyaratDanKetentuan.class);
                 startActivity(intent);
             }
         });
