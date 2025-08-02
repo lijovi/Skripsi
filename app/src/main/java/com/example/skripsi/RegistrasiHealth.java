@@ -40,6 +40,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
 public class RegistrasiHealth extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -52,7 +53,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     Spinner plan;
     String pilihanPlan;
     TextView riwayatPenyakit;
-    String perusahaan;
+    int perusahaan;
     AlertDialog.Builder dialog;
     LayoutInflater inflater;
     View dialogView;
@@ -63,6 +64,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
 //    LocalTime currentTime;
 //    String date;
     Calendar calendar;
+    int limit;
 
 
     @Override
@@ -199,7 +201,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         });
 
 //        perusahaan = Integer.parseInt(getIntent().getStringExtra("tipePerusahaan"));
-        perusahaan = getIntent().getStringExtra("tipePerusahaan");
+        perusahaan = getIntent().getIntExtra("tipePerusahaan",0);
 
         bod.setOnClickListener(view-> {
                     final Calendar calendar = Calendar.getInstance();
@@ -338,7 +340,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         String NamaAhliWaris = namaAhliWaris.getText().toString();
         String HubunganDenganAhliWaris = hubunganDenganAhliWaris.getText().toString();
         String JenisKelamin = selectedGender.getText().toString();
-        String Perusahaan = perusahaan;
+        int Perusahaan = perusahaan;
         String PilihanPlan = pilihanPlan.toString();
         ArrayList<String> List = list;
 
@@ -350,9 +352,10 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         String year = String.valueOf(calendar.get(Calendar.YEAR));
         String currenttime = hour + " : " + minute + " : " + second;
         String currentdate = day + " - " + month + " - " + year;
+        int Limit = limit;
 
         NasabahHealth nasabah = new NasabahHealth(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Health",
-                Perusahaan, currenttime, currentdate, BodText, Pekerjaan, PeriodePertanggungan, PilihanPlan, NamaAhliWaris, HubunganDenganAhliWaris, List);
+                Perusahaan, currenttime, currentdate, Limit, BodText, Pekerjaan, PeriodePertanggungan, PilihanPlan, NamaAhliWaris, HubunganDenganAhliWaris, List);
 //        dataref.push().setValue(nasabah);
         reference.child(NIK).setValue(nasabah);
         Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();
@@ -362,6 +365,15 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String choice = parent.getItemAtPosition(position).toString();
         pilihanPlan = choice;
+        if (Objects.equals(pilihanPlan, "RI 300")){
+            limit = 10000000;
+        } else if (Objects.equals(pilihanPlan, "RI 500")) {
+            limit = 30000000;
+        } else if (Objects.equals(pilihanPlan, "RI 750")){
+            limit = 50000000;
+        } else if (Objects.equals(pilihanPlan, "RI 1000")) {
+            limit = 8000000;
+        }
     }
 
     @Override

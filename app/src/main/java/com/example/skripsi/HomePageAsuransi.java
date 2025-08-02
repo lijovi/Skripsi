@@ -59,6 +59,7 @@ public class HomePageAsuransi extends AppCompatActivity {
         });
 
         String company = CompanySession.getInstance().getNama();
+        int id = CompanySession.getInstance().getId();
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("clientSementara");
@@ -78,12 +79,12 @@ public class HomePageAsuransi extends AppCompatActivity {
                 Log.d("FIREBASE_DEBUG", "Total items fetched: " + count);
                 listNasabah.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    if (Objects.equals(company, dataSnapshot.child("company").getValue(String.class))) {
+                    if (Objects.equals(id, dataSnapshot.child("company").getValue(int.class))) {
                         String nama = dataSnapshot.child("name").getValue(String.class);
                         String jenisAsuransi = dataSnapshot.child("jenisAsuransi").getValue(String.class);
                         String time = dataSnapshot.child("time").getValue(String.class);
                         String nik = dataSnapshot.child("nik").getValue(String.class);
-                        String company = dataSnapshot.child("company").getValue(String.class);
+                        int company = dataSnapshot.child("company").getValue(int.class);
 
                         Nasabah nasabah = new Nasabah();
                         nasabah.setName(nama);

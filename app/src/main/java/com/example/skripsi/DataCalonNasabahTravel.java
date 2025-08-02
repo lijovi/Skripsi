@@ -41,7 +41,8 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
     LayoutInflater inflater;
     View dialogView;
     TextInputLayout nomorPolis, besarPremi;
-    String NIK, BesarPremi, NomorPolis, Company;
+    String NIK, BesarPremi, NomorPolis;
+    int Company;
     Calendar calendar, calendarJ;
 
     // buat ubah bahasa locale
@@ -63,10 +64,10 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
         });
 
         NIK = getIntent().getStringExtra("nik");
-        Company = getIntent().getStringExtra("company");
+        Company = getIntent().getIntExtra("company",0);
 
         if (NIK != null) {
-            Log.d("INTENT", "Received NIK: " + nik);
+            Log.d("INTENT", "Received NIK: " + Company);
         } else {
             Log.e("INTENT", "NIK is null");
         }
@@ -80,6 +81,7 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("clientSementara").child(NIK);
         referenceTransaksi = database.getReference("transaksi").child(NIK);
+        referenceNasabah = database.getReference("client").child(NIK);
         calendar = Calendar.getInstance();
         calendarJ = Calendar.getInstance();
         calendarJ.add(Calendar.DAY_OF_MONTH, 7);

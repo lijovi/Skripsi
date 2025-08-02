@@ -11,11 +11,12 @@ public class Nasabah implements Serializable {
     String address;
     String password;
     String jenisAsuransi;
-    String company;
+    int company;
     String time;
     String date;
+    int limit;
 
-    public Nasabah(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, String company, String time, String date) {
+    public Nasabah(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, int company, String time, String date, int limit) {
         this.nik = nik;
         this.name = name;
         this.email = email;
@@ -27,10 +28,19 @@ public class Nasabah implements Serializable {
         this.company = company;
         this.time = time;
         this.date = date;
+        this.limit = limit;
     }
 
     public Nasabah() {
 
+    }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
     }
 
     public String getDate() {
@@ -85,7 +95,7 @@ public class Nasabah implements Serializable {
         return password;
     }
 
-    public String getCompany() {
+    public int getCompany() {
         return company;
     }
 
@@ -117,7 +127,7 @@ public class Nasabah implements Serializable {
         this.password = password;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(int company) {
         this.company = company;
     }
 }

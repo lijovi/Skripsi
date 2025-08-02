@@ -26,8 +26,8 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
 //    String selectedTipe;
     RadioButton tipe;
     Button btnLanjut;
-    String pilihan;
-
+//    String pilihan;
+    int pilihan;
     // buat ubah bahasa locale
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -84,8 +84,9 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
 //        String choice = parent.getItemAtPosition(position).toString();
 //        Toast.makeText(getApplicationContext(), choice, Toast.LENGTH_SHORT).show();
 //        pilihan = choice;
-        String choice = parent.getItemAtPosition(position).toString();
-        pilihan = choice;
+//        String choice = parent.getItemAtPosition(position).toString();
+//        pilihan = choice;
+        pilihan = position+1;
     }
 
     @Override

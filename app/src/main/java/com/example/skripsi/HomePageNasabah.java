@@ -85,6 +85,7 @@ public class HomePageNasabah extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ClientSession.getInstance().setCompany(ClientSession.getInstance().getCompany());
+                ClientSession.getInstance().setNik(ClientSession.getInstance().getNik());
                 Intent intent = new Intent(getApplicationContext(), Pembayaran.class);
                 startActivity(intent);
             }

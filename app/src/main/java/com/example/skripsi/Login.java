@@ -174,7 +174,7 @@ public class Login extends AppCompatActivity {
                     String NoTelp = snapshot.child(NIK).child("phoneNumber").getValue(String.class);
                     String Gender = snapshot.child(NIK).child("gender").getValue(String.class);
                     String Password = snapshot.child(NIK).child("password").getValue(String.class);
-                    String Company = snapshot.child(NIK).child("company").getValue(String.class);
+                    int Company = snapshot.child(NIK).child("company").getValue(int.class);
                     if (Objects.equals(NameFromDB, Nama)){
                         nik.setError(null);
                         Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);

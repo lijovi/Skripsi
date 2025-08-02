@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -30,6 +31,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
     LayoutInflater inflater;
     View dialogView;
     TextInputLayout password;
+    ScrollView content;
 
     // buat ubah bahasa locale
     @Override
@@ -55,6 +57,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         btnProfile = findViewById(R.id.btnProfile);
         limitHealth = findViewById(R.id.limitHealth);
         limitTravel = findViewById(R.id.limitTravel);
+        content = findViewById(R.id.insuranceContent);
 
         LimitHealth = ClientSession.getInstance().getLimitHealth();
         LimitTravel = ClientSession.getInstance().getLimitTravel();
@@ -113,6 +116,8 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
 
                 if (Objects.equals(Password, cekPassword)){
                     alertDialog.dismiss();
+                    content.setVisibility(View.VISIBLE);
+
                 } else {
                     password.setError("Wrong Password");
                 }

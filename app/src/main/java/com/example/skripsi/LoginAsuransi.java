@@ -3,6 +3,7 @@ package com.example.skripsi;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,7 +36,7 @@ public class LoginAsuransi extends AppCompatActivity {
     TextView masukNasabah;
     DatabaseReference reference;
     Asuransi asuransi;
-
+    int temp;
     // buat ubah bahasa locale
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -61,9 +62,9 @@ public class LoginAsuransi extends AppCompatActivity {
 //        String newusername1 = "aca";
 //        String newusername2 = "etiqa";
 //        String newusername3 = "china_taiping";
-//        reference.child(newusername1).setValue(asuransi);
-//        reference.child(newusername2).setValue(asuransi2);
-//        reference.child(newusername3).setValue(asuransi3);
+//        reference.child(String.valueOf(1)).setValue(asuransi);
+//        reference.child(String.valueOf(2)).setValue(asuransi2);
+//        reference.child(String.valueOf(3)).setValue(asuransi3);
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
@@ -125,18 +126,27 @@ public class LoginAsuransi extends AppCompatActivity {
         String Username = username.getEditText().getText().toString().trim();
         String Password = password.getEditText().getText().toString().trim();
 
+        if (Objects.equals(Username,"aca")){
+            temp = 1;
+        } else if (Objects.equals(Username, "etiqa")) {
+            temp = 2;
+        } else if (Objects.equals(Username, "china_taiping")) {
+            temp = 3;
+        }
+
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("company");
-        Query checkData = database.orderByChild("companyUsername").equalTo(Username);
+        Query checkData = database.orderByChild("companyId").equalTo(temp);
 
         checkData.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     username.setError(null);
-                    String PasswordFromDB = snapshot.child(Username).child("companyPassword").getValue(String.class);
-                    String Email = snapshot.child(Username).child("companyEmail").getValue(String.class);
-                    String Name = snapshot.child(Username).child("companyName").getValue(String.class);
-                    String VirtualAccount = snapshot.child(Username).child("companyVirtualAccount").getValue(String.class);
+                    Log.d("INTENT", "Received NIK: " + temp);
+                    String PasswordFromDB = snapshot.child(String.valueOf(temp)).child("companyPassword").getValue(String.class);
+                    String Email = snapshot.child(String.valueOf(temp)).child("companyEmail").getValue(String.class);
+                    String Name = snapshot.child(String.valueOf(temp)).child("companyName").getValue(String.class);
+                    String VirtualAccount = snapshot.child(String.valueOf(temp)).child("companyVirtualAccount").getValue(String.class);
                     if (Objects.equals(PasswordFromDB, Password)){
                         username.setError(null);
                         Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
@@ -145,6 +155,7 @@ public class LoginAsuransi extends AppCompatActivity {
                         CompanySession.getInstance().setUsername(Username);
                         CompanySession.getInstance().setVirtualAccount(VirtualAccount);
                         CompanySession.getInstance().setPassword(Password);
+                        CompanySession.getInstance().setId(temp);
                         startActivity(intent);
                     } else {
                         password.setError("Incorrect Password");

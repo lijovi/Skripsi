@@ -43,7 +43,8 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
     LayoutInflater inflater;
     View dialogView;
     TextInputLayout nomorPolis, besarPremi;
-    String NIK, BesarPremi, NomorPolis, Company;
+    String NIK, BesarPremi, NomorPolis;
+    int Company;
     Calendar calendar, calendarJ;
 
     // buat ubah bahasa locale
@@ -67,7 +68,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
         });
 
         NIK = getIntent().getStringExtra("nik");
-        Company = getIntent().getStringExtra("company");
+        Company = getIntent().getIntExtra("company",0);
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("clientSementara").child(NIK);

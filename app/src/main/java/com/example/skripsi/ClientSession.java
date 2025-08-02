@@ -20,13 +20,13 @@ public class ClientSession {
     private String planHealth;
     private String pekerjaan;
     private String periodePertanggunganHealth;
-    private String company;
+    private int company;
 
-    public String getCompany() {
+    public int getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(int company) {
         this.company = company;
     }
 

@@ -2,10 +2,10 @@ package com.example.skripsi;
 
 public class NasabahTravel extends Nasabah{
     public NasabahTravel(String nik, String name, String email, String gender, String phoneNumber, String address,
-                         String password, String jenisAsuransi, String company, String time, String date, String jenisPolis, String namaKeluarga, String planAsuransi,
+                         String password, String jenisAsuransi, int company, String time, String date, int limit, String jenisPolis, String namaKeluarga, String planAsuransi,
                          String masaPerjalanan, String lamaPerjalanan, String tipePolis, String namaAhliWaris, String hubunganDenganAhliWaris,
                          String negaraTujuan, String tujuanPerjalanan) {
-        super(nik, name, email, gender, phoneNumber, address, password, jenisAsuransi, company, time, date);
+        super(nik, name, email, gender, phoneNumber, address, password, jenisAsuransi, company, time, date, limit);
         this.jenisPolis = jenisPolis;
         this.namaKeluarga = namaKeluarga;
         this.planAsuransi = planAsuransi;
