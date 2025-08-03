@@ -108,4 +108,73 @@
     <string name="lupa_password">Forgot Password?</string>
     <string name="klik_disini">Click Here</string>
     <string name="ubah_bahasa_popup">CHANGE LANGUAGE</string>
+    <string name="lupa_password_klik_disini">Forgot Password? Click Here</string>
+    <string name="silakan_masukkan_password_anda">Please enter your password</string>
+    <string name="ok">OK</string>
+    <string name="syarat_dan_ketentuan_title">TERMS AND CONDITIONS</string>
+    <string name="dengan_mengunduh_dan_menggunakan_aplikasi_ini_anda_setuju_untuk_mematuhi_syarat_dan_ketentuan_berikut">
+        By downloading and using this app, you agree to comply with the following terms and conditions:
+    </string>
+    <string name="pendaftaran_dan_akun">Registration and Account</string>
+    <string name="pengguna_wajib_memberikan_data_yang_benar_akurat_dan_terkini_saat_melakukan_pendaftaran_n_pengguna_bertanggung_jawab_menjaga_kerahasiaan_akun_dan_kata_sandi_mereka">
+        - Users must provide true, accurate, and up-to-date information during registration.\n - Users are responsible for keeping their account and password confidential.
+    </string>
+    <string name="aplikasi_ini_hanya_dapat_digunakan_sesuai_dengan_ketentuan_yang_berlaku_dan_tidak_untuk_tujuan_yang_melanggar_hukum_n_setiap_bentuk_penyalahgunaan_aplikasi_akan_mengakibatkan_penghentian_akses_secara_sepihak">
+        - This application can only be used according to the applicable terms and not for unlawful purposes.\n - Any misuse of the application will result in unilateral access termination.
+    </string>
+    <string name="informasi_polis_dan_layanan">Policy Information and Services</string>
+    <string name="informasi_yang_ditampilkan_pada_aplikasi_mengacu_pada_data_polis_asuransi_yang_tercatat_di_sistem_perusahaan_n_perusahaan_berhak_memperbarui_atau_mengubah_informasi_layanan_tanpa_pemberitahuan_sebelumnya">
+        - The information displayed in the app refers to the insurance policy data recorded in the company system.\n - The company reserves the right to update or change service information without prior notice.
+    </string>
+    <string name="klaim_dan_pembayaran">Claims and Payments</string>
+    <string name="semua_klaim_dan_pembayaran_premi_dilakukan_sesuai_prosedur_yang_tercantum_dalam_polis_asuransi_masing_masing_n_perusahaan_berhak_menolak_klaim_yang_tidak_memenuhi_persyaratan">
+        - All claims and premium payments are carried out according to the procedures stated in each insurance policy.\n - The company has the right to reject claims that do not meet the requirements.
+    </string>
+    <string name="privasi_dan_keamanan_data">Privacy and Data Security</string>
+    <string name="perusahaan_berkomitmen_untuk_melindungi_data_pribadi_pengguna_sesuai_dengan_peraturan_yang_berlaku_n_data_pengguna_tidak_akan_dibagikan_kepada_pihak_ketiga_tanpa_persetujuan_pengguna_kecuali_diwajibkan_oleh_hukum">
+        - The company is committed to protecting users' personal data in accordance with applicable regulations.\n - User data will not be shared with third parties without user consent, except as required by law.
+    </string>
+    <string name="frequently_asked_questions">FREQUENTLY ASKED QUESTIONS</string>
+    <string name="bagaimana_mencari_rumah_sakit_rekanan_melalui_aplikasi">
+        How to search for partner hospitals through the app?
+    </string>
+    <string name="daftar_rumah_sakit_rekanan_dapat_ditemukan_pada_menu_utama">
+        The list of partner hospitals can be found in the main menu
+    </string>
+    <string name="bagaimana_cara_melihat_detail_polis_saya_di_aplikasi">
+        How can I see my policy details in the app?
+    </string>
+    <string name="pengguna_dapat_membuka_halaman_informasi_asuransi_dengan_menginput_password_terlebih_dahulu">
+        Users can open the Insurance Information page by entering their password first
+    </string>
+    <string name="apa_yang_harus_dilakukan_jika_lupa_password">
+        What should I do if I forgot my password?
+    </string>
+    <string name="pengguna_dapat_melakukan_perubahan_password_melalui_dua_cara_n_klik_tombol_lupa_password_di_halaman_login_n_klik_ubah_password_di_halaman_profile">
+        Users can change their password in two ways: \n- Click the Forgot Password button on the login page \n- Click Change Password on the profile page
+    </string>
+    <string name="apa_yang_dimaksud_dengan_limit_asuransi">
+        What is meant by insurance limit?
+    </string>
+    <string name="limit_asuransi_adalah_batas_maksimal_biaya_yang_ditanggung_oleh_perusahaan_asuransi_sesuai_dengan_ketentuan_pada_polis">
+        Insurance limit is the maximum cost covered by the insurance company according to the policy provisions
+    </string>
+    <string name="apakah_saya_bisa_mengajukan_perubahan_data_polis_melalu_aplikasi">
+        Can I apply for policy data changes through the app?
+    </string>
+    <string name="perubahan_data_polis_di_aplikasi_perlu_diajukan_langsung_ke_pihak_asuransi_pengguna_dapat_menghubungi_pihak_asuransi_melalui_nomor_telepon_kontak_yang_tersedia_di_aplikasi">
+        Policy data changes in the app must be submitted directly to the insurance provider. Users can contact the insurance provider via the phone number listed in the app
+    </string>
+    <string name="bagaimana_cara_mengajukan_klaim_melalui_aplikasi">
+        How do I file a claim through the app?
+    </string>
+    <string name="pengajuan_klaim_dapat_dilakukan_pengguna_dengan_menghubungi_pihak_asuransi_melalui_kontak_yang_tersedia_di_aplikasi">
+        Users can submit claims by contacting the insurance provider through the contact details available in the app
+    </string>
+    <string name="bagaimana_cara_membayar_premi_asuransi_melalui_aplikasi">
+        How to pay insurance premiums through the app?
+    </string>
+    <string name="pengguna_dapat_melakukan_pembayaran_premi_asuransi_dengan_mengklik_tombol_bayar_premi_pada_halaman_utama_ataupun_mengklik_notifikasi_reminder_pembayaran_premi">
+        Users can pay insurance premiums by clicking the Pay Premium button on the main page or by clicking the premium payment reminder notification
+    </string>
 </resources>

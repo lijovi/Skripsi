@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="SYARAT DAN KETENTUAN"
+            android:text="@string/syarat_dan_ketentuan_title"
             android:textAlignment="center"
             android:textStyle="bold"
             android:textSize="25dp"
@@ -54,7 +54,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dengan mengunduh dan menggunakan aplikasi ini, Anda setuju untuk mematuhi syarat dan ketentuan berikut:"
+        android:text="@string/dengan_mengunduh_dan_menggunakan_aplikasi_ini_anda_setuju_untuk_mematuhi_syarat_dan_ketentuan_berikut"
         android:textColor="@color/black"
         android:layout_marginHorizontal="20dp"
         android:textSize="15dp"
@@ -64,7 +64,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pendaftaran dan Akun"
+        android:text="@string/pendaftaran_dan_akun"
         android:textColor="@color/black"
         android:layout_marginHorizontal="20dp"
         android:textSize="15dp"
@@ -75,8 +75,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" - Pengguna wajib memberikan data yang benar, akurat, dan terkini saat melakukan pendaftaran.\n
-- Pengguna bertanggung jawab menjaga kerahasiaan akun dan kata sandi mereka."
+        android:text="@string/pengguna_wajib_memberikan_data_yang_benar_akurat_dan_terkini_saat_melakukan_pendaftaran_n_pengguna_bertanggung_jawab_menjaga_kerahasiaan_akun_dan_kata_sandi_mereka"
         android:textColor="@color/black"
         android:layout_marginHorizontal="20dp"
         android:textSize="15dp"
@@ -97,8 +96,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" - Aplikasi ini hanya dapat digunakan sesuai dengan ketentuan yang berlaku dan tidak untuk tujuan yang melanggar hukum.\n
-- Setiap bentuk penyalahgunaan aplikasi akan mengakibatkan penghentian akses secara sepihak."
+        android:text="@string/aplikasi_ini_hanya_dapat_digunakan_sesuai_dengan_ketentuan_yang_berlaku_dan_tidak_untuk_tujuan_yang_melanggar_hukum_n_setiap_bentuk_penyalahgunaan_aplikasi_akan_mengakibatkan_penghentian_akses_secara_sepihak"
         android:textColor="@color/black"
         android:layout_marginHorizontal="20dp"
         android:textSize="15dp"
@@ -108,7 +106,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Informasi Polis dan Layanan"
+        android:text="@string/informasi_polis_dan_layanan"
         android:textColor="@color/black"
         android:layout_marginHorizontal="20dp"
         android:textSize="15dp"
@@ -121,15 +119,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:paddingVertical="5dp"
-                android:text=" - Informasi yang ditampilkan pada aplikasi mengacu pada data polis asuransi yang tercatat di sistem perusahaan.\n
-- Perusahaan berhak memperbarui atau mengubah informasi layanan tanpa pemberitahuan sebelumnya."
+                android:text="@string/informasi_yang_ditampilkan_pada_aplikasi_mengacu_pada_data_polis_asuransi_yang_tercatat_di_sistem_perusahaan_n_perusahaan_berhak_memperbarui_atau_mengubah_informasi_layanan_tanpa_pemberitahuan_sebelumnya"
                 android:textColor="@color/black"
                 android:textSize="15dp" />
 
             <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Klaim dan Pembayaran"
+        android:text="@string/klaim_dan_pembayaran"
         android:textColor="@color/black"
         android:layout_marginHorizontal="20dp"
         android:textSize="15dp"
@@ -140,8 +137,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" - Semua klaim dan pembayaran premi dilakukan sesuai prosedur yang tercantum dalam polis asuransi masing-masing.\n
--  Perusahaan berhak menolak klaim yang tidak memenuhi persyaratan."
+        android:text="@string/semua_klaim_dan_pembayaran_premi_dilakukan_sesuai_prosedur_yang_tercantum_dalam_polis_asuransi_masing_masing_n_perusahaan_berhak_menolak_klaim_yang_tidak_memenuhi_persyaratan"
         android:textColor="@color/black"
         android:layout_marginHorizontal="20dp"
         android:textSize="15dp"
@@ -151,7 +147,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Privasi dan Keamanan Data"
+        android:text="@string/privasi_dan_keamanan_data"
         android:textColor="@color/black"
         android:layout_marginHorizontal="20dp"
         android:textSize="15dp"
@@ -162,8 +158,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" - Perusahaan berkomitmen untuk melindungi data pribadi pengguna sesuai dengan peraturan yang berlaku.\n
--  Data pengguna tidak akan dibagikan kepada pihak ketiga tanpa persetujuan pengguna, kecuali diwajibkan oleh hukum."
+        android:text="@string/perusahaan_berkomitmen_untuk_melindungi_data_pribadi_pengguna_sesuai_dengan_peraturan_yang_berlaku_n_data_pengguna_tidak_akan_dibagikan_kepada_pihak_ketiga_tanpa_persetujuan_pengguna_kecuali_diwajibkan_oleh_hukum"
         android:textColor="@color/black"
         android:layout_marginHorizontal="20dp"
         android:textSize="15dp"

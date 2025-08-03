@@ -44,14 +44,17 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_insurance_info_nasabah);
+
         ActionBar supportActionBar = getSupportActionBar();
-        supportActionBar.hide();
+        if (supportActionBar != null) supportActionBar.hide();
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
+        // Initialize views
         btnHome = findViewById(R.id.btnHome);
         btnNotifikasi = findViewById(R.id.btnNotifikasi);
         btnProfile = findViewById(R.id.btnProfile);
@@ -59,69 +62,68 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         limitTravel = findViewById(R.id.limitTravel);
         content = findViewById(R.id.insuranceContent);
 
+        // Set values
         LimitHealth = ClientSession.getInstance().getLimitHealth();
         LimitTravel = ClientSession.getInstance().getLimitTravel();
-
         limitHealth.setText(LimitHealth);
         limitTravel.setText(LimitTravel);
 
+        // Show popup on load
         DialogForm();
 
-        btnHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
-                startActivity(intent);
-            }
+        // Button listeners
+        btnHome.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), HomePageNasabah.class));
         });
 
-
-        btnNotifikasi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), NotificationNasabah.class);
-                startActivity(intent);
-            }
+        btnNotifikasi.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), NotificationNasabah.class));
         });
 
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ProfileNasabah.class);
-                startActivity(intent);
-            }
+        btnProfile.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), ProfileNasabah.class));
         });
-
-
     }
+
 
     private void DialogForm() {
         dialog = new AlertDialog.Builder(InsuranceInfoNasabah.this);
         inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.input_password_nasabah, null);
+        dialogView = inflater.inflate(R.layout.pop_up_input_password, null);
         dialog.setView(dialogView);
-        dialog.setCancelable(true);
+        dialog.setCancelable(false); // don't allow dismiss by touching outside
 
+        // Create and show the dialog
         AlertDialog alertDialog = dialog.create();
         alertDialog.show();
 
-        password = dialogView.findViewById(R.id.password);
-        lupaPassword = dialogView.findViewById(R.id.lupaPassword);
-        btnOk = dialogView.findViewById(R.id.btnOk);
+        // Get views from the popup layout
+        EditText etPassword = dialogView.findViewById(R.id.et_password);
+        lupaPassword = dialogView.findViewById(R.id.tv_forgot_password);
+        btnOk = dialogView.findViewById(R.id.btn_ok);
+
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Password = password.getEditText().getText().toString();
+                String Password = etPassword.getText().toString().trim();
                 String cekPassword = ClientSession.getInstance().getPassword();
 
-                if (Objects.equals(Password, cekPassword)){
+                if (Objects.equals(Password, cekPassword)) {
                     alertDialog.dismiss();
-                    content.setVisibility(View.VISIBLE);
-
+                    content.setVisibility(View.VISIBLE); // show the info content
                 } else {
-                    password.setError("Wrong Password");
+                    etPassword.setError("Wrong Password");
                 }
             }
         });
+
+        // Optional: handle lupa password click
+        lupaPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Add forgot password logic here
+            }
+        });
     }
+
 }

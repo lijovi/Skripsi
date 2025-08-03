@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="FREQUENTLY ASKED QUESTIONS"
+            android:text="@string/frequently_asked_questions"
             android:textAlignment="center"
             android:textStyle="bold"
             android:textSize="25dp"
@@ -71,7 +71,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bagaimana mencari rumah sakit rekanan melalui aplikasi ?"
+                        android:text="@string/bagaimana_mencari_rumah_sakit_rekanan_melalui_aplikasi"
                         android:textColor="@color/black"
                         android:layout_weight="1"
                         android:paddingHorizontal="5dp"
@@ -92,7 +92,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Daftar rumah sakit rekanan dapat ditemukan pada menu utama"
+                    android:text="@string/daftar_rumah_sakit_rekanan_dapat_ditemukan_pada_menu_utama"
                     android:layout_margin="10dp"
                     android:textColor="@color/black"
                     android:paddingBottom="5dp"
@@ -123,7 +123,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bagaimana cara melihat detail polis saya di aplikasi ?"
+                        android:text="@string/bagaimana_cara_melihat_detail_polis_saya_di_aplikasi"
                         android:textColor="@color/black"
                         android:layout_weight="1"
                         android:paddingHorizontal="5dp"
@@ -144,7 +144,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pengguna dapat membuka halaman Informasi Asuransi dengan menginput password terlebih dahulu"
+                    android:text="@string/pengguna_dapat_membuka_halaman_informasi_asuransi_dengan_menginput_password_terlebih_dahulu"
                     android:layout_margin="10dp"
                     android:textColor="@color/black"
                     android:paddingBottom="5dp"
@@ -174,7 +174,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Apa yang harus dilakukan jika lupa password ?"
+                        android:text="@string/apa_yang_harus_dilakukan_jika_lupa_password"
                         android:textColor="@color/black"
                         android:layout_weight="1"
                         android:paddingHorizontal="5dp"
@@ -195,7 +195,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text='Pengguna dapat melakukan perubahan password melalui dua cara:  \n- Klik tombol "Lupa password" di halaman login \n- Klik "Ubah password" di halaman profile'
+                    android:text='@string/pengguna_dapat_melakukan_perubahan_password_melalui_dua_cara_n_klik_tombol_lupa_password_di_halaman_login_n_klik_ubah_password_di_halaman_profile'
                     android:layout_margin="10dp"
                     android:textColor="@color/black"
                     android:paddingBottom="5dp"
@@ -225,7 +225,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Apa yang dimaksud dengan limit asuransi ?"
+                        android:text="@string/apa_yang_dimaksud_dengan_limit_asuransi"
                         android:textColor="@color/black"
                         android:layout_weight="1"
                         android:paddingHorizontal="5dp"
@@ -246,7 +246,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text='Limit asuransi adalah batas maksimal biaya yang ditanggung oleh perusahaan asuransi sesuai dengan ketentuan pada polis'
+                    android:text='@string/limit_asuransi_adalah_batas_maksimal_biaya_yang_ditanggung_oleh_perusahaan_asuransi_sesuai_dengan_ketentuan_pada_polis'
                     android:layout_margin="10dp"
                     android:textColor="@color/black"
                     android:paddingBottom="5dp"
@@ -276,7 +276,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Apakah saya bisa mengajukan perubahan data polis melalu aplikasi ?"
+                        android:text="@string/apakah_saya_bisa_mengajukan_perubahan_data_polis_melalu_aplikasi"
                         android:textColor="@color/black"
                         android:layout_weight="1"
                         android:paddingHorizontal="5dp"
@@ -297,7 +297,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text='Perubahan data polis di aplikasi perlu diajukan langsung ke pihak asuransi. Pengguna dapat menghubungi pihak asuransi melalui nomor telepon kontak yang tersedia di aplikasi'
+                    android:text='@string/perubahan_data_polis_di_aplikasi_perlu_diajukan_langsung_ke_pihak_asuransi_pengguna_dapat_menghubungi_pihak_asuransi_melalui_nomor_telepon_kontak_yang_tersedia_di_aplikasi'
                     android:layout_margin="10dp"
                     android:textColor="@color/black"
                     android:paddingBottom="5dp"
@@ -327,7 +327,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bagaimana cara mengajukan klaim melalui aplikasi ?"
+                        android:text="@string/bagaimana_cara_mengajukan_klaim_melalui_aplikasi"
                         android:textColor="@color/black"
                         android:layout_weight="1"
                         android:paddingHorizontal="5dp"
@@ -348,7 +348,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text='Pengajuan klaim dapat dilakukan pengguna dengan menghubungi pihak asuransi melalui kontak yang tersedia di aplikasi'
+                    android:text='@string/pengajuan_klaim_dapat_dilakukan_pengguna_dengan_menghubungi_pihak_asuransi_melalui_kontak_yang_tersedia_di_aplikasi'
                     android:layout_margin="10dp"
                     android:textColor="@color/black"
                     android:paddingBottom="5dp"
@@ -378,7 +378,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bagaimana cara membayar premi asuransi melalui aplikasi ?"
+                        android:text="@string/bagaimana_cara_membayar_premi_asuransi_melalui_aplikasi"
                         android:textColor="@color/black"
                         android:layout_weight="1"
                         android:paddingHorizontal="5dp"
@@ -399,7 +399,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text='Pengguna dapat melakukan pembayaran premi asuransi dengan mengklik tombol "Bayar Premi" pada halaman utama ataupun mengklik notifikasi reminder pembayaran premi'
+                    android:text='@string/pengguna_dapat_melakukan_pembayaran_premi_asuransi_dengan_mengklik_tombol_bayar_premi_pada_halaman_utama_ataupun_mengklik_notifikasi_reminder_pembayaran_premi'
                     android:layout_margin="10dp"
                     android:textColor="@color/black"
                     android:paddingBottom="5dp"
