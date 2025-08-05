@@ -30,7 +30,8 @@ public class Login extends AppCompatActivity {
     TextInputLayout nik,nama;
     Button btnMasuk;
     TextView daftar, masukAsuransi;
-
+    int flag1, flag2;
+    int check1, check2;
     // buat ubah bahasa locale
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -66,6 +67,9 @@ public class Login extends AppCompatActivity {
 
                 } else {
                     cek();
+                    if (flag1 == 1 && flag2 == 1){
+                        nik.setError("User does not exist");
+                    }
                 }
             }
         });
@@ -118,10 +122,10 @@ public class Login extends AppCompatActivity {
         String NIK = nik.getEditText().getText().toString().trim();
         String Nama = nama.getEditText().getText().toString().trim();
 
-        DatabaseReference databaseHealth = FirebaseDatabase.getInstance().getReference("client");
+        DatabaseReference databaseHealth = FirebaseDatabase.getInstance().getReference("clientHealth");
         Query checkDataHealth = databaseHealth.orderByChild("nik").equalTo(NIK);
 
-        DatabaseReference databaseTravel = FirebaseDatabase.getInstance().getReference("client");
+        DatabaseReference databaseTravel = FirebaseDatabase.getInstance().getReference("clientTravel");
         Query checkDataTravel = databaseTravel.orderByChild("nik").equalTo(NIK);
 
         checkDataHealth.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -135,6 +139,8 @@ public class Login extends AppCompatActivity {
                     String NoTelp = snapshot.child(NIK).child("phoneNumber").getValue(String.class);
                     String Gender = snapshot.child(NIK).child("gender").getValue(String.class);
                     String Password = snapshot.child(NIK).child("password").getValue(String.class);
+                    int Company = snapshot.child(NIK).child("company").getValue(int.class);
+                    int Limit = snapshot.child(NIK).child("limit").getValue(int.class);
                     if (Objects.equals(NameFromDB, Nama)){
                         nik.setError(null);
                         Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
@@ -144,7 +150,12 @@ public class Login extends AppCompatActivity {
                         ClientSession.getInstance().setNoTelp(NoTelp);
                         ClientSession.getInstance().setNik(NIK);
                         ClientSession.getInstance().setGender(Gender);
-                        ClientSession.getInstance().setPassword(Password);
+                        ClientSession.getInstance().setCompany(Company);
+                        ClientSession.getInstance().setLimitHealth(Limit);
+                        if (!Objects.equals(Password, "0")){
+                            ClientSession.getInstance().setPassword(Password);
+                        }
+
 
                         startActivity(intent);
                     } else {
@@ -152,7 +163,8 @@ public class Login extends AppCompatActivity {
                         nama.requestFocus();
                     }
                 } else {
-                    nik.setError("User does not exist");
+//                    nik.setError("User does not exist");
+                    flag1=1;
                     nik.requestFocus();
                 }
             }
@@ -175,6 +187,7 @@ public class Login extends AppCompatActivity {
                     String Gender = snapshot.child(NIK).child("gender").getValue(String.class);
                     String Password = snapshot.child(NIK).child("password").getValue(String.class);
                     int Company = snapshot.child(NIK).child("company").getValue(int.class);
+                    int Limit = snapshot.child(NIK).child("limit").getValue(int.class);
                     if (Objects.equals(NameFromDB, Nama)){
                         nik.setError(null);
                         Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
@@ -184,8 +197,11 @@ public class Login extends AppCompatActivity {
                         ClientSession.getInstance().setNoTelp(NoTelp);
                         ClientSession.getInstance().setNik(NIK);
                         ClientSession.getInstance().setGender(Gender);
-                        ClientSession.getInstance().setPassword(Password);
                         ClientSession.getInstance().setCompany(Company);
+                        ClientSession.getInstance().setLimitTravel(Limit);
+                        if (!Objects.equals(Password, "0")){
+                            ClientSession.getInstance().setPassword(Password);
+                        }
 
                         startActivity(intent);
                     } else {
@@ -193,7 +209,8 @@ public class Login extends AppCompatActivity {
                         nama.requestFocus();
                     }
                 } else {
-                    nik.setError("User does not exist");
+//                    nik.setError("User does not exist");
+                    flag2=1;
                     nik.requestFocus();
                 }
             }
