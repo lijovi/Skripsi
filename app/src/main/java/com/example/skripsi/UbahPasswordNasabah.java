@@ -34,8 +34,8 @@ public class UbahPasswordNasabah extends AppCompatActivity {
     TextInputLayout passwordBaru, konfirmasiPassword;
     Button btnUbah, btnBack;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference databaseHealth = database.getReference("client");
-    DatabaseReference databaseTravel = database.getReference("client");
+    DatabaseReference databaseHealth = database.getReference("clientHealth");
+    DatabaseReference databaseTravel = database.getReference("clientTravel");
     String NIK;
     EditText editText1, editText2;
     TextView jumlahKarakter1, jumlahKarakter2, number1, number2, kapital1, kapital2, symbol1, symbol2;

@@ -72,8 +72,8 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("clientSementara").child(NIK);
-        referenceTransaksi = database.getReference("transaksi").child(NIK);
-        referenceNasabah = database.getReference("client").child(NIK);
+        referenceTransaksi = database.getReference("transaksiHealth").child(NIK);
+        referenceNasabah = database.getReference("clientHealth").child(NIK);
         calendar = Calendar.getInstance();
         calendarJ = Calendar.getInstance();
         calendarJ.add(Calendar.DAY_OF_MONTH, 7);
@@ -211,16 +211,8 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                 referenceTransaksi.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Transaksi transaksi = new Transaksi(NIK, BesarPremi, "", NomorPolis, Company, currentdate, jatuhTempo);
+                        TransaksiHealth transaksi = new TransaksiHealth(NIK, BesarPremi, NomorPolis, Company, currentdate, jatuhTempo);
                         referenceTransaksi.setValue(transaksi);
-//                        if (!snapshot.exists()){
-//                            Transaksi transaksi = new Transaksi(NIK, BesarPremi, "", NomorPolis, Company, currentdate, jatuhTempo);
-//                            referenceTransaksi.setValue(transaksi);
-//                        } else {
-//                            String nomorPolisTravel = snapshot.child("nomorPolisTravel").getValue(String.class);
-//                            Transaksi transaksi = new Transaksi(NIK, BesarPremi, nomorPolisTravel, NomorPolis, Company, currentdate, jatuhTempo);
-//                            referenceTransaksi.setValue(transaksi);
-//                        }
                         Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
                         startActivity(intent);
                         reference.removeValue();
