@@ -41,7 +41,8 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
     LayoutInflater inflater;
     View dialogView;
     TextInputLayout nomorPolis, besarPremi;
-    String NIK, BesarPremi, NomorPolis;
+    String NIK, NomorPolis;
+    int BesarPremi;
     int Company;
     Calendar calendar, calendarJ;
 
@@ -203,7 +204,7 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
         btnOkPremi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BesarPremi = besarPremi.getEditText().getText().toString();
+                BesarPremi = Integer.parseInt(besarPremi.getEditText().getText().toString());
                 String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
                 String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
                 String year = String.valueOf(calendar.get(Calendar.YEAR));

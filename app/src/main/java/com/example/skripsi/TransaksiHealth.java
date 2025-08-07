@@ -2,13 +2,13 @@ package com.example.skripsi;
 
 public class TransaksiHealth {
     String NIK;
-    String besarPremi;
+    int besarPremi;
     String nomorPolisKesehatan;
     int company;
     String date;
     String jatuhTempo;
 
-    public TransaksiHealth(String NIK, String besarPremi, String nomorPolisKesehatan, int company, String date, String jatuhTempo) {
+    public TransaksiHealth(String NIK, int besarPremi, String nomorPolisKesehatan, int company, String date, String jatuhTempo) {
         this.NIK = NIK;
         this.besarPremi = besarPremi;
         this.nomorPolisKesehatan = nomorPolisKesehatan;
@@ -25,11 +25,11 @@ public class TransaksiHealth {
         this.NIK = NIK;
     }
 
-    public String getBesarPremi() {
+    public int getBesarPremi() {
         return besarPremi;
     }
 
-    public void setBesarPremi(String besarPremi) {
+    public void setBesarPremi(int besarPremi) {
         this.besarPremi = besarPremi;
     }
 

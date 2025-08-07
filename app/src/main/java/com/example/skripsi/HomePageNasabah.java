@@ -11,17 +11,24 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.Objects;
 
 public class HomePageNasabah extends AppCompatActivity {
 
-    TextView nama, disini;
+    TextView nama, disini, company_name, contact_person, no_asuransi;
     LinearLayout infoPassword;
     String Nama, Password;
     ImageView bayarPremi, riwayatPembayaran, daftarAsuransi;
@@ -47,10 +54,17 @@ public class HomePageNasabah extends AppCompatActivity {
             return insets;
         });
 
+        String Company = String.valueOf(ClientSession.getInstance().getCompany());
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("company").child(Company);
+
         nama = findViewById(R.id.nama);
         bayarPremi = findViewById(R.id.bayarPremi);
         riwayatPembayaran = findViewById(R.id.riwayatPembayaran);
         daftarAsuransi = findViewById(R.id.daftarAsuransi);
+
+        company_name = findViewById(R.id.company_name);
+        contact_person = findViewById(R.id.contact_person);
+        no_asuransi = findViewById(R.id.no_asuransi);
 
         btnHome = findViewById(R.id.btnHome);
         btnInfo = findViewById(R.id.btnInfo);
@@ -62,6 +76,22 @@ public class HomePageNasabah extends AppCompatActivity {
 
         Nama = ClientSession.getInstance().getNama();
         nama.setText(Nama + " !");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    company_name.setText(snapshot.child("companyName").getValue(String.class));
+                    contact_person.setText(snapshot.child("companyContactPerson").getValue(String.class));
+                    no_asuransi.setText(snapshot.child("companyPhoneNumber").getValue(String.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         Password = ClientSession.getInstance().getPassword();
 

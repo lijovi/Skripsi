@@ -11,13 +11,14 @@
     android:gravity="center">
 
     <LinearLayout
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/rounded_corner_background"
         android:paddingHorizontal="20dp"
         android:paddingVertical="25dp"
         android:gravity="center"
+        android:layout_marginHorizontal="40sp"
         >
 
         <TextView
@@ -47,12 +48,14 @@
             android:id="@+id/username"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:textSize="12dp"
+            app:placeholderTextColor="@color/black"
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_corner_fill"
+                android:textColor="@color/black"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -84,6 +87,7 @@
             app:passwordToggleEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:textSize="12dp"
+            app:placeholderTextColor="@color/black"
             >
 
             <EditText
@@ -91,6 +95,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:background="@drawable/rounded_corner_fill"
+                android:textColor="@color/black"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -112,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Masuk sebagai nasabah"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:textStyle=""
             android:gravity="center"
             android:textColor="@color/black"

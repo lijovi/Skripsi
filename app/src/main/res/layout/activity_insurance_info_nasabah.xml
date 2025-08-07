@@ -359,7 +359,6 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingHorizontal="15dp"
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -383,7 +382,6 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingHorizontal="15dp"
                 android:layout_weight="1"
                 android:background="#9DB2BF">
 
@@ -408,7 +406,6 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingHorizontal="15dp"
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -434,7 +431,6 @@
                 android:baselineAligned="false"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingHorizontal="20dp"
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatButton

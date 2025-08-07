@@ -84,12 +84,12 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         NamaTravel = ClientSession.getInstance().getNama();
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("transaksi");
+        reference = database.getReference("transaksiTravel");
 
         String NIK = ClientSession.getInstance().getNik();
-        Query check = reference.orderByChild("nik").equalTo(NIK);
+        Query checkTravel = reference.orderByChild("nik").equalTo(NIK);
         Log.d("INTENT", "NIK: " + NIK);
-        check.addValueEventListener(new ValueEventListener() {
+        checkTravel.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
@@ -112,8 +112,8 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         limitHealth.setText("Rp " + idrFormat.format((double) LimitHealth));
         limitTravel.setText("Rp " + idrFormat.format((double) LimitTravel));
         namaTravel.setText(NamaTravel);
-        limitHealth.setText(LimitHealth);
-        limitTravel.setText(LimitTravel);
+//        limitHealth.setText(LimitHealth);
+//        limitTravel.setText(LimitTravel);
 
         // Show popup on load
         DialogForm();
@@ -136,39 +136,29 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
     private void DialogForm() {
         dialog = new AlertDialog.Builder(InsuranceInfoNasabah.this);
         inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.pop_up_input_password, null);
+        dialogView = inflater.inflate(R.layout.input_password_nasabah, null);
         dialog.setView(dialogView);
-        dialog.setCancelable(false); // don't allow dismiss by touching outside
+        dialog.setCancelable(true);
 
-        // Create and show the dialog
         AlertDialog alertDialog = dialog.create();
         alertDialog.show();
 
-        // Get views from the popup layout
-        EditText etPassword = dialogView.findViewById(R.id.et_password);
-        lupaPassword = dialogView.findViewById(R.id.tv_forgot_password);
-        btnOk = dialogView.findViewById(R.id.btn_ok);
-
+        password = dialogView.findViewById(R.id.password);
+        lupaPassword = dialogView.findViewById(R.id.lupaPassword);
+        btnOk = dialogView.findViewById(R.id.btnOk);
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Password = etPassword.getText().toString().trim();
+                String Password = password.getEditText().getText().toString();
                 String cekPassword = ClientSession.getInstance().getPassword();
 
-                if (Objects.equals(Password, cekPassword)) {
+                if (Objects.equals(Password, cekPassword)){
                     alertDialog.dismiss();
-                    content.setVisibility(View.VISIBLE); // show the info content
-                } else {
-                    etPassword.setError("Wrong Password");
-                }
-            }
-        });
+                    content.setVisibility(View.VISIBLE);
 
-        // Optional: handle lupa password click
-        lupaPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Add forgot password logic here
+                } else {
+                    password.setError("Wrong Password");
+                }
             }
         });
     }

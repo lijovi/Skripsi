@@ -35,9 +35,11 @@
         You do not have a password yet! Create one now to access your insurance data here
     </string>
     <string name="selamat_datang">Welcome</string>
-    <string name="nama_perusahaan_nnama_contact_person_no_telp">
-        Company Name\nContact Person - Phone Number
+    <string name="nama_perusahaan_asuransi">
+        Company Name :
     </string>
+    <string name="nama_contact_person">Contact Person : </string>
+    <string name="no_telp_asuransi">Phone Number : </string>
     <string name="daftar_rumah_sakit_rekanan">Partner Hospital List</string>
     <string name="rumah_sakit_a_nno_telp_nlink_gmap">
         Hospital A\nPhone Number:\nGMaps link:
@@ -132,49 +134,49 @@
     </string>
     <string name="privasi_dan_keamanan_data">Privacy and Data Security</string>
     <string name="perusahaan_berkomitmen_untuk_melindungi_data_pribadi_pengguna_sesuai_dengan_peraturan_yang_berlaku_n_data_pengguna_tidak_akan_dibagikan_kepada_pihak_ketiga_tanpa_persetujuan_pengguna_kecuali_diwajibkan_oleh_hukum">
-        - The company is committed to protecting users' personal data in accordance with applicable regulations.\n - User data will not be shared with third parties without user consent, except as required by law.
+        - The company is committed to protecting users personal data in accordance with applicable regulations.\n - User data will not be shared with third parties without user consent, except as required by law.
     </string>
     <string name="frequently_asked_questions">FREQUENTLY ASKED QUESTIONS</string>
-    <string name="bagaimana_mencari_rumah_sakit_rekanan_melalui_aplikasi">
+    <string name="q1">
         How to search for partner hospitals through the app?
     </string>
-    <string name="daftar_rumah_sakit_rekanan_dapat_ditemukan_pada_menu_utama">
+    <string name="a1">
         The list of partner hospitals can be found in the main menu
     </string>
-    <string name="bagaimana_cara_melihat_detail_polis_saya_di_aplikasi">
+    <string name="q2">
         How can I see my policy details in the app?
     </string>
-    <string name="pengguna_dapat_membuka_halaman_informasi_asuransi_dengan_menginput_password_terlebih_dahulu">
+    <string name="a2">
         Users can open the Insurance Information page by entering their password first
     </string>
-    <string name="apa_yang_harus_dilakukan_jika_lupa_password">
+    <string name="q3">
         What should I do if I forgot my password?
     </string>
-    <string name="pengguna_dapat_melakukan_perubahan_password_melalui_dua_cara_n_klik_tombol_lupa_password_di_halaman_login_n_klik_ubah_password_di_halaman_profile">
+    <string name="a3">
         Users can change their password in two ways: \n- Click the Forgot Password button on the login page \n- Click Change Password on the profile page
     </string>
-    <string name="apa_yang_dimaksud_dengan_limit_asuransi">
+    <string name="q4">
         What is meant by insurance limit?
     </string>
-    <string name="limit_asuransi_adalah_batas_maksimal_biaya_yang_ditanggung_oleh_perusahaan_asuransi_sesuai_dengan_ketentuan_pada_polis">
+    <string name="a4">
         Insurance limit is the maximum cost covered by the insurance company according to the policy provisions
     </string>
-    <string name="apakah_saya_bisa_mengajukan_perubahan_data_polis_melalu_aplikasi">
+    <string name="q5">
         Can I apply for policy data changes through the app?
     </string>
-    <string name="perubahan_data_polis_di_aplikasi_perlu_diajukan_langsung_ke_pihak_asuransi_pengguna_dapat_menghubungi_pihak_asuransi_melalui_nomor_telepon_kontak_yang_tersedia_di_aplikasi">
+    <string name="a5">
         Policy data changes in the app must be submitted directly to the insurance provider. Users can contact the insurance provider via the phone number listed in the app
     </string>
-    <string name="bagaimana_cara_mengajukan_klaim_melalui_aplikasi">
+    <string name="q6">
         How do I file a claim through the app?
     </string>
-    <string name="pengajuan_klaim_dapat_dilakukan_pengguna_dengan_menghubungi_pihak_asuransi_melalui_kontak_yang_tersedia_di_aplikasi">
+    <string name="a6">
         Users can submit claims by contacting the insurance provider through the contact details available in the app
     </string>
-    <string name="bagaimana_cara_membayar_premi_asuransi_melalui_aplikasi">
+    <string name="q7">
         How to pay insurance premiums through the app?
     </string>
-    <string name="pengguna_dapat_melakukan_pembayaran_premi_asuransi_dengan_mengklik_tombol_bayar_premi_pada_halaman_utama_ataupun_mengklik_notifikasi_reminder_pembayaran_premi">
+    <string name="a7">
         Users can pay insurance premiums by clicking the Pay Premium button on the main page or by clicking the premium payment reminder notification
     </string>
 </resources>

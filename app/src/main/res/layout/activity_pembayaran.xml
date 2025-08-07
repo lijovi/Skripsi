@@ -149,6 +149,7 @@
             />
 
 <!--    Upload Foto Bukti -->
+
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="35dp"
@@ -159,6 +160,18 @@
             android:layout_marginBottom="10dp"
             android:id="@+id/btnUploadBuktiFoto"
             />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:drawableRight="@drawable/plus_hitam"
+            android:hint="No File Selected"
+            android:layout_gravity="left"
+            android:background="@color/white"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/bukti"
+            android:visibility="gone"
+        />
 
 <!--    Button Unggah-->
         <androidx.appcompat.widget.AppCompatButton

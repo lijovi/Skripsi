@@ -142,7 +142,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:layout_marginHorizontal="16dp">
+                    android:layout_weight="1">
+<!--                    android:layout_marginHorizontal="16dp"-->
 
                     <ImageView
                         android:layout_width="60dp"
@@ -169,7 +170,9 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:layout_marginHorizontal="16dp">
+                    android:layout_weight="1">
+<!--                    android:layout_marginHorizontal="16dp"-->
+
 
                     <ImageView
                         android:layout_width="60dp"
@@ -196,7 +199,9 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:layout_marginHorizontal="16dp">
+                    android:layout_weight="1">
+<!--                    android:layout_marginHorizontal="16dp"-->
+<!--                    >-->
 
                     <ImageView
                         android:layout_width="60dp"
@@ -234,15 +239,90 @@
                 android:textSize="12sp"
                 android:layout_marginTop="4dp" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/nama_perusahaan_nnama_contact_person_no_telp"
-                android:textColor="@color/black"
-                android:textSize="12sp"
+                android:orientation="horizontal"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:textStyle="bold"/>
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nama_perusahaan_asuransi"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="3dp"
+                    android:textStyle="bold"
+                    android:id="@+id/company_name"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:text="@string/nama_contact_person"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="3dp"
+                    android:textStyle="bold"
+                    android:id="@+id/contact_person"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:text="@string/no_telp_asuransi"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="3dp"
+                    android:textStyle="bold"
+                    android:id="@+id/no_asuransi"
+                    />
+
+            </LinearLayout>
+
+
+
 
             <!-- Garis pemisah -->
             <View
@@ -376,7 +456,6 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingHorizontal="15dp"
                 android:layout_weight="1"
                 android:background="#9DB2BF">
 
@@ -401,7 +480,6 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingHorizontal="15dp"
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -425,7 +503,6 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingHorizontal="15dp"
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -451,7 +528,6 @@
                 android:baselineAligned="false"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingHorizontal="20dp"
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatButton

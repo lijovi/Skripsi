@@ -56,9 +56,9 @@ public class LoginAsuransi extends AppCompatActivity {
         });
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("company");
-//        Asuransi asuransi = new Asuransi(1, "aca", "jovita.tanti@gmail.com", "aca1234", "ACA", "1234567890");
-//        Asuransi asuransi2 = new Asuransi(2, "etiqa", "etiqa@gmail.com", "etiqa5678", "ETIQA", "081234567890");
-//        Asuransi asuransi3 = new Asuransi(3, "china_taiping", "china@gmail.com", "china1234", "CHINA TAIPING", "081234567890");
+//        Asuransi asuransi = new Asuransi(1, "aca", "jovita.tanti@gmail.com", "aca1234", "ACA", "1234567890", "081244567782", "Erick");
+//        Asuransi asuransi2 = new Asuransi(2, "etiqa", "etiqa@gmail.com", "etiqa5678", "ETIQA", "081234567890", "085122337788", "John");
+//        Asuransi asuransi3 = new Asuransi(3, "china_taiping", "china@gmail.com", "china1234", "CHINA TAIPING", "081234567890", "081309872345", "Robert");
 //        String newusername1 = "aca";
 //        String newusername2 = "etiqa";
 //        String newusername3 = "china_taiping";

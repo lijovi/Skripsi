@@ -17,6 +17,12 @@
             android:exported="false"
             android:label="@string/title_activity_pop_up_ubah_bahasa"
             android:theme="@style/Theme.Skripsi" />
+        <activity android:name=".FAQ"
+            android:exported="false"
+            />
+        <activity android:name=".SyaratDanKetentuan"
+            android:exported="false"
+            />
         <activity
             android:name=".HomePageNasabah"
             android:exported="false" />

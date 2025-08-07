@@ -207,9 +207,9 @@ public class ProfileNasabah extends AppCompatActivity {
                 fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
                     String downloadurl = uri.toString();
 
-                    reference.child(String.valueOf(NIK)).setValue(downloadurl).addOnSuccessListener(aVoid -> {
-                        Toast.makeText(this, "Profile picture has been changed", Toast.LENGTH_SHORT).show();
-                    });
+//                    reference.child(String.valueOf(NIK)).setValue(downloadurl).addOnSuccessListener(aVoid -> {
+//                        Toast.makeText(this, "Profile picture has been changed", Toast.LENGTH_SHORT).show();
+//                    });
                 });
             });
         }

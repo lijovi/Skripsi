@@ -201,6 +201,8 @@ public class Login extends AppCompatActivity {
                         ClientSession.getInstance().setLimitTravel(Limit);
                         if (!Objects.equals(Password, "0")){
                             ClientSession.getInstance().setPassword(Password);
+                        } else {
+                            ClientSession.getInstance().setPassword("0");
                         }
 
                         startActivity(intent);

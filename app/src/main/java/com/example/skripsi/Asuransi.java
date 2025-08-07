@@ -9,14 +9,18 @@ public class Asuransi implements Serializable {
     String companyPassword;
     String companyName;
     String companyVirtualAccount;
+    String companyPhoneNumber;
+    String companyContactPerson;
 
-    public Asuransi(int companyId, String companyUsername, String companyEmail, String companyPassword, String companyName, String companyVirtualAccount) {
+    public Asuransi(int companyId, String companyUsername, String companyEmail, String companyPassword, String companyName, String companyVirtualAccount, String companyPhoneNumber, String companyContactPerson) {
         this.companyId = companyId;
         this.companyUsername = companyUsername;
         this.companyEmail = companyEmail;
         this.companyPassword = companyPassword;
         this.companyName = companyName;
         this.companyVirtualAccount = companyVirtualAccount;
+        this.companyPhoneNumber = companyPhoneNumber;
+        this.companyContactPerson = companyContactPerson;
     }
 
     public int getCompanyId() {
@@ -41,5 +45,13 @@ public class Asuransi implements Serializable {
 
     public String getCompanyVirtualAccount() {
         return companyVirtualAccount;
+    }
+
+    public String getCompanyPhoneNumber() {
+        return companyPhoneNumber;
+    }
+
+    public String getCompanyContactPerson() {
+        return companyContactPerson;
     }
 }
