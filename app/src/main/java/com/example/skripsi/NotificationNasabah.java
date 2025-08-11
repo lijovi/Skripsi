@@ -11,11 +11,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Context;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class NotificationNasabah extends AppCompatActivity {
 
     Button btnHome, btnInfo, btnProfile;
+    FirebaseDatabase database;
+    DatabaseReference reference;
+    Adapter adapter;
+    RecyclerView recyclerView;
 
     // buat ubah bahasa locale
     @Override
@@ -35,6 +45,22 @@ public class NotificationNasabah extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference("notifikasiNasabah");
+
+        recyclerView = findViewById(R.id.rvView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+
+
+
+
+
+
+
+
 
         btnHome = findViewById(R.id.btnHome);
         btnInfo = findViewById(R.id.btnInfo);

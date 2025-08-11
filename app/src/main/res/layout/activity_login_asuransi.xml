@@ -88,6 +88,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:textSize="12dp"
             app:placeholderTextColor="@color/black"
+            app:passwordToggleTint="@color/black"
             >
 
             <EditText
