@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="20dp"
-        android:visibility="gone"
         >
 
         <LinearLayout
@@ -50,6 +49,109 @@
 
             </LinearLayout>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="4dp"
+                app:cardCornerRadius="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_icon_background"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/nomor_polis_health"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="4dp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/nomorPolisHealth"
+                            android:textColor="@color/black"
+                            />
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/nama_pemegang_polis_health"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="4dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/namaHealth"
+                            android:textColor="@color/black"
+                            />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/jenis_asuransi_health"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="4dp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/jenisHealth"
+                            android:textColor="@color/black"
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_polis_health"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tanggal_jangka_polis_health"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:id="@+id/jangkaWaktuHealth"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
             <!-- RIWAYAT MEDIS -->
             <TextView
                 android:layout_width="match_parent"
@@ -58,7 +160,9 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="20dp"
+                />
             <TableLayout
                 android:id="@+id/tableMedicalHistory"
                 android:layout_width="match_parent"
@@ -71,22 +175,22 @@
                 <!-- Header Tabel -->
                 <TableRow>
                     <TextView
-                        android:text="Tgl. Diagnosa"
+                        android:text="@string/tgl_diagnosa"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:padding="6dp"/>
                     <TextView
-                        android:text="Kondisi"
+                        android:text="@string/kondisi"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:padding="6dp"/>
                     <TextView
-                        android:text="Besar Klaim"
+                        android:text="@string/besar_klaim"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:padding="6dp"/>
                     <TextView
-                        android:text="Status"
+                        android:text="@string/status_klaim"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:padding="6dp"/>
@@ -105,7 +209,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Klaim Asuransi"
+                android:text="@string/klaim_asuransi"
                 android:textSize="18sp"
                 android:layout_marginTop="20dp"
                 android:textStyle="bold"
@@ -208,7 +312,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nomor Polis: "
+                            android:text="@string/nomor_polis_travel"
                             android:textStyle="bold"
                             android:textColor="@color/black"
                             android:layout_marginBottom="4dp"
@@ -234,7 +338,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nama Pemegang Polis: "
+                            android:text="@string/nama_pemegang_polis_travel"
                             android:textStyle="bold"
                             android:textColor="@color/black"
                             android:layout_marginBottom="4dp"/>
@@ -258,7 +362,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Jenis Asuransi: "
+                        android:text="@string/jenis_asuransi_travel"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:layout_marginBottom="4dp"
@@ -276,7 +380,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Status Polis: "
+                        android:text="@string/status_polis_travel"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:layout_marginBottom="4dp" />
@@ -284,7 +388,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tanggal Jangka Polis: "
+                        android:text="@string/tanggal_jangka_polis_travel"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:id="@+id/jangkaWaktuTravel"/>
@@ -296,7 +400,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Klaim Asuransi"
+                android:text="@string/klaim_asuransi"
                 android:textSize="18sp"
                 android:layout_marginTop="20dp"
                 android:textStyle="bold"

@@ -509,7 +509,6 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
             } else {
                 list.remove(c18.getText().toString());
             }
-
         }
 
     }

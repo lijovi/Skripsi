@@ -127,4 +127,19 @@
     <string name="a6">Pengajuan klaim dapat dilakukan pengguna dengan menghubungi pihak asuransi melalui kontak yang tersedia di aplikasi</string>
     <string name="q7">Bagaimana cara membayar premi asuransi melalui aplikasi ?</string>
     <string name="a7">Pengguna dapat melakukan pembayaran premi asuransi dengan mengklik tombol Bayar Premipada halaman utama ataupun mengklik notifikasi reminder pembayaran premi</string>
+    <string name="nomor_polis_health">Nomor Polis:</string>
+    <string name="nama_pemegang_polis_health">Nama Pemegang Polis:</string>
+    <string name="jenis_asuransi_health">Jenis Asuransi:</string>
+    <string name="status_polis_health">Status Polis:</string>
+    <string name="tanggal_jangka_polis_health">Tanggal Jangka Polis:</string>
+    <string name="jenis_asuransi_travel">Jenis Asuransi:</string>
+    <string name="status_polis_travel">Status Polis:</string>
+    <string name="tanggal_jangka_polis_travel">Tanggal Jangka Polis:</string>
+    <string name="nama_pemegang_polis_travel">Nama Pemegang Polis:</string>
+    <string name="klaim_asuransi">Klaim Asuransi</string>
+    <string name="nomor_polis_travel">Nomor Polis:</string>
+    <string name="tgl_diagnosa">Tgl. Diagnosa</string>
+    <string name="kondisi">Kondisi</string>
+    <string name="besar_klaim">Besar Klaim</string>
+    <string name="status_klaim">Status</string>
 </resources>

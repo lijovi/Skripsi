@@ -179,4 +179,20 @@
     <string name="a7">
         Users can pay insurance premiums by clicking the Pay Premium button on the main page or by clicking the premium payment reminder notification
     </string>
+    <string name="nomor_polis_health">Policy Number:</string>
+    <string name="nama_pemegang_polis_health">Policyholder Name:</string>
+    <string name="jenis_asuransi_health">Type of Insurance:</string>
+    <string name="status_polis_health">Policy Status:</string>
+    <string name="tanggal_jangka_polis_health">Policy Term Date:</string>
+    <string name="jenis_asuransi_travel">Type of Insurance:</string>
+    <string name="status_polis_travel">Policy Status:</string>
+    <string name="tanggal_jangka_polis_travel">Policy Term Date:</string>
+    <string name="nama_pemegang_polis_travel">Policyholder Name:</string>
+    <string name="klaim_asuransi">Insurance Claim</string>
+    <string name="nomor_polis_travel">Policy Number:</string>
+    <string name="tgl_diagnosa">Diagnosis Date</string>
+    <string name="kondisi">Condition</string>
+    <string name="besar_klaim">Claim Amount</string>
+    <string name="status_klaim">Status</string>
+
 </resources>
