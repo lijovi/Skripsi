@@ -13,16 +13,25 @@
         android:theme="@style/Theme.Skripsi"
         tools:targetApi="31">
         <activity
+            android:name=".HistoryTravel"
+            android:exported="false" />
+        <activity
+            android:name=".HistoryHealth"
+            android:exported="false" />
+        <activity
+            android:name=".HistoryAsuransi"
+            android:exported="false" />
+        <activity
             android:name=".pop_up_ubah_bahasa"
             android:exported="false"
             android:label="@string/title_activity_pop_up_ubah_bahasa"
             android:theme="@style/Theme.Skripsi" />
-        <activity android:name=".FAQ"
-            android:exported="false"
-            />
-        <activity android:name=".SyaratDanKetentuan"
-            android:exported="false"
-            />
+        <activity
+            android:name=".FAQ"
+            android:exported="false" />
+        <activity
+            android:name=".SyaratDanKetentuan"
+            android:exported="false" />
         <activity
             android:name=".HomePageNasabah"
             android:exported="false" />

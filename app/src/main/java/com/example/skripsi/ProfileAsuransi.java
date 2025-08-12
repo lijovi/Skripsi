@@ -39,7 +39,7 @@ import java.util.Objects;
 
 public class ProfileAsuransi extends AppCompatActivity {
 
-    Button btnHome, btnBack;
+    Button btnHome, btnBack, btnHistory;
     TextView namaPerusahaan, username, email, virtualAccount, ubahPassword, ubahBahasa, FAQ, syaratDanKetentuan, keluar;
     FirebaseAuth mAuth;
     String Username, Nama, Email, VirtualAccount, ProfilePicture;
@@ -73,6 +73,7 @@ public class ProfileAsuransi extends AppCompatActivity {
         });
 
         btnHome = findViewById(R.id.btnHome);
+        btnHistory = findViewById(R.id.btnHistory);
         namaPerusahaan = findViewById(R.id.namaPerusahaan);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
@@ -118,6 +119,14 @@ public class ProfileAsuransi extends AppCompatActivity {
             }
         });
 
+        btnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HistoryAsuransi.class);
+                startActivity(intent);
+            }
+        });
+
         keluar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,13 +158,16 @@ public class ProfileAsuransi extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                showDialog();
+                Intent intent = new Intent(getApplicationContext(), FAQ.class);
+                startActivity(intent);
             }
         });
 
         syaratDanKetentuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getApplicationContext(), SyaratDanKetentuan.class);
+                startActivity(intent);
             }
         });
 
