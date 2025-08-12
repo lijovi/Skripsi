@@ -36,7 +36,7 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
     Button btnTerima, btnTolak, btnOkPremi, btnOkPolis;
 
     FirebaseDatabase database;
-    DatabaseReference reference, referenceTransaksi, referenceNasabah;
+    DatabaseReference reference, referenceTransaksi, referenceNasabah, referenceUserData, referenceHistory;
     AlertDialog.Builder dialog;
     LayoutInflater inflater;
     View dialogView;
@@ -83,6 +83,8 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
         reference = database.getReference("clientSementara").child(NIK);
         referenceTransaksi = database.getReference("transaksiTravel").child(NIK);
         referenceNasabah = database.getReference("clientTravel").child(NIK);
+        referenceUserData = database.getReference("userData");
+        referenceHistory = database.getReference("history");
         calendar = Calendar.getInstance();
         calendarJ = Calendar.getInstance();
         calendarJ.add(Calendar.DAY_OF_MONTH, 7);
@@ -149,15 +151,43 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DialogFormPolis();
-
             }
         });
 
         btnTolak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
-                startActivity(intent);
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String NIK = snapshot.child("nik").getValue(String.class);
+                        String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
+                        String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
+                        String year = String.valueOf(calendar.get(Calendar.YEAR));
+                        String Nama = snapshot.child("name").getValue(String.class);
+
+                        String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+                        String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+                        String second = String.format("%02d",calendar.get(Calendar.SECOND));
+
+                        int Company = snapshot.child("company").getValue(int.class);
+
+                        String currentdate = day + " - " + month + " - " + year;
+                        String currenttime = hour + " : " + minute + " : " + second;
+                        NotifikasiCompany notif = new NotifikasiCompany(NIK, Nama,"DITOLAK", currentdate, currenttime, Company, "Travel");
+
+                        referenceUserData.child(NIK).setValue(snapshot.getValue());
+                        referenceHistory.child(NIK).setValue(notif);
+                        reference.removeValue();
+                        Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         });
     }
@@ -199,8 +229,6 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
         besarPremi = dialogView.findViewById(R.id.besarPremi);
         btnOkPremi = dialogView.findViewById(R.id.btnOkPremi);
 //
-
-//
         btnOkPremi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -215,10 +243,21 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
                 String year1 = String.valueOf(calendarJ.get(Calendar.YEAR));
                 String jatuhTempo = day1 + " - " + month1 + " - " + year1;
 
+                String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+                String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+                String second = String.format("%02d",calendar.get(Calendar.SECOND));
+
+                String currenttime = hour + " : " + minute + " : " + second;
+
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         referenceNasabah.setValue(snapshot.getValue());
+                        referenceUserData.child(NIK).setValue(snapshot.getValue());
+                        String Nama = snapshot.child("name").getValue(String.class);
+
+                        NotifikasiCompany notif = new NotifikasiCompany(NIK, Nama, "DITERIMA", currentdate, currenttime, Company, "Travel");
+                        referenceHistory.child(NIK).setValue(notif);
                     }
 
                     @Override
@@ -230,12 +269,12 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
                 referenceTransaksi.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        TransaksiTravel transaksi = new TransaksiTravel(NIK, BesarPremi, NomorPolis, Company, currentdate, jatuhTempo);
+                        TransaksiTravel transaksi = new TransaksiTravel(NIK, BesarPremi, Company, currentdate, jatuhTempo, NomorPolis);
                         referenceTransaksi.setValue(transaksi);
-                        Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
-                        startActivity(intent);
                         reference.removeValue();
                         alertDialog.dismiss();
+                        Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
+                        startActivity(intent);
                     }
 
                     @Override
@@ -244,6 +283,7 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
                     }
                 });
             }
+
         });
     }
 }

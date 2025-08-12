@@ -244,6 +244,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="4dp"
+                android:id="@+id/perusahaanHealth"
                 >
 
                 <TextView
@@ -261,7 +262,7 @@
                     android:textSize="12sp"
                     android:layout_marginLeft="3dp"
                     android:textStyle="bold"
-                    android:id="@+id/company_name"
+                    android:id="@+id/company_name_health"
                     />
 
             </LinearLayout>
@@ -271,6 +272,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:id="@+id/contactHealth"
                 >
 
                 <TextView
@@ -289,7 +291,7 @@
                     android:textSize="12sp"
                     android:layout_marginLeft="3dp"
                     android:textStyle="bold"
-                    android:id="@+id/contact_person"
+                    android:id="@+id/contact_person_health"
                     />
 
             </LinearLayout>
@@ -298,6 +300,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:id="@+id/telpHealth"
                 >
 
                 <TextView
@@ -316,10 +319,97 @@
                     android:textSize="12sp"
                     android:layout_marginLeft="3dp"
                     android:textStyle="bold"
-                    android:id="@+id/no_asuransi"
+                    android:id="@+id/no_asuransi_health"
                     />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                android:id="@+id/perusahaanTravel"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nama_perusahaan_asuransi"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="3dp"
+                    android:textStyle="bold"
+                    android:id="@+id/company_name_travel"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/contactTravel"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:text="@string/nama_contact_person"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="3dp"
+                    android:textStyle="bold"
+                    android:id="@+id/contact_person_travel"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/telpTravel"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:text="@string/no_telp_asuransi"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="3dp"
+                    android:textStyle="bold"
+                    android:id="@+id/no_asuransi_travel"
+                    />
+
+            </LinearLayout>
+
+
 
 
 

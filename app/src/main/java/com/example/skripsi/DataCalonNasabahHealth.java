@@ -38,7 +38,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
     Button btnTerima, btnTolak, btnOkPolis, btnOkPremi;
 
     FirebaseDatabase database;
-    DatabaseReference reference, referenceTransaksi, referenceNasabah;
+    DatabaseReference reference, referenceTransaksi, referenceNasabah, referenceHistory, referenceUserData, referenceCompany;
     AlertDialog.Builder dialog;
     LayoutInflater inflater;
     View dialogView;
@@ -71,10 +71,13 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
         NIK = getIntent().getStringExtra("nik");
         Company = getIntent().getIntExtra("company",0);
 
+
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("clientSementara").child(NIK);
         referenceTransaksi = database.getReference("transaksiHealth").child(NIK);
         referenceNasabah = database.getReference("clientHealth").child(NIK);
+        referenceHistory = database.getReference("history");
+        referenceUserData = database.getReference("userData");
         calendar = Calendar.getInstance();
         calendarJ = Calendar.getInstance();
         calendarJ.add(Calendar.DAY_OF_MONTH, 7);
@@ -93,6 +96,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
 
         btnTerima = findViewById(R.id.btnTerima);
         btnTolak = findViewById(R.id.btnTolak);
+
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -143,9 +147,39 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
         btnTolak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
-                startActivity(intent);
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String NIK = snapshot.child("nik").getValue(String.class);
+                        String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
+                        String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
+                        String year = String.valueOf(calendar.get(Calendar.YEAR));
+                        String Nama = snapshot.child("name").getValue(String.class);
+
+                        String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+                        String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+                        String second = String.format("%02d",calendar.get(Calendar.SECOND));
+
+                        int Company = snapshot.child("company").getValue(int.class);
+
+                        String currentdate = day + " - " + month + " - " + year;
+                        String currenttime = hour + " : " + minute + " : " + second;
+                        NotifikasiCompany notif = new NotifikasiCompany(NIK, Nama,"DITOLAK", currentdate, currenttime, Company, "Health");
+
+                        referenceUserData.child(NIK).setValue(snapshot.getValue());
+                        referenceHistory.child(NIK).setValue(notif);
+                        reference.removeValue();
+                        Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
+
         });
     }
 
@@ -197,10 +231,22 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                 String year1 = String.valueOf(calendarJ.get(Calendar.YEAR));
                 String jatuhTempo = day1 + " - " + month1 + " - " + year1;
 
+                String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+                String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+                String second = String.format("%02d",calendar.get(Calendar.SECOND));
+
+                String currenttime = hour + " : " + minute + " : " + second;
+
+
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         referenceNasabah.setValue(snapshot.getValue());
+                        referenceUserData.child(NIK).setValue(snapshot.getValue());
+                        String Nama = snapshot.child("name").getValue(String.class);
+
+                        NotifikasiCompany notif = new NotifikasiCompany(NIK, Nama, "DITERIMA", currentdate, currenttime, Company, "Health");
+                        referenceHistory.child(NIK).setValue(notif);
                     }
 
                     @Override
@@ -212,12 +258,13 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                 referenceTransaksi.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        TransaksiHealth transaksi = new TransaksiHealth(NIK, BesarPremi, NomorPolis, Company, currentdate, jatuhTempo);
+                        TransaksiHealth transaksi = new TransaksiHealth(NIK, BesarPremi, Company, currentdate, jatuhTempo, NomorPolis);
                         referenceTransaksi.setValue(transaksi);
+                        reference.removeValue();
+
+                        alertDialog.dismiss();
                         Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
                         startActivity(intent);
-                        reference.removeValue();
-                        alertDialog.dismiss();
                     }
 
                     @Override
@@ -225,7 +272,9 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
 
                     }
                 });
+
             }
         });
+
     }
 }

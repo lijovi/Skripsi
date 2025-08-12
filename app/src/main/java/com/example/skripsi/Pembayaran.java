@@ -6,9 +6,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +19,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -43,6 +47,11 @@ public class Pembayaran extends AppCompatActivity {
     ImageView bukti;
     int PICK_IMAGE_REQUEST = 100;
     StorageReference storageRef;
+    AlertDialog.Builder dialog;
+    LayoutInflater inflater;
+    View dialogView;
+    RadioGroup pembayaran;
+    RadioButton pilih;
 
     // buat ubah bahasa locale
     @Override
@@ -69,52 +78,14 @@ public class Pembayaran extends AppCompatActivity {
         btnBuktiFoto = findViewById(R.id.btnUploadBuktiFoto);
         bukti = findViewById(R.id.bukti);
 
-        company = ClientSession.getInstance().getCompany();
+//        company = ClientSession.getInstance().getCompany();
         nik = ClientSession.getInstance().getNik();
 
         database = FirebaseDatabase.getInstance();
-        checkVirtual = database.getReference("company");
 //        besarPremi = database.getReference();
-        Log.d("INTENT", "COMPANY: " + company);
-        Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(company);
-        checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    String virtual = snapshot.child(String.valueOf(company)).child("companyVirtualAccount").getValue(String.class);
-                    virtualAccount.setText(virtual);
-                }
-            }
+//        Log.d("INTENT", "COMPANY: " + company);
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        Locale locale = new Locale("in", "ID");
-        NumberFormat idrFormat = NumberFormat.getInstance(locale);
-
-
-        checkPremi = database.getReference("transaksiTravel");
-        Query checkDataPremi = checkPremi.orderByChild("nik").equalTo(nik);
-        checkDataPremi.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
-                    String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
-                    Nomor = snapshot.child(nik).child("nomorPolisTravel").getValue(String.class);
-                    jumlah.setText("Rp " + idrFormat.format((double) premi));
-                    jatuhTempo.setText(JatuhTempo + " !");
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        DialogForm();
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -132,6 +103,109 @@ public class Pembayaran extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+    }
+
+    private void DialogForm() {
+        dialog = new AlertDialog.Builder(Pembayaran.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.pop_up_pilih_pembayaran, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+        Locale locale = new Locale("in", "ID");
+        NumberFormat idrFormat = NumberFormat.getInstance(locale);
+
+        pembayaran = dialogView.findViewById(R.id.pembayaran);
+
+
+        pembayaran.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                pilih = dialogView.findViewById(checkedId);
+                if (checkedId == R.id.travel) {
+                    checkPremi = database.getReference("transaksiTravel");
+                    Query checkDataPremi = checkPremi.orderByChild("nik").equalTo(nik);
+                    checkDataPremi.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()) {
+                                int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
+                                String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
+                                Nomor = snapshot.child(nik).child("nomorPolisTravel").getValue(String.class);
+                                jumlah.setText("Rp " + idrFormat.format((double) premi));
+                                jatuhTempo.setText(JatuhTempo + " !");
+                                int nocompany = snapshot.child(nik).child("company").getValue(int.class);
+                                checkVirtual = database.getReference("company");
+                                Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
+                                Log.d("INTENT", "COMPANY: " + nocompany);
+                                checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        if (snapshot.exists()){
+                                            String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
+                                            virtualAccount.setText(virtual);
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                            }
+                            alertDialog.dismiss();
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                } else if (checkedId == R.id.health) {
+                    checkPremi = database.getReference("transaksiHealth");
+                    Query checkDataPremi = checkPremi.orderByChild("nik").equalTo(nik);
+                    checkDataPremi.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()) {
+                                int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
+                                String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
+                                Nomor = snapshot.child(nik).child("nomorPolisKesehatan").getValue(String.class);
+                                jumlah.setText("Rp " + idrFormat.format((double) premi));
+                                jatuhTempo.setText(JatuhTempo + " !");
+                                int nocompany = snapshot.child(nik).child("company").getValue(int.class);
+                                Log.d("INTENT", "COMPANY: " + nocompany);
+                                checkVirtual = database.getReference("company");
+                                Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
+                                checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        if (snapshot.exists()){
+                                            String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
+                                            virtualAccount.setText(virtual);
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                            }
+                            alertDialog.dismiss();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+            }
+        });
+
     }
 
     @Override

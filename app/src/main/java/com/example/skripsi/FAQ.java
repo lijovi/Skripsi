@@ -53,8 +53,7 @@ public class FAQ extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ProfileNasabah.class);
-                startActivity(intent);
+                finish();
             }
         });
 

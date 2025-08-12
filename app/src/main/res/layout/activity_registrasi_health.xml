@@ -52,6 +52,7 @@
             android:hint="Input NIK"
             android:textSize="12dp"
             android:paddingLeft="8dp"
+            android:textColor="@color/black"
             />
 
 <!--    Nama -->
@@ -70,6 +71,7 @@
             android:hint="Input Nama"
             android:textSize="12dp"
             android:paddingLeft="8dp"
+            android:textColor="@color/black"
             />
 
 <!--    Email -->
@@ -87,7 +89,8 @@
             android:background="@drawable/rounded_corner_fill"
             android:hint="Input Email"
             android:textSize="12dp"
-            android:paddingLeft="8dp" />
+            android:paddingLeft="8dp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -139,7 +142,8 @@
                 android:background="@drawable/rounded_corner_fill"
                 android:hint="DD/MM/YYYY"
                 android:textSize="12dp"
-                android:paddingLeft="8dp" />
+                android:paddingLeft="8dp"
+                android:textColor="@color/black"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="20dp"
@@ -170,7 +174,8 @@
             android:background="@drawable/rounded_corner_fill"
             android:hint="Input Nomor Telepon"
             android:textSize="12dp"
-            android:paddingLeft="8dp" />
+            android:paddingLeft="8dp"
+            android:textColor="@color/black"/>
 
 <!--    Alamat -->
         <TextView
@@ -187,7 +192,8 @@
             android:background="@drawable/rounded_corner_fill"
             android:hint="Input Alamat"
             android:textSize="12dp"
-            android:paddingLeft="8dp" />
+            android:paddingLeft="8dp"
+            android:textColor="@color/black"/>
 
 <!--    Pekerjaan -->
         <TextView
@@ -204,7 +210,8 @@
             android:background="@drawable/rounded_corner_fill"
             android:hint="Input Pekerjaan"
             android:textSize="12dp"
-            android:paddingLeft="8dp" />
+            android:paddingLeft="8dp"
+            android:textColor="@color/black"/>
 
 <!--    Periode Pertanggungan -->
         <TextView
@@ -221,7 +228,8 @@
             android:background="@drawable/rounded_corner_fill"
             android:hint="Input Periode Pertanggungan"
             android:textSize="12dp"
-            android:paddingLeft="8dp" />
+            android:paddingLeft="8dp"
+            android:textColor="@color/black"/>
 
 
 <!--    Plan Asuransi -->
@@ -257,6 +265,7 @@
             android:hint="Input Ahli Waris"
             android:textSize="12dp"
             android:paddingLeft="8dp"
+            android:textColor="@color/black"
             />
 
 <!--    Hubungan Dengan Ahli Waris -->
@@ -276,6 +285,7 @@
             android:hint="Input Hubungan Dengan Ahli Waris"
             android:textSize="12dp"
             android:paddingLeft="8dp"
+            android:textColor="@color/black"
             />
 
 <!--    Riwayat Penyakit -->

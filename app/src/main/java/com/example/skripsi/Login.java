@@ -31,7 +31,8 @@ public class Login extends AppCompatActivity {
     Button btnMasuk;
     TextView daftar, masukAsuransi;
     int flag1, flag2;
-    int check1, check2;
+    int check = 0;
+    int travelAda = 0;
     // buat ubah bahasa locale
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -121,12 +122,25 @@ public class Login extends AppCompatActivity {
     private void cek(){
         String NIK = nik.getEditText().getText().toString().trim();
         String Nama = nama.getEditText().getText().toString().trim();
-
         DatabaseReference databaseHealth = FirebaseDatabase.getInstance().getReference("clientHealth");
         Query checkDataHealth = databaseHealth.orderByChild("nik").equalTo(NIK);
-
         DatabaseReference databaseTravel = FirebaseDatabase.getInstance().getReference("clientTravel");
         Query checkDataTravel = databaseTravel.orderByChild("nik").equalTo(NIK);
+
+        checkDataTravel.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    travelAda = 1;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         checkDataHealth.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -144,7 +158,6 @@ public class Login extends AppCompatActivity {
                     if (Objects.equals(NameFromDB, Nama)){
                         nik.setError(null);
                         Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
-
                         ClientSession.getInstance().setNama(Name);
                         ClientSession.getInstance().setEmail(Email);
                         ClientSession.getInstance().setNoTelp(NoTelp);
@@ -153,6 +166,11 @@ public class Login extends AppCompatActivity {
                         ClientSession.getInstance().setCompany(Company);
                         ClientSession.getInstance().setLimitHealth(Limit);
                         if (!Objects.equals(Password, "0")){
+                            check = 1;
+                            ClientSession.getInstance().setPassword(Password);
+                        }
+
+                        if (travelAda != 1){
                             ClientSession.getInstance().setPassword(Password);
                         }
 
@@ -199,10 +217,8 @@ public class Login extends AppCompatActivity {
                         ClientSession.getInstance().setGender(Gender);
                         ClientSession.getInstance().setCompany(Company);
                         ClientSession.getInstance().setLimitTravel(Limit);
-                        if (!Objects.equals(Password, "0")){
+                        if (check != 1){
                             ClientSession.getInstance().setPassword(Password);
-                        } else {
-                            ClientSession.getInstance().setPassword("0");
                         }
 
                         startActivity(intent);
