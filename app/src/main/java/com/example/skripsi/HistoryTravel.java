@@ -23,7 +23,7 @@ public class HistoryTravel extends AppCompatActivity {
 
     Button btnBack;
     TextView nik, nama, email, jenisKelamin, alamat, jenisPolis, planAsuransi, masaPerjalanan, tipePolis,
-            lamaPerjalanan, namaAhliWaris, hubunganDenganAhliWaris, negaraTujuan, tujuanPerjalanan;
+            namaAhliWaris, hubunganDenganAhliWaris, negaraTujuan, tujuanPerjalanan;
     DatabaseReference reference;
 
     @Override
@@ -49,7 +49,6 @@ public class HistoryTravel extends AppCompatActivity {
         planAsuransi = findViewById(R.id.planAsuransi);
         masaPerjalanan = findViewById(R.id.masaPerjalanan);
         tipePolis = findViewById(R.id.tipePolis);
-        lamaPerjalanan = findViewById(R.id.lamaPerjalanan);
         namaAhliWaris = findViewById(R.id.namaAhliWaris);
         hubunganDenganAhliWaris = findViewById(R.id.hubunganDenganAhliWaris);
         negaraTujuan = findViewById(R.id.negaraTujuan);
@@ -72,7 +71,6 @@ public class HistoryTravel extends AppCompatActivity {
                 String PlanAsuransi = snapshot.child("planAsuransi").getValue(String.class);
                 String MasaPerjalanan = snapshot.child("masaPerjalanan").getValue(String.class);
                 String TipePolis = snapshot.child("tipePolis").getValue(String.class);
-                String LamaPerjalanan = snapshot.child("lamaPerjalanan").getValue(String.class);
                 String NamaAhliWaris = snapshot.child("namaAhliWaris").getValue(String.class);
                 String HubunganDenganAhliWaris = snapshot.child("hubunganDenganAhliWaris").getValue(String.class);
                 String NegaraTujuan = snapshot.child("negaraTujuan").getValue(String.class);
@@ -86,7 +84,6 @@ public class HistoryTravel extends AppCompatActivity {
                 planAsuransi.setText(PlanAsuransi);
                 masaPerjalanan.setText(MasaPerjalanan);
                 tipePolis.setText(TipePolis);
-                lamaPerjalanan.setText(LamaPerjalanan);
                 namaAhliWaris.setText(NamaAhliWaris);
                 hubunganDenganAhliWaris.setText(HubunganDenganAhliWaris);
                 negaraTujuan.setText(NegaraTujuan);

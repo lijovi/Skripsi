@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="20dp"
+        android:visibility="gone"
         >
 
         <LinearLayout
@@ -81,6 +82,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/nomorPolisHealth"
                             android:textColor="@color/black"
+                            android:layout_marginLeft="3dp"
                             />
 
                     </LinearLayout>
@@ -106,6 +108,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/namaHealth"
                             android:textColor="@color/black"
+                            android:layout_marginLeft="3dp"
                             />
 
 
@@ -118,7 +121,7 @@
                         >
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/jenis_asuransi_health"
                             android:textStyle="bold"
@@ -131,24 +134,56 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/jenisHealth"
                             android:textColor="@color/black"
+                            android:layout_marginLeft="3dp"
                             />
                     </LinearLayout>
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/status_polis_health"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:layout_marginBottom="4dp" />
+                        android:orientation="horizontal"
+                        >
 
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/status_polis_health"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/statusHealth"
+                            android:textColor="@color/black"
+                            android:layout_marginLeft="3dp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/tanggal_jangka_polis_health"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:id="@+id/jangkaWaktuHealth"/>
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tanggal_jangka_polis_health"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:id="@+id/jangkaWaktuHealth"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/jangkaHealth"
+                            android:textColor="@color/black"
+                            />
+                    </LinearLayout>
+
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -323,6 +358,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/nomorPolisTravel"
                             android:textColor="@color/black"
+                            android:layout_marginLeft="3dp"
                             />
 
                     </LinearLayout>
@@ -348,6 +384,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/namaTravel"
                             android:textColor="@color/black"
+                            android:layout_marginLeft="3dp"
                             />
 
 
@@ -360,7 +397,7 @@
                         >
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/jenis_asuransi_travel"
                         android:textStyle="bold"
@@ -373,25 +410,58 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/jenisTravel"
                             android:textColor="@color/black"
+                            android:layout_marginLeft="3dp"
                             />
 
                     </LinearLayout>
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/status_polis_travel"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:layout_marginBottom="4dp" />
+                        android:orientation="horizontal"
+                        >
 
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/status_polis_travel"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/statusTravel"
+                            android:textColor="@color/black"
+                            android:layout_marginLeft="3dp"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/tanggal_jangka_polis_travel"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:id="@+id/jangkaWaktuTravel"/>
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tanggal_jangka_polis_travel"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:id="@+id/jangkaWaktuTravel"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/jangkaTravel"
+                            android:textColor="@color/black"
+                            android:layout_marginLeft="3dp"
+                            />
+
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

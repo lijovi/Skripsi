@@ -36,16 +36,18 @@ import java.util.Objects;
 public class InsuranceInfoNasabah extends AppCompatActivity {
 
     Button btnHome, btnNotifikasi, btnProfile, btnOk;
-    TextView limitHealth, limitTravel, lupaPassword, nomorPolisTravel, namaTravel;
+    TextView limitTravel, lupaPassword, nomorPolisTravel, namaTravel, jenisTravel, statusTravel, jangkaTravel;
+    TextView limitHealth, nomorPolisHealth, namaHealth, jenisHealth, statusHealth, jangkaHealth;
     int LimitHealth, LimitTravel;
     AlertDialog.Builder dialog;
     LayoutInflater inflater;
     View dialogView;
     TextInputLayout password;
     ScrollView content;
-    String NomorPolisTravel, NamaTravel;
+    String NomorPolisTravel, Nama;
+    String NomorPolisHealth;
     FirebaseDatabase database;
-    DatabaseReference reference;
+    DatabaseReference referenceTravel, referenceHealth;
 
     // buat ubah bahasa locale
     @Override
@@ -75,19 +77,34 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         limitHealth = findViewById(R.id.limitHealth);
         limitTravel = findViewById(R.id.limitTravel);
         content = findViewById(R.id.insuranceContent);
+
+        // inisialisasi data travel
         nomorPolisTravel = findViewById(R.id.nomorPolisTravel);
         namaTravel = findViewById(R.id.namaTravel);
+        jenisTravel = findViewById(R.id.jenisTravel);
+        statusTravel = findViewById(R.id.statusTravel);
+        jangkaTravel = findViewById(R.id.jangkaTravel);
+
+        // inisialisasi data health
+        nomorPolisHealth = findViewById(R.id.nomorPolisHealth);
+        namaHealth = findViewById(R.id.namaHealth);
+        jenisHealth = findViewById(R.id.jenisHealth);
+        statusHealth = findViewById(R.id.statusHealth);
+        jangkaHealth = findViewById(R.id.jangkaHealth);
 
         // Set values
         LimitHealth = ClientSession.getInstance().getLimitHealth();
         LimitTravel = ClientSession.getInstance().getLimitTravel();
-        NamaTravel = ClientSession.getInstance().getNama();
+        Nama = ClientSession.getInstance().getNama();
 
+
+        // DATABASE
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("transaksiTravel");
+        referenceTravel = database.getReference("transaksiTravel");
+        referenceHealth = database.getReference("transaksiHealth");
 
         String NIK = ClientSession.getInstance().getNik();
-        Query checkTravel = reference.orderByChild("nik").equalTo(NIK);
+        Query checkTravel = referenceTravel.orderByChild("nik").equalTo(NIK);
         Log.d("INTENT", "NIK: " + NIK);
         checkTravel.addValueEventListener(new ValueEventListener() {
             @Override
@@ -105,13 +122,30 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
             }
         });
 
+        Query checkHealth = referenceHealth.orderByChild("nik").equalTo(NIK);
+        checkHealth.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    NomorPolisHealth = snapshot.child(NIK).child("nomorPolisKesehatan").getValue(String.class);
+                    nomorPolisHealth.setText(NomorPolisHealth);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         Locale locale = new Locale("in", "ID");
 
         NumberFormat idrFormat = NumberFormat.getInstance(locale);
 
         limitHealth.setText("Rp " + idrFormat.format((double) LimitHealth));
         limitTravel.setText("Rp " + idrFormat.format((double) LimitTravel));
-        namaTravel.setText(NamaTravel);
+        namaTravel.setText(Nama);
+        namaHealth.setText(Nama);
 //        limitHealth.setText(LimitHealth);
 //        limitTravel.setText(LimitTravel);
 
