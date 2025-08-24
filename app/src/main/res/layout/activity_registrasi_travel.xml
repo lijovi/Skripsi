@@ -309,31 +309,6 @@
                 android:textColor="@color/black" />
         </RadioGroup>
 
-<!--    Lama Perjalanan -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/lamaPerjalananAll"
-            android:visibility="gone"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Lama Perjalanan"
-                android:paddingVertical="8dp"
-                android:textColor="@color/black"
-                />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:background="@drawable/rounded_corner_fill"
-                android:id="@+id/lamaPerjalanan"
-                />
-
-        </LinearLayout>
-
 
 <!--    Nama Ahli Waris -->
         <TextView

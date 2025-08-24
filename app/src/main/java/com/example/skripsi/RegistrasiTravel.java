@@ -303,12 +303,12 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
 
         if (Objects.equals(JenisPolis, "Family")){
             NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Travel",
-                    Perusahaan, currenttime, currentdate, Limit, JenisPolis, NamaKeluarga, PlanAsuransi, MasaPerjalanan, LamaPerjalanan, TipePolis,
+                    Perusahaan, currenttime, currentdate, Limit, JenisPolis, NamaKeluarga, PlanAsuransi, MasaPerjalanan, TipePolis,
                     NamaAhliWaris, HubunganDenganAhliWaris, NegaraTujuan, TujuanPerjalanan);
             reference.child(NIK).setValue(nasabah);
         } else {
             NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Travel",
-                    Perusahaan, currenttime, currentdate, Limit, JenisPolis, null, PlanAsuransi, MasaPerjalanan, LamaPerjalanan, TipePolis,
+                    Perusahaan, currenttime, currentdate, Limit, JenisPolis, null, PlanAsuransi, MasaPerjalanan, TipePolis,
                     NamaAhliWaris, HubunganDenganAhliWaris, NegaraTujuan, TujuanPerjalanan);
             reference.child(NIK).setValue(nasabah);
         }
