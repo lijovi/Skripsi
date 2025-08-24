@@ -85,7 +85,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         btnDaftar = findViewById(R.id.btnDaftar);
         btnMasaPerjalanan = findViewById(R.id.btnMasaPerjalanan);
         namaKeluargaAll = findViewById(R.id.namaKeluargaAll);
-        lamaPerjalanan = findViewById(R.id.lamaPerjalanan);
+//        lamaPerjalanan = findViewById(R.id.lamaPerjalanan);
         tipePolis = findViewById(R.id.tipePolis);
         namaAhliWaris = findViewById(R.id.namaAhliWaris);
         hubunganDenganAhliWaris = findViewById(R.id.hubunganDenganAhliWaris);
@@ -94,7 +94,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         jenisPolis = findViewById(R.id.jenisPolis);
         namaKeluarga = findViewById(R.id.namaKeluarga);
         plan = findViewById(R.id.plan);
-        lamaPerjalananAll = findViewById(R.id.lamaPerjalananAll);
+//        lamaPerjalananAll = findViewById(R.id.lamaPerjalananAll);
 
         perusahaan = getIntent().getIntExtra("tipePerusahaan",0);
 
