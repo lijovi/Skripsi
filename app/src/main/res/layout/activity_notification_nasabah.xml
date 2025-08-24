@@ -83,11 +83,13 @@
 <!--            android:layout_marginTop="20dp"-->
 <!--            android:background="#B0B0B0" />-->
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rvView"
+            android:paddingTop="8dp"
+            android:clipToPadding="false"
+            android:scrollbars="vertical" />
 
-            />
     </LinearLayout>
 
 

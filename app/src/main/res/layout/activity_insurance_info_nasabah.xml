@@ -196,13 +196,6 @@
                         android:padding="6dp"/>
                 </TableRow>
 
-                <!-- Contoh Isi -->
-                <TableRow>
-                    <TextView android:text="21/06/2025" android:padding="6dp" android:textColor="@color/black"/>
-                    <TextView android:text="Diabetes" android:padding="6dp" android:textColor="@color/black"/>
-                    <TextView android:text="10 Jt" android:padding="6dp" android:textColor="@color/black"/>
-                    <TextView android:text="Rawat Inap" android:padding="6dp" android:textColor="@color/black"/>
-                </TableRow>
             </TableLayout>
 
             <!-- KLAIM ASURANSI HEALTH -->
@@ -243,12 +236,6 @@
                         android:padding="6dp"/>
                 </TableRow>
 
-                <!-- Contoh Isi -->
-                <TableRow>
-                    <TextView android:text="Pengajuan 1" android:padding="6dp" android:textColor="@color/black"/>
-                    <TextView android:text="Diterima" android:padding="6dp" android:textColor="@color/black"/>
-                    <TextView android:text="DD/MM/YYYY" android:padding="6dp" android:textColor="@color/black"/>
-                </TableRow>
             </TableLayout>
             <!-- Divider -->
             <View
@@ -434,12 +421,6 @@
                         android:padding="6dp"/>
                 </TableRow>
 
-                <!-- Contoh Isi -->
-                <TableRow>
-                    <TextView android:text="Pengajuan 1" android:padding="6dp" android:textColor="@color/black"/>
-                    <TextView android:text="Diterima" android:padding="6dp" android:textColor="@color/black"/>
-                    <TextView android:text="DD/MM/YYYY" android:padding="6dp" android:textColor="@color/black"/>
-                </TableRow>
             </TableLayout>
         </LinearLayout>
     </ScrollView>
