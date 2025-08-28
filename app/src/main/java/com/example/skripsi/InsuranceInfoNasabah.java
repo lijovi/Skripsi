@@ -47,7 +47,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
     String NomorPolisTravel, Nama;
     String NomorPolisHealth;
     FirebaseDatabase database;
-    DatabaseReference referenceTravel, referenceHealth;
+    DatabaseReference referenceTravel, referenceHealth, referenceDataHealth, referenceDataTravel;
 
     // buat ubah bahasa locale
     @Override
@@ -102,6 +102,8 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         referenceTravel = database.getReference("transaksiTravel");
         referenceHealth = database.getReference("transaksiHealth");
+        referenceDataHealth = database.getReference("clientHealth");
+        referenceDataTravel = database.getReference("clientTravel");
 
         String NIK = ClientSession.getInstance().getNik();
         Query checkTravel = referenceTravel.orderByChild("nik").equalTo(NIK);
@@ -113,6 +115,22 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                     NomorPolisTravel = snapshot.child(NIK).child("nomorPolisTravel").getValue(String.class);
                     Log.d("INTENT", "Received NIK: " + NomorPolisTravel);
                     nomorPolisTravel.setText(NomorPolisTravel);
+                    namaTravel.setText(Nama);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        Query checkDataTravel = referenceDataTravel.orderByChild("nik").equalTo(NIK);
+        checkDataTravel.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    jenisTravel.setText(snapshot.child(NIK).child("planAsuransi").getValue(String.class));
                 }
             }
 
@@ -129,6 +147,23 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                 if (snapshot.exists()){
                     NomorPolisHealth = snapshot.child(NIK).child("nomorPolisKesehatan").getValue(String.class);
                     nomorPolisHealth.setText(NomorPolisHealth);
+                    namaHealth.setText(Nama);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        Query checkDataHealth = referenceDataHealth.orderByChild("nik").equalTo(NIK);
+        checkDataHealth.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    jenisHealth.setText(snapshot.child(NIK).child("plan").getValue(String.class));
                 }
             }
 
@@ -144,8 +179,6 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
 
         limitHealth.setText("Rp " + idrFormat.format((double) LimitHealth));
         limitTravel.setText("Rp " + idrFormat.format((double) LimitTravel));
-        namaTravel.setText(Nama);
-        namaHealth.setText(Nama);
 //        limitHealth.setText(LimitHealth);
 //        limitTravel.setText(LimitTravel);
 

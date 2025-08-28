@@ -8,10 +8,44 @@
     tools:context=".HistoryAsuransi"
     android:background="#DDE6ED">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp"
+        android:id="@+id/info"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:layout_marginRight="5dp"
+            android:text="NOTIFIKASI"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textColor="@color/black"
+            android:layout_marginLeft="5dp"
+            android:text="STATUS"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rvView"
+        android:layout_below="@+id/info"
         />
 
 <!--    Footer -->

@@ -33,7 +33,7 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
     TextView nik, nama, email, jenisKelamin, alamat, jenisPolis, planAsuransi, masaPerjalanan, tipePolis
             , namaAhliWaris, hubunganDenganAhliWaris,  negaraTujuan, tujuanPerjalanan;
 
-    Button btnTerima, btnTolak, btnOkPremi, btnOkPolis;
+    Button btnTerima, btnTolak, btnOkPremi, btnOkPolis, btnHome, btnHistory, btnProfile;
 
     FirebaseDatabase database;
     DatabaseReference reference, referenceTransaksi, referenceNasabah, referenceUserData, referenceHistory;
@@ -104,6 +104,33 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
         tujuanPerjalanan = findViewById(R.id.tujuanPerjalanan);
         btnTerima = findViewById(R.id.btnTerima);
         btnTolak = findViewById(R.id.btnTolak);
+        btnHome = findViewById(R.id.btnHome);
+        btnHistory = findViewById(R.id.btnHistory);
+        btnProfile = findViewById(R.id.btnProfile);
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
+                startActivity(intent);
+            }
+        });
+
+        btnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HistoryAsuransi.class);
+                startActivity(intent);
+            }
+        });
+
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ProfileAsuransi.class);
+                startActivity(intent);
+            }
+        });
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override

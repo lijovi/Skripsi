@@ -17,6 +17,7 @@
             android:layout_weight="1"
             android:id="@+id/notif"
             android:textColor="@color/black"
+            android:layout_marginRight="5dp"
             />
 
         <TextView
@@ -25,6 +26,8 @@
             android:layout_weight="3"
             android:id="@+id/status"
             android:textColor="@color/black"
+            android:layout_marginLeft="5dp"
+            android:textAlignment="center"
             />
 
     </LinearLayout>

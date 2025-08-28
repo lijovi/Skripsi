@@ -35,7 +35,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
     TextView nik, nama, email, jenisKelamin, tanggalLahir, noTelepon, alamat,
             pekerjaan, periodePertanggungan, planAsuransi, riwayatPenyakit;
 
-    Button btnTerima, btnTolak, btnOkPolis, btnOkPremi;
+    Button btnTerima, btnTolak, btnOkPolis, btnOkPremi, btnHistory, btnHome, btnProfile;
 
     FirebaseDatabase database;
     DatabaseReference reference, referenceTransaksi, referenceNasabah, referenceHistory, referenceUserData, referenceCompany;
@@ -96,6 +96,33 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
 
         btnTerima = findViewById(R.id.btnTerima);
         btnTolak = findViewById(R.id.btnTolak);
+        btnHistory = findViewById(R.id.btnHistory);
+        btnHome = findViewById(R.id.btnHome);
+        btnProfile = findViewById(R.id.btnProfile);
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
+                startActivity(intent);
+            }
+        });
+
+        btnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HistoryAsuransi.class);
+                startActivity(intent);
+            }
+        });
+
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ProfileAsuransi.class);
+                startActivity(intent);
+            }
+        });
 
 
         reference.addValueEventListener(new ValueEventListener() {
@@ -125,10 +152,15 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                 pekerjaan.setText(Pekerjaan);
                 periodePertanggungan.setText(PeriodePertanggungan);
                 planAsuransi.setText(PlanAsuransi);
-                for (String item : list){
-                    sb.append("- ").append(item).append("\n");
+
+                if (list == null){
+                    riwayatPenyakit.setText(null);
+                } else {
+                    for (String item : list){
+                        sb.append("- ").append(item).append("\n");
+                    }
+                    riwayatPenyakit.setText(sb.toString());
                 }
-                riwayatPenyakit.setText(sb.toString());
             }
 
             @Override

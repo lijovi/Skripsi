@@ -354,6 +354,10 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         String currentdate = day + " - " + month + " - " + year;
         int Limit = limit;
 
+        if (List == null){
+            List = null;
+        }
+
         NasabahHealth nasabah = new NasabahHealth(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Health",
                 Perusahaan, currenttime, currentdate, Limit, BodText, Pekerjaan, PeriodePertanggungan, PilihanPlan, NamaAhliWaris, HubunganDenganAhliWaris, List);
 //        dataref.push().setValue(nasabah);

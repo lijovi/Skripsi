@@ -84,10 +84,14 @@ public class HistoryHealth extends AppCompatActivity {
                 pekerjaan.setText(Pekerjaan);
                 periodePertanggungan.setText(PeriodePertanggungan);
                 planAsuransi.setText(PlanAsuransi);
-                for (String item : list){
-                    sb.append("- ").append(item).append("\n");
+                if (list == null){
+                    riwayatPenyakit.setText(null);
+                } else {
+                    for (String item : list){
+                        sb.append("- ").append(item).append("\n");
+                    }
+                    riwayatPenyakit.setText(sb.toString());
                 }
-                riwayatPenyakit.setText(sb.toString());
             }
 
             @Override

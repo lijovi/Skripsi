@@ -106,11 +106,11 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 selectedPolis = findViewById(checkedId);
                 String temp = selectedPolis.getText().toString();
-                if (Objects.equals(temp, "Iya")){
-                    lamaPerjalananAll.setVisibility(View.GONE);
-                } else {
-                    lamaPerjalananAll.setVisibility(View.VISIBLE);
-                }
+//                if (Objects.equals(temp, "Iya")){
+//                    lamaPerjalananAll.setVisibility(View.GONE);
+//                } else {
+//                    lamaPerjalananAll.setVisibility(View.VISIBLE);
+//                }
             }
         });
 
@@ -279,7 +279,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         String Alamat = alamat.getText().toString();
         String NamaKeluarga = namaKeluarga.getText().toString();
         String MasaPerjalanan = masaPerjalanan.getText().toString();
-        String LamaPerjalanan = lamaPerjalanan.getText().toString();
+//        String LamaPerjalanan = lamaPerjalanan.getText().toString();
         String TipePolis = selectedPolis.getText().toString();
         String NamaAhliWaris = namaAhliWaris.getText().toString();
         String HubunganDenganAhliWaris = hubunganDenganAhliWaris.getText().toString();
