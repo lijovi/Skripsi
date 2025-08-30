@@ -41,6 +41,7 @@ public class AdapterPembayaran extends RecyclerView.Adapter<AdapterPembayaran.Vi
                 intent.putExtra("nik", pembayaran.getNik());
                 intent.putExtra("nama", pembayaran.getNama());
                 intent.putExtra("besarPremi", pembayaran.getBesarPremi());
+                intent.putExtra("nomorPremi", pembayaran.getNomorPremi());
                 context.startActivity(intent);
             }
         });
