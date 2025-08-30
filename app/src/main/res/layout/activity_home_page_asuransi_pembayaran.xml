@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePageAsuransi"
+    tools:context=".HomePageAsuransiPembayaran"
     android:background="#DDE6ED">
 
     <LinearLayout
@@ -40,8 +40,8 @@
             />
 
     </LinearLayout>
-    
-    
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,9 +86,7 @@
             />
     </LinearLayout>
 
-
-
-<!--    Footer-->
+    <!--    Footer-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -103,7 +101,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-
             >
 
             <LinearLayout
@@ -161,6 +158,5 @@
 
 
     </RelativeLayout>
-
 
 </RelativeLayout>

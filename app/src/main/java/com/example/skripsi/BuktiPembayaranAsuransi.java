@@ -2,6 +2,7 @@ package com.example.skripsi;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.ActionBar;
@@ -11,6 +12,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class BuktiPembayaranAsuransi extends AppCompatActivity {
+
+    TextView nik, nama, besarPremi;
+    String NIK, Nama, BesarPremi;
 
     // buat ubah bahasa locale
     @Override
@@ -30,5 +34,16 @@ public class BuktiPembayaranAsuransi extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        nik = findViewById(R.id.nik);
+        nama = findViewById(R.id.nama);
+        besarPremi = findViewById(R.id.besarPremi);
+
+        NIK = getIntent().getStringExtra("nik");
+        Nama = getIntent().getStringExtra("nama");
+        BesarPremi = getIntent().getStringExtra("besarPremi");
+
+
+
     }
 }

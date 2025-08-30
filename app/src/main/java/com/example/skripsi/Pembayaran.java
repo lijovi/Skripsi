@@ -43,7 +43,7 @@ public class Pembayaran extends AppCompatActivity {
     int company;
     FirebaseDatabase database;
     DatabaseReference checkVirtual, checkPremi, besarPremi;
-    Button back, btnBuktiFoto;
+    Button back, btnBuktiFoto, btnUnggah;
     ImageView bukti;
     int PICK_IMAGE_REQUEST = 100;
     StorageReference storageRef;
@@ -77,6 +77,7 @@ public class Pembayaran extends AppCompatActivity {
         back = findViewById(R.id.back);
         btnBuktiFoto = findViewById(R.id.btnUploadBuktiFoto);
         bukti = findViewById(R.id.bukti);
+        btnUnggah = findViewById(R.id.btnUnggah);
 
 //        company = ClientSession.getInstance().getCompany();
         nik = ClientSession.getInstance().getNik();
@@ -104,6 +105,14 @@ public class Pembayaran extends AppCompatActivity {
             }
         });
 
+        btnUnggah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void DialogForm() {

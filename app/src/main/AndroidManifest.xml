@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Skripsi"
         tools:targetApi="31">
         <activity
+            android:name=".HomePageAsuransiPembayaran"
+            android:exported="false" />
+        <activity
             android:name=".HistoryTravel"
             android:exported="false" />
         <activity
