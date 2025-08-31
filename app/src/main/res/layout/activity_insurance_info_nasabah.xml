@@ -204,7 +204,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:stretchColumns="*"
-                android:background="#F0F0F0"
+                android:background="#FFFFFF"
+                android:divider="#CCCCCC"
+                android:showDividers="middle"
                 android:padding="4dp">
 
                 <!-- Header Tabel -->
@@ -249,7 +251,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:stretchColumns="*"
-                android:background="#F0F0F0"
+                android:background="#FFFFFF"
+                android:divider="#CCCCCC"
+                android:showDividers="middle"
                 android:padding="4dp">
 
                 <!-- Header Tabel -->
@@ -469,7 +473,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:stretchColumns="*"
-                android:background="#F0F0F0"
+                android:background="#FFFFFF"
+                android:divider="#CCCCCC"
+                android:showDividers="middle"
                 android:padding="4dp">
 
                 <!-- Header Tabel -->

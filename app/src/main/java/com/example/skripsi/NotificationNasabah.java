@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -71,15 +72,20 @@ public class NotificationNasabah extends AppCompatActivity {
                 list.clear();
                 for (DataSnapshot data : snapshot.getChildren()) {
                     NotifikasiModel model = data.getValue(NotifikasiModel.class);
-                    list.add(model);
+                    if (model != null) {
+                        list.add(model);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(DatabaseError error) {
+                Toast.makeText(NotificationNasabah.this,
+                        "Gagal memuat notifikasi", Toast.LENGTH_SHORT).show();
             }
         });
+
 
         // Tombol navigasi
         btnHome = findViewById(R.id.btnHome);

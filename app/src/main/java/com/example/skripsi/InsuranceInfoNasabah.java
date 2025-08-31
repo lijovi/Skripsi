@@ -2,6 +2,7 @@ package com.example.skripsi;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,13 +10,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -48,6 +53,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
     String NomorPolisHealth;
     FirebaseDatabase database;
     DatabaseReference referenceTravel, referenceHealth, referenceDataHealth, referenceDataTravel;
+    TableLayout tableMedicalHistory, tableKlaimAsuransiHealth, tableKlaimAsuransiTravel;
 
     // buat ubah bahasa locale
     @Override
@@ -105,7 +111,13 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         referenceDataHealth = database.getReference("clientHealth");
         referenceDataTravel = database.getReference("clientTravel");
 
+        // TABEL
+        tableMedicalHistory = findViewById(R.id.tableMedicalHistory);
+        tableKlaimAsuransiHealth = findViewById(R.id.tableKlaimAsuransiHealth);
+        tableKlaimAsuransiTravel = findViewById(R.id.tableKlaimAsuransiTravel);
+
         String NIK = ClientSession.getInstance().getNik();
+        loadMedicalHistory(NIK);
         Query checkTravel = referenceTravel.orderByChild("nik").equalTo(NIK);
         Log.d("INTENT", "NIK: " + NIK);
         checkTravel.addValueEventListener(new ValueEventListener() {
@@ -229,5 +241,63 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
             }
         });
     }
+
+    private void addRowToTable(TableLayout table, String[] data, int position) {
+        TableRow row = new TableRow(this);
+
+        // Zebra striping
+        if (position % 2 == 0) {
+            row.setBackgroundColor(ContextCompat.getColor(this, R.color.zebra_light));
+        } else {
+            row.setBackgroundColor(ContextCompat.getColor(this, R.color.zebra_dark));
+        }
+
+        // Create cells
+        for (String value : data) {
+            TextView tv = new TextView(this);
+            tv.setText(value);
+            tv.setPadding(16, 12, 16, 12);
+            tv.setTextColor(Color.BLACK);
+            tv.setTextSize(14);
+            row.addView(tv);
+        }
+
+        table.addView(row);
+    }
+
+    // buat isi tabel
+    private void loadMedicalHistory(String nik) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("riwayatMedis");
+        Query query = ref.orderByChild("nik").equalTo(nik);
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // Clear old rows except header
+                if (tableMedicalHistory.getChildCount() > 1) {
+                    tableMedicalHistory.removeViews(1, tableMedicalHistory.getChildCount() - 1);
+                }
+
+                int position = 0;
+                for (DataSnapshot data : snapshot.getChildren()) {
+                    String tgl = data.child("tglDiagnosa").getValue(String.class);
+                    String kondisi = data.child("kondisi").getValue(String.class);
+                    String klaim = data.child("besarklaim").getValue(String.class);
+                    String status = data.child("statusKlaim").getValue(String.class);
+
+                    addRowToTable(tableMedicalHistory,
+                            new String[]{tgl, kondisi, klaim, status},
+                            position);
+                    position++;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(InsuranceInfoNasabah.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
 }

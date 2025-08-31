@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class AdapterNotifikasi extends RecyclerView.Adapter<AdapterNotifikasi.ViewHolder> {
-
     private List<NotifikasiModel> list;
 
     public AdapterNotifikasi(List<NotifikasiModel> list) {
@@ -29,8 +28,10 @@ public class AdapterNotifikasi extends RecyclerView.Adapter<AdapterNotifikasi.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         NotifikasiModel model = list.get(position);
-        holder.tvDeskripsi.setText(model.getDeskripsi());
-        holder.tvWaktu.setText(model.getWaktu());
+
+        holder.tvJenis.setText(model.getJenisNotifikasi());
+        holder.tvDeskripsi.setText(model.getNotificationDesc());
+        holder.tvWaktu.setText(model.getNotificationDate());
     }
 
     @Override
@@ -39,10 +40,11 @@ public class AdapterNotifikasi extends RecyclerView.Adapter<AdapterNotifikasi.Vi
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvDeskripsi, tvWaktu;
+        TextView tvJenis, tvDeskripsi, tvWaktu;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            tvJenis = itemView.findViewById(R.id.tvJenisNotifikasi);
             tvDeskripsi = itemView.findViewById(R.id.tvDeskripsi);
             tvWaktu = itemView.findViewById(R.id.tvWaktu);
         }

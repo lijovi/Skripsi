@@ -1,23 +1,42 @@
 package com.example.skripsi;
 
 public class NotifikasiModel {
-    private String deskripsi;
-    private String waktu;
+    private String jenisNotifikasi;
+    private String notificationDesc;
+    private String notificationDate;
 
     public NotifikasiModel() {
-        // Diperlukan Firebase
+        // Needed for Firebase
     }
 
-    public NotifikasiModel(String deskripsi, String waktu) {
-        this.deskripsi = deskripsi;
-        this.waktu = waktu;
+    public NotifikasiModel(String jenisNotifikasi, String notificationDesc, String notificationDate) {
+        this.jenisNotifikasi = jenisNotifikasi;
+        this.notificationDesc = notificationDesc;
+        this.notificationDate = notificationDate;
     }
 
-    public String getDeskripsi() {
-        return deskripsi;
+    public String getJenisNotifikasi() {
+        return jenisNotifikasi;
     }
 
-    public String getWaktu() {
-        return waktu;
+    public void setJenisNotifikasi(String jenisNotifikasi) {
+        this.jenisNotifikasi = jenisNotifikasi;
+    }
+
+    public String getNotificationDesc() {
+        return notificationDesc;
+    }
+
+    public void setNotificationDesc(String notificationDesc) {
+        this.notificationDesc = notificationDesc;
+    }
+
+    public String getNotificationDate() {
+        return notificationDate;
+    }
+
+    public void setNotificationDate(String notificationDate) {
+        this.notificationDate = notificationDate;
     }
 }
+
