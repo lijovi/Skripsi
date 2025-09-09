@@ -42,7 +42,7 @@
     <string name="warning_icon">!</string>
     <string name="notifikasi">Notifikasi</string>
     <string name="info_asuransi">Info Asuransi</string>
-    <string name="waktu">Waktu</string>
+    <string name="waktu">Tanggal dan Waktu</string>
     <string name="profil">Profil</string>
     <string name="utama">Utama</string>
     <string name="riwayat_medis">Riwayat Medis</string>
@@ -142,4 +142,10 @@
     <string name="kondisi">Kondisi</string>
     <string name="besar_klaim">Besar Klaim</string>
     <string name="status_klaim">Status</string>
+    <string name="linkpondakindah"><![CDATA[<a href="https://maps.app.goo.gl/awiAQnrS61opZQ7x6?g_st=ipc">Klik Disini</a>]]></string>
+    <string name="linksariasih"><![CDATA[<a href="https://maps.app.goo.gl/WmwYuGLUFo5EsNpd7?g_st=ipc">Klik Disini</a>]]></string>
+    <string name="linkharapankita"><![CDATA[<a href="https://maps.app.goo.gl/TDUEP1eZ7nwHNNmj7?g_st=ipc">Klik Disini</a>]]></string>
+    <string name="linkpluit"><![CDATA[<a href="https://maps.app.goo.gl/e8h4vF5s4f7AJNr6A?g_st=ipc">Klik Disini</a>]]></string>
+
+
 </resources>

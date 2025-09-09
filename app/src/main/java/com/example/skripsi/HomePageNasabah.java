@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +39,7 @@ public class HomePageNasabah extends AppCompatActivity {
     Button btnHome, btnInfo, btnNotifikasi, btnProfile;
     int companyHealth, companyTravel;
     int check = 0;
+    TextView sariAsih, pondokIndah, harapanKita, pluit;
 
     @SuppressLint("MissingInflatedId")
 
@@ -96,6 +99,23 @@ public class HomePageNasabah extends AppCompatActivity {
 
         Nama = ClientSession.getInstance().getNama();
         nama.setText(Nama + " !");
+
+        sariAsih = findViewById(R.id.sariAsih);
+        sariAsih.setText(Html.fromHtml(getString(R.string.linksariasih), Html.FROM_HTML_MODE_LEGACY));
+        sariAsih.setMovementMethod(LinkMovementMethod.getInstance());
+
+
+        pondokIndah = findViewById(R.id.pondokIndah);
+        pondokIndah.setText(Html.fromHtml(getString(R.string.linkpondakindah), Html.FROM_HTML_MODE_LEGACY));
+        pondokIndah.setMovementMethod(LinkMovementMethod.getInstance());
+
+        harapanKita = findViewById(R.id.harapanKita);
+        harapanKita.setText(Html.fromHtml(getString(R.string.linkharapankita), Html.FROM_HTML_MODE_LEGACY));
+        harapanKita.setMovementMethod(LinkMovementMethod.getInstance());
+
+        pluit = findViewById(R.id.pluit);
+        pluit.setText(Html.fromHtml(getString(R.string.linkpluit), Html.FROM_HTML_MODE_LEGACY));
+        pluit.setMovementMethod(LinkMovementMethod.getInstance());
 
         Password = ClientSession.getInstance().getPassword();
         Log.d("PASSWORD", "PASSWORD: " + Password);

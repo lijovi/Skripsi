@@ -54,9 +54,11 @@ public class NotificationNasabah extends AppCompatActivity {
             return insets;
         });
 
+        String NIK = ClientSession.getInstance().getNik();
+
         // Setup Firebase
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("notifikasiNasabah");
+        reference = database.getReference("notifikasiNasabah").child(NIK);
 
         // Setup RecyclerView
         recyclerView = findViewById(R.id.rvView);

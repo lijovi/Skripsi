@@ -29,7 +29,10 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Currency;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -131,6 +134,31 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     jenisTravel.setText(snapshot.child(NIK).child("planAsuransi").getValue(String.class));
+                    String cek = snapshot.child(NIK).child("tipePolis").getValue(String.class);
+                    if (Objects.equals(cek, "Iya")){
+                        jangkaTravel.setText("1 Tahun");
+                    } else {
+                        String fulltext = snapshot.child(NIK).child("masaPerjalanan").getValue(String.class);
+                        String[] part = fulltext.split("-");
+                        SimpleDateFormat dates = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                        try {
+                            Date date1 = dates.parse(part[0].trim());
+                            Date date2 = dates.parse(part[1].trim());
+
+                            Long difference = Math.abs(date1.getTime() - date2.getTime()) / (24*60*60*1000);
+                            jangkaTravel.setText(difference.toString());
+
+                            Date currentDate = dates.parse(dates.format(new Date()));
+                            Log.d("MyApp", "Current Date: " + dates.format(currentDate));
+                            if (!currentDate.before(date1) && !currentDate.after(date2)){
+                                statusTravel.setText("Aktif");
+                            } else {
+                                statusTravel.setText("Non Aktif");
+                            }
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
             }
 

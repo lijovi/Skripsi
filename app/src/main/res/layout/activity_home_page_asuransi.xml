@@ -41,13 +41,23 @@
 
     </LinearLayout>
     
-    
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rvView"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
         android:layout_below="@+id/info"
-        />
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rvView"
+            android:layout_below="@+id/info"
+            />
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -31,6 +31,7 @@ public class AdapterNotifikasi extends RecyclerView.Adapter<AdapterNotifikasi.Vi
         NotifikasiModel model = list.get(position);
         holder.tvDeskripsi.setText(model.getDeskripsi());
         holder.tvWaktu.setText(model.getWaktu());
+        holder.tvTanggal.setText(model.getTanggal());
     }
 
     @Override
@@ -39,12 +40,13 @@ public class AdapterNotifikasi extends RecyclerView.Adapter<AdapterNotifikasi.Vi
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvDeskripsi, tvWaktu;
+        TextView tvDeskripsi, tvWaktu, tvTanggal;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDeskripsi = itemView.findViewById(R.id.tvDeskripsi);
             tvWaktu = itemView.findViewById(R.id.tvWaktu);
+            tvTanggal = itemView.findViewById(R.id.tvTanggal);
         }
     }
 }

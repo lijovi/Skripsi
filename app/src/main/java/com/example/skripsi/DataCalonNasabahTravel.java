@@ -36,7 +36,7 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
     Button btnTerima, btnTolak, btnOkPremi, btnOkPolis, btnHome, btnHistory, btnProfile;
 
     FirebaseDatabase database;
-    DatabaseReference reference, referenceTransaksi, referenceNasabah, referenceUserData, referenceHistory;
+    DatabaseReference reference, referenceTransaksi, referenceNasabah, referenceUserData, referenceHistory, referenceNotifikasi;
     AlertDialog.Builder dialog;
     LayoutInflater inflater;
     View dialogView;
@@ -85,6 +85,7 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
         referenceNasabah = database.getReference("clientTravel").child(NIK);
         referenceUserData = database.getReference("userData");
         referenceHistory = database.getReference("history");
+        referenceNotifikasi = database.getReference("notifikasiNasabah");
         calendar = Calendar.getInstance();
         calendarJ = Calendar.getInstance();
         calendarJ.add(Calendar.DAY_OF_MONTH, 7);
@@ -290,12 +291,36 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
                     }
                 });
 
-                referenceTransaksi.addValueEventListener(new ValueEventListener() {
+                referenceTransaksi.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         TransaksiTravel transaksi = new TransaksiTravel(NIK, BesarPremi, Company, currentdate, jatuhTempo, NomorPolis);
                         referenceTransaksi.setValue(transaksi);
                         reference.removeValue();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                referenceNotifikasi.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
+                        String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
+                        String year = String.valueOf(calendar.get(Calendar.YEAR));
+
+                        String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+                        String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+                        String second = String.format("%02d",calendar.get(Calendar.SECOND));
+
+                        String currentdate = day + " - " + month + " - " + year;
+                        String currenttime = hour + " : " + minute + " : " + second;
+                        NotifikasiModel notifikasiModel = new NotifikasiModel("Pendaftaran Asuransi Travel telah diterima", currenttime, currentdate);
+//                        String id = referenceNotifikasi.push().getKey();
+                        referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.getChildrenCount()+1)).setValue(notifikasiModel);
                         alertDialog.dismiss();
                         Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
                         startActivity(intent);
