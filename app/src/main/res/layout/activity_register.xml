@@ -67,7 +67,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Travel"
+                android:text="@string/travel"
                 android:textColor="@color/black"
                 android:layout_weight="1"
                 android:id="@+id/travel"
@@ -76,7 +76,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Health"
+                android:text="@string/health"
                 android:textColor="@color/black"
                 android:layout_weight="1"
                 android:id="@+id/health"

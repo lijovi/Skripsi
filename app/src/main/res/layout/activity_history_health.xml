@@ -49,7 +49,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NIK:"
+                    android:text="@string/nik"
                     android:textColor="@color/black"
                     />
 
@@ -74,7 +74,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama:"
+                    android:text="@string/nama_data_calon_nasabah"
                     android:textColor="@color/black"
                     />
 
@@ -99,7 +99,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email:"
+                    android:text="@string/email_data_calon_nasabah"
                     android:textColor="@color/black"
                     />
 
@@ -124,7 +124,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jenis Kelamin:"
+                    android:text="@string/jenis_kelamin_data"
                     android:textColor="@color/black"
                     />
 
@@ -149,7 +149,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tanggal Lahir:"
+                    android:text="@string/tanggal_lahir_data"
                     android:textColor="@color/black"
                     />
 
@@ -174,7 +174,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nomor Telepon:"
+                    android:text="@string/nomor_telepon_data"
                     android:textColor="@color/black"
                     />
 
@@ -200,7 +200,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Alamat:"
+                    android:text="@string/alamat_data"
                     android:textColor="@color/black"
                     />
 
@@ -225,7 +225,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pekerjaan:"
+                    android:text="@string/pekerjaan_data"
                     android:textColor="@color/black"
                     />
 
@@ -250,7 +250,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Periode Pertanggungan:"
+                    android:text="@string/periode_pertanggungan"
                     android:textColor="@color/black"
                     />
 
@@ -275,7 +275,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Plan Asuransi:"
+                    android:text="@string/plan_asuransi_data"
                     android:textColor="@color/black"
                     />
 
@@ -303,7 +303,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Riwayat Penyakit:"
+                    android:text="@string/riwayat_penyakit"
                     android:textColor="@color/black"
                     />
 

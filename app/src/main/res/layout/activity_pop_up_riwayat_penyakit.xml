@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="20dp"
-                android:text="Silakan Masukkan Riwayat Penyakit Yang Dimiliki"
+                android:text="@string/silakan_masukkan_riwayat_penyakit_yang_dimiliki"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -37,7 +37,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TBC"
+                android:text="@string/tbc"
                 android:textColor="@color/black"
                 android:id="@+id/c1"
                 android:onClick="checked"
@@ -46,7 +46,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="HYPERTENSI"
+                android:text="@string/hypertensi"
                 android:textColor="@color/black"
                 android:id="@+id/c2"
                 android:onClick="checked"
@@ -55,7 +55,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="JANTUNG DAN PEMBULUH DARAH"
+                android:text="@string/jantung_dan_pembuluh_darah"
                 android:textColor="@color/black"
                 android:id="@+id/c3"
                 android:onClick="checked"
@@ -64,7 +64,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TUKAK LAMBUNG"
+                android:text="@string/tukak_lambung"
                 android:textColor="@color/black"
                 android:id="@+id/c4"
                 android:onClick="checked"
@@ -73,7 +73,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BATU DAN INFEKSI SALURAN KEMIH"
+                android:text="@string/batu_dan_infeksi_saluran_kemih"
                 android:textColor="@color/black"
                 android:id="@+id/c5"
                 android:onClick="checked"
@@ -82,7 +82,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ANAL FISTULA"
+                android:text="@string/anal_fistula"
                 android:textColor="@color/black"
                 android:id="@+id/c6"
                 android:onClick="checked"
@@ -91,7 +91,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="RADANG KANDUNG DAN BATU EMPEDU"
+                android:text="@string/radang_kandung_dan_batu_empedu"
                 android:textColor="@color/black"
                 android:id="@+id/c7"
                 android:onClick="checked"
@@ -100,7 +100,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="JARI TANGAN DAN KAKI YANG BERJUMLAH LEBIH"
+                android:text="@string/jari_tangan_dan_kaki_yang_berjumlah_lebih"
                 android:textColor="@color/black"
                 android:id="@+id/c8"
                 android:onClick="checked"
@@ -109,7 +109,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TUMOR YANG TAMPAK DAN TIDAK TAMPAK"
+                android:text="@string/tumor_yang_tampak_dan_tidak_tampak"
                 android:textColor="@color/black"
                 android:id="@+id/c9"
                 android:onClick="checked"
@@ -118,7 +118,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DIABETES MELLITUS"
+                android:text="@string/diabetes_mellitus"
                 android:textColor="@color/black"
                 android:id="@+id/c10"
                 android:onClick="checked"
@@ -127,7 +127,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ENDOMETRIOSIS"
+                android:text="@string/endometriosis"
                 android:textColor="@color/black"
                 android:id="@+id/c11"
                 android:onClick="checked"
@@ -136,7 +136,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="WASIR ATAU AMBEIEN"
+                android:text="@string/wasir_atau_ambeien"
                 android:textColor="@color/black"
                 android:id="@+id/c12"
                 android:onClick="checked"
@@ -145,7 +145,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="OPERASI AMANDEL"
+                android:text="@string/operasi_amandel"
                 android:textColor="@color/black"
                 android:id="@+id/c13"
                 android:onClick="checked"
@@ -154,7 +154,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="OPERASI NASAL SEPTUM / SEKAT RONGGA HIDUNG"
+                android:text="@string/operasi_nasal_septum_sekat_rongga_hidung"
                 android:textColor="@color/black"
                 android:id="@+id/c14"
                 android:onClick="checked"
@@ -163,7 +163,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GONDOK"
+                android:text="@string/gondok"
                 android:textColor="@color/black"
                 android:id="@+id/c15"
                 android:onClick="checked"
@@ -172,7 +172,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="KATARAK"
+                android:text="@string/katarak"
                 android:textColor="@color/black"
                 android:id="@+id/c16"
                 android:onClick="checked"
@@ -181,7 +181,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SINUS"
+                android:text="@string/sinus"
                 android:textColor="@color/black"
                 android:id="@+id/c17"
                 android:onClick="checked"
@@ -190,7 +190,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EPILEPSI"
+                android:text="@string/epilepsi"
                 android:textColor="@color/black"
                 android:id="@+id/c18"
                 android:onClick="checked"
@@ -199,7 +199,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:text="Simpan"
+                android:text="@string/simpan"
                 android:background="@drawable/rounded_corner_button"
                 android:layout_gravity="center"
                 android:textColor="@color/black"

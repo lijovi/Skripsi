@@ -36,7 +36,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BUKTI PEMBAYARAN"
+                android:text="@string/bukti_pembayaran"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="20dp"
@@ -85,7 +85,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NAMA:"
+                android:text="@string/nama_bukti_pembayaran"
                 android:textColor="@color/black"
                 />
 
@@ -110,7 +110,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BESAR PREMI:"
+                android:text="@string/besar_premi"
                 android:textColor="@color/black"
                 />
 
@@ -145,7 +145,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:text="Terima"
+                android:text="@string/terima"
                 android:background="@drawable/rounded_corner_button"
                 android:layout_gravity="center"
                 android:textColor="@color/black"
@@ -157,7 +157,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:text="Tolak"
+                android:text="@string/tolak"
                 android:background="@drawable/rounded_corner_button"
                 android:layout_gravity="center"
                 android:textColor="@color/black"

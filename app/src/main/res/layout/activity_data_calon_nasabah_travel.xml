@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DATA CALON NASABAH"
+                android:text="@string/data_calon_nasabah"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="20dp"
@@ -76,7 +76,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NIK:"
+                android:text="@string/nik"
                 android:textColor="@color/black"
                 />
 
@@ -102,7 +102,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama:"
+                android:text="@string/nama_data_calon_nasabah"
                 android:textColor="@color/black"
                 />
             <TextView
@@ -126,7 +126,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email:"
+                android:text="@string/email_data_calon_nasabah"
                 android:textColor="@color/black"
                 />
 
@@ -152,7 +152,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jenis Kelamin:"
+                android:text="@string/jenis_kelamin_data"
                 android:textColor="@color/black"
                 />
 
@@ -177,7 +177,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alamat:"
+                android:text="@string/alamat_data"
                 android:textColor="@color/black"
                 />
 
@@ -202,7 +202,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jenis Polis:"
+                android:text="@string/jenis_polis"
                 android:textColor="@color/black"
                 />
 
@@ -227,7 +227,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Plan Asuransi:"
+                android:text="@string/plan_asuransi_data"
                 android:textColor="@color/black"
                 />
 
@@ -252,7 +252,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Masa Perjalanan:"
+                android:text="@string/masa_perjalanan_data"
                 android:textColor="@color/black"
                 />
 
@@ -278,7 +278,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tipe Polis (Tahunan):"
+                android:text="@string/tipe_polis_tahunan"
                 android:textColor="@color/black"
                 />
 
@@ -303,7 +303,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Ahli Waris:"
+                android:text="@string/nama_ahli_waris"
                 android:textColor="@color/black"
                 />
 
@@ -328,7 +328,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hubungan Dengan Ahli Waris:"
+                android:text="@string/hubungan_dengan_ahli_waris"
                 android:textColor="@color/black"
                 />
 
@@ -353,7 +353,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Negara Tujuan:"
+                android:text="@string/negara_tujuan_data"
                 android:textColor="@color/black"
                 />
 
@@ -378,7 +378,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tujuan Perjalanan:"
+                android:text="@string/tujuan_perjalanan_data"
                 android:textColor="@color/black"
                 />
 
@@ -403,7 +403,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:text="Terima"
+                android:text="@string/terima"
                 android:background="@drawable/rounded_corner_button"
                 android:layout_gravity="center"
                 android:textColor="@color/black"
@@ -415,7 +415,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:text="Tolak"
+                android:text="@string/tolak"
                 android:background="@drawable/rounded_corner_button"
                 android:layout_gravity="center"
                 android:textColor="@color/black"

@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pembayaran Premi Asuransi"
+            android:text="@string/pembayaran_premi_asuransi"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:paddingLeft="20dp"
@@ -64,7 +64,7 @@
             android:layout_marginVertical="10dp"
             android:gravity="center"
             android:paddingBottom="20dp"
-            android:text="PEMBAYARAN"
+            android:text="@string/pembayaran"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -73,7 +73,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No Virtual Account:"
+            android:text="@string/no_virtual_account"
             android:textColor="@color/black"
             android:paddingVertical="8dp"
             />
@@ -90,7 +90,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jumlah:"
+            android:text="@string/jumlah"
             android:textColor="@color/black"
             android:paddingVertical="8dp"
             />
@@ -125,7 +125,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
-                    android:text="Lakukan pembayaran sebelum"
+                    android:text="@string/lakukan_pembayaran_sebelum"
                     />
 
                 <!--        Jatuh Tempo -->
@@ -143,7 +143,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Masukkan Bukti Pembayaran:"
+            android:text="@string/masukkan_bukti_pembayaran"
             android:textColor="@color/black"
             android:paddingVertical="8dp"
             />
@@ -154,7 +154,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:drawableRight="@drawable/plus_hitam"
-            android:hint="No File Selected"
+            android:hint="@string/tidak_ada_file_terpilih"
             android:layout_gravity="left"
             android:background="@color/white"
             android:layout_marginBottom="10dp"
@@ -177,7 +177,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:text="Unggah"
+            android:text="@string/unggah"
             android:background="@drawable/rounded_corner_button"
             android:layout_gravity="center"
             android:textColor="@color/black"

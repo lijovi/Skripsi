@@ -198,4 +198,118 @@
     <string name="linksariasih"><![CDATA[<a href="https://maps.app.goo.gl/WmwYuGLUFo5EsNpd7?g_st=ipc">Click Here</a>]]></string>
     <string name="linkharapankita"><![CDATA[<a href="https://maps.app.goo.gl/TDUEP1eZ7nwHNNmj7?g_st=ipc">Click Here</a>]]></string>
     <string name="linkpluit"><![CDATA[<a href="https://maps.app.goo.gl/e8h4vF5s4f7AJNr6A?g_st=ipc">Click Here</a>]]></string>
+    <string name="buat_password">CREATE PASSWORD</string>
+    <string name="password_baru_buat">New Password</string>
+    <string name="harus_lebih_dari_8_karakter">Must be more than 8 characters.</string>
+    <string name="harus_mengandung_angka">Must contain a number.</string>
+    <string name="harus_mengandung_huruf">Must contain a letter.</string>
+    <string name="harus_mengandung_simbol">Must contain a symbol.</string>
+    <string name="konfirmasi_password_buat">Confirm Password</string>
+    <string name="harus_mengandung_huruf_kapital">Must contain an uppercase letter.</string>
+    <string name="buat">Create</string>
+
+    <string name="bukti_pembayaran">PAYMENT PROOF</string>
+    <string name="nama_bukti_pembayaran">NAME:</string>
+    <string name="besar_premi">PREMIUM AMOUNT:</string>
+    <string name="terima">Accept</string>
+    <string name="tolak">Reject</string>
+
+    <string name="data_calon_nasabah">PROSPECTIVE CUSTOMER DATA</string>
+    <string name="nik">ID Number:</string>
+    <string name="nama_data_calon_nasabah">Name:</string>
+    <string name="email_data_calon_nasabah">Email:</string>
+    <string name="jenis_kelamin_data">Gender:</string>
+    <string name="tanggal_lahir_data">Date of Birth:</string>
+    <string name="nomor_telepon_data">Phone Number:</string>
+    <string name="alamat_data">Address:</string>
+    <string name="pekerjaan_data">Occupation:</string>
+    <string name="periode_pertanggungan">Coverage Period:</string>
+    <string name="plan_asuransi_data">Insurance Plan:</string>
+    <string name="riwayat_penyakit">Medical History:</string>
+    <string name="masa_perjalanan_data">Travel Period:</string>
+    <string name="tipe_polis_tahunan">Policy Type (Annual):</string>
+    <string name="nama_ahli_waris">Beneficiary Name:</string>
+    <string name="hubungan_dengan_ahli_waris">Relationship with Beneficiary:</string>
+    <string name="negara_tujuan_data">Destination Country:</string>
+    <string name="tujuan_perjalanan_data">Purpose of Travel:</string>
+
+    <string name="notifikasi_history_asuransi">NOTIFICATION</string>
+    <string name="status_history_asuransi">STATUS</string>
+    <string name="tipe_polis">Policy Type:</string>
+    <string name="lama_perjalanan">Travel Duration:</string>
+    <string name="waktu_homepage_asuransi">TIME</string>
+
+    <string name="pendaftaran">Registration</string>
+    <string name="pembayaran">Payment</string>
+    <string name="untuk_mengakses_data_asuransi">to access insurance data</string>
+    <string name="disini">here!</string>
+    <string name="nik_login">ID Number</string>
+    <string name="tidak_memiliki_asuransi">Don’t have insurance?</string>
+    <string name="masuk_sebagai_asuransi">Login as Insurance</string>
+    <string name="masuk_login_asuransi">LOGIN</string>
+    <string name="username_login_asuransi">Username</string>
+    <string name="password">Password</string>
+    <string name="masuk_sebagai_nasabah">Login as Customer</string>
+
+    <string name="pembayaran_premi_asuransi">Insurance Premium Payment</string>
+    <string name="no_virtual_account">Virtual Account Number:</string>
+    <string name="jumlah">Amount:</string>
+    <string name="lakukan_pembayaran_sebelum">Make payment before</string>
+    <string name="masukkan_bukti_pembayaran">Upload Payment Proof:</string>
+    <string name="tidak_ada_file_terpilih">No file selected.</string>
+    <string name="unggah">Upload</string>
+
+    <string name="silakan_masukkan_riwayat_penyakit_yang_dimiliki">Please enter your medical history</string>
+    <string name="hypertensi">HYPERTENSION</string>
+    <string name="jantung_dan_pembuluh_darah">HEART AND BLOOD VESSELS</string>
+    <string name="tbc">TUBERCULOSIS</string>
+    <string name="tukak_lambung">STOMACH ULCER</string>
+    <string name="batu_dan_infeksi_saluran_kemih">KIDNEY STONES AND URINARY TRACT INFECTION</string>
+    <string name="anal_fistula">ANAL FISTULA</string>
+    <string name="radang_kandung_dan_batu_empedu">GALLBLADDER INFLAMMATION AND STONES</string>
+    <string name="jari_tangan_dan_kaki_yang_berjumlah_lebih">EXTRA FINGERS OR TOES</string>
+    <string name="tumor_yang_tampak_dan_tidak_tampak">VISIBLE OR INVISIBLE TUMORS</string>
+    <string name="diabetes_mellitus">DIABETES MELLITUS</string>
+    <string name="endometriosis">ENDOMETRIOSIS</string>
+    <string name="wasir_atau_ambeien">HEMORRHOIDS</string>
+    <string name="operasi_amandel">TONSIL SURGERY</string>
+    <string name="operasi_nasal_septum_sekat_rongga_hidung">NASAL SEPTUM SURGERY</string>
+    <string name="gondok">GOITER</string>
+    <string name="katarak">CATARACT</string>
+    <string name="sinus">SINUSITIS</string>
+    <string name="epilepsi">EPILEPSY</string>
+
+    <string name="simpan">Save</string>
+    <string name="travel">Travel</string>
+    <string name="health">Health</string>
+    <string name="health_registrasi">HEALTH</string>
+
+    <string name="input_nik">Enter ID Number</string>
+    <string name="input_nama">Enter Name</string>
+    <string name="email_registasi">Email</string>
+    <string name="input_email">Enter Email</string>
+    <string name="input_nomor_telepon">Enter Phone Number</string>
+    <string name="input_alamat">Enter Address</string>
+    <string name="input_pekerjaan">Enter Occupation</string>
+    <string name="periode_pertanggungan_registrasi">Coverage Period</string>
+    <string name="input_periode_pertanggungan">Enter Coverage Period</string>
+    <string name="plan_asuransi_registrasi">Insurance Plan</string>
+    <string name="nama_ahli_waris_registrasi">Beneficiary Name</string>
+    <string name="hubungan_dengan_ahli_waris_registrasi">Relationship with Beneficiary</string>
+    <string name="input_hubungan_dengan_ahli_waris">Enter Relationship with Beneficiary</string>
+    <string name="input_ahli_waris">Enter Beneficiary</string>
+    <string name="riwayat_penyakit_registrasi">Medical History</string>
+
+    <string name="individual">Individual</string>
+    <string name="family">Family</string>
+    <string name="nama_keluarga">Family Name</string>
+    <string name="input_nama_keluarga">Enter Family Name</string>
+    <string name="tipe_polis_tahunan_travel">Policy Type - Annual</string>
+    <string name="input_tujuan_perjalanan">Enter Purpose of Travel</string>
+
+    <string name="penggunaan_aplikasi">Application Usage</string>
+    <string name="melakukan_pembayaran">Make Payment</string>
+
+    <string name="health_lowercase">health</string>
+    <string name="travel_lowercase">travel</string>
 </resources>

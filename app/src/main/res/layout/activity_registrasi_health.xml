@@ -31,7 +31,7 @@
             android:layout_marginVertical="10dp"
             android:gravity="center"
             android:paddingBottom="20dp"
-            android:text="HEALTH"
+            android:text="@string/health_registrasi"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="NIK"
+            android:text="@string/nik_login"
             android:textColor="@color/black" />
 
         <EditText
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
-            android:hint="Input NIK"
+            android:hint="@string/input_nik"
             android:textSize="12dp"
             android:paddingLeft="8dp"
             android:textColor="@color/black"
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
-            android:hint="Input Nama"
+            android:hint="@string/input_nama"
             android:textSize="12dp"
             android:paddingLeft="8dp"
             android:textColor="@color/black"
@@ -79,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Email"
+            android:text="@string/email_registasi"
             android:textColor="@color/black" />
 
         <EditText
@@ -87,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
-            android:hint="Input Email"
+            android:hint="@string/input_email"
             android:textSize="12dp"
             android:paddingLeft="8dp"
             android:textColor="@color/black"/>
@@ -172,7 +172,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
-            android:hint="Input Nomor Telepon"
+            android:hint="@string/input_nomor_telepon"
             android:textSize="12dp"
             android:paddingLeft="8dp"
             android:textColor="@color/black"/>
@@ -190,7 +190,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
-            android:hint="Input Alamat"
+            android:hint="@string/input_alamat"
             android:textSize="12dp"
             android:paddingLeft="8dp"
             android:textColor="@color/black"/>
@@ -208,7 +208,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
-            android:hint="Input Pekerjaan"
+            android:hint="@string/input_pekerjaan"
             android:textSize="12dp"
             android:paddingLeft="8dp"
             android:textColor="@color/black"/>
@@ -218,7 +218,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Periode Pertanggungan"
+            android:text="@string/periode_pertanggungan_registrasi"
             android:textColor="@color/black" />
 
         <EditText
@@ -226,7 +226,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
-            android:hint="Input Periode Pertanggungan"
+            android:hint="@string/input_periode_pertanggungan"
             android:textSize="12dp"
             android:paddingLeft="8dp"
             android:textColor="@color/black"/>
@@ -237,7 +237,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
-            android:text="Plan Asuransi"
+            android:text="@string/plan_asuransi_registrasi"
             android:textColor="@color/black" />
 
         <Spinner
@@ -252,7 +252,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama Ahli Waris"
+            android:text="@string/nama_ahli_waris_registrasi"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
             />
@@ -262,7 +262,7 @@
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
             android:id="@+id/namaAhliWaris"
-            android:hint="Input Ahli Waris"
+            android:hint="@string/input_ahli_waris"
             android:textSize="12dp"
             android:paddingLeft="8dp"
             android:textColor="@color/black"
@@ -272,7 +272,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hubungan Dengan Ahli Waris"
+            android:text="@string/hubungan_dengan_ahli_waris_registrasi"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
             />
@@ -282,7 +282,7 @@
             android:layout_height="35dp"
             android:background="@drawable/rounded_corner_fill"
             android:id="@+id/hubunganDenganAhliWaris"
-            android:hint="Input Hubungan Dengan Ahli Waris"
+            android:hint="@string/input_hubungan_dengan_ahli_waris"
             android:textSize="12dp"
             android:paddingLeft="8dp"
             android:textColor="@color/black"
@@ -296,7 +296,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Riwayat Penyakit"
+                android:text="@string/riwayat_penyakit_registrasi"
                 android:paddingVertical="8dp"
                 android:textColor="@color/black"
                 android:paddingRight="10dp"

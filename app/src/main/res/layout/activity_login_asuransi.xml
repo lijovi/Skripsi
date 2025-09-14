@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MASUK"
+            android:text="@string/masuk_login_asuransi"
             android:gravity="center"
             android:textStyle="bold"
             android:textSize="20dp"
@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Username"
+            android:text="@string/username_login_asuransi"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
             />
@@ -74,7 +74,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Password"
+            android:text="@string/password"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
             />
@@ -105,7 +105,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:text="Masuk"
+            android:text="@string/masuk"
             android:background="@drawable/rounded_corner_button"
             android:layout_gravity="center"
             android:textColor="@color/black"
@@ -117,7 +117,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Masuk sebagai nasabah"
+            android:text="@string/masuk_sebagai_nasabah"
             android:textSize="12sp"
             android:textStyle=""
             android:gravity="center"
