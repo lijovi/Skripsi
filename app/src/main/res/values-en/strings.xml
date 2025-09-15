@@ -306,10 +306,16 @@
     <string name="input_nama_keluarga">Enter Family Name</string>
     <string name="tipe_polis_tahunan_travel">Policy Type - Annual</string>
     <string name="input_tujuan_perjalanan">Enter Purpose of Travel</string>
+    <string name="input_negara_tujuan">Enter Country of Destination</string>
 
     <string name="penggunaan_aplikasi">Application Usage</string>
     <string name="melakukan_pembayaran">Make Payment</string>
 
     <string name="health_lowercase">health</string>
     <string name="travel_lowercase">travel</string>
+
+    <string name="tahunan">1 Year</string>
+
+    <string name="aktif">Active</string>
+    <string name="non_aktif">Non Active</string>
 </resources>

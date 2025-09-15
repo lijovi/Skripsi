@@ -249,6 +249,9 @@
     <string name="melakukan_pembayaran">Melakukan Pembayaran</string>
     <string name="health_lowercase">Health</string>
     <string name="travel_lowercase">Travel</string>
-
+    <string name="tahunan">1 Tahun</string>
+    <string name="aktif">Aktif</string>
+    <string name="non_aktif">Non Aktif</string>
+    <string name="input_negara_tujuan">Input Negara Tujuan</string>
 
 </resources>

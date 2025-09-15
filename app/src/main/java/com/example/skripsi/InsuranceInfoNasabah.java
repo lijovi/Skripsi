@@ -2,6 +2,7 @@ package com.example.skripsi;
 
 import android.content.Context;
 import android.content.Intent;
+import android.icu.util.LocaleData;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +32,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
@@ -136,7 +139,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                     jenisTravel.setText(snapshot.child(NIK).child("planAsuransi").getValue(String.class));
                     String cek = snapshot.child(NIK).child("tipePolis").getValue(String.class);
                     if (Objects.equals(cek, "Iya")){
-                        jangkaTravel.setText("1 Tahun");
+                        jangkaTravel.setText(R.string.tahunan);
                     } else {
                         String fulltext = snapshot.child(NIK).child("masaPerjalanan").getValue(String.class);
                         String[] part = fulltext.split("-");
@@ -151,9 +154,9 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                             Date currentDate = dates.parse(dates.format(new Date()));
                             Log.d("MyApp", "Current Date: " + dates.format(currentDate));
                             if (!currentDate.before(date1) && !currentDate.after(date2)){
-                                statusTravel.setText("Aktif");
+                                statusTravel.setText(R.string.aktif);
                             } else {
-                                statusTravel.setText("Non Aktif");
+                                statusTravel.setText(R.string.non_aktif);
                             }
                         } catch (ParseException e) {
                             e.printStackTrace();
@@ -192,6 +195,17 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     jenisHealth.setText(snapshot.child(NIK).child("plan").getValue(String.class));
+                    jangkaHealth.setText(R.string.tahunan);
+                    String date = snapshot.child(NIK).child("date").getValue(String.class);
+                    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
+                    LocalDate start = LocalDate.parse(date, format);
+                    LocalDate end = start.plusYears(1);
+                    LocalDate current = LocalDate.now();
+                    if (!current.isBefore(start) && !current.isAfter(end)){
+                        statusHealth.setText(R.string.aktif);
+                    } else {
+                        statusHealth.setText(R.string.non_aktif);
+                    }
                 }
             }
 
