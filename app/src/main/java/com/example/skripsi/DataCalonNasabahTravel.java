@@ -320,7 +320,7 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
                         String currenttime = hour + " : " + minute + " : " + second;
                         NotifikasiModel notifikasiModel = new NotifikasiModel("Pendaftaran Asuransi Travel telah diterima", currenttime, currentdate);
 //                        String id = referenceNotifikasi.push().getKey();
-                        referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.getChildrenCount()+1)).setValue(notifikasiModel);
+                        referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
                         alertDialog.dismiss();
                         Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
                         startActivity(intent);

@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
 import java.util.Objects;
 
 public class UbahPasswordNasabah extends AppCompatActivity {
@@ -36,9 +37,11 @@ public class UbahPasswordNasabah extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference databaseHealth = database.getReference("clientHealth");
     DatabaseReference databaseTravel = database.getReference("clientTravel");
+    DatabaseReference referenceNotifikasi = FirebaseDatabase.getInstance().getReference("notifikasiNasabah");
     String NIK;
     EditText editText1, editText2;
     TextView jumlahKarakter1, jumlahKarakter2, number1, number2, kapital1, kapital2, symbol1, symbol2;
+    Calendar calendar;
     int cek1 = 0;
     int cek2 = 0;
     // buat ubah bahasa locale
@@ -65,6 +68,7 @@ public class UbahPasswordNasabah extends AppCompatActivity {
         Query checkDataHealth = databaseHealth.orderByChild("nik").equalTo(NIK);
 
         Query checkDataTravel = databaseTravel.orderByChild("nik").equalTo(NIK);
+        calendar = Calendar.getInstance();
 
         passwordBaru = findViewById(R.id.passwordBaru);
         konfirmasiPassword = findViewById(R.id.konfirmasiPassword);
@@ -234,6 +238,31 @@ public class UbahPasswordNasabah extends AppCompatActivity {
 
                             }
                         });
+
+                        referenceNotifikasi.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
+                                String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
+                                String year = String.valueOf(calendar.get(Calendar.YEAR));
+
+                                String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+                                String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+                                String second = String.format("%02d",calendar.get(Calendar.SECOND));
+
+                                String currentdate = day + " - " + month + " - " + year;
+                                String currenttime = hour + " : " + minute + " : " + second;
+                                NotifikasiModel notifikasiModel = new NotifikasiModel("Password berhasil diubah", currenttime, currentdate);
+//                        String id = referenceNotifikasi.push().getKey();
+                                referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
                     } else {
                         konfirmasiPassword.setError("Password berbeda");
                     }
