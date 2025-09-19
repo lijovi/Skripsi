@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -25,6 +27,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.bumptech.glide.Glide;
+import com.cloudinary.android.MediaManager;
+import com.cloudinary.android.callback.ErrorInfo;
+import com.cloudinary.android.callback.UploadCallback;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +40,10 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 
 import java.text.NumberFormat;
+import java.util.Calendar;
+import java.util.Collections;
 import java.util.Locale;
+import java.util.Map;
 
 public class Pembayaran extends AppCompatActivity {
 
@@ -52,6 +61,9 @@ public class Pembayaran extends AppCompatActivity {
     View dialogView;
     RadioGroup pembayaran;
     RadioButton pilih;
+    ActivityResultLauncher<Intent> gallery;
+    int check = 0;
+    Calendar calendar;
 
     // buat ubah bahasa locale
     @Override
@@ -78,6 +90,7 @@ public class Pembayaran extends AppCompatActivity {
         btnBuktiFoto = findViewById(R.id.btnUploadBuktiFoto);
         bukti = findViewById(R.id.bukti);
         btnUnggah = findViewById(R.id.btnUnggah);
+        calendar = Calendar.getInstance();
 
 //        company = ClientSession.getInstance().getCompany();
         nik = ClientSession.getInstance().getNik();
@@ -101,14 +114,20 @@ public class Pembayaran extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivity(intent);
+                gallery.launch(intent);
+            }
+        });
+
+        gallery = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == RESULT_OK && result.getData() != null){
+                Uri selectedImage = result.getData().getData();
+                uploadToCloudinary(selectedImage);
             }
         });
 
         btnUnggah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
                 startActivity(intent);
             }
@@ -156,6 +175,7 @@ public class Pembayaran extends AppCompatActivity {
                                         if (snapshot.exists()){
                                             String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
                                             virtualAccount.setText(virtual);
+                                            check = 1;
                                         }
                                     }
 
@@ -194,6 +214,7 @@ public class Pembayaran extends AppCompatActivity {
                                         if (snapshot.exists()){
                                             String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
                                             virtualAccount.setText(virtual);
+                                            check = 2;
                                         }
                                     }
 
@@ -214,28 +235,77 @@ public class Pembayaran extends AppCompatActivity {
                 }
             }
         });
-
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-            Uri imageUri = data.getData();
-            bukti.setImageURI(imageUri);
-            bukti.setVisibility(View.VISIBLE);
-            btnBuktiFoto.setVisibility(View.GONE);
-            StorageReference fileRef = storageRef.child( Nomor+ ".jpg");
+    private void uploadToCloudinary(Uri selectedImage) {
+        MediaManager.get().upload(selectedImage).unsigned("save_image").callback(new UploadCallback() {
+            @Override
+            public void onStart(String requestId) {
 
-            fileRef.putFile(imageUri).addOnSuccessListener(taskSnapshot -> {
-                fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-                    String downloadurl = uri.toString();
+            }
 
-//                    reference.child(String.valueOf(NIK)).setValue(downloadurl).addOnSuccessListener(aVoid -> {
-//                        Toast.makeText(this, "Profile picture has been changed", Toast.LENGTH_SHORT).show();
-//                    });
-                });
-            });
-        }
+            @Override
+            public void onProgress(String requestId, long bytes, long totalBytes) {
+
+            }
+
+            @Override
+            public void onSuccess(String requestId, Map resultData) {
+                String imageuri = resultData.get("secure_url").toString();
+
+                Glide.with(Pembayaran.this).load(imageuri).into(bukti);
+                bukti.setVisibility(View.VISIBLE);
+
+                String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+                String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+                String second = String.format("%02d",calendar.get(Calendar.SECOND));
+                String currenttime = hour + " : " + minute + " : " + second;
+
+                if (check == 1){
+                    FirebaseDatabase.getInstance().getReference("transaksiTravel").child(nik).child("linkBukti").setValue(imageuri);
+                    FirebaseDatabase.getInstance().getReference("transaksiTravel").child(nik).child("check").setValue("Not Approve");
+                    FirebaseDatabase.getInstance().getReference("transaksiTravel").child(nik).child("time").setValue(currenttime);
+                } else if (check == 2) {
+                    FirebaseDatabase.getInstance().getReference("transaksiHealth").child(nik).child("linkBukti").setValue(imageuri);
+                    FirebaseDatabase.getInstance().getReference("transaksiHealth").child(nik).child("check").setValue("Not Approve");
+                    FirebaseDatabase.getInstance().getReference("transaksiHealth").child(nik).child("time").setValue(currenttime);
+                }
+
+            }
+
+            @Override
+            public void onError(String requestId, ErrorInfo error) {
+
+            }
+
+            @Override
+            public void onReschedule(String requestId, ErrorInfo error) {
+
+            }
+        }).dispatch();
     }
+
+
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+//            Uri imageUri = data.getData();
+//            bukti.setImageURI(imageUri);
+//            bukti.setVisibility(View.VISIBLE);
+//            btnBuktiFoto.setVisibility(View.GONE);
+//            StorageReference fileRef = storageRef.child( Nomor+ ".jpg");
+//
+//            fileRef.putFile(imageUri).addOnSuccessListener(taskSnapshot -> {
+//                fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
+//                    String downloadurl = uri.toString();
+//
+////                    reference.child(String.valueOf(NIK)).setValue(downloadurl).addOnSuccessListener(aVoid -> {
+////                        Toast.makeText(this, "Profile picture has been changed", Toast.LENGTH_SHORT).show();
+////                    });
+//                });
+//            });
+//        }
+//    }
 }

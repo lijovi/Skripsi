@@ -53,7 +53,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
     String NomorPolisTravel, Nama;
     String NomorPolisHealth;
     FirebaseDatabase database;
-    DatabaseReference referenceTravel, referenceHealth, referenceDataHealth, referenceDataTravel;
+    DatabaseReference referenceTravel, referenceHealth, referenceDataHealth, referenceDataTravel, referencePembayaran;
 
     // buat ubah bahasa locale
     @Override
@@ -110,6 +110,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         referenceHealth = database.getReference("transaksiHealth");
         referenceDataHealth = database.getReference("clientHealth");
         referenceDataTravel = database.getReference("clientTravel");
+        referencePembayaran = database.getReference("pembayaran");
 
         String NIK = ClientSession.getInstance().getNik();
         Query checkTravel = referenceTravel.orderByChild("nik").equalTo(NIK);
@@ -140,6 +141,28 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                     String cek = snapshot.child(NIK).child("tipePolis").getValue(String.class);
                     if (Objects.equals(cek, "Iya")){
                         jangkaTravel.setText(R.string.tahunan);
+                        referencePembayaran.child(NIK).child(NomorPolisTravel).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.exists()){
+                                    String date = snapshot.child("date").getValue(String.class);
+                                    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
+                                    LocalDate start = LocalDate.parse(date, format);
+                                    LocalDate end = start.plusYears(1);
+                                    LocalDate current = LocalDate.now();
+                                    if (!current.isBefore(start) && !current.isAfter(end)){
+                                        statusTravel.setText(R.string.aktif);
+                                    } else {
+                                        statusTravel.setText(R.string.non_aktif);
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     } else {
                         String fulltext = snapshot.child(NIK).child("masaPerjalanan").getValue(String.class);
                         String[] part = fulltext.split("-");
@@ -179,6 +202,28 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                     NomorPolisHealth = snapshot.child(NIK).child("nomorPolisKesehatan").getValue(String.class);
                     nomorPolisHealth.setText(NomorPolisHealth);
                     namaHealth.setText(Nama);
+                    referencePembayaran.child(NIK).child(NomorPolisHealth).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()){
+                                String date = snapshot.child("date").getValue(String.class);
+                                DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
+                                LocalDate start = LocalDate.parse(date, format);
+                                LocalDate end = start.plusYears(1);
+                                LocalDate current = LocalDate.now();
+                                if (!current.isBefore(start) && !current.isAfter(end)){
+                                    statusHealth.setText(R.string.aktif);
+                                } else {
+                                    statusHealth.setText(R.string.non_aktif);
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
 
                 }
             }
@@ -196,16 +241,16 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                 if (snapshot.exists()){
                     jenisHealth.setText(snapshot.child(NIK).child("plan").getValue(String.class));
                     jangkaHealth.setText(R.string.tahunan);
-                    String date = snapshot.child(NIK).child("date").getValue(String.class);
-                    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
-                    LocalDate start = LocalDate.parse(date, format);
-                    LocalDate end = start.plusYears(1);
-                    LocalDate current = LocalDate.now();
-                    if (!current.isBefore(start) && !current.isAfter(end)){
-                        statusHealth.setText(R.string.aktif);
-                    } else {
-                        statusHealth.setText(R.string.non_aktif);
-                    }
+//                    String date = snapshot.child(NIK).child("date").getValue(String.class);
+//                    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
+//                    LocalDate start = LocalDate.parse(date, format);
+//                    LocalDate end = start.plusYears(1);
+//                    LocalDate current = LocalDate.now();
+//                    if (!current.isBefore(start) && !current.isAfter(end)){
+//                        statusHealth.setText(R.string.aktif);
+//                    } else {
+//                        statusHealth.setText(R.string.non_aktif);
+//                    }
                 }
             }
 

@@ -1,40 +1,22 @@
 package com.example.skripsi;
 
-public class DataPembayaran {
+public class BuktiBayar {
     String nik;
     String nama;
     String besarPremi;
+    String nomorPolis;
     String time;
-    String nomorPremi;
-    String date;
 
-    public DataPembayaran(){
-
-    }
-
-    public DataPembayaran(String nik, String nama, String besarPremi, String time, String nomorPremi, String date) {
+    public BuktiBayar(String nik, String nama, String besarPremi, String nomorPolis, String time) {
         this.nik = nik;
         this.nama = nama;
         this.besarPremi = besarPremi;
+        this.nomorPolis = nomorPolis;
         this.time = time;
-        this.nomorPremi = nomorPremi;
-        this.date = date;
     }
 
-    public String getDate() {
-        return date;
-    }
+    public BuktiBayar(){
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getNomorPremi() {
-        return nomorPremi;
-    }
-
-    public void setNomorPremi(String nomorPremi) {
-        this.nomorPremi = nomorPremi;
     }
 
     public String getNik() {
@@ -59,6 +41,14 @@ public class DataPembayaran {
 
     public void setBesarPremi(String besarPremi) {
         this.besarPremi = besarPremi;
+    }
+
+    public String getNomorPolis() {
+        return nomorPolis;
+    }
+
+    public void setNomorPolis(String nomorPolis) {
+        this.nomorPolis = nomorPolis;
     }
 
     public String getTime() {

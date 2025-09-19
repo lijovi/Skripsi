@@ -14,9 +14,9 @@ import java.util.ArrayList;
 
 public class AdapterPembayaran extends RecyclerView.Adapter<AdapterPembayaran.ViewHolder> {
 
-    ArrayList<DataPembayaran> listPembayaran;
+    ArrayList<BuktiBayar> listPembayaran;
 
-    public AdapterPembayaran(ArrayList<DataPembayaran> listPembayaran) {
+    public AdapterPembayaran(ArrayList<BuktiBayar> listPembayaran) {
         this.listPembayaran = listPembayaran;
     }
 
@@ -29,8 +29,8 @@ public class AdapterPembayaran extends RecyclerView.Adapter<AdapterPembayaran.Vi
 
     @Override
     public void onBindViewHolder(@NonNull AdapterPembayaran.ViewHolder holder, int position) {
-        DataPembayaran pembayaran = listPembayaran.get(position);
-        holder.textnotif.setText(pembayaran.getNama() + "Telah Melakukan Pembayaran sebesar " + pembayaran.getBesarPremi());
+        BuktiBayar pembayaran = listPembayaran.get(position);
+        holder.textnotif.setText(pembayaran.getNama() + " telah melakukan pembayaran sebesar " + pembayaran.getBesarPremi());
         holder.time.setText(pembayaran.getTime());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +41,7 @@ public class AdapterPembayaran extends RecyclerView.Adapter<AdapterPembayaran.Vi
                 intent.putExtra("nik", pembayaran.getNik());
                 intent.putExtra("nama", pembayaran.getNama());
                 intent.putExtra("besarPremi", pembayaran.getBesarPremi());
-                intent.putExtra("nomorPremi", pembayaran.getNomorPremi());
+                intent.putExtra("nomorPolis", pembayaran.getNomorPolis());
                 context.startActivity(intent);
             }
         });

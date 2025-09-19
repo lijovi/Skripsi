@@ -15,6 +15,10 @@ public class Transaksi {
         this.jatuhTempo = jatuhTempo;
     }
 
+    public Transaksi(){
+
+    }
+
     public String getNIK() {
         return NIK;
     }

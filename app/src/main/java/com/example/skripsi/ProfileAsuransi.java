@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -21,6 +23,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.bumptech.glide.Glide;
+import com.cloudinary.android.MediaManager;
+import com.cloudinary.android.callback.ErrorInfo;
+import com.cloudinary.android.callback.UploadCallback;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -35,6 +41,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AlertDialog;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
 import java.util.Objects;
 
 public class ProfileAsuransi extends AppCompatActivity {
@@ -52,6 +61,7 @@ public class ProfileAsuransi extends AppCompatActivity {
     FirebaseStorage storage;
     StorageReference storageRef;
     int PICK_IMAGE_REQUEST = 100;
+    ActivityResultLauncher<Intent> gallery;
 
     // buat ubah bahasa locale
     @Override
@@ -206,11 +216,26 @@ public class ProfileAsuransi extends AppCompatActivity {
             }
         });
 
+        reference.child(String.valueOf(Id)).child("profile").get().addOnSuccessListener(snapshot -> {
+            if (snapshot.exists()){
+                String imageuri = snapshot.getValue(String.class);
+
+                Glide.with(this).load(imageuri).circleCrop().into(profile);
+            }
+        });
+
+        gallery = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == RESULT_OK && result.getData() != null){
+                Uri selectedImage = result.getData().getData();
+                uploadToCloudinary(selectedImage);
+            }
+        });
+
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivity(intent);
+                gallery.launch(intent);
             }
         });
 
@@ -225,26 +250,59 @@ public class ProfileAsuransi extends AppCompatActivity {
 //    }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-            Uri imageUri = data.getData();
-            profile.setImageURI(imageUri);
+    private void uploadToCloudinary(Uri selectedImage) {
+        MediaManager.get().upload(selectedImage).unsigned("save_image").callback(new UploadCallback() {
+            @Override
+            public void onStart(String requestId) {
 
-            StorageReference fileRef = storageRef.child(Id + ".jpg");
+            }
 
-            fileRef.putFile(imageUri).addOnSuccessListener(taskSnapshot -> {
-                fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-                    String downloadurl = uri.toString();
+            @Override
+            public void onProgress(String requestId, long bytes, long totalBytes) {
 
-                    reference.child(String.valueOf(Id)).setValue(downloadurl).addOnSuccessListener(aVoid -> {
-                        Toast.makeText(this, "Profile picture has been changed", Toast.LENGTH_SHORT).show();
-                    });
-                });
-            });
-        }
+            }
+
+            @Override
+            public void onSuccess(String requestId, Map resultData) {
+                String imageuri = resultData.get("secure_url").toString();
+
+                Glide.with(ProfileAsuransi.this).load(imageuri).circleCrop().into(profile);
+
+                FirebaseDatabase.getInstance().getReference("company").child(String.valueOf(Id)).child("profile").setValue(imageuri);
+            }
+
+            @Override
+            public void onError(String requestId, ErrorInfo error) {
+
+            }
+
+            @Override
+            public void onReschedule(String requestId, ErrorInfo error) {
+
+            }
+        }).dispatch();
     }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+//            Uri imageUri = data.getData();
+//            profile.setImageURI(imageUri);
+//
+//            StorageReference fileRef = storageRef.child(Id + ".jpg");
+//
+//            fileRef.putFile(imageUri).addOnSuccessListener(taskSnapshot -> {
+//                fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
+//                    String downloadurl = uri.toString();
+//
+//                    reference.child(String.valueOf(Id)).setValue(downloadurl).addOnSuccessListener(aVoid -> {
+//                        Toast.makeText(this, "Profile picture has been changed", Toast.LENGTH_SHORT).show();
+//                    });
+//                });
+//            });
+//        }
+//    }
 
 //    private void sendEmail (String send_email, String send_link){
 //        Intent intent = new Intent(Intent.ACTION_SENDTO);
