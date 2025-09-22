@@ -221,15 +221,31 @@
             android:text="@string/periode_pertanggungan_registrasi"
             android:textColor="@color/black" />
 
-        <EditText
-            android:id="@+id/periodePertanggungan"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="@drawable/rounded_corner_fill"
-            android:hint="@string/input_periode_pertanggungan"
-            android:textSize="12dp"
-            android:paddingLeft="8dp"
-            android:textColor="@color/black"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/periodePertanggungan"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/rounded_corner_fill"
+                android:hint="DD/MM/YYYY"
+                android:textSize="12dp"
+                android:paddingLeft="8dp"
+                android:textColor="@color/black"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/calendar"
+                android:layout_alignParentRight="true"
+                android:id="@+id/periode"
+                android:onClick="periode"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="8dp"
+                />
+        </RelativeLayout>
 
 
 <!--    Plan Asuransi -->

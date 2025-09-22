@@ -45,7 +45,7 @@ import java.util.Objects;
 public class RegistrasiHealth extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     EditText nik, nama, email, bodText, noTelp, alamat, pekerjaan, periodePertanggungan, namaAhliWaris, hubunganDenganAhliWaris;
-    Button btnDaftar, bod, plus;
+    Button btnDaftar, bod, plus, periode;
     RadioGroup jenisKelamin;
     RadioButton selectedGender;
     DatabaseReference reference, referenceNotif;
@@ -97,6 +97,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         alamat = findViewById(R.id.alamat);
         pekerjaan = findViewById(R.id.pekerjaan);
         periodePertanggungan = findViewById(R.id.periodePertanggungan);
+        periode = findViewById(R.id.periode);
         namaAhliWaris = findViewById(R.id.namaAhliWaris);
         hubunganDenganAhliWaris = findViewById(R.id.hubunganDenganAhliWaris);
         btnDaftar = findViewById(R.id.btnDaftar);
@@ -219,7 +220,23 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
                 }
         );
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.planHealth, android.R.layout.simple_spinner_item);
+        periode.setOnClickListener(view-> {
+                    final Calendar calendar = Calendar.getInstance();
+                    int year = calendar.get(Calendar.YEAR);
+                    int month = calendar.get(Calendar.MONTH);
+                    int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(RegistrasiHealth.this,
+                            (DatePicker view1, int selectedYear, int selectedMonth, int selectedDay) -> {
+                                String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                                periodePertanggungan.setText(selectedDate);
+                            }, year, month, day);
+
+                    datePickerDialog.show();
+                }
+        );
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.planHealth, R.layout.custom_spinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         plan.setAdapter(adapter);
         plan.setOnItemSelectedListener(this);

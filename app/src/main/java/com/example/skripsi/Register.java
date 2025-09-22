@@ -51,10 +51,11 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
 //        Spinner Pilih Perusahaan
         spinner = findViewById(R.id.company);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.perusahaan, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.perusahaan, R.layout.custom_spinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+        spinner.setSelection(0);
 
         //        Pilih Tipe Asuransi
         tipeAsuransi = findViewById(R.id.tipeAsuransi);

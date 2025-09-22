@@ -223,7 +223,7 @@
     <string name="nomor_telepon_data">Phone Number:</string>
     <string name="alamat_data">Address:</string>
     <string name="pekerjaan_data">Occupation:</string>
-    <string name="periode_pertanggungan">Coverage Period:</string>
+    <string name="periode_pertanggungan">Coverage Valid Since:</string>
     <string name="plan_asuransi_data">Insurance Plan:</string>
     <string name="riwayat_penyakit">Medical History:</string>
     <string name="masa_perjalanan_data">Travel Period:</string>
@@ -291,7 +291,7 @@
     <string name="input_nomor_telepon">Enter Phone Number</string>
     <string name="input_alamat">Enter Address</string>
     <string name="input_pekerjaan">Enter Occupation</string>
-    <string name="periode_pertanggungan_registrasi">Coverage Period</string>
+    <string name="periode_pertanggungan_registrasi">Coverage Valid Since</string>
     <string name="input_periode_pertanggungan">Enter Coverage Period</string>
     <string name="plan_asuransi_registrasi">Insurance Plan</string>
     <string name="nama_ahli_waris_registrasi">Beneficiary Name</string>

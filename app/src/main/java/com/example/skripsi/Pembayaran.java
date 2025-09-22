@@ -2,6 +2,8 @@ package com.example.skripsi;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -142,6 +144,7 @@ public class Pembayaran extends AppCompatActivity {
         dialog.setCancelable(true);
 
         AlertDialog alertDialog = dialog.create();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
         Locale locale = new Locale("in", "ID");
         NumberFormat idrFormat = NumberFormat.getInstance(locale);

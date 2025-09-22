@@ -2,6 +2,8 @@ package com.example.skripsi;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.icu.util.LocaleData;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,6 +56,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
     String NomorPolisHealth;
     FirebaseDatabase database;
     DatabaseReference referenceTravel, referenceHealth, referenceDataHealth, referenceDataTravel, referencePembayaran;
+    String check;
 
     // buat ubah bahasa locale
     @Override
@@ -202,29 +205,8 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                     NomorPolisHealth = snapshot.child(NIK).child("nomorPolisKesehatan").getValue(String.class);
                     nomorPolisHealth.setText(NomorPolisHealth);
                     namaHealth.setText(Nama);
-                    referencePembayaran.child(NIK).child(NomorPolisHealth).addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.exists()){
-                                String date = snapshot.child("date").getValue(String.class);
-                                DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
-                                LocalDate start = LocalDate.parse(date, format);
-                                LocalDate end = start.plusYears(1);
-                                LocalDate current = LocalDate.now();
-                                if (!current.isBefore(start) && !current.isAfter(end)){
-                                    statusHealth.setText(R.string.aktif);
-                                } else {
-                                    statusHealth.setText(R.string.non_aktif);
-                                }
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-
+                    check = snapshot.child(NIK).child("check").getValue(String.class);
+                    Log.d("CHECK", check);
                 }
             }
 
@@ -241,6 +223,21 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                 if (snapshot.exists()){
                     jenisHealth.setText(snapshot.child(NIK).child("plan").getValue(String.class));
                     jangkaHealth.setText(R.string.tahunan);
+
+                    if (Objects.equals(check, "Approve")){
+                        String date = snapshot.child(NIK).child("periodePertanggungan").getValue(String.class);
+                        DateTimeFormatter format = DateTimeFormatter.ofPattern("d/M/yyyy");
+                        LocalDate start = LocalDate.parse(date, format);
+                        LocalDate end = start.plusYears(1);
+                        LocalDate current = LocalDate.now();
+                        if (!current.isBefore(start) && !current.isAfter(end)){
+                            statusHealth.setText(R.string.aktif);
+                        } else {
+                            statusHealth.setText(R.string.non_aktif);
+                        }
+                    } else {
+                        statusHealth.setText(R.string.non_aktif);
+                    }
 //                    String date = snapshot.child(NIK).child("date").getValue(String.class);
 //                    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
 //                    LocalDate start = LocalDate.parse(date, format);
@@ -295,6 +292,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         dialog.setCancelable(true);
 
         AlertDialog alertDialog = dialog.create();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
 
         password = dialogView.findViewById(R.id.password);

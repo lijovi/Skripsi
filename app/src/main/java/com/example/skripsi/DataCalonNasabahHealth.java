@@ -3,6 +3,8 @@ package com.example.skripsi;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -224,6 +226,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
         dialog.setCancelable(true);
 
         AlertDialog alertDialog = dialog.create();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
 
         nomorPolis = dialogView.findViewById(R.id.nomorPolis);
@@ -246,6 +249,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
         dialog.setCancelable(true);
 
         AlertDialog alertDialog = dialog.create();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
 //
         besarPremi = dialogView.findViewById(R.id.besarPremi);

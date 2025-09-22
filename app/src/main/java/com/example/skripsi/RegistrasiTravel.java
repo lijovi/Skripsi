@@ -226,7 +226,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
             }
         });
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.planTravel, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.planTravel, R.layout.custom_spinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         plan.setAdapter(adapter);
         plan.setOnItemSelectedListener(this);

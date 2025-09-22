@@ -169,7 +169,7 @@
     <string name="nomor_telepon_data">Nomor Telepon:</string>
     <string name="alamat_data">Alamat:</string>
     <string name="pekerjaan_data">Pekerjaan:</string>
-    <string name="periode_pertanggungan">Periode Pertanggungan:</string>
+    <string name="periode_pertanggungan">PPertanggungan Berlaku Sejak:</string>
     <string name="plan_asuransi_data">Plan Asuransi:</string>
     <string name="riwayat_penyakit">Riwayat Penyakit:</string>
     <string name="masa_perjalanan_data">Masa Perjalanan:</string>
@@ -231,7 +231,7 @@
     <string name="input_nomor_telepon">Input Nomor Telepon</string>
     <string name="input_alamat">Input Alamat</string>
     <string name="input_pekerjaan">Input Pekerjaan</string>
-    <string name="periode_pertanggungan_registrasi">Periode Pertanggungan</string>
+    <string name="periode_pertanggungan_registrasi">Pertanggungan Berlaku Sejak</string>
     <string name="input_periode_pertanggungan">Input Periode Pertanggungan</string>
     <string name="plan_asuransi_registrasi">Plan Asuransi</string>
     <string name="nama_ahli_waris_registrasi">Nama Ahli Waris</string>
