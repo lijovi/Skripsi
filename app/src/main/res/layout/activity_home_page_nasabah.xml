@@ -90,7 +90,7 @@
                         android:layout_weight="1"
                         android:text="@string/anda_belum_memiliki_password_buat_password_sekarang_untuk_mengakses_data_asuransi_disini"
                         android:textColor="@color/black"
-                        android:textSize="12sp"
+                        android:textSize="9.6sp"
                         android:textStyle="normal" />
 
                     <LinearLayout
@@ -105,7 +105,7 @@
                             android:layout_weight="1"
                             android:text="@string/untuk_mengakses_data_asuransi"
                             android:textColor="@color/black"
-                            android:textSize="12sp"
+                            android:textSize="9.6sp"
                             android:textStyle="normal" />
 
                         <TextView
@@ -115,7 +115,7 @@
                             android:paddingLeft="3dp"
                             android:text="@string/disini"
                             android:textColor="@color/black"
-                            android:textSize="12sp"
+                            android:textSize="9.6sp"
                             android:textStyle="normal"
                             android:id="@+id/disini"/>
 
@@ -146,12 +146,12 @@
 <!--                    android:layout_marginHorizontal="16dp"-->
 
                     <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="60sp"
+                        android:layout_height="60sp"
                         android:src="@drawable/pay"
                         android:contentDescription="@string/icon_1"
                         android:background="@drawable/rounded_icon_background"
-                        android:padding="12dp"
+                        android:padding="12sp"
                         android:scaleType="fitCenter"
                         android:id="@+id/bayarPremi"/>
 
@@ -160,8 +160,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/bayar_premi"
                         android:textColor="@color/black"
-                        android:textSize="12sp"
-                        android:layout_marginTop="4dp" />
+                        android:textSize="10sp"
+                        android:layout_marginTop="4sp" />
                 </LinearLayout>
 
                 <!-- Icon 2 -->
@@ -175,12 +175,12 @@
 
 
                     <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="60sp"
+                        android:layout_height="60sp"
                         android:src="@drawable/history"
                         android:contentDescription="@string/icon_2"
                         android:background="@drawable/rounded_icon_background"
-                        android:padding="12dp"
+                        android:padding="12sp"
                         android:scaleType="fitCenter"
                         android:id="@+id/riwayatPembayaran"/>
 
@@ -189,8 +189,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/riwayat_pembayaran"
                         android:textColor="@color/black"
-                        android:textSize="12sp"
-                        android:layout_marginTop="4dp" />
+                        android:textSize="10sp"
+                        android:layout_marginTop="4sp" />
                 </LinearLayout>
 
                 <!-- Icon 3 -->
@@ -204,12 +204,12 @@
 <!--                    >-->
 
                     <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="60sp"
+                        android:layout_height="60sp"
                         android:src="@drawable/register"
                         android:contentDescription="@string/icon_3"
                         android:background="@drawable/rounded_icon_background"
-                        android:padding="12dp"
+                        android:padding="12sp"
                         android:scaleType="fitCenter"
                         android:id="@+id/daftarAsuransi"/>
 
@@ -218,7 +218,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/daftar_asuransi"
                         android:textColor="@color/black"
-                        android:textSize="12sp"
+                        android:textSize="10sp"
                         android:layout_marginTop="4dp" />
                 </LinearLayout>
             </LinearLayout>
@@ -441,7 +441,7 @@
                 <!-- Card 1 -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
-                    android:layout_height="110dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_margin="4dp"
                     app:cardCornerRadius="8dp"
@@ -527,7 +527,7 @@
                 <!-- Card 2 -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
-                    android:layout_height="110dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_margin="4dp"
                     app:cardCornerRadius="8dp"
@@ -613,7 +613,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:padding="8dp"
                 android:weightSum="2">
@@ -621,7 +621,7 @@
                 <!-- Card 1 -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
-                    android:layout_height="110dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_margin="4dp"
                     app:cardCornerRadius="8dp"
@@ -707,7 +707,7 @@
                 <!-- Card 2 -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_margin="4dp"
                     app:cardCornerRadius="8dp"
@@ -716,7 +716,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="110dp"
+                        android:layout_height="wrap_content"
                         android:padding="16dp"
                         android:orientation="vertical">
 

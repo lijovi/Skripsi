@@ -56,7 +56,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
     String NomorPolisHealth;
     FirebaseDatabase database;
     DatabaseReference referenceTravel, referenceHealth, referenceDataHealth, referenceDataTravel, referencePembayaran;
-    String check;
+    String checkH, checkT;
 
     // buat ubah bahasa locale
     @Override
@@ -126,6 +126,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                     Log.d("INTENT", "Received NIK: " + NomorPolisTravel);
                     nomorPolisTravel.setText(NomorPolisTravel);
                     namaTravel.setText(Nama);
+                    checkT = snapshot.child(NIK).child("check").getValue(String.class);
                 }
             }
 
@@ -153,8 +154,13 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                                     LocalDate start = LocalDate.parse(date, format);
                                     LocalDate end = start.plusYears(1);
                                     LocalDate current = LocalDate.now();
-                                    if (!current.isBefore(start) && !current.isAfter(end)){
-                                        statusTravel.setText(R.string.aktif);
+
+                                    if (Objects.equals(checkT, "Approve")){
+                                        if (!current.isBefore(start) && !current.isAfter(end)){
+                                            statusTravel.setText(R.string.aktif);
+                                        } else {
+                                            statusTravel.setText(R.string.non_aktif);
+                                        }
                                     } else {
                                         statusTravel.setText(R.string.non_aktif);
                                     }
@@ -179,8 +185,13 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
 
                             Date currentDate = dates.parse(dates.format(new Date()));
                             Log.d("MyApp", "Current Date: " + dates.format(currentDate));
-                            if (!currentDate.before(date1) && !currentDate.after(date2)){
-                                statusTravel.setText(R.string.aktif);
+
+                            if (Objects.equals(checkT, "Approve")){
+                                if (!currentDate.before(date1) && !currentDate.after(date2)){
+                                    statusTravel.setText(R.string.aktif);
+                                } else {
+                                    statusTravel.setText(R.string.non_aktif);
+                                }
                             } else {
                                 statusTravel.setText(R.string.non_aktif);
                             }
@@ -205,8 +216,8 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                     NomorPolisHealth = snapshot.child(NIK).child("nomorPolisKesehatan").getValue(String.class);
                     nomorPolisHealth.setText(NomorPolisHealth);
                     namaHealth.setText(Nama);
-                    check = snapshot.child(NIK).child("check").getValue(String.class);
-                    Log.d("CHECK", check);
+                    checkH = snapshot.child(NIK).child("check").getValue(String.class);
+                    Log.d("CHECK", checkH);
                 }
             }
 
@@ -224,7 +235,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                     jenisHealth.setText(snapshot.child(NIK).child("plan").getValue(String.class));
                     jangkaHealth.setText(R.string.tahunan);
 
-                    if (Objects.equals(check, "Approve")){
+                    if (Objects.equals(checkH, "Approve")){
                         String date = snapshot.child(NIK).child("periodePertanggungan").getValue(String.class);
                         DateTimeFormatter format = DateTimeFormatter.ofPattern("d/M/yyyy");
                         LocalDate start = LocalDate.parse(date, format);

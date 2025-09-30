@@ -318,4 +318,6 @@
 
     <string name="aktif">Active</string>
     <string name="non_aktif">Non Active</string>
+    <string name="TRAVEL">TRAVEL</string>
+
 </resources>

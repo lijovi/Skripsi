@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -31,13 +32,17 @@ import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
 import com.cloudinary.android.callback.UploadCallback;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.Objects;
 
 public class ProfileNasabah extends AppCompatActivity {
 
@@ -246,8 +251,39 @@ public class ProfileNasabah extends AppCompatActivity {
 
                 Glide.with(ProfileNasabah.this).load(imageuri).circleCrop().into(profile);
 
-                FirebaseDatabase.getInstance().getReference("clientHealth").child(NIK).child("profile").setValue(imageuri);
-                FirebaseDatabase.getInstance().getReference("clientTravel").child(NIK).child("profile").setValue(imageuri);
+                referenceHealth.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()){
+                            if (Objects.equals(NIK, snapshot.child(NIK).child("nik"))){
+                                FirebaseDatabase.getInstance().getReference("clientHealth").child(NIK).child("profile").setValue(imageuri);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                referenceTravel.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()){
+                            if (Objects.equals(NIK, snapshot.child(NIK).child("nik"))){
+                                FirebaseDatabase.getInstance().getReference("clientTravel").child(NIK).child("profile").setValue(imageuri);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
             }
 
             @Override
