@@ -215,6 +215,31 @@
                 />
         </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="30dp"
+                android:paddingTop="20dp"
+                android:id="@+id/family"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Family"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="3dp"
+                    android:textColor="@color/black"
+                    android:id="@+id/namaFamily"
+                    />
+            </LinearLayout>
 <!--    Plan Asuransi -->
         <LinearLayout
             android:layout_width="match_parent"

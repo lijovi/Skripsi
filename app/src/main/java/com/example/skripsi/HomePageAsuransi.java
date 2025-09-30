@@ -39,7 +39,7 @@ public class HomePageAsuransi extends AppCompatActivity {
 
     Button btnProfile, btnHistory, btnHome;
     FirebaseDatabase database;
-    DatabaseReference reference, notif;
+    DatabaseReference referenceHealth, referenceTravel;
     ArrayList<Nasabah> listNasabah;
     Adapter adapter;
     RecyclerView recyclerView;
@@ -71,7 +71,8 @@ public class HomePageAsuransi extends AppCompatActivity {
         int id = CompanySession.getInstance().getId();
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("clientSementara");
+        referenceHealth = database.getReference("clientSementaraHealth");
+        referenceTravel = database.getReference("clientSementaraTravel");
         btnProfile = findViewById(R.id.btnProfile);
         btnHistory = findViewById(R.id.btnHistory);
         btnHome = findViewById(R.id.btnHome);
@@ -85,12 +86,45 @@ public class HomePageAsuransi extends AppCompatActivity {
         adapter = new Adapter(listNasabah);
         recyclerView.setAdapter(adapter);
 
-        reference.addValueEventListener(new ValueEventListener() {
+        referenceHealth.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 long count = snapshot.getChildrenCount(); // total direct children
                 Log.d("FIREBASE_DEBUG", "Total items fetched: " + count);
-                listNasabah.clear();
+//                listNasabah.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    if (Objects.equals(id, dataSnapshot.child("company").getValue(int.class))) {
+                        String nama = dataSnapshot.child("name").getValue(String.class);
+                        String jenisAsuransi = dataSnapshot.child("jenisAsuransi").getValue(String.class);
+                        String time = dataSnapshot.child("time").getValue(String.class);
+                        String nik = dataSnapshot.child("nik").getValue(String.class);
+                        int company = dataSnapshot.child("company").getValue(int.class);
+
+                        Nasabah nasabah = new Nasabah();
+                        nasabah.setName(nama);
+                        nasabah.setJenisAsuransi(jenisAsuransi);
+                        nasabah.setTime(time);
+                        nasabah.setNik(nik);
+                        nasabah.setCompany(company);
+                        listNasabah.add(nasabah);
+                    }
+                }
+
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        referenceTravel.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                long count = snapshot.getChildrenCount(); // total direct children
+                Log.d("FIREBASE_DEBUG", "Total items fetched: " + count);
+//                listNasabah.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     if (Objects.equals(id, dataSnapshot.child("company").getValue(int.class))) {
                         String nama = dataSnapshot.child("name").getValue(String.class);

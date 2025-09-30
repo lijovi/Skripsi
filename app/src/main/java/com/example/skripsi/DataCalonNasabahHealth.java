@@ -75,11 +75,11 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
 
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("clientSementara").child(NIK);
+        reference = database.getReference("clientSementaraHealth").child(NIK);
         referenceTransaksi = database.getReference("transaksiHealth").child(NIK);
         referenceNasabah = database.getReference("clientHealth").child(NIK);
         referenceHistory = database.getReference("history");
-        referenceUserData = database.getReference("userData");
+        referenceUserData = database.getReference("userDataHealth");
         referenceNotifikasi = database.getReference("notifikasiNasabah");
         calendar = Calendar.getInstance();
         calendarJ = Calendar.getInstance();
@@ -279,7 +279,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         referenceNasabah.setValue(snapshot.getValue());
-                        referenceUserData.child(NIK).setValue(snapshot.getValue());
+                        referenceUserData.child("Health").child(NIK).setValue(snapshot.getValue());
                         String Nama = snapshot.child("name").getValue(String.class);
 
                         NotifikasiCompany notif = new NotifikasiCompany(NIK, Nama, "DITERIMA", currentdate, currenttime, Company, "Health");
@@ -292,7 +292,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                     }
                 });
 
-                referenceTransaksi.addValueEventListener(new ValueEventListener() {
+                referenceTransaksi.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         TransaksiHealth transaksi = new TransaksiHealth(NIK, BesarPremi, Company, currentdate, jatuhTempo, NomorPolis);

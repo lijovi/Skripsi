@@ -86,7 +86,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         }
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("clientSementara");
+        reference = database.getReference("clientSementaraHealth");
         calendar = Calendar.getInstance();
 
         nik = findViewById(R.id.nik);
@@ -212,7 +212,8 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
 
                     DatePickerDialog datePickerDialog = new DatePickerDialog(RegistrasiHealth.this,
                             (DatePicker view1, int selectedYear, int selectedMonth, int selectedDay) -> {
-                                String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                                String selectedDate = String.format(Locale.getDefault(), "%02d/%02d/%04d",
+                                        selectedDay, (selectedMonth + 1), selectedYear);
                                 bodText.setText(selectedDate);
                             }, year, month, day);
 
@@ -228,7 +229,8 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
 
                     DatePickerDialog datePickerDialog = new DatePickerDialog(RegistrasiHealth.this,
                             (DatePicker view1, int selectedYear, int selectedMonth, int selectedDay) -> {
-                                String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                                String selectedDate = String.format(Locale.getDefault(), "%02d/%02d/%04d",
+                                        selectedDay, (selectedMonth + 1), selectedYear);
                                 periodePertanggungan.setText(selectedDate);
                             }, year, month, day);
 

@@ -72,7 +72,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         });
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("clientSementara");
+        reference = database.getReference("clientSementaraTravel");
         calendar = Calendar.getInstance();
 
         nik = findViewById(R.id.nik);

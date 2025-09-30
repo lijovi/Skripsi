@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
 import java.util.Objects;
 import java.util.regex.Pattern;
 import android.content.Context;
@@ -38,9 +39,11 @@ public class BuatPasswordNasabah extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference databaseHealth = database.getReference("clientHealth");
     DatabaseReference databaseTravel = database.getReference("clientTravel");
+    DatabaseReference referenceNotifikasi = FirebaseDatabase.getInstance().getReference("notifikasiNasabah");
     String NIK;
     EditText editText1, editText2;
     TextView jumlahKarakter1, jumlahKarakter2, number1, number2, kapital1, kapital2, symbol1, symbol2;
+    Calendar calendar;
     int cek1 = 0;
     int cek2 = 0;
 
@@ -82,6 +85,8 @@ public class BuatPasswordNasabah extends AppCompatActivity {
         kapital2 = findViewById(R.id.kapital2);
         symbol1 = findViewById(R.id.symbol1);
         symbol2 = findViewById(R.id.symbol2);
+
+        calendar = Calendar.getInstance();
 
         passwordBaru.setPlaceholderText("Masukkan Password Baru");
         konfirmasiPassword.setPlaceholderText("Masukkan Password Lagi");
@@ -230,6 +235,30 @@ public class BuatPasswordNasabah extends AppCompatActivity {
                                     ClientSession.getInstance().setPassword(cekPassword);
                                     startActivity(intent);
                                 }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+                        referenceNotifikasi.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
+                                String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
+                                String year = String.valueOf(calendar.get(Calendar.YEAR));
+
+                                String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+                                String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+                                String second = String.format("%02d",calendar.get(Calendar.SECOND));
+
+                                String currentdate = day + " - " + month + " - " + year;
+                                String currenttime = hour + " : " + minute + " : " + second;
+                                NotifikasiModel notifikasiModel = new NotifikasiModel("Password berhasil dibuat", currenttime, currentdate);
+//                        String id = referenceNotifikasi.push().getKey();
+                                referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
                             }
 
                             @Override

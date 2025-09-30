@@ -118,7 +118,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         String NIK = ClientSession.getInstance().getNik();
         Query checkTravel = referenceTravel.orderByChild("nik").equalTo(NIK);
         Log.d("INTENT", "NIK: " + NIK);
-        checkTravel.addValueEventListener(new ValueEventListener() {
+        checkTravel.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
@@ -126,7 +126,9 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                     Log.d("INTENT", "Received NIK: " + NomorPolisTravel);
                     nomorPolisTravel.setText(NomorPolisTravel);
                     namaTravel.setText(Nama);
-                    checkT = snapshot.child(NIK).child("check").getValue(String.class);
+                    if (snapshot.child(NIK).hasChild("check")){
+                        checkT = snapshot.child(NIK).child("check").getValue(String.class);
+                    }
                 }
             }
 
@@ -137,7 +139,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         });
 
         Query checkDataTravel = referenceDataTravel.orderByChild("nik").equalTo(NIK);
-        checkDataTravel.addValueEventListener(new ValueEventListener() {
+        checkDataTravel.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
@@ -180,7 +182,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                             Date date1 = dates.parse(part[0].trim());
                             Date date2 = dates.parse(part[1].trim());
 
-                            Long difference = Math.abs(date1.getTime() - date2.getTime()) / (24*60*60*1000);
+                            Long difference = (Math.abs(date1.getTime() - date2.getTime()) / (24*60*60*1000))+1;
                             jangkaTravel.setText(difference.toString());
 
                             Date currentDate = dates.parse(dates.format(new Date()));
@@ -209,15 +211,19 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         });
 
         Query checkHealth = referenceHealth.orderByChild("nik").equalTo(NIK);
-        checkHealth.addValueEventListener(new ValueEventListener() {
+        checkHealth.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     NomorPolisHealth = snapshot.child(NIK).child("nomorPolisKesehatan").getValue(String.class);
                     nomorPolisHealth.setText(NomorPolisHealth);
                     namaHealth.setText(Nama);
-                    checkH = snapshot.child(NIK).child("check").getValue(String.class);
-                    Log.d("CHECK", checkH);
+//                    Log.d("INTENT", "NOMOR POLIS: " + NomorPolisHealth);
+//                    Log.d("INTENT", "NAMA: " + Nama);
+                    if (snapshot.child(NIK).hasChild("check")){
+                        checkH = snapshot.child(NIK).child("check").getValue(String.class);
+                    }
+//                    Log.d("CHECK", checkH);
                 }
             }
 
@@ -227,17 +233,21 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
             }
         });
 
+
         Query checkDataHealth = referenceDataHealth.orderByChild("nik").equalTo(NIK);
-        checkDataHealth.addValueEventListener(new ValueEventListener() {
+        checkDataHealth.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     jenisHealth.setText(snapshot.child(NIK).child("plan").getValue(String.class));
                     jangkaHealth.setText(R.string.tahunan);
-
+//                    Log.d("INTENT", "JENIS HEALTH: " + jenisHealth);
+//                    Log.d("INTENT", "JANGKA HEALTH: " + jangkaHealth);
+//
                     if (Objects.equals(checkH, "Approve")){
                         String date = snapshot.child(NIK).child("periodePertanggungan").getValue(String.class);
-                        DateTimeFormatter format = DateTimeFormatter.ofPattern("d/M/yyyy");
+//                        Log.d("INTENT", "DATE: " + date);
+                        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                         LocalDate start = LocalDate.parse(date, format);
                         LocalDate end = start.plusYears(1);
                         LocalDate current = LocalDate.now();

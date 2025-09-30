@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -33,7 +34,7 @@ import java.util.Objects;
 public class DataCalonNasabahTravel extends AppCompatActivity {
 
     TextView nik, nama, email, jenisKelamin, alamat, jenisPolis, planAsuransi, masaPerjalanan, tipePolis
-            , namaAhliWaris, hubunganDenganAhliWaris,  negaraTujuan, tujuanPerjalanan;
+            , namaAhliWaris, hubunganDenganAhliWaris,  negaraTujuan, tujuanPerjalanan, namaFamily;
 
     Button btnTerima, btnTolak, btnOkPremi, btnOkPolis, btnHome, btnHistory, btnProfile;
 
@@ -47,6 +48,7 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
     int BesarPremi;
     int Company;
     Calendar calendar, calendarJ;
+    LinearLayout family;
 
     // buat ubah bahasa locale
     @Override
@@ -82,15 +84,16 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
         }
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("clientSementara").child(NIK);
+        reference = database.getReference("clientSementaraTravel").child(NIK);
         referenceTransaksi = database.getReference("transaksiTravel").child(NIK);
         referenceNasabah = database.getReference("clientTravel").child(NIK);
-        referenceUserData = database.getReference("userData");
+        referenceUserData = database.getReference("userDataTravel");
         referenceHistory = database.getReference("history");
         referenceNotifikasi = database.getReference("notifikasiNasabah");
         calendar = Calendar.getInstance();
         calendarJ = Calendar.getInstance();
         calendarJ.add(Calendar.DAY_OF_MONTH, 7);
+        family = findViewById(R.id.family);
 
         nik = findViewById(R.id.nik);
         nama = findViewById(R.id.nama);
@@ -98,6 +101,7 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
         jenisKelamin = findViewById(R.id.jenisKelamin);
         alamat = findViewById(R.id.alamat);
         jenisPolis = findViewById(R.id.jenisPolis);
+        namaFamily = findViewById(R.id.namaFamily);
         planAsuransi = findViewById(R.id.planAsuransi);
         masaPerjalanan = findViewById(R.id.masaPerjalanan);
         tipePolis = findViewById(R.id.tipePolis);
@@ -144,6 +148,7 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
                 String JenisKelamin = snapshot.child("gender").getValue(String.class);
                 String Alamat = snapshot.child("address").getValue(String.class);
                 String JenisPolis = snapshot.child("jenisPolis").getValue(String.class);
+                String NamaKeluarga = snapshot.child("namaKeluarga").getValue(String.class);
                 String PlanAsuransi = snapshot.child("planAsuransi").getValue(String.class);
                 String MasaPerjalanan = snapshot.child("masaPerjalanan").getValue(String.class);
                 String TipePolis = snapshot.child("tipePolis").getValue(String.class);
@@ -164,6 +169,10 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
                 hubunganDenganAhliWaris.setText(HubunganDenganAhliWaris);
                 negaraTujuan.setText(NegaraTujuan);
                 tujuanPerjalanan.setText(TujuanPerjalanan);
+                if (!Objects.equals(NamaKeluarga, null)){
+                    family.setVisibility(View.VISIBLE);
+                    namaFamily.setText(NamaKeluarga);
+                }
 
             }
 
@@ -282,7 +291,7 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         referenceNasabah.setValue(snapshot.getValue());
-                        referenceUserData.child(NIK).setValue(snapshot.getValue());
+                        referenceUserData.child("Travel").child(NIK).setValue(snapshot.getValue());
                         String Nama = snapshot.child("name").getValue(String.class);
 
                         NotifikasiCompany notif = new NotifikasiCompany(NIK, Nama, "DITERIMA", currentdate, currenttime, Company, "Travel");
