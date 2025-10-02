@@ -10,7 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class AdapterPembayaran extends RecyclerView.Adapter<AdapterPembayaran.ViewHolder> {
 
@@ -30,7 +32,13 @@ public class AdapterPembayaran extends RecyclerView.Adapter<AdapterPembayaran.Vi
     @Override
     public void onBindViewHolder(@NonNull AdapterPembayaran.ViewHolder holder, int position) {
         BuktiBayar pembayaran = listPembayaran.get(position);
-        holder.textnotif.setText(pembayaran.getNama() + " telah melakukan pembayaran sebesar " + pembayaran.getBesarPremi());
+
+        long besarPremi = Long.parseLong(pembayaran.getBesarPremi());
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
+        String nominalRupiah = formatRupiah.format(besarPremi);
+        nominalRupiah = nominalRupiah.replace("Rp", "Rp ");
+
+        holder.textnotif.setText(pembayaran.getNama() + " telah melakukan pembayaran sebesar " + nominalRupiah);
         holder.time.setText(pembayaran.getTime());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

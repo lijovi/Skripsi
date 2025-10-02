@@ -40,12 +40,18 @@
 
 
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_marginVertical="50dp"
+
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:gravity="center"
-        android:paddingVertical="50dp"
         >
 
     <LinearLayout
@@ -55,6 +61,7 @@
         android:orientation="vertical"
         android:paddingHorizontal="20dp"
         android:paddingVertical="25dp"
+        android:layout_gravity="center"
         >
 
 
@@ -163,7 +170,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:drawableRight="@drawable/plus_hitam"
             android:hint="No File Selected"
             android:layout_gravity="left"
@@ -190,6 +197,8 @@
     </LinearLayout>
 
     </LinearLayout>
+
+    </ScrollView>
 
 
 

@@ -247,5 +247,13 @@ public class HomePageNasabah extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        riwayatPembayaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RiwayatPembayaran.class);
+                startActivity(intent);
+            }
+        });
     }
 }

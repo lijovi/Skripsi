@@ -46,6 +46,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 public class Pembayaran extends AppCompatActivity {
 
@@ -163,30 +164,32 @@ public class Pembayaran extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()) {
-                                int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
-                                String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
-                                Nomor = snapshot.child(nik).child("nomorPolisTravel").getValue(String.class);
-                                jumlah.setText("Rp " + idrFormat.format((double) premi));
-                                jatuhTempo.setText(JatuhTempo + " !");
-                                int nocompany = snapshot.child(nik).child("company").getValue(int.class);
-                                checkVirtual = database.getReference("company");
-                                Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
-                                Log.d("INTENT", "COMPANY: " + nocompany);
-                                checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        if (snapshot.exists()){
-                                            String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
-                                            virtualAccount.setText(virtual);
-                                            check = 1;
+                                if (snapshot.child(nik).hasChild("check") && Objects.equals(snapshot.child(nik).child("check"), "Not Approve")){
+                                    int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
+                                    String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
+                                    Nomor = snapshot.child(nik).child("nomorPolisTravel").getValue(String.class);
+                                    jumlah.setText("Rp " + idrFormat.format((double) premi));
+                                    jatuhTempo.setText(JatuhTempo + " !");
+                                    int nocompany = snapshot.child(nik).child("company").getValue(int.class);
+                                    checkVirtual = database.getReference("company");
+                                    Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
+                                    Log.d("INTENT", "COMPANY: " + nocompany);
+                                    checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            if (snapshot.exists()){
+                                                String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
+                                                virtualAccount.setText(virtual);
+                                                check = 1;
+                                            }
                                         }
-                                    }
 
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
 
-                                    }
-                                });
+                                        }
+                                    });
+                                }
                             }
                             alertDialog.dismiss();
                         }
@@ -202,30 +205,32 @@ public class Pembayaran extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()) {
-                                int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
-                                String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
-                                Nomor = snapshot.child(nik).child("nomorPolisKesehatan").getValue(String.class);
-                                jumlah.setText("Rp " + idrFormat.format((double) premi));
-                                jatuhTempo.setText(JatuhTempo + " !");
-                                int nocompany = snapshot.child(nik).child("company").getValue(int.class);
-                                Log.d("INTENT", "COMPANY: " + nocompany);
-                                checkVirtual = database.getReference("company");
-                                Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
-                                checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        if (snapshot.exists()){
-                                            String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
-                                            virtualAccount.setText(virtual);
-                                            check = 2;
+                                if (snapshot.child(nik).hasChild("check") && Objects.equals(snapshot.child(nik).child("check"), "Not Approve")){
+                                    int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
+                                    String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
+                                    Nomor = snapshot.child(nik).child("nomorPolisKesehatan").getValue(String.class);
+                                    jumlah.setText("Rp " + idrFormat.format((double) premi));
+                                    jatuhTempo.setText(JatuhTempo + " !");
+                                    int nocompany = snapshot.child(nik).child("company").getValue(int.class);
+                                    Log.d("INTENT", "COMPANY: " + nocompany);
+                                    checkVirtual = database.getReference("company");
+                                    Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
+                                    checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            if (snapshot.exists()){
+                                                String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
+                                                virtualAccount.setText(virtual);
+                                                check = 2;
+                                            }
                                         }
-                                    }
 
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
 
-                                    }
-                                });
+                                        }
+                                    });
+                                }
                             }
                             alertDialog.dismiss();
                         }
