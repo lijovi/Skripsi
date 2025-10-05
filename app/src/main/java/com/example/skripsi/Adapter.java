@@ -32,7 +32,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Nasabah nasabah = listNasabah.get(position);
         holder.textnotif.setText(nasabah.getName() + " telah melakukan registrasi asuransi " + nasabah.getJenisAsuransi());
-        holder.time.setText(nasabah.getTime());
+        holder.time.setText(nasabah.getDate() + "\n" + nasabah.getTime());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

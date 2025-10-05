@@ -98,6 +98,7 @@ public class HomePageAsuransi extends AppCompatActivity {
                         String jenisAsuransi = dataSnapshot.child("jenisAsuransi").getValue(String.class);
                         String time = dataSnapshot.child("time").getValue(String.class);
                         String nik = dataSnapshot.child("nik").getValue(String.class);
+                        String date = dataSnapshot.child("date").getValue(String.class);
                         int company = dataSnapshot.child("company").getValue(int.class);
 
                         Nasabah nasabah = new Nasabah();
@@ -105,6 +106,7 @@ public class HomePageAsuransi extends AppCompatActivity {
                         nasabah.setJenisAsuransi(jenisAsuransi);
                         nasabah.setTime(time);
                         nasabah.setNik(nik);
+                        nasabah.setDate(date);
                         nasabah.setCompany(company);
                         listNasabah.add(nasabah);
                     }
@@ -131,6 +133,7 @@ public class HomePageAsuransi extends AppCompatActivity {
                         String jenisAsuransi = dataSnapshot.child("jenisAsuransi").getValue(String.class);
                         String time = dataSnapshot.child("time").getValue(String.class);
                         String nik = dataSnapshot.child("nik").getValue(String.class);
+                        String date = dataSnapshot.child("date").getValue(String.class);
                         int company = dataSnapshot.child("company").getValue(int.class);
 
                         Nasabah nasabah = new Nasabah();
@@ -138,6 +141,7 @@ public class HomePageAsuransi extends AppCompatActivity {
                         nasabah.setJenisAsuransi(jenisAsuransi);
                         nasabah.setTime(time);
                         nasabah.setNik(nik);
+                        nasabah.setDate(date);
                         nasabah.setCompany(company);
                         listNasabah.add(nasabah);
                     }

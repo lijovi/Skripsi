@@ -23,7 +23,7 @@ public class AdapterRiwayatPembayaran extends RecyclerView.Adapter<AdapterRiwaya
     @NonNull
     @Override
     public AdapterRiwayatPembayaran.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_riwayat_pembayaran, parent, false);
         return new ViewHolder(view);
     }
 
@@ -34,7 +34,7 @@ public class AdapterRiwayatPembayaran extends RecyclerView.Adapter<AdapterRiwaya
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
         String nominalRupiah = formatRupiah.format(besarPremi);
         nominalRupiah = nominalRupiah.replace("Rp", "Rp ");
-        holder.notif.setText(pembayaran.getNama() + " Telah melakukan pembayaran sebesar " + nominalRupiah);
+        holder.notif.setText(pembayaran.getNama() + " telah melakukan pembayaran sebesar " + nominalRupiah);
         holder.date.setText(pembayaran.getDate());
     }
 

@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:text="Tanggal"
             android:textColor="@color/black"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:textAlignment="center"
             android:autoSizeTextType="uniform"
             android:autoSizeMaxTextSize="20sp"
