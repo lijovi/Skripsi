@@ -55,8 +55,11 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
     String NomorPolisTravel, Nama;
     String NomorPolisHealth;
     FirebaseDatabase database;
-    DatabaseReference referenceTravel, referenceHealth, referenceDataHealth, referenceDataTravel, referencePembayaran;
+    DatabaseReference referenceTravel, referenceHealth, referenceDataHealth, referenceDataTravel, referencePembayaran, riwayatMedisRef, klaimRef;
     String checkH, checkT;
+    TableLayout tableMedicalHistory;
+    TableLayout tableKlaimAsuransiHealth;
+
 
     // buat ubah bahasa locale
     @Override
@@ -101,6 +104,10 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         statusHealth = findViewById(R.id.statusHealth);
         jangkaHealth = findViewById(R.id.jangkaHealth);
 
+        // Tabel riwayat medis
+        tableMedicalHistory = findViewById(R.id.tableMedicalHistory);
+        tableKlaimAsuransiHealth = findViewById(R.id.tableKlaimAsuransiHealth);
+
         // Set values
         LimitHealth = ClientSession.getInstance().getLimitHealth();
         LimitTravel = ClientSession.getInstance().getLimitTravel();
@@ -114,6 +121,8 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         referenceDataHealth = database.getReference("clientHealth");
         referenceDataTravel = database.getReference("clientTravel");
         referencePembayaran = database.getReference("pembayaran");
+        klaimRef = database.getReference("klaim");
+        riwayatMedisRef = database.getReference("riwayatMedis");
 
         String NIK = ClientSession.getInstance().getNik();
         Query checkTravel = referenceTravel.orderByChild("nik").equalTo(NIK);
@@ -278,6 +287,49 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
             }
         });
 
+        riwayatMedisRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    tableMedicalHistory.removeViews(1, tableMedicalHistory.getChildCount() - 1);
+                    for (DataSnapshot child : snapshot.getChildren()) {
+                        String tglDiagnosa = child.child("tanggalDiagnosa").getValue(String.class);
+                        String kondisi = child.child("kondisi").getValue(String.class);
+                        String besarKlaim = child.child("besarKlaim").getValue(String.class);
+                        String statusKlaim = child.child("statusKlaim").getValue(String.class);
+        
+                        addMedicalHistoryRow(tableMedicalHistory, tglDiagnosa, kondisi, besarKlaim, statusKlaim);
+                    }
+                }
+            }
+        
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle error
+            }
+        });
+        
+        klaimRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    tableKlaimAsuransiHealth.removeViews(1, tableKlaimAsuransiHealth.getChildCount() - 1);
+                    for (DataSnapshot child : snapshot.getChildren()) {
+                        String klaim = child.child("klaim").getValue(String.class);
+                        String status = child.child("status").getValue(String.class);
+                        String tglPengajuan = child.child("tanggalPengajuan").getValue(String.class);
+        
+                        addClaimRow(tableKlaimAsuransiHealth, klaim, status, tglPengajuan);
+                    }
+                }
+            }
+        
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle error
+            }
+        });
+
         Locale locale = new Locale("in", "ID");
 
         NumberFormat idrFormat = NumberFormat.getInstance(locale);
@@ -335,13 +387,55 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
             }
         });
 
-        lupaPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), UbahPasswordNasabah.class);
-                startActivity(intent);
-            }
-        });
+        
     }
 
+    private void addMedicalHistoryRow(TableLayout table, String tglDiagnosa, String kondisi, String besarKlaim, String statusKlaim) {
+        TableRow row = new TableRow(this);
+    
+        TextView tgl = new TextView(this);
+        tgl.setText(tglDiagnosa);
+        tgl.setPadding(6, 6, 6, 6);
+    
+        TextView kond = new TextView(this);
+        kond.setText(kondisi);
+        kond.setPadding(6, 6, 6, 6);
+    
+        TextView klaim = new TextView(this);
+        klaim.setText(besarKlaim);
+        klaim.setPadding(6, 6, 6, 6);
+    
+        TextView status = new TextView(this);
+        status.setText(statusKlaim);
+        status.setPadding(6, 6, 6, 6);
+    
+        row.addView(tgl);
+        row.addView(kond);
+        row.addView(klaim);
+        row.addView(status);
+    
+        table.addView(row);
+    }
+    
+    private void addClaimRow(TableLayout table, String klaim, String status, String tglPengajuan) {
+        TableRow row = new TableRow(this);
+    
+        TextView klaimView = new TextView(this);
+        klaimView.setText(klaim);
+        klaimView.setPadding(6, 6, 6, 6);
+    
+        TextView statusView = new TextView(this);
+        statusView.setText(status);
+        statusView.setPadding(6, 6, 6, 6);
+    
+        TextView tglView = new TextView(this);
+        tglView.setText(tglPengajuan);
+        tglView.setPadding(6, 6, 6, 6);
+    
+        row.addView(klaimView);
+        row.addView(statusView);
+        row.addView(tglView);
+    
+        table.addView(row);
+    }    
 }
