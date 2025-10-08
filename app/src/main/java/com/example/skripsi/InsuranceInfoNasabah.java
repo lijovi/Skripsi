@@ -113,7 +113,6 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         LimitTravel = ClientSession.getInstance().getLimitTravel();
         Nama = ClientSession.getInstance().getNama();
 
-
         // DATABASE
         database = FirebaseDatabase.getInstance();
         referenceTravel = database.getReference("transaksiTravel");
@@ -123,6 +122,27 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         referencePembayaran = database.getReference("pembayaran");
         klaimRef = database.getReference("klaim");
         riwayatMedisRef = database.getReference("riwayatMedis");
+
+        InsuranceInfoModel medisDummy = new InsuranceInfoModel(
+                "03/10/2025",
+                "Demam Berdarah",
+                "2.000.000",
+                "Disetujui"
+        );
+
+        riwayatMedisRef.push().setValue(medisDummy)
+                .addOnSuccessListener(aVoid -> Log.d("FIREBASE", "Data medis dummy ditambahkan"))
+                .addOnFailureListener(e -> Log.e("FIREBASE", "Gagal tambah data medis: " + e.getMessage()));
+
+        InsuranceInfoModel klaimDummy = new InsuranceInfoModel(
+                "Rawat Inap",
+                "Diproses",
+                "05/10/2025"
+        );
+
+        klaimRef.push().setValue(klaimDummy)
+                .addOnSuccessListener(aVoid -> Log.d("FIREBASE", "Data klaim dummy ditambahkan"))
+                .addOnFailureListener(e -> Log.e("FIREBASE", "Gagal tambah klaim: " + e.getMessage()));
 
         String NIK = ClientSession.getInstance().getNik();
         Query checkTravel = referenceTravel.orderByChild("nik").equalTo(NIK);
