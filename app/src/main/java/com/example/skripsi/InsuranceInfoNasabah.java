@@ -12,7 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
+import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.TableLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -123,6 +125,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         klaimRef = database.getReference("klaim");
         riwayatMedisRef = database.getReference("riwayatMedis");
 
+        String NIK = ClientSession.getInstance().getNik();
         InsuranceInfoModel medisDummy = new InsuranceInfoModel(
                 "03/10/2025",
                 "Demam Berdarah",
@@ -130,8 +133,8 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                 "Disetujui"
         );
 
-        riwayatMedisRef.push().setValue(medisDummy)
-                .addOnSuccessListener(aVoid -> Log.d("FIREBASE", "Data medis dummy ditambahkan"))
+        riwayatMedisRef.child(NIK).setValue(medisDummy)
+                .addOnSuccessListener(aVoid -> Log.d("FIREBASE", "Data medis dummy ditambahkan untuk NIK: " + NIK))
                 .addOnFailureListener(e -> Log.e("FIREBASE", "Gagal tambah data medis: " + e.getMessage()));
 
         InsuranceInfoModel klaimDummy = new InsuranceInfoModel(
@@ -140,11 +143,10 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                 "05/10/2025"
         );
 
-        klaimRef.push().setValue(klaimDummy)
-                .addOnSuccessListener(aVoid -> Log.d("FIREBASE", "Data klaim dummy ditambahkan"))
+        klaimRef.child(NIK).setValue(klaimDummy)
+                .addOnSuccessListener(aVoid -> Log.d("FIREBASE", "Data klaim dummy ditambahkan untuk NIK: " + NIK))
                 .addOnFailureListener(e -> Log.e("FIREBASE", "Gagal tambah klaim: " + e.getMessage()));
 
-        String NIK = ClientSession.getInstance().getNik();
         Query checkTravel = referenceTravel.orderByChild("nik").equalTo(NIK);
         Log.d("INTENT", "NIK: " + NIK);
         checkTravel.addListenerForSingleValueEvent(new ValueEventListener() {

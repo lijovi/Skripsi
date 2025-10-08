@@ -224,13 +224,7 @@
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:padding="6dp"/>
-                    <TextView
-                        android:text="@string/status_klaim"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:padding="6dp"/>
                 </TableRow>
-
             </TableLayout>
 
             <!-- KLAIM ASURANSI HEALTH -->
@@ -260,7 +254,7 @@
                         android:textColor="@color/black"
                         android:padding="6dp"/>
                     <TextView
-                        android:text="@string/status"
+                        android:text="@string/status_klaim"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:padding="6dp"/>
