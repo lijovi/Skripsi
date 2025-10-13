@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -418,19 +419,23 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         TextView tgl = new TextView(this);
         tgl.setText(tglDiagnosa);
         tgl.setPadding(6, 6, 6, 6);
+        tgl.setTextColor(ContextCompat.getColor(this, R.color.black));
     
         TextView kond = new TextView(this);
         kond.setText(kondisi);
         kond.setPadding(6, 6, 6, 6);
+        kond.setTextColor(ContextCompat.getColor(this, R.color.black));
     
         TextView klaim = new TextView(this);
         klaim.setText(besarKlaim);
         klaim.setPadding(6, 6, 6, 6);
-    
+        klaim.setTextColor(ContextCompat.getColor(this, R.color.black));
+
         TextView status = new TextView(this);
         status.setText(statusKlaim);
         status.setPadding(6, 6, 6, 6);
-    
+        status.setTextColor(ContextCompat.getColor(this, R.color.black));
+
         row.addView(tgl);
         row.addView(kond);
         row.addView(klaim);
@@ -445,14 +450,17 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         TextView klaimView = new TextView(this);
         klaimView.setText(klaim);
         klaimView.setPadding(6, 6, 6, 6);
+        klaimView.setTextColor(ContextCompat.getColor(this, R.color.black));
     
         TextView statusView = new TextView(this);
         statusView.setText(status);
         statusView.setPadding(6, 6, 6, 6);
+        statusView.setTextColor(ContextCompat.getColor(this, R.color.black));
     
         TextView tglView = new TextView(this);
         tglView.setText(tglPengajuan);
         tglView.setPadding(6, 6, 6, 6);
+        tglView.setTextColor(ContextCompat.getColor(this, R.color.black));
     
         row.addView(klaimView);
         row.addView(statusView);

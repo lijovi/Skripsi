@@ -90,7 +90,7 @@
                         android:layout_weight="1"
                         android:text="@string/anda_belum_memiliki_password_buat_password_sekarang_untuk_mengakses_data_asuransi_disini"
                         android:textColor="@color/black"
-                        android:textSize="9.6sp"
+                        android:textSize="11sp"
                         android:textStyle="normal" />
 
                     <LinearLayout
@@ -105,7 +105,7 @@
                             android:layout_weight="1"
                             android:text="@string/untuk_mengakses_data_asuransi"
                             android:textColor="@color/black"
-                            android:textSize="9.6sp"
+                            android:textSize="11sp"
                             android:textStyle="normal" />
 
                         <TextView
@@ -115,7 +115,7 @@
                             android:paddingLeft="3dp"
                             android:text="@string/disini"
                             android:textColor="@color/black"
-                            android:textSize="9.6sp"
+                            android:textSize="11sp"
                             android:textStyle="normal"
                             android:id="@+id/disini"/>
 
@@ -457,12 +457,41 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+                            android:orientation="vertical"
                             >
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Rumah Sakit :  RS Sari Asih Karawaci"
+                                android:text="RS Sari Asih Karawaci"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/noTelp"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="- 021-552 2794"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="- 021-552 3239"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 />
@@ -471,40 +500,12 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+                            android:orientation="vertical"
                             >
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="No Telp: 021-552 2794"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="No Telp: 021-5523239"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Link gmap:"
+                                android:text="Link Google Map:"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 />
@@ -548,49 +549,51 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Rumah Sakit : RS Pondok Indah Puri Indah"
+                                android:text="RS Pondok Indah Puri Indah"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
+                                android:textStyle="bold"
                                 />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+                            android:orientation="vertical"
                             >
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="No Telp: 021-25695222"
+                                android:text="@string/noTelp"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="- 021-2569 5222"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="- 021-2569 5200"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 />
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="No Telp: 021-25695200"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                />
-                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+                            android:orientation="vertical"
                             >
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Link gmap:"
+                                android:text="Link Google Map:"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 />
@@ -642,7 +645,36 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Rumah Sakit :  RSAB Harapan Kita"
+                                android:text="RSAB Harapan Kita"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/noTelp"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="- 021-566 8284"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="- 021-566 8284"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 />
@@ -651,40 +683,12 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+                            android:orientation="vertical"
                             >
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="No Telp: 021-5668284"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="No Telp: 021-566 8284"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Link gmap:"
+                                android:text="Link Google Map:"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 />
@@ -728,7 +732,36 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Rumah Sakit :  RS Pluit"
+                                android:text="RS Pluit"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/noTelp"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="- 021-668 5006"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="- 021-668 507"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 />
@@ -737,40 +770,12 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+                            android:orientation="vertical"
                             >
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="No Telp: 021-6685006"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="No Telp: 021-668507"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Link gmap:"
+                                android:text="Link Google Map:"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 />

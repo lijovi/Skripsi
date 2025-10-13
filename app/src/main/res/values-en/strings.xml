@@ -54,7 +54,7 @@
     <string name="warning_icon">!</string>
     <string name="notifikasi">NOTIFICATION</string>
     <string name="info_asuransi">Insurance Info</string>
-    <string name="waktu">Date and Time</string>
+    <string name="waktu">DATE\nTIME</string>
     <string name="profil">Profile</string>
     <string name="utama">Home</string>
     <string name="riwayat_medis">Medical History</string>
@@ -100,7 +100,7 @@
     <string name="masuk">LOGIN</string>
     <string name="daftarkan_sekarang">Register now</string>
     <string name="nama_huruf_kecil">Name</string>
-    <string name="jenis_polis">Policy Type</string>
+    <string name="jenis_polis">Policy Type:</string>
     <string name="plan_asuransi">Insurance Plan</string>
     <string name="masa_perjalanan">Travel Period</string>
     <string name="title_activity_pop_up_ubah_bahasa">Change Language</string>
@@ -319,5 +319,8 @@
     <string name="aktif">Active</string>
     <string name="non_aktif">Non Active</string>
     <string name="TRAVEL">TRAVEL</string>
+    <string name="noTelp">Phone Number:</string>
+    <string name="riwayat">Payment History</string>
+    <string name="tanggal">Date</string>
 
 </resources>

@@ -42,7 +42,7 @@
     <string name="warning_icon">!</string>
     <string name="notifikasi">NOTIFIKASI</string>
     <string name="info_asuransi">Info Asuransi</string>
-    <string name="waktu">Tanggal dan Waktu</string>
+    <string name="waktu">TANGGAL\nWAKTU</string>
     <string name="profil">Profil</string>
     <string name="utama">Utama</string>
     <string name="riwayat_medis">Riwayat Medis</string>
@@ -88,7 +88,7 @@
     <string name="masuk">MASUK</string>
     <string name="daftarkan_sekarang">Daftarkan sekarang</string>
     <string name="nama_huruf_kecil">Nama</string>
-    <string name="jenis_polis">Jenis Polis</string>
+    <string name="jenis_polis">Jenis Polis: </string>
     <string name="plan_asuransi">Plan Asuransi</string>
     <string name="masa_perjalanan">Masa Perjalanan</string>
     <string name="title_activity_pop_up_ubah_bahasa">pop_up_ubah_bahasa</string>
@@ -254,4 +254,7 @@
     <string name="non_aktif">Non Aktif</string>
     <string name="input_negara_tujuan">Input Negara Tujuan</string>
     <string name="TRAVEL">TRAVEL</string>
+    <string name="noTelp">Nomor Telepon:</string>
+    <string name="riwayat">Riwayat Pembayaran</string>
+    <string name="tanggal">Tanggal</string>
 </resources>
