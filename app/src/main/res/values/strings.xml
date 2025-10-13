@@ -257,4 +257,8 @@
     <string name="noTelp">Nomor Telepon:</string>
     <string name="riwayat">Riwayat Pembayaran</string>
     <string name="tanggal">Tanggal</string>
+    <string name="text"> telah melakukan pembayaran sebesar </string>
+    <string name="history">telah melakukan registrasi asuransi</string>
+    <string name="diterima">DITERIMA</string>
+    <string name="ditolak">DITOLAK</string>
 </resources>

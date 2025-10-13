@@ -513,7 +513,6 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingLeft="5dp"
                                 android:textColorLink="@color/black"
                                 android:textSize="12sp"
                                 android:id="@+id/sariAsih"
@@ -601,7 +600,6 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingLeft="5dp"
                                 android:autoLink="none"
                                 android:textColorLink="@color/black"
                                 android:textSize="12sp"
@@ -696,7 +694,6 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingLeft="5dp"
                                 android:autoLink="none"
                                 android:textColorLink="@color/black"
                                 android:linksClickable="true"
@@ -783,7 +780,6 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingLeft="5dp"
                                 android:autoLink="none"
                                 android:textColorLink="@color/black"
                                 android:linksClickable="true"

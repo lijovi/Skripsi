@@ -34,7 +34,8 @@ public class AdapterRiwayatPembayaran extends RecyclerView.Adapter<AdapterRiwaya
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
         String nominalRupiah = formatRupiah.format(besarPremi);
         nominalRupiah = nominalRupiah.replace("Rp", "Rp ");
-        holder.notif.setText(pembayaran.getNama() + " telah melakukan pembayaran sebesar " + nominalRupiah);
+        String text = holder.itemView.getContext().getString(R.string.text);
+        holder.notif.setText(pembayaran.getNama() + " " + text + " " + nominalRupiah);
         holder.date.setText(pembayaran.getDate());
     }
 

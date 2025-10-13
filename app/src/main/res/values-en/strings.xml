@@ -322,5 +322,9 @@
     <string name="noTelp">Phone Number:</string>
     <string name="riwayat">Payment History</string>
     <string name="tanggal">Date</string>
+    <string name="text"> has made a payment of </string>
+    <string name="history">have registered for insurance</string>
+    <string name="diterima">ACCEPTED</string>
+    <string name="ditolak">REJECTED</string>
 
 </resources>

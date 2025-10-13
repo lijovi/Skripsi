@@ -35,8 +35,13 @@ public class AdapterHistory extends RecyclerView.Adapter<AdapterHistory.ViewHold
     public void onBindViewHolder(@NonNull AdapterHistory.ViewHolder holder, int position) {
         Nasabah nasabah = listNasabah.get(position);
         NotifikasiCompany history = listHistory.get(position);
-        holder.notif.setText(nasabah.getName() + " telah melakukan registrasi asuransi " + nasabah.getJenisAsuransi());
-        holder.status.setText(history.getStatus());
+        String text = holder.itemView.getContext().getString(R.string.history);
+        holder.notif.setText(nasabah.getName() + " " + text + " " + nasabah.getJenisAsuransi());
+        if (Objects.equals(history.getStatus(),"DITERIMA")){
+            holder.status.setText(R.string.diterima);
+        } else if (Objects.equals(history.getStatus(), "DITOLAK")) {
+            holder.status.setText(R.string.ditolak);
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
