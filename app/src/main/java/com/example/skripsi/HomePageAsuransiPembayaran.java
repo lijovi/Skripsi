@@ -42,7 +42,7 @@ public class HomePageAsuransiPembayaran extends AppCompatActivity {
     View dialogView;
     TextView pendaftaran;
     LinearLayout pilihan;
-    String nik, nama, nomorPolis, time;
+    String nik, nama, nomorPolis, time, tanggal;
     int besarPremi;
 
     @Override
@@ -121,6 +121,7 @@ public class HomePageAsuransiPembayaran extends AppCompatActivity {
                         besarPremi = dataSnapshot.child("besarPremi").getValue(int.class);
                         nomorPolis = dataSnapshot.child("nomorPolisKesehatan").getValue(String.class);
                         time = dataSnapshot.child("time").getValue(String.class);
+                        tanggal = dataSnapshot.child("date").getValue(String.class);
 
                         referenceNamaHealth.child(nik).addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -132,6 +133,7 @@ public class HomePageAsuransiPembayaran extends AppCompatActivity {
                                 buktiBayar.setBesarPremi(String.valueOf(besarPremi));
                                 buktiBayar.setNomorPolis(nomorPolis);
                                 buktiBayar.setTime(time);
+                                buktiBayar.setTanggal(tanggal);
                                 listPembayaran.add(buktiBayar);
                                 adapter.notifyDataSetChanged();
                             }
@@ -160,6 +162,8 @@ public class HomePageAsuransiPembayaran extends AppCompatActivity {
                         nik = dataSnapshot.child("nik").getValue(String.class);
                         besarPremi = dataSnapshot.child("besarPremi").getValue(int.class);
                         nomorPolis = dataSnapshot.child("nomorPolisTravel").getValue(String.class);
+                        time = dataSnapshot.child("time").getValue(String.class);
+                        tanggal = dataSnapshot.child("date").getValue(String.class);
 
                         referenceNamaTravel.child(nik).addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -171,6 +175,7 @@ public class HomePageAsuransiPembayaran extends AppCompatActivity {
                                 buktiBayar.setBesarPremi(String.valueOf(besarPremi));
                                 buktiBayar.setNomorPolis(nomorPolis);
                                 buktiBayar.setTime(time);
+                                buktiBayar.setTanggal(tanggal);
                                 listPembayaran.add(buktiBayar);
                                 adapter.notifyDataSetChanged();
                             }

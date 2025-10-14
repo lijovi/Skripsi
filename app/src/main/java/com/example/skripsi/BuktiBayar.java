@@ -6,13 +6,15 @@ public class BuktiBayar {
     String besarPremi;
     String nomorPolis;
     String time;
+    String tanggal;
 
-    public BuktiBayar(String nik, String nama, String besarPremi, String nomorPolis, String time) {
+    public BuktiBayar(String nik, String nama, String besarPremi, String nomorPolis, String time, String tanggal) {
         this.nik = nik;
         this.nama = nama;
         this.besarPremi = besarPremi;
         this.nomorPolis = nomorPolis;
         this.time = time;
+        this.tanggal = tanggal;
     }
 
     public BuktiBayar(){
@@ -57,5 +59,13 @@ public class BuktiBayar {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
     }
 }

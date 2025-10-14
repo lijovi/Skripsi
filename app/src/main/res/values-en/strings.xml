@@ -326,5 +326,6 @@
     <string name="history">have registered for insurance</string>
     <string name="diterima">ACCEPTED</string>
     <string name="ditolak">REJECTED</string>
+    <string name="textPembayaran">has made a payment of</string>
 
 </resources>

@@ -28,7 +28,7 @@
                 android:layout_width="16dp"
                 android:layout_height="32dp"
                 android:background="@drawable/back_hitam"
-
+                android:id="@+id/back"
                 />
 
 <!--        Bukti Pembayaran -->

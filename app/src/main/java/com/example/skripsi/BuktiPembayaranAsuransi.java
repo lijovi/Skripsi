@@ -39,7 +39,7 @@ public class BuktiPembayaranAsuransi extends AppCompatActivity {
     StorageReference storage;
     String imageurl;
     ImageView buktiPembayaran;
-    Button btnTerima, btnTolak;
+    Button btnTerima, btnTolak, back;
     DatabaseReference referenceNotifikasi = FirebaseDatabase.getInstance().getReference("notifikasiNasabah");
     DatabaseReference referencePembayaran = FirebaseDatabase.getInstance().getReference("pembayaran");
     DatabaseReference referenceTransaksiHealth = FirebaseDatabase.getInstance().getReference("transaksiHealth");
@@ -71,6 +71,7 @@ public class BuktiPembayaranAsuransi extends AppCompatActivity {
         buktiPembayaran = findViewById(R.id.buktiPembayaran);
         btnTerima = findViewById(R.id.btnTerima);
         btnTolak = findViewById(R.id.btnTolak);
+        back = findViewById(R.id.back);
 
         NIK = getIntent().getStringExtra("nik");
         Nama = getIntent().getStringExtra("nama");
@@ -81,6 +82,13 @@ public class BuktiPembayaranAsuransi extends AppCompatActivity {
         nik.setText(NIK);
         nama.setText(Nama);
         besarPremi.setText(BesarPremi);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         referenceTransaksiTravel.child(NIK).get().addOnSuccessListener(snapshot -> {
             if (snapshot.exists()){

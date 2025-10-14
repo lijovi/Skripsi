@@ -25,7 +25,7 @@ public class AdapterPembayaran extends RecyclerView.Adapter<AdapterPembayaran.Vi
     @NonNull
     @Override
     public AdapterPembayaran.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_notifikasi,parent,false);
         return new ViewHolder(view);
     }
 
@@ -37,9 +37,11 @@ public class AdapterPembayaran extends RecyclerView.Adapter<AdapterPembayaran.Vi
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
         String nominalRupiah = formatRupiah.format(besarPremi);
         nominalRupiah = nominalRupiah.replace("Rp", "Rp ");
+        String text = holder.itemView.getContext().getString(R.string.textPembayaran);
 
-        holder.textnotif.setText(pembayaran.getNama() + " telah melakukan pembayaran sebesar " + nominalRupiah);
+        holder.textnotif.setText(pembayaran.getNama() + " " + text + " " + nominalRupiah);
         holder.time.setText(pembayaran.getTime());
+        holder.tanggal.setText(pembayaran.getTanggal());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,12 +65,13 @@ public class AdapterPembayaran extends RecyclerView.Adapter<AdapterPembayaran.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textnotif, time;
+        TextView textnotif, time, tanggal;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textnotif = itemView.findViewById(R.id.textNotifikasi);
-            time = itemView.findViewById(R.id.time);
+            textnotif = itemView.findViewById(R.id.tvDeskripsi);
+            time = itemView.findViewById(R.id.tvWaktu);
+            tanggal = itemView.findViewById(R.id.tvTanggal);
         }
     }
 }

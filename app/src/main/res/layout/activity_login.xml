@@ -109,7 +109,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:text="@string/tidak_memiliki_asuransi"
                 android:textColor="@color/black"
                 />
@@ -118,7 +118,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:text="@string/daftarkan_sekarang"
                 android:textColor="@color/black"
                 android:id="@+id/daftar"
@@ -131,7 +131,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/masuk_sebagai_asuransi"
-            android:textSize="12sp"
+            android:textSize="11sp"
             android:gravity="center"
             android:textColor="@color/black"
             android:id="@+id/masukAsuransi"

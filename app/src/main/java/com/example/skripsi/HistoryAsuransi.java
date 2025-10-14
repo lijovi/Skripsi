@@ -64,35 +64,35 @@ public class HistoryAsuransi extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.child(String.valueOf(id)).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 long count = snapshot.getChildrenCount(); // total direct children
                 Log.d("FIREBASE_DEBUG", "Total items fetched: " + count);
                 listNasabah.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    if (Objects.equals(id, dataSnapshot.child("company").getValue(int.class))) {
-                        String jenisAsuransi = dataSnapshot.child("jenisAsuransi").getValue(String.class);
-                        String time = dataSnapshot.child("time").getValue(String.class);
-                        String nik = dataSnapshot.child("nik").getValue(String.class);
-                        String nama = dataSnapshot.child("name").getValue(String.class);
-                        int company = dataSnapshot.child("company").getValue(int.class);
-                        String status = dataSnapshot.child("status").getValue(String.class);
+                    String jenisAsuransi = dataSnapshot.child("jenisAsuransi").getValue(String.class);
+                    String time = dataSnapshot.child("time").getValue(String.class);
+                    String nik = dataSnapshot.child("nik").getValue(String.class);
+                    String nama = dataSnapshot.child("name").getValue(String.class);
+                    int company = dataSnapshot.child("company").getValue(int.class);
+                    String status = dataSnapshot.child("status").getValue(String.class);
 
-                        Nasabah nasabah = new Nasabah();
-                        nasabah.setJenisAsuransi(jenisAsuransi);
-                        nasabah.setTime(time);
-                        nasabah.setNik(nik);
-                        nasabah.setCompany(company);
-                        nasabah.setName(nama);
+                    Nasabah nasabah = new Nasabah();
+                    nasabah.setJenisAsuransi(jenisAsuransi);
+                    nasabah.setTime(time);
+                    nasabah.setNik(nik);
+                    nasabah.setCompany(company);
+                    nasabah.setName(nama);
 
-                        listNasabah.add(nasabah);
+                    listNasabah.add(nasabah);
 
-                        NotifikasiCompany notifikasiCompany = new NotifikasiCompany();
-                        notifikasiCompany.setStatus(status);
-                        listHistory.add(notifikasiCompany);
-
-                    }
+                    NotifikasiCompany notifikasiCompany = new NotifikasiCompany();
+                    notifikasiCompany.setStatus(status);
+                    listHistory.add(notifikasiCompany);
+//                    if (Objects.equals(id, dataSnapshot.child("company").getValue(int.class))) {
+//
+//                    }
                 }
 
                 adapter.notifyDataSetChanged();

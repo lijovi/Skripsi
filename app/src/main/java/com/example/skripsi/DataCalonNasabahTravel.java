@@ -213,7 +213,17 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
                         NotifikasiCompany notif = new NotifikasiCompany(NIK, Nama,"DITOLAK", currentdate, currenttime, Company, "Travel");
 
                         referenceUserData.child(NIK).setValue(snapshot.getValue());
-                        referenceHistory.child(NIK).setValue(notif);
+                        referenceHistory.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                referenceHistory.child(String.valueOf(Company)).child(String.valueOf(snapshot.child(String.valueOf(Company)).getChildrenCount()+1)).setValue(notif);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                         reference.removeValue();
                         Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
                         startActivity(intent);
@@ -291,11 +301,21 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         referenceNasabah.setValue(snapshot.getValue());
-                        referenceUserData.child("Travel").child(NIK).setValue(snapshot.getValue());
+                        referenceUserData.child(NIK).setValue(snapshot.getValue());
                         String Nama = snapshot.child("name").getValue(String.class);
 
                         NotifikasiCompany notif = new NotifikasiCompany(NIK, Nama, "DITERIMA", currentdate, currenttime, Company, "Travel");
-                        referenceHistory.child(NIK).setValue(notif);
+                        referenceHistory.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                referenceHistory.child(String.valueOf(Company)).child(String.valueOf(snapshot.child(String.valueOf(Company)).getChildrenCount()+1)).setValue(notif);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     }
 
                     @Override

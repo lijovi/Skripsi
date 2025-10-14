@@ -53,6 +53,7 @@
             android:hint="@string/input_nik"
             android:textSize="12dp"
             android:paddingLeft="8dp"
+            android:textColorHint="@color/black"
             android:textColor="@color/black"
             />
 
@@ -72,6 +73,7 @@
             android:hint="@string/input_nama"
             android:textSize="12dp"
             android:paddingLeft="8dp"
+            android:textColorHint="@color/black"
             android:textColor="@color/black"
             />
 
@@ -91,6 +93,7 @@
             android:hint="@string/input_email"
             android:textSize="12dp"
             android:paddingLeft="8dp"
+            android:textColorHint="@color/black"
             android:textColor="@color/black"/>
 
 
@@ -141,6 +144,7 @@
             android:hint="@string/input_nomor_telepon"
             android:textSize="12dp"
             android:paddingLeft="8dp"
+            android:textColorHint="@color/black"
             android:textColor="@color/black"
             />
 
@@ -160,6 +164,7 @@
             android:hint="@string/input_alamat"
             android:textSize="12dp"
             android:paddingLeft="8dp"
+            android:textColorHint="@color/black"
             android:textColor="@color/black"
             />
 
@@ -261,6 +266,7 @@
                 android:paddingLeft="8dp"
                 android:hint="DD/MM/YYYY - DD/MM/YYYY"
                 android:gravity="center_vertical"
+                android:textColorHint="@color/black"
                 android:textColor="@color/black"
                 />
 
@@ -328,6 +334,7 @@
             android:hint="@string/input_ahli_waris"
             android:textSize="12dp"
             android:paddingLeft="8dp"
+            android:textColorHint="@color/black"
             android:textColor="@color/black"
             />
 
@@ -348,6 +355,7 @@
             android:hint="@string/input_hubungan_dengan_ahli_waris"
             android:textSize="12dp"
             android:paddingLeft="8dp"
+            android:textColorHint="@color/black"
             android:textColor="@color/black"
             />
 
@@ -368,6 +376,7 @@
             android:hint="@string/input_negara_tujuan"
             android:textSize="12dp"
             android:paddingLeft="8dp"
+            android:textColorHint="@color/black"
             android:textColor="@color/black"
             />
 
@@ -389,6 +398,7 @@
             android:hint="@string/input_tujuan_perjalanan"
             android:textSize="12dp"
             android:paddingLeft="8dp"
+            android:textColorHint="@color/black"
             android:textColor="@color/black"
             />
 

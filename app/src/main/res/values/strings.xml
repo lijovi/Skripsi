@@ -261,4 +261,5 @@
     <string name="history">telah melakukan registrasi asuransi</string>
     <string name="diterima">DITERIMA</string>
     <string name="ditolak">DITOLAK</string>
+    <string name="textPembayaran">telah melakukan pembayaran sebesar</string>
 </resources>
