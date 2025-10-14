@@ -351,7 +351,7 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
 
                         String currentdate = day + " - " + month + " - " + year;
                         String currenttime = hour + " : " + minute + " : " + second;
-                        NotifikasiModel notifikasiModel = new NotifikasiModel("Pendaftaran Asuransi Travel telah diterima", currenttime, currentdate);
+                        NotifikasiModel notifikasiModel = new NotifikasiModel("Diterima", currenttime, currentdate, "Pendaftaran", "Travel");
 //                        String id = referenceNotifikasi.push().getKey();
                         referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
                         alertDialog.dismiss();

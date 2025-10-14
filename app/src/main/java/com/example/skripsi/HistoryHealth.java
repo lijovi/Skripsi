@@ -56,7 +56,7 @@ public class HistoryHealth extends AppCompatActivity {
         String NIK = getIntent().getStringExtra("nik");
         int Company = getIntent().getIntExtra("company",0);
 
-        reference = FirebaseDatabase.getInstance().getReference("userData").child(NIK);
+        reference = FirebaseDatabase.getInstance().getReference("userDataHealth").child(NIK);
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override

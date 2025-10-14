@@ -256,7 +256,7 @@ public class BuatPasswordNasabah extends AppCompatActivity {
 
                                 String currentdate = day + " - " + month + " - " + year;
                                 String currenttime = hour + " : " + minute + " : " + second;
-                                NotifikasiModel notifikasiModel = new NotifikasiModel("Password berhasil dibuat", currenttime, currentdate);
+                                NotifikasiModel notifikasiModel = new NotifikasiModel("Berhasil", currenttime, currentdate, "Buat Password", null);
 //                        String id = referenceNotifikasi.push().getKey();
                                 referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
                             }

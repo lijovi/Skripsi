@@ -262,4 +262,10 @@
     <string name="diterima">DITERIMA</string>
     <string name="ditolak">DITOLAK</string>
     <string name="textPembayaran">telah melakukan pembayaran sebesar</string>
+    <string name="buatPassword">Password berhasil dibuat</string>
+    <string name="pembayaranHealth">Pembayaran asuransi health telah diterima</string>
+    <string name="pembayaranTravel">Pembayaran asuransi travel telah diterima</string>
+    <string name="pendaftaranHealth">Pendaftaran asuransi health telah diterima</string>
+    <string name="pendaftaranTravel">Pendaftaran asuransi travel telah diterima</string>
+    <string name="ubahPassword">Password berhasil diubah</string>
 </resources>

@@ -142,7 +142,7 @@ public class BuktiPembayaranAsuransi extends AppCompatActivity {
 
                                     String currentdate = day + " - " + month + " - " + year;
                                     String currenttime = hour + " : " + minute + " : " + second;
-                                    NotifikasiModel notifikasiModel = new NotifikasiModel("Pembayaran asuransi kesehatan telah diterima", currenttime, currentdate);
+                                    NotifikasiModel notifikasiModel = new NotifikasiModel("Diterima", currenttime, currentdate, "Pembayaran", "Health");
 //                        String id = referenceNotifikasi.push().getKey();
                                     referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
                                 }
@@ -181,7 +181,7 @@ public class BuktiPembayaranAsuransi extends AppCompatActivity {
 
                                     String currentdate = day + " - " + month + " - " + year;
                                     String currenttime = hour + " : " + minute + " : " + second;
-                                    NotifikasiModel notifikasiModel = new NotifikasiModel("Pembayaran asuransi travel telah diterima", currenttime, currentdate);
+                                    NotifikasiModel notifikasiModel = new NotifikasiModel("Diterima", currenttime, currentdate, "Pembayaran", "Travel");
 //                        String id = referenceNotifikasi.push().getKey();
                                     referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
                                 }

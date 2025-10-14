@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.Objects;
 
 public class AdapterNotifikasi extends RecyclerView.Adapter<AdapterNotifikasi.ViewHolder> {
 
@@ -29,7 +30,31 @@ public class AdapterNotifikasi extends RecyclerView.Adapter<AdapterNotifikasi.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         NotifikasiModel model = list.get(position);
-        holder.tvDeskripsi.setText(model.getDeskripsi());
+        String text;
+        if (Objects.equals(model.getJenis(), "Buat Password")){
+            text = holder.itemView.getContext().getString(R.string.buatPassword);
+            holder.tvDeskripsi.setText(text);
+        } else if (Objects.equals(model.getJenis(), "Pembayaran")) {
+            if (Objects.equals(model.getAsuransi(), "Health")){
+                text = holder.itemView.getContext().getString(R.string.pembayaranHealth);
+                holder.tvDeskripsi.setText(text);
+            } else if (Objects.equals(model.getAsuransi(), "Travel")) {
+                text = holder.itemView.getContext().getString(R.string.pembayaranTravel);
+                holder.tvDeskripsi.setText(text);
+            }
+        } else if (Objects.equals(model.getJenis(), "Pendaftaran")) {
+            if (Objects.equals(model.getAsuransi(), "Health")){
+                text = holder.itemView.getContext().getString(R.string.pendaftaranHealth);
+                holder.tvDeskripsi.setText(text);
+            } else if (Objects.equals(model.getAsuransi(), "Travel")) {
+                text = holder.itemView.getContext().getString(R.string.pendaftaranTravel);
+                holder.tvDeskripsi.setText(text);
+            }
+        } else if (Objects.equals(model.getJenis(), "Ubah Password")) {
+            text = holder.itemView.getContext().getString(R.string.ubahPassword);
+            holder.tvDeskripsi.setText(text);
+        }
+//        holder.tvDeskripsi.setText(model.getDeskripsi());
         holder.tvWaktu.setText(model.getWaktu());
         holder.tvTanggal.setText(model.getTanggal());
     }

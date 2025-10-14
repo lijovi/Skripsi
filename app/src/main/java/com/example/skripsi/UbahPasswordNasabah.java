@@ -252,7 +252,7 @@ public class UbahPasswordNasabah extends AppCompatActivity {
 
                                 String currentdate = day + " - " + month + " - " + year;
                                 String currenttime = hour + " : " + minute + " : " + second;
-                                NotifikasiModel notifikasiModel = new NotifikasiModel("Password berhasil diubah", currenttime, currentdate);
+                                NotifikasiModel notifikasiModel = new NotifikasiModel("Berhasil", currenttime, currentdate, "Ubah Password", null);
 //                        String id = referenceNotifikasi.push().getKey();
                                 referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
                             }
