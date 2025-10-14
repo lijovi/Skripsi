@@ -67,9 +67,9 @@
     <string name="ubah_bahasa">Change Language</string>
     <string name="ubah_kata_sandi">Change Password</string>
     <string name="pengaturan">SETTINGS</string>
-    <string name="no_telp">PHONE</string>
-    <string name="email">EMAIL</string>
-    <string name="nama">NAME</string>
+    <string name="no_telp">PHONE: </string>
+    <string name="email">EMAIL: </string>
+    <string name="nama">NAME: </string>
     <string name="keluar">Logout</string>
     <string name="syarat_dan_ketentuan">Terms and Conditions</string>
     <string name="email_perusahaan">Email:</string>
