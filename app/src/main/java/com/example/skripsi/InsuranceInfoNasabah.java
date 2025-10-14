@@ -160,6 +160,8 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                     namaTravel.setText(Nama);
                     if (snapshot.child(NIK).hasChild("check")){
                         checkT = snapshot.child(NIK).child("check").getValue(String.class);
+                    } else {
+                        statusTravel.setText(R.string.non_aktif);
                     }
                 }
             }
@@ -171,7 +173,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         });
 
         Query checkDataTravel = referenceDataTravel.orderByChild("nik").equalTo(NIK);
-        checkDataTravel.addListenerForSingleValueEvent(new ValueEventListener() {
+        checkDataTravel.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
@@ -254,6 +256,8 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
 //                    Log.d("INTENT", "NAMA: " + Nama);
                     if (snapshot.child(NIK).hasChild("check")){
                         checkH = snapshot.child(NIK).child("check").getValue(String.class);
+                    } else {
+                        statusHealth.setText(R.string.non_aktif);
                     }
 //                    Log.d("CHECK", checkH);
                 }
