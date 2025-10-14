@@ -127,26 +127,26 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         riwayatMedisRef = database.getReference("riwayatMedis");
 
         String NIK = ClientSession.getInstance().getNik();
-        InsuranceInfoModel medisDummy = new InsuranceInfoModel(
-                "03/10/2025",
-                "Demam Berdarah",
-                "2.000.000",
-                "Disetujui"
-        );
+//        InsuranceInfoModel medisDummy = new InsuranceInfoModel(
+//                "03/10/2025",
+//                "Demam Berdarah",
+//                "2.000.000",
+//                "Disetujui"
+//        );
 
-        riwayatMedisRef.child(NIK).setValue(medisDummy)
-                .addOnSuccessListener(aVoid -> Log.d("FIREBASE", "Data medis dummy ditambahkan untuk NIK: " + NIK))
-                .addOnFailureListener(e -> Log.e("FIREBASE", "Gagal tambah data medis: " + e.getMessage()));
+//        riwayatMedisRef.child(NIK).setValue(medisDummy)
+//                .addOnSuccessListener(aVoid -> Log.d("FIREBASE", "Data medis dummy ditambahkan untuk NIK: " + NIK))
+//                .addOnFailureListener(e -> Log.e("FIREBASE", "Gagal tambah data medis: " + e.getMessage()));
 
-        InsuranceInfoModel klaimDummy = new InsuranceInfoModel(
-                "Rawat Inap",
-                "Diproses",
-                "05/10/2025"
-        );
+//        InsuranceInfoModel klaimDummy = new InsuranceInfoModel(
+//                "Rawat Inap",
+//                "Diproses",
+//                "05/10/2025"
+//        );
 
-        klaimRef.child(NIK).setValue(klaimDummy)
-                .addOnSuccessListener(aVoid -> Log.d("FIREBASE", "Data klaim dummy ditambahkan untuk NIK: " + NIK))
-                .addOnFailureListener(e -> Log.e("FIREBASE", "Gagal tambah klaim: " + e.getMessage()));
+//        klaimRef.child(NIK).setValue(klaimDummy)
+//                .addOnSuccessListener(aVoid -> Log.d("FIREBASE", "Data klaim dummy ditambahkan untuk NIK: " + NIK))
+//                .addOnFailureListener(e -> Log.e("FIREBASE", "Gagal tambah klaim: " + e.getMessage()));
 
         Query checkTravel = referenceTravel.orderByChild("nik").equalTo(NIK);
         Log.d("INTENT", "NIK: " + NIK);
@@ -310,19 +310,24 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
             }
         });
 
-        riwayatMedisRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        riwayatMedisRef.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    tableMedicalHistory.removeViews(1, tableMedicalHistory.getChildCount() - 1);
-                    for (DataSnapshot child : snapshot.getChildren()) {
-                        String tglDiagnosa = child.child("tanggalDiagnosa").getValue(String.class);
-                        String kondisi = child.child("kondisi").getValue(String.class);
-                        String besarKlaim = child.child("besarKlaim").getValue(String.class);
-                        String statusKlaim = child.child("statusKlaim").getValue(String.class);
-        
-                        addMedicalHistoryRow(tableMedicalHistory, tglDiagnosa, kondisi, besarKlaim, statusKlaim);
-                    }
+                    String tglDiagnosa = snapshot.child("tanggalDiagnosa").getValue(String.class);
+                    String kondisi = snapshot.child("kondisi").getValue(String.class);
+                    String besarKlaim = snapshot.child("besarKlaim").getValue(String.class);
+                    String statusKlaim = snapshot.child("statusKlaim").getValue(String.class);
+                    addMedicalHistoryRow(tableMedicalHistory, tglDiagnosa, kondisi, besarKlaim, statusKlaim);
+//                    tableMedicalHistory.removeViews(1, tableMedicalHistory.getChildCount() - 1);
+//                    for (DataSnapshot child : snapshot.getChildren()) {
+//                        String tglDiagnosa = child.child("tanggalDiagnosa").getValue(String.class);
+//                        String kondisi = child.child("kondisi").getValue(String.class);
+//                        String besarKlaim = child.child("besarKlaim").getValue(String.class);
+//                        String statusKlaim = child.child("statusKlaim").getValue(String.class);
+//
+//                        addMedicalHistoryRow(tableMedicalHistory, tglDiagnosa, kondisi, besarKlaim, statusKlaim);
+//                    }
                 }
             }
         
@@ -332,18 +337,22 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
             }
         });
         
-        klaimRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        klaimRef.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    tableKlaimAsuransiHealth.removeViews(1, tableKlaimAsuransiHealth.getChildCount() - 1);
-                    for (DataSnapshot child : snapshot.getChildren()) {
-                        String klaim = child.child("klaim").getValue(String.class);
-                        String status = child.child("status").getValue(String.class);
-                        String tglPengajuan = child.child("tanggalPengajuan").getValue(String.class);
-        
-                        addClaimRow(tableKlaimAsuransiHealth, klaim, status, tglPengajuan);
-                    }
+                    String klaim = snapshot.child("klaim").getValue(String.class);
+                    String status = snapshot.child("status").getValue(String.class);
+                    String tglPengajuan = snapshot.child("tanggalPengajuan").getValue(String.class);
+                    addClaimRow(tableKlaimAsuransiHealth, klaim, status, tglPengajuan);
+//                    tableKlaimAsuransiHealth.removeViews(1, tableKlaimAsuransiHealth.getChildCount() - 1);
+//                    for (DataSnapshot child : snapshot.getChildren()) {
+//                        String klaim = child.child("klaim").getValue(String.class);
+//                        String status = child.child("status").getValue(String.class);
+//                        String tglPengajuan = child.child("tanggalPengajuan").getValue(String.class);
+//
+//                        addClaimRow(tableKlaimAsuransiHealth, klaim, status, tglPengajuan);
+//                    }
                 }
             }
         

@@ -55,9 +55,9 @@
     <string name="ubah_bahasa">Ubah Bahasa</string>
     <string name="ubah_kata_sandi">Ubah kata sandi</string>
     <string name="pengaturan">PENGATURAN</string>
-    <string name="no_telp">NO. TELP: </string>
-    <string name="email">EMAIL: </string>
-    <string name="nama">NAMA: </string>
+    <string name="no_telp">NO. TELP:</string>
+    <string name="email">EMAIL:</string>
+    <string name="nama">NAMA:</string>
     <string name="keluar">Keluar</string>
     <string name="syarat_dan_ketentuan">Syarat dan ketentuan</string>
     <string name="email_perusahaan">Email:</string>
