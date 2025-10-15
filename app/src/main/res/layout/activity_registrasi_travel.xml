@@ -43,7 +43,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/nik_login"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textnik"/>
 
         <EditText
             android:id="@+id/nik"
@@ -63,7 +64,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/nama_huruf_kecil"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textnama"/>
 
         <EditText
             android:id="@+id/nama"
@@ -83,7 +85,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/email_registasi"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textemail"/>
 
         <EditText
             android:id="@+id/email"
@@ -103,7 +106,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/jenis_kelamin"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textkelamin"/>
 
         <RadioGroup
             android:id="@+id/jenisKelamin"
@@ -134,7 +138,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/nomor_telp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textno"/>
 
         <EditText
             android:id="@+id/noTelp"
@@ -154,7 +159,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/alamat"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textalamat"/>
 
         <EditText
             android:id="@+id/alamat"
@@ -174,7 +180,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/jenis_polis"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textjenis"/>
 
         <RadioGroup
             android:id="@+id/jenisPolis"
@@ -212,7 +219,8 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
                 android:text="@string/nama_keluarga"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:id="@+id/textkeluarga"/>
 
             <EditText
                 android:id="@+id/namaKeluarga"
@@ -243,6 +251,39 @@
             android:id="@+id/plan"
             />
 
+        <!--    Tipe Polis -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tipe_polis_tahunan_travel"
+            android:paddingVertical="8dp"
+            android:textColor="@color/black"
+            android:id="@+id/texttipe"
+            />
+
+        <RadioGroup
+            android:id="@+id/tipePolis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/iya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/iya"
+                android:textColor="@color/black" />
+
+            <RadioButton
+                android:id="@+id/tidak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tidak"
+                android:textColor="@color/black" />
+        </RadioGroup>
+
 <!--    Masa Perjalanan -->
         <TextView
             android:layout_width="match_parent"
@@ -250,6 +291,7 @@
             android:text="@string/masa_perjalanan"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
+            android:id="@+id/textmasa"
             />
 
         <RelativeLayout
@@ -283,40 +325,6 @@
         </RelativeLayout>
 
 
-
-<!--    Tipe Polis -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tipe_polis_tahunan_travel"
-            android:paddingVertical="8dp"
-            android:textColor="@color/black"
-            />
-
-        <RadioGroup
-            android:id="@+id/tipePolis"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/iya"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/iya"
-                android:textColor="@color/black" />
-
-            <RadioButton
-                android:id="@+id/tidak"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/tidak"
-                android:textColor="@color/black" />
-        </RadioGroup>
-
-
 <!--    Nama Ahli Waris -->
         <TextView
             android:layout_width="match_parent"
@@ -324,6 +332,7 @@
             android:text="@string/nama_ahli_waris_registrasi"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
+            android:id="@+id/textahli"
             />
 
         <EditText
@@ -345,6 +354,7 @@
             android:text="@string/hubungan_dengan_ahli_waris_registrasi"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
+            android:id="@+id/texthubungan"
             />
 
         <EditText
@@ -366,6 +376,7 @@
             android:text="@string/negara_tujuan"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
+            android:id="@+id/textnegara"
             />
 
         <EditText
@@ -387,6 +398,7 @@
             android:text="@string/tujuan_perjalanan"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
+            android:id="@+id/texttujuan"
             />
 
         <EditText

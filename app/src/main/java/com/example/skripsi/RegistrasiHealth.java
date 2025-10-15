@@ -7,7 +7,9 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -44,20 +46,20 @@ import java.util.Objects;
 
 public class RegistrasiHealth extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    EditText nik, nama, email, bodText, noTelp, alamat, pekerjaan, periodePertanggungan, namaAhliWaris, hubunganDenganAhliWaris;
+    EditText nik, nama, email, bodText, noTelp, alamat, pekerjaan, periodePertanggungan, namaAhliWaris, hubunganDenganAhliWaris, others;
     Button btnDaftar, bod, plus, periode;
     RadioGroup jenisKelamin;
-    RadioButton selectedGender;
+    RadioButton selectedGender, laki, perempuan;
     DatabaseReference reference, referenceNotif;
     FirebaseDatabase database;
     Spinner plan;
     String pilihanPlan;
-    TextView riwayatPenyakit;
+    TextView riwayatPenyakit, errorJenis;
     int perusahaan;
     AlertDialog.Builder dialog;
     LayoutInflater inflater;
     View dialogView;
-    CheckBox c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18;
+    CheckBox c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19;
     ArrayList<String> list = new ArrayList<>();
 //    ArrayList<String> List;
     Button btnSimpan;
@@ -65,7 +67,10 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
 //    String date;
     Calendar calendar;
     int limit;
-
+    int cek;
+    TextView textnik, textnama, textemail, texttanggal, textno, textalamat, textpekerjaan, textpertanggungan, textahli, texthubungan;
+    int flag = 0;
+    String temp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +111,19 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         plan = findViewById(R.id.plan);
         plus = findViewById(R.id.plus);
         riwayatPenyakit = findViewById(R.id.riwayatPenyakit);
+        errorJenis = findViewById(R.id.errorJenis);
+        laki = findViewById(R.id.laki);
+        perempuan = findViewById(R.id.perempuan);
+        textnik = findViewById(R.id.textnik);
+        textnama = findViewById(R.id.textnama);
+        textemail = findViewById(R.id.textemail);
+        texttanggal = findViewById(R.id.texttanggal);
+        textno = findViewById(R.id.textno);
+        textalamat = findViewById(R.id.textalamat);
+        textpekerjaan = findViewById(R.id.textpekerjaan);
+        textpertanggungan = findViewById(R.id.textpertanggungan);
+        textahli = findViewById(R.id.textahli);
+        texthubungan = findViewById(R.id.texthubungan);
 
 //        StringBuilder text = new StringBuilder();
 //        int size = list.size();
@@ -248,11 +266,95 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertdata();
+                cek = 0;
+
+                if (TextUtils.isEmpty(nik.getText().toString())){
+                    textnik.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textnik.setError(null);
+                }
+
+                if (TextUtils.isEmpty(nama.getText().toString())) {
+                    textnama.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textnama.setError(null);
+                }
+
+                if (TextUtils.isEmpty(email.getText().toString())){
+                    textemail.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textemail.setError(null);
+                }
+
+                if (jenisKelamin.getCheckedRadioButtonId() == -1) {
+                    errorJenis.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    errorJenis.setError(null);
+                }
+
+                if (TextUtils.isEmpty(bodText.getText().toString())) {
+                    texttanggal.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    texttanggal.setError(null);
+                }
+
+                if (TextUtils.isEmpty(noTelp.getText().toString())) {
+                    textno.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textno.setError(null);
+                }
+
+                if (TextUtils.isEmpty(alamat.getText().toString())) {
+                    textalamat.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textalamat.setError(null);
+                }
+
+                if (TextUtils.isEmpty(pekerjaan.getText().toString())) {
+                    textpekerjaan.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textpekerjaan.setError(null);
+                }
+
+                if (TextUtils.isEmpty(periodePertanggungan.getText().toString())) {
+                    textpertanggungan.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textpertanggungan.setError(null);
+                }
+
+                if (TextUtils.isEmpty(namaAhliWaris.getText().toString())) {
+                    textahli.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textahli.setError(null);
+                }
+
+                if (TextUtils.isEmpty(hubunganDenganAhliWaris.getText().toString())) {
+                    texthubungan.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    texthubungan.setError(null);                }
+
+                if (cek == 0){
+                    insertdata();
 //                Intent masuk = new Intent(v.getContext(), Login.class);
 //                v.getContext().startActivity(masuk);
-                Intent masuk = new Intent(getApplicationContext(), Login.class);
-                startActivity(masuk);
+                    Intent masuk = new Intent(getApplicationContext(), Login.class);
+                    startActivity(masuk);
+                } else {
+                    cek = 0;
+                    Log.d("TEST", String.valueOf(cek));
+
+                }
             }
         });
 
@@ -300,6 +402,8 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         c16 = dialogView.findViewById(R.id.c16);
         c17 = dialogView.findViewById(R.id.c17);
         c18 = dialogView.findViewById(R.id.c18);
+        c19 = dialogView.findViewById(R.id.c19);
+        others = dialogView.findViewById(R.id.others);
 
         c1.setChecked(list.contains(c1.getText().toString()));
         c2.setChecked(list.contains(c2.getText().toString()));
@@ -319,6 +423,11 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         c16.setChecked(list.contains(c16.getText().toString()));
         c17.setChecked(list.contains(c17.getText().toString()));
         c18.setChecked(list.contains(c18.getText().toString()));
+        c19.setChecked(list.contains(temp));
+        if (c19.isChecked()){
+            others.setVisibility(View.VISIBLE);
+            others.setText(temp);
+        }
 
         btnSimpan = dialogView.findViewById(R.id.btnSimpan);
         btnSimpan.setOnClickListener(new View.OnClickListener() {
@@ -326,6 +435,21 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
             public void onClick(View v) {
 //                Intent intent = new Intent(getApplicationContext(), RegistrasiHealth.class);
 //                intent.putExtra("riwayat", list);
+
+                if (flag == 1){
+                    if (Objects.equals(others.getText().toString(), temp)){
+                        temp = others.getText().toString();
+                    } else {
+                        list.remove(temp);
+                        list.add(others.getText().toString());
+                        temp = others.getText().toString();
+                    }
+
+
+                } else if (flag == 0) {
+                    list.remove(others.getText().toString());
+                    temp = null;
+                }
 
                 StringBuilder sb = new StringBuilder();
                 for (String item : list){
@@ -531,6 +655,14 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
                 list.add(c18.getText().toString());
             } else {
                 list.remove(c18.getText().toString());
+            }
+        } else if (view.getId() == R.id.c19) {
+            if (checked){
+                others.setVisibility(View.VISIBLE);
+                flag = 1;
+            } else {
+                others.setVisibility(View.GONE);
+                flag = 0;
             }
         }
 

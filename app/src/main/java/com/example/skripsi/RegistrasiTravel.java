@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
@@ -57,6 +58,8 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
 //    String date;
     Calendar calendar;
     int limit;
+    TextView textnik, textnama, textemail, textkelamin, textno, textalamat, textjenis, textkeluarga, textmasa, texttipe, textahli, texthubungan, textnegara, texttujuan;
+    int cek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +98,21 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         namaKeluarga = findViewById(R.id.namaKeluarga);
         plan = findViewById(R.id.plan);
 //        lamaPerjalananAll = findViewById(R.id.lamaPerjalananAll);
+
+        textnik = findViewById(R.id.textnik);
+        textnama = findViewById(R.id.textnama);
+        textemail = findViewById(R.id.textemail);
+        textkelamin = findViewById(R.id.textkelamin);
+        textno = findViewById(R.id.textno);
+        textalamat = findViewById(R.id.textalamat);
+        textjenis = findViewById(R.id.textjenis);
+        textkeluarga = findViewById(R.id.textkeluarga);
+        textmasa = findViewById(R.id.textmasa);
+        texttipe = findViewById(R.id.texttipe);
+        textahli = findViewById(R.id.textahli);
+        texthubungan = findViewById(R.id.texthubungan);
+        textnegara = findViewById(R.id.textnegara);
+        texttujuan = findViewById(R.id.texttujuan);
 
         perusahaan = getIntent().getIntExtra("tipePerusahaan",0);
 
@@ -220,9 +238,118 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertData();
-                Intent masuk = new Intent(getApplicationContext(), Login.class);
-                startActivity(masuk);
+                cek = 0;
+
+                if (TextUtils.isEmpty(nik.getText().toString())){
+                    textnik.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textnik.setError(null);
+                }
+
+                if (TextUtils.isEmpty(nama.getText().toString())) {
+                    textnama.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textnama.setError(null);
+                }
+
+                if (TextUtils.isEmpty(email.getText().toString())){
+                    textemail.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textemail.setError(null);
+                }
+
+                if (jenisKelamin.getCheckedRadioButtonId() == -1) {
+                    textkelamin.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textkelamin.setError(null);
+                }
+
+                if (TextUtils.isEmpty(noTelp.getText().toString())) {
+                    textno.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textno.setError(null);
+                }
+
+                if (TextUtils.isEmpty(alamat.getText().toString())) {
+                    textalamat.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textalamat.setError(null);
+                }
+
+                if (jenisPolis.getCheckedRadioButtonId() == -1){
+                    textjenis.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textjenis.setError(null);
+                    selectedID = jenisPolis.getCheckedRadioButtonId();
+                    selectedJenis = findViewById(selectedID);
+                    String selected = selectedJenis.getText().toString();
+                    if (Objects.equals(selected, "Family")){
+                        if (TextUtils.isEmpty(namaKeluarga.getText().toString())){
+                            textkeluarga.setError("Wajib diisi");
+                            cek+=1;
+                        } else {
+                            textkeluarga.setError("Wajib diisi");
+                        }
+                    }
+                }
+
+                if (tipePolis.getCheckedRadioButtonId() == -1){
+                    texttipe.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    texttipe.setError(null);
+                }
+
+                if (TextUtils.isEmpty(masaPerjalanan.getText().toString())){
+                    textmasa.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textmasa.setError(null);
+                }
+
+                if (TextUtils.isEmpty(namaAhliWaris.getText().toString())){
+                    textahli.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textahli.setError(null);
+                }
+
+                if (TextUtils.isEmpty(hubunganDenganAhliWaris.getText().toString())){
+                    texthubungan.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    texthubungan.setError(null);
+                }
+
+                if (TextUtils.isEmpty(negaraTujuan.getText().toString())){
+                    textnegara.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    textnegara.setError(null);
+                }
+
+                if (TextUtils.isEmpty(tujuanPerjalanan.getText().toString())){
+                    texttujuan.setError("Wajib diisi");
+                    cek+=1;
+                } else {
+                    texttujuan.setError(null);
+                }
+
+
+                if (cek == 0){
+                    insertData();
+                    Intent masuk = new Intent(getApplicationContext(), Login.class);
+                    startActivity(masuk);
+                } else {
+                    cek = 0;
+                }
             }
         });
 

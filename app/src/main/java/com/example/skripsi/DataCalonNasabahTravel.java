@@ -49,6 +49,8 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
     int Company;
     Calendar calendar, calendarJ;
     LinearLayout family;
+    String Nik, Nama, Email, JenisKelamin, Alamat, JenisPolis, NamaKeluarga, PlanAsuransi, MasaPerjalanan, TipePolis, NamaAhliWaris, HubunganDenganAhliWaris,
+    NegaraTujuan, TujuanPerjalanan;
 
     // buat ubah bahasa locale
     @Override
@@ -142,20 +144,21 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String Nik = snapshot.child("nik").getValue(String.class);
-                String Nama = snapshot.child("name").getValue(String.class);
-                String Email = snapshot.child("email").getValue(String.class);
-                String JenisKelamin = snapshot.child("gender").getValue(String.class);
-                String Alamat = snapshot.child("address").getValue(String.class);
-                String JenisPolis = snapshot.child("jenisPolis").getValue(String.class);
-                String NamaKeluarga = snapshot.child("namaKeluarga").getValue(String.class);
-                String PlanAsuransi = snapshot.child("planAsuransi").getValue(String.class);
-                String MasaPerjalanan = snapshot.child("masaPerjalanan").getValue(String.class);
-                String TipePolis = snapshot.child("tipePolis").getValue(String.class);
-                String NamaAhliWaris = snapshot.child("namaAhliWaris").getValue(String.class);
-                String HubunganDenganAhliWaris = snapshot.child("hubunganDenganAhliWaris").getValue(String.class);
-                String NegaraTujuan = snapshot.child("negaraTujuan").getValue(String.class);
-                String TujuanPerjalanan = snapshot.child("tujuanPerjalanan").getValue(String.class);
+                Nik = snapshot.child("nik").getValue(String.class);
+                Nama = snapshot.child("name").getValue(String.class);
+                Email = snapshot.child("email").getValue(String.class);
+                JenisKelamin = snapshot.child("gender").getValue(String.class);
+                Alamat = snapshot.child("address").getValue(String.class);
+                JenisPolis = snapshot.child("jenisPolis").getValue(String.class);
+                NamaKeluarga = snapshot.child("namaKeluarga").getValue(String.class);
+                PlanAsuransi = snapshot.child("planAsuransi").getValue(String.class);
+                MasaPerjalanan = snapshot.child("masaPerjalanan").getValue(String.class);
+                TipePolis = snapshot.child("tipePolis").getValue(String.class);
+                NamaAhliWaris = snapshot.child("namaAhliWaris").getValue(String.class);
+                HubunganDenganAhliWaris = snapshot.child("hubunganDenganAhliWaris").getValue(String.class);
+                NegaraTujuan = snapshot.child("negaraTujuan").getValue(String.class);
+                TujuanPerjalanan = snapshot.child("tujuanPerjalanan").getValue(String.class);
+
                 nik.setText(Nik);
                 nama.setText(Nama);
                 email.setText(Email);
@@ -256,31 +259,17 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
             public void onClick(View v) {
                 alertDialog.dismiss();
                 NomorPolis = nomorPolis.getEditText().getText().toString();
-                DialogFormPremi();
-            }
-        });
 
+                if (Objects.equals(PlanAsuransi, "VIP")){
+                    BesarPremi = 5000000;
+                } else if (Objects.equals(PlanAsuransi, "Executive")) {
+                    BesarPremi = 4000000;
+                } else if (Objects.equals(PlanAsuransi, "Deluxe")) {
+                    BesarPremi = 3000000;
+                } else if (Objects.equals(PlanAsuransi, "Superior")) {
+                    BesarPremi = 2000000;
+                }
 
-    }
-
-    private void DialogFormPremi() {
-        dialog = new AlertDialog.Builder(DataCalonNasabahTravel.this);
-        inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.pop_up_input_premi, null);
-        dialog.setView(dialogView);
-        dialog.setCancelable(true);
-
-        AlertDialog alertDialog = dialog.create();
-        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        alertDialog.show();
-//
-        besarPremi = dialogView.findViewById(R.id.besarPremi);
-        btnOkPremi = dialogView.findViewById(R.id.btnOkPremi);
-//
-        btnOkPremi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BesarPremi = Integer.parseInt(besarPremi.getEditText().getText().toString());
                 String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
                 String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
                 String year = String.valueOf(calendar.get(Calendar.YEAR));
@@ -364,8 +353,116 @@ public class DataCalonNasabahTravel extends AppCompatActivity {
 
                     }
                 });
+//                DialogFormPremi();
             }
-
         });
+
+
     }
+
+//    private void DialogFormPremi() {
+//        dialog = new AlertDialog.Builder(DataCalonNasabahTravel.this);
+//        inflater = getLayoutInflater();
+//        dialogView = inflater.inflate(R.layout.pop_up_input_premi, null);
+//        dialog.setView(dialogView);
+//        dialog.setCancelable(true);
+//
+//        AlertDialog alertDialog = dialog.create();
+//        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//        alertDialog.show();
+////
+//        besarPremi = dialogView.findViewById(R.id.besarPremi);
+//        btnOkPremi = dialogView.findViewById(R.id.btnOkPremi);
+////
+//        btnOkPremi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                BesarPremi = Integer.parseInt(besarPremi.getEditText().getText().toString());
+//                String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
+//                String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
+//                String year = String.valueOf(calendar.get(Calendar.YEAR));
+//                String currentdate = day + " - " + month + " - " + year;
+//
+//                String day1 = String.format("%02d" ,calendarJ.get(Calendar.DAY_OF_MONTH));
+//                String month1 = String.format("%02d",calendarJ.get(Calendar.MONTH)+1);
+//                String year1 = String.valueOf(calendarJ.get(Calendar.YEAR));
+//                String jatuhTempo = day1 + " - " + month1 + " - " + year1;
+//
+//                String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+//                String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+//                String second = String.format("%02d",calendar.get(Calendar.SECOND));
+//
+//                String currenttime = hour + " : " + minute + " : " + second;
+//
+//                reference.addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        referenceNasabah.setValue(snapshot.getValue());
+//                        referenceUserData.child(NIK).setValue(snapshot.getValue());
+//                        String Nama = snapshot.child("name").getValue(String.class);
+//
+//                        NotifikasiCompany notif = new NotifikasiCompany(NIK, Nama, "DITERIMA", currentdate, currenttime, Company, "Travel");
+//                        referenceHistory.addListenerForSingleValueEvent(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                                referenceHistory.child(String.valueOf(Company)).child(String.valueOf(snapshot.child(String.valueOf(Company)).getChildrenCount()+1)).setValue(notif);
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(@NonNull DatabaseError error) {
+//
+//                            }
+//                        });
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//
+//                referenceTransaksi.addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        TransaksiTravel transaksi = new TransaksiTravel(NIK, BesarPremi, Company, currentdate, jatuhTempo, NomorPolis);
+//                        referenceTransaksi.setValue(transaksi);
+//                        reference.removeValue();
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//
+//                referenceNotifikasi.addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
+//                        String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
+//                        String year = String.valueOf(calendar.get(Calendar.YEAR));
+//
+//                        String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+//                        String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+//                        String second = String.format("%02d",calendar.get(Calendar.SECOND));
+//
+//                        String currentdate = day + " - " + month + " - " + year;
+//                        String currenttime = hour + " : " + minute + " : " + second;
+//                        NotifikasiModel notifikasiModel = new NotifikasiModel("Diterima", currenttime, currentdate, "Pendaftaran", "Travel");
+////                        String id = referenceNotifikasi.push().getKey();
+//                        referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
+//                        alertDialog.dismiss();
+//                        Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
+//                        startActivity(intent);
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//            }
+//
+//        });
+//    }
 }

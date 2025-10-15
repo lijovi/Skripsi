@@ -42,7 +42,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/nik_login"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textnik"/>
 
         <EditText
             android:id="@+id/nik"
@@ -62,7 +63,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/nama_huruf_kecil"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textnama"/>
 
         <EditText
             android:id="@+id/nama"
@@ -82,7 +84,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/email_registasi"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textemail"/>
 
         <EditText
             android:id="@+id/email"
@@ -100,7 +103,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/jenis_kelamin"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/errorJenis"/>
 
 <!--    Jenis Kelamin -->
         <RadioGroup
@@ -126,13 +130,22 @@
                 android:textColor="@color/black" />
         </RadioGroup>
 
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:visibility="gone"-->
+<!--            android:id="@+id/errorJenis"-->
+<!--            />-->
+
 <!--    Tanggal Lahir -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/tanggal_lahir"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/texttanggal"/>
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -169,7 +182,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/nomor_telp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textno"/>
 
         <EditText
             android:id="@+id/noTelp"
@@ -188,7 +202,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/alamat"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textalamat"/>
 
         <EditText
             android:id="@+id/alamat"
@@ -207,7 +222,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/pekerjaan"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textpekerjaan"/>
 
         <EditText
             android:id="@+id/pekerjaan"
@@ -226,7 +242,8 @@
             android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:text="@string/periode_pertanggungan_registrasi"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:id="@+id/textpertanggungan"/>
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -279,6 +296,7 @@
             android:text="@string/nama_ahli_waris_registrasi"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
+            android:id="@+id/textahli"
             />
 
         <EditText
@@ -300,6 +318,7 @@
             android:text="@string/hubungan_dengan_ahli_waris_registrasi"
             android:paddingVertical="8dp"
             android:textColor="@color/black"
+            android:id="@+id/texthubungan"
             />
 
         <EditText
