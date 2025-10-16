@@ -71,6 +71,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     TextView textnik, textnama, textemail, texttanggal, textno, textalamat, textpekerjaan, textpertanggungan, textahli, texthubungan;
     int flag = 0;
     String temp;
+    CheckBox check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +125,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         textpertanggungan = findViewById(R.id.textpertanggungan);
         textahli = findViewById(R.id.textahli);
         texthubungan = findViewById(R.id.texthubungan);
+        check = findViewById(R.id.check);
 
 //        StringBuilder text = new StringBuilder();
 //        int size = list.size();
@@ -344,6 +346,13 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
                 } else {
                     texthubungan.setError(null);                }
 
+                if (!check.isChecked()){
+                    cek+=1;
+                    check.setError("Wajib dicentang! ");
+                } else {
+                    check.setError(null);
+                }
+
                 if (cek == 0){
                     insertdata();
 //                Intent masuk = new Intent(v.getContext(), Login.class);
@@ -370,6 +379,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         if (riwayatPenyakit == null){
             riwayatPenyakit.setText("");
         }
+
 //        currentTime = LocalTime.now();
 //        date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
     }
@@ -458,8 +468,10 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
 
                 if (list.size() == 0){
                     riwayatPenyakit.setText("");
+                    riwayatPenyakit.setVisibility(View.GONE);
                 } else {
                     riwayatPenyakit.setText(sb.toString());
+                    riwayatPenyakit.setVisibility(View.VISIBLE);
                 }
                 alertDialog.dismiss();
             }

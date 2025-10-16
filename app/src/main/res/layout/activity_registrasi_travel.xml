@@ -414,6 +414,14 @@
             android:textColor="@color/black"
             />
 
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/check"
+            android:id="@+id/check"
+            />
+
 <!--    Button Daftar -->
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"

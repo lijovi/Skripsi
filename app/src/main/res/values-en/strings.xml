@@ -333,4 +333,5 @@
     <string name="pendaftaranHealth">Health insurance registration has been accepted</string>
     <string name="pendaftaranTravel">Travel insurance registration has been accepted</string>
     <string name="ubahPassword">Password changed successfully</string>
+    <string name="check">Please make sure the data inputted is correct</string>
 </resources>

@@ -362,6 +362,15 @@
             android:id="@+id/riwayatPenyakit"
             android:paddingVertical="4dp"
             android:textColor="@color/black"
+            android:visibility="gone"
+            />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/check"
+            android:id="@+id/check"
             />
 
 <!--    Button Daftar -->

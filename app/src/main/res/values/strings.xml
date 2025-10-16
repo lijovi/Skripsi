@@ -268,4 +268,5 @@
     <string name="pendaftaranHealth">Pendaftaran asuransi health telah diterima</string>
     <string name="pendaftaranTravel">Pendaftaran asuransi travel telah diterima</string>
     <string name="ubahPassword">Password berhasil diubah</string>
+    <string name="check">Pastikan data yang dimasukkan sudah benar</string>
 </resources>

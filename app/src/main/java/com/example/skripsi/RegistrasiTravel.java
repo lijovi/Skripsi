@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -60,6 +61,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
     int limit;
     TextView textnik, textnama, textemail, textkelamin, textno, textalamat, textjenis, textkeluarga, textmasa, texttipe, textahli, texthubungan, textnegara, texttujuan;
     int cek;
+    CheckBox check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +115,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         texthubungan = findViewById(R.id.texthubungan);
         textnegara = findViewById(R.id.textnegara);
         texttujuan = findViewById(R.id.texttujuan);
+        check = findViewById(R.id.check);
 
         perusahaan = getIntent().getIntExtra("tipePerusahaan",0);
 
@@ -340,6 +343,13 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
                     cek+=1;
                 } else {
                     texttujuan.setError(null);
+                }
+
+                if (!check.isChecked()){
+                    cek+=1;
+                    check.setError("Wajib dicentang! ");
+                } else {
+                    check.setError(null);
                 }
 
 
