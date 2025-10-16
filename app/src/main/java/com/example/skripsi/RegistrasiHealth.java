@@ -271,84 +271,84 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
                 cek = 0;
 
                 if (TextUtils.isEmpty(nik.getText().toString())){
-                    textnik.setError("Wajib diisi");
+                    textnik.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textnik.setError(null);
                 }
 
                 if (TextUtils.isEmpty(nama.getText().toString())) {
-                    textnama.setError("Wajib diisi");
+                    textnama.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textnama.setError(null);
                 }
 
                 if (TextUtils.isEmpty(email.getText().toString())){
-                    textemail.setError("Wajib diisi");
+                    textemail.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textemail.setError(null);
                 }
 
                 if (jenisKelamin.getCheckedRadioButtonId() == -1) {
-                    errorJenis.setError("Wajib diisi");
+                    errorJenis.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     errorJenis.setError(null);
                 }
 
                 if (TextUtils.isEmpty(bodText.getText().toString())) {
-                    texttanggal.setError("Wajib diisi");
+                    texttanggal.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     texttanggal.setError(null);
                 }
 
                 if (TextUtils.isEmpty(noTelp.getText().toString())) {
-                    textno.setError("Wajib diisi");
+                    textno.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textno.setError(null);
                 }
 
                 if (TextUtils.isEmpty(alamat.getText().toString())) {
-                    textalamat.setError("Wajib diisi");
+                    textalamat.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textalamat.setError(null);
                 }
 
                 if (TextUtils.isEmpty(pekerjaan.getText().toString())) {
-                    textpekerjaan.setError("Wajib diisi");
+                    textpekerjaan.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textpekerjaan.setError(null);
                 }
 
                 if (TextUtils.isEmpty(periodePertanggungan.getText().toString())) {
-                    textpertanggungan.setError("Wajib diisi");
+                    textpertanggungan.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textpertanggungan.setError(null);
                 }
 
                 if (TextUtils.isEmpty(namaAhliWaris.getText().toString())) {
-                    textahli.setError("Wajib diisi");
+                    textahli.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textahli.setError(null);
                 }
 
                 if (TextUtils.isEmpty(hubunganDenganAhliWaris.getText().toString())) {
-                    texthubungan.setError("Wajib diisi");
+                    texthubungan.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     texthubungan.setError(null);                }
 
                 if (!check.isChecked()){
                     cek+=1;
-                    check.setError("Wajib dicentang! ");
+                    check.setError(getString(R.string.check));
                 } else {
                     check.setError(null);
                 }

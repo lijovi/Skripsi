@@ -244,49 +244,49 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
                 cek = 0;
 
                 if (TextUtils.isEmpty(nik.getText().toString())){
-                    textnik.setError("Wajib diisi");
+                    textnik.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textnik.setError(null);
                 }
 
                 if (TextUtils.isEmpty(nama.getText().toString())) {
-                    textnama.setError("Wajib diisi");
+                    textnama.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textnama.setError(null);
                 }
 
                 if (TextUtils.isEmpty(email.getText().toString())){
-                    textemail.setError("Wajib diisi");
+                    textemail.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textemail.setError(null);
                 }
 
                 if (jenisKelamin.getCheckedRadioButtonId() == -1) {
-                    textkelamin.setError("Wajib diisi");
+                    textkelamin.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textkelamin.setError(null);
                 }
 
                 if (TextUtils.isEmpty(noTelp.getText().toString())) {
-                    textno.setError("Wajib diisi");
+                    textno.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textno.setError(null);
                 }
 
                 if (TextUtils.isEmpty(alamat.getText().toString())) {
-                    textalamat.setError("Wajib diisi");
+                    textalamat.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textalamat.setError(null);
                 }
 
                 if (jenisPolis.getCheckedRadioButtonId() == -1){
-                    textjenis.setError("Wajib diisi");
+                    textjenis.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textjenis.setError(null);
@@ -295,51 +295,51 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
                     String selected = selectedJenis.getText().toString();
                     if (Objects.equals(selected, "Family")){
                         if (TextUtils.isEmpty(namaKeluarga.getText().toString())){
-                            textkeluarga.setError("Wajib diisi");
+                            textkeluarga.setError(getString(R.string.wajib));
                             cek+=1;
                         } else {
-                            textkeluarga.setError("Wajib diisi");
+                            textkeluarga.setError(getString(R.string.wajib));
                         }
                     }
                 }
 
                 if (tipePolis.getCheckedRadioButtonId() == -1){
-                    texttipe.setError("Wajib diisi");
+                    texttipe.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     texttipe.setError(null);
                 }
 
                 if (TextUtils.isEmpty(masaPerjalanan.getText().toString())){
-                    textmasa.setError("Wajib diisi");
+                    textmasa.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textmasa.setError(null);
                 }
 
                 if (TextUtils.isEmpty(namaAhliWaris.getText().toString())){
-                    textahli.setError("Wajib diisi");
+                    textahli.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textahli.setError(null);
                 }
 
                 if (TextUtils.isEmpty(hubunganDenganAhliWaris.getText().toString())){
-                    texthubungan.setError("Wajib diisi");
+                    texthubungan.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     texthubungan.setError(null);
                 }
 
                 if (TextUtils.isEmpty(negaraTujuan.getText().toString())){
-                    textnegara.setError("Wajib diisi");
+                    textnegara.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     textnegara.setError(null);
                 }
 
                 if (TextUtils.isEmpty(tujuanPerjalanan.getText().toString())){
-                    texttujuan.setError("Wajib diisi");
+                    texttujuan.setError(getString(R.string.wajib));
                     cek+=1;
                 } else {
                     texttujuan.setError(null);
@@ -347,7 +347,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
 
                 if (!check.isChecked()){
                     cek+=1;
-                    check.setError("Wajib dicentang! ");
+                    check.setError(getString(R.string.check));
                 } else {
                     check.setError(null);
                 }

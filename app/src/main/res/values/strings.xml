@@ -269,4 +269,6 @@
     <string name="pendaftaranTravel">Pendaftaran asuransi travel telah diterima</string>
     <string name="ubahPassword">Password berhasil diubah</string>
     <string name="check">Pastikan data yang dimasukkan sudah benar</string>
+    <string name="centang">Wajib dicentang!</string>
+    <string name="wajib">Wajib diisi!</string>
 </resources>
