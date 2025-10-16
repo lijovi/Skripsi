@@ -2,17 +2,13 @@ package com.example.skripsi;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -29,29 +25,24 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class HomePageAsuransiPembayaran extends AppCompatActivity {
+public class HistoryPembayaranAsuransi extends AppCompatActivity {
 
-    Button btnProfile, btnHistory, btnHome;
+    TextView pendaftaran, pembayaran;
+    Button btnHome, btnProfile;
+    RecyclerView recyclerView;
     FirebaseDatabase database;
-    DatabaseReference referenceHealth, referenceTravel, referenceNamaHealth, referenceNamaTravel;
     ArrayList<BuktiBayar> listPembayaran;
     AdapterPembayaran adapter;
-    RecyclerView recyclerView;
-    AlertDialog.Builder dialog;
-    LayoutInflater inflater;
-    View dialogView;
-    TextView pendaftaran;
-    LinearLayout pilihan;
+    DatabaseReference referenceHealth, referenceTravel, referenceNamaHealth, referenceNamaTravel;
     String nik, nama, nomorPolis, time, tanggal;
     int besarPremi;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         ActionBar supportActionBar = getSupportActionBar();
         supportActionBar.hide();
-        setContentView(R.layout.activity_home_page_asuransi_pembayaran);
+        setContentView(R.layout.activity_history_pembayaran_asuransi);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -60,56 +51,45 @@ public class HomePageAsuransiPembayaran extends AppCompatActivity {
 
         int id = CompanySession.getInstance().getId();
 
+        pendaftaran = findViewById(R.id.pendaftaran);
+        pembayaran = findViewById(R.id.pembayaran);
+        btnHome = findViewById(R.id.btnHome);
         btnProfile = findViewById(R.id.btnProfile);
-        btnHistory = findViewById(R.id.btnHistory);
+        recyclerView = findViewById(R.id.rvView);
+
         database = FirebaseDatabase.getInstance();
         referenceHealth = database.getReference("transaksiHealth");
         referenceTravel = database.getReference("transaksiTravel");
         referenceNamaHealth = database.getReference("clientHealth");
         referenceNamaTravel = database.getReference("clientTravel");
 
-        btnHome = findViewById(R.id.btnHome);
-        pilihan = findViewById(R.id.pilihan);
-        pendaftaran = findViewById(R.id.pendaftaran);
-
-        recyclerView = findViewById(R.id.rvView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         listPembayaran = new ArrayList<>();
+
         adapter = new AdapterPembayaran(listPembayaran);
         recyclerView.setAdapter(adapter);
-
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ProfileAsuransi.class);
-                startActivity(intent);
-            }
-        });
-
-        btnHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), HistoryAsuransi.class);
-                startActivity(intent);
-            }
-        });
 
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (pilihan.getVisibility() == View.VISIBLE){
-                    pilihan.setVisibility(View.GONE);
-                } else if (pilihan.getVisibility() == View.GONE) {
-                    pilihan.setVisibility(View.VISIBLE);
-                }
+                Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
+                startActivity(intent);
+            }
+        });
+
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ProfileNasabah.class);
+                startActivity(intent);
             }
         });
 
         pendaftaran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
+                Intent intent = new Intent(getApplicationContext(), HistoryAsuransi.class);
                 startActivity(intent);
             }
         });
@@ -118,7 +98,7 @@ public class HomePageAsuransiPembayaran extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    if (Objects.equals("Not Approve", dataSnapshot.child("check").getValue(String.class)) && Objects.equals(id, dataSnapshot.child("company").getValue(int.class))){
+                    if (Objects.equals("Approve", dataSnapshot.child("check").getValue(String.class)) && Objects.equals(id, dataSnapshot.child("company").getValue(int.class))){
                         nik = dataSnapshot.child("nik").getValue(String.class);
                         besarPremi = dataSnapshot.child("besarPremi").getValue(int.class);
                         nomorPolis = dataSnapshot.child("nomorPolisKesehatan").getValue(String.class);
@@ -145,7 +125,6 @@ public class HomePageAsuransiPembayaran extends AppCompatActivity {
 
                             }
                         });
-
                     }
                 }
             }
@@ -160,7 +139,7 @@ public class HomePageAsuransiPembayaran extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    if (Objects.equals("Not Approve", dataSnapshot.child("check").getValue(String.class)) && Objects.equals(id, dataSnapshot.child("company").getValue(int.class))){
+                    if (Objects.equals("Approve", dataSnapshot.child("check").getValue(String.class)) && Objects.equals(id, dataSnapshot.child("company").getValue(int.class))){
                         nik = dataSnapshot.child("nik").getValue(String.class);
                         besarPremi = dataSnapshot.child("besarPremi").getValue(int.class);
                         nomorPolis = dataSnapshot.child("nomorPolisTravel").getValue(String.class);
@@ -197,5 +176,6 @@ public class HomePageAsuransiPembayaran extends AppCompatActivity {
 
             }
         });
+
     }
 }

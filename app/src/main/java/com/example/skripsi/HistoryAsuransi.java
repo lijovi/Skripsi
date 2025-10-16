@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -34,6 +35,7 @@ public class HistoryAsuransi extends AppCompatActivity {
     AdapterHistory adapter;
     DatabaseReference reference, referenceNasabah;
     String NIK;
+    TextView pembayaran;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,16 @@ public class HistoryAsuransi extends AppCompatActivity {
         listHistory = new ArrayList<>();
         adapter = new AdapterHistory(listHistory, listNasabah);
         recyclerView.setAdapter(adapter);
+
+        pembayaran = findViewById(R.id.pembayaran);
+
+        pembayaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HistoryPembayaranAsuransi.class);
+                startActivity(intent);
+            }
+        });
 
 
         reference.child(String.valueOf(id)).addValueEventListener(new ValueEventListener() {
