@@ -5,8 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InsuranceInfoNasabah"
-    android:background="#DDE6ED">
+    android:orientation="vertical"
+    android:background="#DDE6ED"
+    tools:context=".InsuranceInfoNasabah">
 
     <ScrollView
         android:id="@+id/insuranceContent"
@@ -19,7 +20,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
             <!-- HEALTH INSURANCE -->
 
             <LinearLayout
@@ -196,36 +198,46 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_marginBottom="8dp"
-                android:layout_marginTop="20dp"
-                />
-            <TableLayout
-                android:id="@+id/tableMedicalHistory"
+                android:layout_marginTop="20dp"/>
+
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:stretchColumns="*"
-                android:background="#F0F0F0"
-                android:padding="4dp">
+                android:scrollbars="horizontal">
 
-                <!-- Header Tabel -->
-                <TableRow>
-                    <TextView
-                        android:text="@string/tgl_diagnosa"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:padding="6dp"/>
-                    <TextView
-                        android:text="@string/kondisi"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:padding="6dp"/>
-                    <TextView
-                        android:text="@string/besar_klaim"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:padding="6dp"/>
-                </TableRow>
-            </TableLayout>
+                <TableLayout
+                    android:id="@+id/tableMedicalHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*"
+                    android:background="#F0F0F0"
+                    android:padding="4dp">
+
+                    <!-- Header Tabel -->
+                    <TableRow>
+                        <TextView
+                            android:text="@string/tgl_diagnosa"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="6dp"/>
+                        <TextView
+                            android:text="@string/kondisi"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="6dp"/>
+                        <TextView
+                            android:text="@string/besar_klaim"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="6dp"/>
+                        <TextView
+                            android:text="@string/status_klaim"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="6dp"/>
+                    </TableRow>
+                </TableLayout>
+            </HorizontalScrollView>
 
             <!-- KLAIM ASURANSI HEALTH -->
             <TextView
@@ -237,35 +249,41 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_marginBottom="8dp"/>
-            <TableLayout
-                android:id="@+id/tableKlaimAsuransiHealth"
+
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:stretchColumns="*"
-                android:background="#F0F0F0"
-                android:padding="4dp">
+                android:scrollbars="horizontal">
 
-                <!-- Header Tabel -->
-                <TableRow>
-                    <TextView
-                        android:text="@string/klaim"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:padding="6dp"/>
-                    <TextView
-                        android:text="@string/status_klaim"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:padding="6dp"/>
-                    <TextView
-                        android:text="@string/tgl_pengajuan"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:padding="6dp"/>
-                </TableRow>
+                <TableLayout
+                    android:id="@+id/tableKlaimAsuransiHealth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*"
+                    android:background="#F0F0F0"
+                    android:padding="4dp">
 
-            </TableLayout>
+                    <!-- Header Tabel -->
+                    <TableRow>
+                        <TextView
+                            android:text="@string/klaim"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="6dp"/>
+                        <TextView
+                            android:text="@string/status_klaim"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="6dp"/>
+                        <TextView
+                            android:text="@string/tgl_pengajuan"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="6dp"/>
+                    </TableRow>
+                </TableLayout>
+            </HorizontalScrollView>
+
             <!-- Divider -->
             <View
                 android:layout_width="match_parent"
@@ -275,7 +293,6 @@
 
 
             <!-- TRAVEL INSURANCE -->
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -446,7 +463,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-
             <!-- KLAIM ASURANSI TRAVEL -->
             <TextView
                 android:layout_width="match_parent"
@@ -457,35 +473,41 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_marginBottom="8dp"/>
-            <TableLayout
-                android:id="@+id/tableKlaimAsuransiTravel"
+
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:stretchColumns="*"
-                android:background="#F0F0F0"
-                android:padding="4dp">
+                android:scrollbars="horizontal">
 
-                <!-- Header Tabel -->
-                <TableRow>
-                    <TextView
-                        android:text="@string/klaim"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:padding="6dp"/>
-                    <TextView
-                        android:text="@string/status"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:padding="6dp"/>
-                    <TextView
-                        android:text="@string/tgl_pengajuan"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:padding="6dp"/>
-                </TableRow>
+                <TableLayout
+                    android:id="@+id/tableKlaimAsuransiTravel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*"
+                    android:background="#F0F0F0"
+                    android:padding="4dp">
 
-            </TableLayout>
+                    <!-- Header Tabel -->
+                    <TableRow>
+                        <TextView
+                            android:text="@string/klaim"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="6dp"/>
+                        <TextView
+                            android:text="@string/status_klaim"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="6dp"/>
+                        <TextView
+                            android:text="@string/tgl_pengajuan"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="6dp"/>
+                    </TableRow>
+                </TableLayout>
+            </HorizontalScrollView>
+
         </LinearLayout>
     </ScrollView>
 

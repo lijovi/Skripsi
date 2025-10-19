@@ -271,4 +271,6 @@
     <string name="check">Pastikan data yang dimasukkan sudah benar</string>
     <string name="centang">Wajib dicentang!</string>
     <string name="wajib">Wajib diisi!</string>
+    <string name="detail_klaim">Detail Klaim</string>
+    <string name="kembali">Kembali</string>
 </resources>
