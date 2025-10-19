@@ -86,7 +86,7 @@
     <string name="perusahaan">Perusahaan Asuransi</string>
     <string name="tipe_asuransi">Tipe Asuransi</string>
     <string name="masuk">MASUK</string>
-    <string name="daftarkan_sekarang">Daftarkan sekarang</string>
+    <string name="daftarkan_sekarang"><u>Daftarkan sekarang</u></string>
     <string name="nama_huruf_kecil">Nama</string>
     <string name="jenis_polis">Jenis Polis: </string>
     <string name="plan_asuransi">Plan Asuransi</string>
@@ -186,14 +186,14 @@
     <string name="pendaftaran">Pendaftaran</string>
     <string name="pembayaran">Pembayaran</string>
     <string name="untuk_mengakses_data_asuransi">untuk mengakses data asuransi</string>
-    <string name="disini">disini !</string>
+    <string name="disini"><u>disini!</u></string>
     <string name="nik_login">NIK</string>
-    <string name="tidak_memiliki_asuransi">Tidak memiliki asuransi ?</string>
-    <string name="masuk_sebagai_asuransi">Masuk sebagai asuransi</string>
+    <string name="tidak_memiliki_asuransi">Tidak memiliki asuransi?</string>
+    <string name="masuk_sebagai_asuransi"><u>Masuk sebagai asuransi</u></string>
     <string name="masuk_login_asuransi">MASUK</string>
     <string name="username_login_asuransi">Username</string>
     <string name="password">Password</string>
-    <string name="masuk_sebagai_nasabah">Masuk sebagai nasabah</string>
+    <string name="masuk_sebagai_nasabah"><u>Masuk sebagai nasabah</u></string>
     <string name="pembayaran_premi_asuransi">Pembayaran Premi Asuransi</string>
     <string name="no_virtual_account">No Virtual Account:</string>
     <string name="jumlah">Jumlah:</string>
@@ -273,4 +273,6 @@
     <string name="wajib">Wajib diisi!</string>
     <string name="detail_klaim">Detail Klaim</string>
     <string name="kembali">Kembali</string>
+    <string name="input_nik_placeholder">Input NIK</string>
+    <string name="input_nama_placeholder">Input Nama</string>
 </resources>
