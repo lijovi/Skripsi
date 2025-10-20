@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.util.Pair;
@@ -62,6 +64,10 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
     TextView textnik, textnama, textemail, textkelamin, textno, textalamat, textjenis, textkeluarga, textmasa, texttipe, textahli, texthubungan, textnegara, texttujuan;
     int cek;
     CheckBox check;
+    Button information, close;
+    AlertDialog.Builder dialog;
+    LayoutInflater inflater;
+    View dialogView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +122,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         textnegara = findViewById(R.id.textnegara);
         texttujuan = findViewById(R.id.texttujuan);
         check = findViewById(R.id.check);
+        information = findViewById(R.id.information);
 
         perusahaan = getIntent().getIntExtra("tipePerusahaan",0);
 
@@ -132,6 +139,13 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
 //                } else {
 //                    lamaPerjalananAll.setVisibility(View.VISIBLE);
 //                }
+            }
+        });
+
+        information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFormInfo();
             }
         });
 
@@ -398,6 +412,25 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
 //        currentTime = LocalTime.now();
 //        date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
+    }
+
+    private void DialogFormInfo() {
+        dialog = new AlertDialog.Builder(RegistrasiTravel.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.information_travel, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+
+        close = dialogView.findViewById(R.id.close);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
     }
 
     private void insertData() {

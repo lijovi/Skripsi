@@ -235,12 +235,30 @@
 
 
 <!--    Plan Asuransi -->
-        <TextView
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="8dp"
-            android:text="@string/plan_asuransi"
-            android:textColor="@color/black" />
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:text="@string/plan_asuransi"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:background="@drawable/information_button"
+                android:layout_marginLeft="5sp"
+                android:id="@+id/information"
+                />
+        </LinearLayout>
+
+
 
         <Spinner
             android:layout_width="match_parent"

@@ -62,7 +62,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     CheckBox c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19;
     ArrayList<String> list = new ArrayList<>();
 //    ArrayList<String> List;
-    Button btnSimpan;
+    Button btnSimpan, close;
 //    LocalTime currentTime;
 //    String date;
     Calendar calendar;
@@ -72,6 +72,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     int flag = 0;
     String temp;
     CheckBox check;
+    Button information;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +127,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         textahli = findViewById(R.id.textahli);
         texthubungan = findViewById(R.id.texthubungan);
         check = findViewById(R.id.check);
+        information = findViewById(R.id.information);
 
 //        StringBuilder text = new StringBuilder();
 //        int size = list.size();
@@ -240,6 +242,13 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
                     datePickerDialog.show();
                 }
         );
+
+        information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFormInfo();
+            }
+        });
 
         periode.setOnClickListener(view-> {
                     final Calendar calendar = Calendar.getInstance();
@@ -383,6 +392,26 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
 //        currentTime = LocalTime.now();
 //        date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
     }
+
+    private void DialogFormInfo() {
+        dialog = new AlertDialog.Builder(RegistrasiHealth.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.information_health, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+
+        close = dialogView.findViewById(R.id.close);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+    }
+
 
     private void DialogForm() {
         dialog = new AlertDialog.Builder(RegistrasiHealth.this);
