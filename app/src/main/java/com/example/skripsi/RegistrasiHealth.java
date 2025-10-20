@@ -72,7 +72,8 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     int flag = 0;
     String temp;
     CheckBox check;
-    Button information;
+    Button information, back;
+    TextView ri150, ri300, ri400, ri500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -403,6 +404,39 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         AlertDialog alertDialog = dialog.create();
         alertDialog.show();
 
+        ri150 = dialogView.findViewById(R.id.ri150);
+        ri300 = dialogView.findViewById(R.id.ri300);
+        ri400 = dialogView.findViewById(R.id.ri400);
+        ri500 = dialogView.findViewById(R.id.ri500);
+
+        ri150.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogForm150();
+            }
+        });
+
+        ri300.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogForm300();
+            }
+        });
+
+        ri400.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogForm400();
+            }
+        });
+
+        ri500.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogForm500();
+            }
+        });
+
         close = dialogView.findViewById(R.id.close);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -411,6 +445,88 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
             }
         });
     }
+
+    private void DialogForm150() {
+        dialog = new AlertDialog.Builder(RegistrasiHealth.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.ri_150, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+
+        back = dialogView.findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+    }
+
+    private void DialogForm300() {
+        dialog = new AlertDialog.Builder(RegistrasiHealth.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.ri_300, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+
+        back = dialogView.findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+    }
+
+    private void DialogForm400() {
+        dialog = new AlertDialog.Builder(RegistrasiHealth.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.ri_400, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+
+        back = dialogView.findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+    }
+
+    private void DialogForm500() {
+        dialog = new AlertDialog.Builder(RegistrasiHealth.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.ri_500, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+
+        back = dialogView.findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+    }
+
+
+
+
+
+
 
 
     private void DialogForm() {

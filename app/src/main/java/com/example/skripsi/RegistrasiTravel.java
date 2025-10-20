@@ -64,10 +64,11 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
     TextView textnik, textnama, textemail, textkelamin, textno, textalamat, textjenis, textkeluarga, textmasa, texttipe, textahli, texthubungan, textnegara, texttujuan;
     int cek;
     CheckBox check;
-    Button information, close;
+    Button information, close, back;
     AlertDialog.Builder dialog;
     LayoutInflater inflater;
     View dialogView;
+    TextView superior, deluxe, executive, vip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -424,8 +425,117 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         AlertDialog alertDialog = dialog.create();
         alertDialog.show();
 
+        superior = dialogView.findViewById(R.id.superior);
+        deluxe = dialogView.findViewById(R.id.deluxe);
+        executive = dialogView.findViewById(R.id.executive);
+        vip = dialogView.findViewById(R.id.vip);
+
+        superior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFormSuperior();
+            }
+        });
+
+        deluxe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFormDeluxe();
+            }
+        });
+
+        executive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFormExecutive();
+            }
+        });
+
+        vip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFormVIP();
+            }
+        });
+
         close = dialogView.findViewById(R.id.close);
         close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+    }
+
+    private void DialogFormSuperior() {
+        dialog = new AlertDialog.Builder(RegistrasiTravel.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.superior, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+
+        back = dialogView.findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+    }
+
+    private void DialogFormDeluxe() {
+        dialog = new AlertDialog.Builder(RegistrasiTravel.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.deluxe, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+
+        back = dialogView.findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+    }
+
+    private void DialogFormExecutive() {
+        dialog = new AlertDialog.Builder(RegistrasiTravel.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.executive, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+
+        back = dialogView.findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+    }
+
+    private void DialogFormVIP() {
+        dialog = new AlertDialog.Builder(RegistrasiTravel.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.vip, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+
+        back = dialogView.findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 alertDialog.dismiss();
