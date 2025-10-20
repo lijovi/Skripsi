@@ -29,7 +29,7 @@
     <string name="icon_3">Icon 3</string>
     <string name="riwayat_pembayaran">Payment History</string>
     <string name="icon_2">Icon 2</string>
-    <string name="bayar_premi">Pay Premium</string>
+    <string name="bayar_premi">Pay Premi</string>
     <string name="icon_1">Icon 1</string>
     <string name="anda_belum_memiliki_password_buat_password_sekarang_untuk_mengakses_data_asuransi_disini">
         You do not have a password yet! Create one now to access your insurance data here
@@ -98,19 +98,19 @@
     <string name="perusahaan">Insurance Company</string>
     <string name="tipe_asuransi">Insurance Type</string>
     <string name="masuk">LOGIN</string>
-    <string name="daftarkan_sekarang">Register now</string>
+    <string name="daftarkan_sekarang"><u>Register now</u></string>
     <string name="nama_huruf_kecil">Name</string>
     <string name="jenis_polis">Policy Type:</string>
     <string name="plan_asuransi">Insurance Plan</string>
     <string name="masa_perjalanan">Travel Period</string>
     <string name="title_activity_pop_up_ubah_bahasa">Change Language</string>
-    <string name="masukkan_besar_premi">ENTER PREMIUM AMOUNT</string>
+    <string name="masukkan_besar_premi">ENTER PREMI AMOUNT</string>
     <string name="masukkan_nomor_polis">ENTER POLICY NUMBER</string>
     <string name="silakan_masukan_password_anda">Please enter your password</string>
     <string name="lupa_password">Forgot Password?</string>
-    <string name="klik_disini">Click Here</string>
+    <string name="klik_disini"><u>Click Here</u></string>
     <string name="ubah_bahasa_popup">CHANGE LANGUAGE</string>
-    <string name="lupa_password_klik_disini">Forgot Password? Click Here</string>
+    <string name="lupa_password_klik_disini"><u>Forgot Password? Click Here</u></string>
     <string name="silakan_masukkan_password_anda">Please enter your password</string>
     <string name="ok">OK</string>
     <string name="syarat_dan_ketentuan_title">TERMS AND CONDITIONS</string>
@@ -130,7 +130,7 @@
     </string>
     <string name="klaim_dan_pembayaran">Claims and Payments</string>
     <string name="semua_klaim_dan_pembayaran_premi_dilakukan_sesuai_prosedur_yang_tercantum_dalam_polis_asuransi_masing_masing_n_perusahaan_berhak_menolak_klaim_yang_tidak_memenuhi_persyaratan">
-        - All claims and premium payments are carried out according to the procedures stated in each insurance policy.\n - The company has the right to reject claims that do not meet the requirements.
+        - All claims and premi payments are carried out according to the procedures stated in each insurance policy.\n - The company has the right to reject claims that do not meet the requirements.
     </string>
     <string name="privasi_dan_keamanan_data">Privacy and Data Security</string>
     <string name="perusahaan_berkomitmen_untuk_melindungi_data_pribadi_pengguna_sesuai_dengan_peraturan_yang_berlaku_n_data_pengguna_tidak_akan_dibagikan_kepada_pihak_ketiga_tanpa_persetujuan_pengguna_kecuali_diwajibkan_oleh_hukum">
@@ -174,10 +174,10 @@
         Users can submit claims by contacting the insurance provider through the contact details available in the app
     </string>
     <string name="q7">
-        How to pay insurance premiums through the app?
+        How to pay insurance premis through the app?
     </string>
     <string name="a7">
-        Users can pay insurance premiums by clicking the Pay Premium button on the main page or by clicking the premium payment reminder notification
+        Users can pay insurance premis by clicking the Pay Premi button on the main page or by clicking the premi payment reminder notification
     </string>
     <string name="nomor_polis_health">Policy Number:</string>
     <string name="nama_pemegang_polis_health">Policyholder Name:</string>
@@ -210,7 +210,7 @@
 
     <string name="bukti_pembayaran">PAYMENT PROOF</string>
     <string name="nama_bukti_pembayaran">NAME:</string>
-    <string name="besar_premi">PREMIUM AMOUNT:</string>
+    <string name="besar_premi">PREMI AMOUNT:</string>
     <string name="terima">Accept</string>
     <string name="tolak">Reject</string>
 
@@ -245,13 +245,13 @@
     <string name="disini">here!</string>
     <string name="nik_login">ID Number</string>
     <string name="tidak_memiliki_asuransi">Don’t have insurance?</string>
-    <string name="masuk_sebagai_asuransi">Login as Insurance</string>
+    <string name="masuk_sebagai_asuransi"><u>Login as Insurance</u></string>
     <string name="masuk_login_asuransi">LOGIN</string>
     <string name="username_login_asuransi">Username</string>
     <string name="password">Password</string>
-    <string name="masuk_sebagai_nasabah">Login as Customer</string>
+    <string name="masuk_sebagai_nasabah"><u>Login as Client</u></string>
 
-    <string name="pembayaran_premi_asuransi">Insurance Premium Payment</string>
+    <string name="pembayaran_premi_asuransi">Insurance Premi Payment</string>
     <string name="no_virtual_account">Virtual Account Number:</string>
     <string name="jumlah">Amount:</string>
     <string name="lakukan_pembayaran_sebelum">Make payment before</string>
@@ -336,4 +336,8 @@
     <string name="check">Please make sure the data inputted is correct</string>
     <string name="centang">Must be checked!</string>
     <string name="wajib">Required fill!</string>
+    <string name="detail_klaim">Claim Detail</string>
+    <string name="kembali">Back</string>
+    <string name="input_nik_placeholder">Input ID</string>
+    <string name="input_nama_placeholder">Input Name</string>
 </resources>

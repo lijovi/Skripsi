@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.icu.util.LocaleData;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +42,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Currency;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 
 public class InsuranceInfoNasabah extends AppCompatActivity {
@@ -62,7 +65,8 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
     String checkH, checkT;
     TableLayout tableMedicalHistory;
     TableLayout tableKlaimAsuransiHealth;
-
+    TableLayout tableKlaimAsuransiTravel;
+    private String NIK;
 
     // buat ubah bahasa locale
     @Override
@@ -110,6 +114,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         // Tabel riwayat medis
         tableMedicalHistory = findViewById(R.id.tableMedicalHistory);
         tableKlaimAsuransiHealth = findViewById(R.id.tableKlaimAsuransiHealth);
+        tableKlaimAsuransiTravel = findViewById(R.id.tableKlaimAsuransiTravel);
 
         // Set values
         LimitHealth = ClientSession.getInstance().getLimitHealth();
@@ -126,27 +131,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         klaimRef = database.getReference("klaim");
         riwayatMedisRef = database.getReference("riwayatMedis");
 
-        String NIK = ClientSession.getInstance().getNik();
-//        InsuranceInfoModel medisDummy = new InsuranceInfoModel(
-//                "03/10/2025",
-//                "Demam Berdarah",
-//                "2.000.000",
-//                "Disetujui"
-//        );
-
-//        riwayatMedisRef.child(NIK).setValue(medisDummy)
-//                .addOnSuccessListener(aVoid -> Log.d("FIREBASE", "Data medis dummy ditambahkan untuk NIK: " + NIK))
-//                .addOnFailureListener(e -> Log.e("FIREBASE", "Gagal tambah data medis: " + e.getMessage()));
-
-//        InsuranceInfoModel klaimDummy = new InsuranceInfoModel(
-//                "Rawat Inap",
-//                "Diproses",
-//                "05/10/2025"
-//        );
-
-//        klaimRef.child(NIK).setValue(klaimDummy)
-//                .addOnSuccessListener(aVoid -> Log.d("FIREBASE", "Data klaim dummy ditambahkan untuk NIK: " + NIK))
-//                .addOnFailureListener(e -> Log.e("FIREBASE", "Gagal tambah klaim: " + e.getMessage()));
+        NIK = ClientSession.getInstance().getNik();
 
         Query checkTravel = referenceTravel.orderByChild("nik").equalTo(NIK);
         Log.d("INTENT", "NIK: " + NIK);
@@ -334,37 +319,122 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
 //                    }
                 }
             }
-        
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 // Handle error
             }
         });
-        
-        klaimRef.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
+
+        DatabaseReference healthRef = klaimRef.child("Health").child(NIK);
+        DatabaseReference travelRef = klaimRef.child("Travel").child(NIK);
+
+        // ================= HEALTH =================
+        healthRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    String klaim = snapshot.child("klaim").getValue(String.class);
-                    String status = snapshot.child("status").getValue(String.class);
-                    String tglPengajuan = snapshot.child("tanggalPengajuan").getValue(String.class);
-                    addClaimRow(tableKlaimAsuransiHealth, klaim, status, tglPengajuan);
-//                    tableKlaimAsuransiHealth.removeViews(1, tableKlaimAsuransiHealth.getChildCount() - 1);
-//                    for (DataSnapshot child : snapshot.getChildren()) {
-//                        String klaim = child.child("klaim").getValue(String.class);
-//                        String status = child.child("status").getValue(String.class);
-//                        String tglPengajuan = child.child("tanggalPengajuan").getValue(String.class);
-//
-//                        addClaimRow(tableKlaimAsuransiHealth, klaim, status, tglPengajuan);
-//                    }
+                if (!snapshot.exists()) {
+                    // Klaim 1 Health
+                    Map<String, Object> klaim1 = new HashMap<>();
+                    klaim1.put("tanggalPengajuan", "2025-09-10");
+                    klaim1.put("klaim", "Klaim Rawat Inap");
+                    klaim1.put("statusKlaimAsuransi", "Disetujui");
+                    Map<String, Object> detail1 = new HashMap<>();
+                    detail1.put("nomorPolis", "H12345678");
+                    detail1.put("nilaiKlaim", "Rp 5.000.000");
+                    detail1.put("keterangan", "Rawat inap 3 hari di RS Bina Sehat");
+                    klaim1.put("detail", detail1);
+                    healthRef.child("Klaim1").setValue(klaim1);
+
+                    // Klaim 2 Health
+                    Map<String, Object> klaim2 = new HashMap<>();
+                    klaim2.put("tanggalPengajuan", "2025-09-15");
+                    klaim2.put("klaim", "Klaim Rawat Jalan");
+                    klaim2.put("statusKlaimAsuransi", "Menunggu Verifikasi");
+                    Map<String, Object> detail2 = new HashMap<>();
+                    detail2.put("nomorPolis", "H87654321");
+                    detail2.put("nilaiKlaim", "Rp 3.000.000");
+                    detail2.put("keterangan", "Rawat jalan 2 hari di RS Bina Sehat");
+                    klaim2.put("detail", detail2);
+                    healthRef.child("Klaim2").setValue(klaim2);
                 }
+
+                // Tampilkan tabel Health
+                healthRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        int childCount = tableKlaimAsuransiHealth.getChildCount();
+                        if (childCount > 1) {
+                            tableKlaimAsuransiHealth.removeViews(1, childCount - 1);
+                        }
+
+                        for (DataSnapshot klaimSnapshot : snapshot.getChildren()) {
+                            addClaimRow(tableKlaimAsuransiHealth, klaimSnapshot, "Health");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {}
+                });
             }
-        
+
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // Handle error
-            }
+            public void onCancelled(@NonNull DatabaseError error) {}
         });
+
+        // ================= TRAVEL =================
+        travelRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (!snapshot.exists()) {
+                    // Klaim 1 Travel
+                    Map<String, Object> klaim1 = new HashMap<>();
+                    klaim1.put("tanggalPengajuan", "2025-08-05");
+                    klaim1.put("klaim", "Klaim Keterlambatan Penerbangan");
+                    klaim1.put("statusKlaimAsuransi", "Disetujui");
+                    Map<String, Object> detail1 = new HashMap<>();
+                    detail1.put("nomorPolis", "T98765432");
+                    detail1.put("nilaiKlaim", "Rp 3.000.000");
+                    detail1.put("keterangan", "Keterlambatan penerbangan 3 jam");
+                    klaim1.put("detail", detail1);
+                    travelRef.child("Klaim1").setValue(klaim1);
+
+                    // Klaim 2 Travel
+                    Map<String, Object> klaim2 = new HashMap<>();
+                    klaim2.put("tanggalPengajuan", "2025-08-10");
+                    klaim2.put("klaim", "Klaim Barang Hilang");
+                    klaim2.put("statusKlaimAsuransi", "Menunggu Verifikasi");
+                    Map<String, Object> detail2 = new HashMap<>();
+                    detail2.put("nomorPolis", "T12345678");
+                    detail2.put("nilaiKlaim", "Rp 2.500.000");
+                    detail2.put("keterangan", "Bagasi hilang di bandara");
+                    klaim2.put("detail", detail2);
+                    travelRef.child("Klaim2").setValue(klaim2);
+                }
+
+                // Tampilkan tabel Travel
+                travelRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        int childCount = tableKlaimAsuransiTravel.getChildCount();
+                        if (childCount > 1) {
+                            tableKlaimAsuransiTravel.removeViews(1, childCount - 1);
+                        }
+
+                        for (DataSnapshot klaimSnapshot : snapshot.getChildren()) {
+                            addClaimRow(tableKlaimAsuransiTravel, klaimSnapshot, "Travel");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {}
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+
 
         Locale locale = new Locale("in", "ID");
 
@@ -372,13 +442,9 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
 
         limitHealth.setText("Rp " + idrFormat.format((double) LimitHealth));
         limitTravel.setText("Rp " + idrFormat.format((double) LimitTravel));
-//        limitHealth.setText(LimitHealth);
-//        limitTravel.setText(LimitTravel);
 
-        // Show popup on load
         DialogForm();
 
-        // Button listeners
         btnHome.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), HomePageNasabah.class));
         });
@@ -438,7 +504,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         kond.setText(kondisi);
         kond.setPadding(6, 6, 6, 6);
         kond.setTextColor(ContextCompat.getColor(this, R.color.black));
-    
+
         TextView klaim = new TextView(this);
         klaim.setText(besarKlaim);
         klaim.setPadding(6, 6, 6, 6);
@@ -456,29 +522,51 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
     
         table.addView(row);
     }
-    
-    private void addClaimRow(TableLayout table, String klaim, String status, String tglPengajuan) {
+
+    private void addClaimRow(TableLayout tableLayout, DataSnapshot klaimSnapshot, String tipeAsuransi) {
+        String klaim = klaimSnapshot.child("klaim").getValue(String.class);
+        String status = klaimSnapshot.child("statusKlaimAsuransi").getValue(String.class);
+        String tanggal = klaimSnapshot.child("tanggalPengajuan").getValue(String.class);
+        String nomorPolis = klaimSnapshot.child("detail/nomorPolis").getValue(String.class);
+        String nilaiKlaim = klaimSnapshot.child("detail/nilaiKlaim").getValue(String.class);
+        String keterangan = klaimSnapshot.child("detail/keterangan").getValue(String.class);
+
         TableRow row = new TableRow(this);
-    
-        TextView klaimView = new TextView(this);
-        klaimView.setText(klaim);
-        klaimView.setPadding(6, 6, 6, 6);
-        klaimView.setTextColor(ContextCompat.getColor(this, R.color.black));
-    
-        TextView statusView = new TextView(this);
-        statusView.setText(status);
-        statusView.setPadding(6, 6, 6, 6);
-        statusView.setTextColor(ContextCompat.getColor(this, R.color.black));
-    
-        TextView tglView = new TextView(this);
-        tglView.setText(tglPengajuan);
-        tglView.setPadding(6, 6, 6, 6);
-        tglView.setTextColor(ContextCompat.getColor(this, R.color.black));
-    
-        row.addView(klaimView);
-        row.addView(statusView);
-        row.addView(tglView);
-    
-        table.addView(row);
-    }    
+        row.setPadding(8, 8, 8, 8);
+
+        TextView txtTanggal = new TextView(this);
+        txtTanggal.setText(tanggal);
+        txtTanggal.setPadding(8, 8, 8, 8);
+        txtTanggal.setTextColor(Color.BLACK);
+
+        TextView txtKlaim = new TextView(this);
+        txtKlaim.setText(klaim);
+        txtKlaim.setPadding(8, 8, 8, 8);
+        txtKlaim.setTextColor(Color.BLACK);
+
+        TextView txtStatus = new TextView(this);
+        txtStatus.setText(status);
+        txtStatus.setPadding(8, 8, 8, 8);
+        txtStatus.setTextColor(Color.BLACK);
+
+        row.addView(txtKlaim);
+        row.addView(txtStatus);
+        row.addView(txtTanggal);
+
+
+        row.setOnClickListener(v -> {
+            Intent intent = new Intent(this, DetailKlaim.class);
+            intent.putExtra("nik", NIK);
+            intent.putExtra("jenisAsuransi", tipeAsuransi);
+            intent.putExtra("klaim", klaim);
+            intent.putExtra("status", status);
+            intent.putExtra("tanggal", tanggal);
+            intent.putExtra("nomorPolis", nomorPolis);
+            intent.putExtra("nilaiKlaim", nilaiKlaim);
+            intent.putExtra("keterangan", keterangan);
+            startActivity(intent);
+        });
+
+        tableLayout.addView(row);
+    }
 }

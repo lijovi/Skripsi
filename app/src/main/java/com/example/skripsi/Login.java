@@ -57,8 +57,8 @@ public class Login extends AppCompatActivity {
         daftar = findViewById(R.id.daftar);
         masukAsuransi = findViewById(R.id.masukAsuransi);
 
-        nik.setPlaceholderText("Input NIK");
-        nama.setPlaceholderText("Input Nama");
+        nik.setPlaceholderText(getString(R.string.input_nik_placeholder));
+        nama.setPlaceholderText(getString(R.string.input_nama_placeholder));
 
 
         btnMasuk.setOnClickListener(new View.OnClickListener() {

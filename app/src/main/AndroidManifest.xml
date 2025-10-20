@@ -23,6 +23,11 @@
             android:name=".HomePageAsuransiPembayaran"
             android:exported="false" />
         <activity
+            android:name=".DetailKlaim"
+            android:exported="false"
+            android:label=""
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".HistoryTravel"
             android:exported="false" />
         <activity
