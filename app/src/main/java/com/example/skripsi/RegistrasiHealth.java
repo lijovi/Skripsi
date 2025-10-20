@@ -553,14 +553,14 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String choice = parent.getItemAtPosition(position).toString();
         pilihanPlan = choice;
-        if (Objects.equals(pilihanPlan, "RI 300")){
-            limit = 10000000;
+        if (Objects.equals(pilihanPlan, "RI 150")){
+            limit = 70000000;
+        } else if (Objects.equals(pilihanPlan, "RI 300")) {
+            limit = 122000000;
+        } else if (Objects.equals(pilihanPlan, "RI 400")){
+            limit = 160000000;
         } else if (Objects.equals(pilihanPlan, "RI 500")) {
-            limit = 30000000;
-        } else if (Objects.equals(pilihanPlan, "RI 750")){
-            limit = 50000000;
-        } else if (Objects.equals(pilihanPlan, "RI 1000")) {
-            limit = 8000000;
+            limit = 193000000;
         }
     }
 
