@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="20dp"
-                android:text="SUPERIOR\n(Dalam US Dollar)"
+                android:text="SUPERIOR\n( US Dollar )"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -45,89 +45,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1. Kehilangan Bagasi dan Barang Pribadi"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:paddingBottom="10sp"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="500"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2. Santunan Uang Tunai Karena Pencurian atau Perampokan"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:paddingBottom="10sp"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="3. Kehilangan Dokumen Perjalanan"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:paddingBottom="10sp"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="50"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="4. Penundaan Penerbangan"
+                android:text="@string/t1"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -137,220 +55,227 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="5. Ketinggalan Penerbangan Lanjutan"
+                android:text="500"
                 android:textColor="@color/black"
                 android:textSize="14dp"
-                android:textStyle="bold"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="100\n($50/8 jam)"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="6. Keterlambatan Bagasi"
+                android:text="@string/t2"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="50"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="7. Kehilangan Deposit dan Pembatalan Perjalanan Memberikan Penggantian Biaya Uang Muka Perjalanan"
+                android:text="-"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="500"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="8. Pengurangan Perjalanan"
+                android:text="@string/t3"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="9. Penundaan Perjalanan"
+                android:text="50"
                 android:textColor="@color/black"
                 android:textSize="14dp"
-                android:textStyle="bold"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="10. Tanggung Jawab Hukum Terhadap Pihak Ketiga"
+                android:text="@string/t4"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="10,000"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="11. Pembajakan"
+                android:text="@string/t5"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="1,000 ($50/hari)"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textAlignment="center"
-                    android:layout_weight="1"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="12. Perpanjangan Polis Otomatis"
+                android:text="@string/ats1"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t6"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:text="50"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Yes/Berlaku"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textAlignment="center"
-                    android:layout_weight="1"
-                    />
+                />
 
-            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t7"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="500"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t8"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t9"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t10"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="10,000"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t11"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ats2"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textAlignment="center"
+                android:layout_weight="1"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t12"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Yes/Berlaku"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textAlignment="center"
+                android:layout_weight="1"
+                android:paddingBottom="10sp"
+                />
 
             <TextView
                 android:layout_width="match_parent"
@@ -364,87 +289,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1. Kematian dan Cacat Tetap"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:paddingBottom="10sp"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="10,000"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2. Biaya - biaya Medis (akibat sakit/kecelakaan)"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:paddingBottom="10sp"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="10,000"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="3. Biaya Medis Lanjutan di Indonesia"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:paddingBottom="10sp"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="4. Evakuasi Medis Darurat &amp; Repatriasi"
+                android:text="@string/t13"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -454,35 +299,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="5. Repatriasi Jenazah"
+                android:text="10,000"
                 android:textColor="@color/black"
                 android:textSize="14dp"
-                android:textStyle="bold"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tidak Terbatas"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textAlignment="center"
-                    android:layout_weight="1"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="6. Kunjungan Kerabat"
+                android:text="@string/t14"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -492,84 +319,136 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="7. Penjagaan Anak"
+                android:text="10,000"
                 android:textColor="@color/black"
                 android:textSize="14dp"
-                android:textStyle="bold"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Biaya tiket ekonomi pulang pergi dan biaya penginapan hingga US 150/hari selama maksimum"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:layout_weight="1"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="8. Santunan Harian Rumah Sakit"
+                android:text="@string/t15"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="9. Biaya Perjalanan Darurat"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t16"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:text="@string/t17"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
                 android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ats3"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textAlignment="center"
+                android:layout_weight="1"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t18"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t19"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ats4"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_weight="1"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t20"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t21"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
 
 
             <androidx.appcompat.widget.AppCompatButton

@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="20dp"
-                android:text="RI 400"
+                android:text="RI 400\n( Rupiah )"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -36,709 +36,522 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1. Biaya kamar per hari (maks.365 hari)"
+                android:text="@string/h1"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="400,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2. Biaya kamar ICU / hari"
+                android:text="400,000"
                 android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="800,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="3. Biaya kunjungan dokter per hari (maks.365 hari)"
+                android:text="@string/h2"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="240,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="4. Biaya konsultasi dokter ahli per hari (max.365 hari)"
+                android:text="800,000"
                 android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="640,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="5. Obat-obatan, Lab, Test, dll (Aneka Perawatan)"
+                android:text="@string/h3"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="12,000,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="6. Biaya Dokter Bedah Operasi Khusus (index 100)"
+                android:text="240,000"
                 android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="36,000,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="7. Biaya Dokter Bedah Operasi Besar (index 50)"
+                android:text="@string/h4"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="18,000,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="8. Biaya Dokter Bedah Operasi Sedang (index 22.5)"
+                android:text="640,000"
                 android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="8,100,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="9. Biaya Dokter Bedah Operasi Kecil (index 10)"
+                android:text="@string/h5"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="3,600,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="10. Kamar Bedah Operasi Khusus"
+                android:text="12,000,000"
                 android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="14,400,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="11. Kamar Bedah Operasi Besar"
+                android:text="@string/h6"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="7,200,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="12. Kamar Bedah Operasi Sedang"
+                android:text="36,000,000"
                 android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="3,240,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="13. Kamar Bedah Operasi Kecil"
+                android:text="@string/h7"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="1,440,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="14. Anestesi Operasi Khusus"
+                android:text="18,000,000"
                 android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="14,400,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="15. Anestesi Operasi Besar"
+                android:text="@string/h8"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="7,200,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="16. Anestesi Operasi Sedang"
+                android:text="8,100,000"
                 android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="3,240,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="17. Anestesi Operasi Kecil"
+                android:text="@string/h9"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="1,440,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="18. Biaya perawatan darurat tanpa opname (akibat emergency) per kasus"
+                android:text="3,600,000"
                 android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="4,800,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="19. Biaya perawatan gigi darurat akibat kecelakaan per kasus"
+                android:text="@string/h10"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="2,560,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="20. Biaya perawatan pribadi/hari (max.30 hari)"
+                android:text="14,400,000"
                 android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="320,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="21. Ambulance"
+                android:text="@string/h11"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="320,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="22. Biaya perawatan sebelum (30 hari) &amp; setelah (30 hari) rawat inap di RS"
+                android:text="7,200,000"
                 android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="800,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="23. Hemodialisa dan Kemotherapy per tahun"
+                android:text="@string/h12"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="1,000,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="24. Santunan cacat tetap total"
+                android:text="3,240,000"
                 android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="5,000,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="25. Santunan kecelakaan diri"
+                android:text="@string/h13"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="5,000,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="26. Santunan duka"
+                android:text="1,440,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/h14"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:paddingBottom="10sp"
                 />
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:text="14,400,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
                 android:paddingBottom="10sp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="5,000,000"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/h15"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="7,200,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/h16"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3,240,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/h17"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1,440,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/h18"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4,800,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/h19"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2,560,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/h20"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="320,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/h21"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="320,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/h22"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="800,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/h23"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1,000,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/h24"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5,000,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/h25"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5,000,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/h26"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5,000,000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:paddingBottom="10sp"
+                />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
