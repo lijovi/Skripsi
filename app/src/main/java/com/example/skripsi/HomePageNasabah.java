@@ -28,6 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class HomePageNasabah extends AppCompatActivity {
@@ -40,6 +42,7 @@ public class HomePageNasabah extends AppCompatActivity {
     int companyHealth, companyTravel;
     int check = 0;
     TextView sariAsih, pondokIndah, harapanKita, pluit;
+    int tipe;
 
     @SuppressLint("MissingInflatedId")
 
@@ -158,6 +161,93 @@ public class HomePageNasabah extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+        });
+
+        DatabaseReference refPembayaran = FirebaseDatabase.getInstance().getReference("pembayaran").child(NIK);
+        refPembayaran.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                        String tanggal =  dataSnapshot.child("date").getValue(String.class);
+                        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
+                        LocalDate start = LocalDate.parse(tanggal, format);
+                        LocalDate end = start.plusYears(1);
+                        LocalDate current = LocalDate.now();
+                        LocalDate jatuhTempo = end.minusMonths(1);
+
+                        if (!current.isBefore(jatuhTempo) && current.isBefore(end)){
+                            String noPolis = dataSnapshot.child("nomorPremi").getValue(String.class);
+
+                            DatabaseReference checkHealth = FirebaseDatabase.getInstance().getReference("transaksiHealth").child(NIK);
+                            checkHealth.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if (snapshot.exists()){
+                                        if (Objects.equals(snapshot.child("nomorPolisKesehatan"), noPolis)){
+                                            tipe = 0;
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
+                            DatabaseReference checkTravel = FirebaseDatabase.getInstance().getReference("transaksiTravel").child(NIK);
+                            checkTravel.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if (snapshot.exists()){
+                                        if (Objects.equals(snapshot.child("nomorPolisTravel"), noPolis)){
+                                            tipe = 1;
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
+                            if (tipe == 0){
+                                DatabaseReference refHealth = FirebaseDatabase.getInstance().getReference("clientHealth").child(NIK);
+                                DatabaseReference inputH = FirebaseDatabase.getInstance().getReference("clietnSementaraHealth").child(NIK);
+                                inputH.setValue(refHealth);
+                            } else if (tipe == 1) {
+                                DatabaseReference refTravel = FirebaseDatabase.getInstance().getReference("clientTravel").child(NIK);
+                                refTravel.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        if (snapshot.exists()){
+                                            if (Objects.equals(snapshot.child("tipePolis"), "Iya")){
+                                                DatabaseReference inputT = FirebaseDatabase.getInstance().getReference("clientSementaraTravel").child(NIK);
+                                                inputT.setValue(refTravel);
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
         });
 
         dataTravel.addListenerForSingleValueEvent(new ValueEventListener() {
