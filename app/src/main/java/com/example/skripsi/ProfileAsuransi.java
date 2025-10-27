@@ -62,6 +62,7 @@ public class ProfileAsuransi extends AppCompatActivity {
     StorageReference storageRef;
     int PICK_IMAGE_REQUEST = 100;
     ActivityResultLauncher<Intent> gallery;
+    String image;
 
     // buat ubah bahasa locale
     @Override
@@ -106,12 +107,17 @@ public class ProfileAsuransi extends AppCompatActivity {
         Email = CompanySession.getInstance().getEmail();
         VirtualAccount = CompanySession.getInstance().getVirtualAccount();
         Id = CompanySession.getInstance().getId();
+        image = CompanySession.getInstance().getImage();
 
 //        Set Data Ke Tampilan
         namaPerusahaan.setText(Nama);
         username.setText(Username);
         email.setText(Email);
         virtualAccount.setText(VirtualAccount);
+        if (image != null && !image.isEmpty()){
+            Glide.with(ProfileAsuransi.this).load(image).circleCrop().into(profile);
+        }
+
 
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -21,6 +21,15 @@ public class ClientSession {
     private String pekerjaan;
     private String periodePertanggunganHealth;
     private int company;
+    private String profile;
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
+    }
 
     public int getCompany() {
         return company;

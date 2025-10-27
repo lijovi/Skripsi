@@ -57,6 +57,7 @@ public class ProfileNasabah extends AppCompatActivity {
     int PICK_IMAGE_REQUEST = 100;
     String NIK;
     ActivityResultLauncher<Intent> gallery;
+    String image;
 
     // buat ubah bahasa locale
     @Override
@@ -94,10 +95,15 @@ public class ProfileNasabah extends AppCompatActivity {
         String Email = ClientSession.getInstance().getEmail();
         String NoTelp = ClientSession.getInstance().getNoTelp();
         NIK = ClientSession.getInstance().getNik();
+        image = ClientSession.getInstance().getProfile();
 
         nama.setText(Nama);
         email.setText(Email);
         noTelp.setText(NoTelp);
+
+        if (image != null && !image.isEmpty()){
+            Glide.with(ProfileNasabah.this).load(image).circleCrop().into(profile);
+        }
 
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override

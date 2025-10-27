@@ -9,10 +9,19 @@ public class CompanySession {
     private String virtualAccount;
     private String password;
     private int id;
+    private String image;
 
     public static CompanySession getInstance(){
         if (instance == null) instance = new CompanySession();
         return instance;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getPassword() {
