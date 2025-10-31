@@ -32,10 +32,10 @@ public class HistoryPembayaranAsuransi extends AppCompatActivity {
     RecyclerView recyclerView;
     FirebaseDatabase database;
     ArrayList<BuktiBayar> listPembayaran;
-    AdapterPembayaran adapter;
+    AdapterPembayaranHistory adapter;
     DatabaseReference referenceHealth, referenceTravel, referenceNamaHealth, referenceNamaTravel;
-    String nik, nama, nomorPolis, time, tanggal;
-    int besarPremi;
+//    String nik, nama, nomorPolis, time, tanggal;
+//    int besarPremi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +67,7 @@ public class HistoryPembayaranAsuransi extends AppCompatActivity {
 
         listPembayaran = new ArrayList<>();
 
-        adapter = new AdapterPembayaran(listPembayaran);
+        adapter = new AdapterPembayaranHistory(listPembayaran);
         recyclerView.setAdapter(adapter);
 
         btnHome.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +81,7 @@ public class HistoryPembayaranAsuransi extends AppCompatActivity {
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ProfileNasabah.class);
+                Intent intent = new Intent(getApplicationContext(), ProfileAsuransi.class);
                 startActivity(intent);
             }
         });
@@ -99,16 +99,16 @@ public class HistoryPembayaranAsuransi extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     if (Objects.equals("Approve", dataSnapshot.child("check").getValue(String.class)) && Objects.equals(id, dataSnapshot.child("company").getValue(int.class))){
-                        nik = dataSnapshot.child("nik").getValue(String.class);
-                        besarPremi = dataSnapshot.child("besarPremi").getValue(int.class);
-                        nomorPolis = dataSnapshot.child("nomorPolisKesehatan").getValue(String.class);
-                        time = dataSnapshot.child("time").getValue(String.class);
-                        tanggal = dataSnapshot.child("date").getValue(String.class);
+                        final String nik = dataSnapshot.child("nik").getValue(String.class);
+                        final int besarPremi = dataSnapshot.child("besarPremi").getValue(int.class);
+                        final String nomorPolis = dataSnapshot.child("nomorPolisKesehatan").getValue(String.class);
+                        final String time = dataSnapshot.child("time").getValue(String.class);
+                        final String tanggal = dataSnapshot.child("date").getValue(String.class);
 
                         referenceNamaHealth.child(nik).addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                nama = snapshot.child("name").getValue(String.class);
+                                String nama = snapshot.child("name").getValue(String.class);
                                 BuktiBayar buktiBayar = new BuktiBayar();
                                 buktiBayar.setNik(nik);
                                 buktiBayar.setNama(nama);
@@ -140,16 +140,16 @@ public class HistoryPembayaranAsuransi extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     if (Objects.equals("Approve", dataSnapshot.child("check").getValue(String.class)) && Objects.equals(id, dataSnapshot.child("company").getValue(int.class))){
-                        nik = dataSnapshot.child("nik").getValue(String.class);
-                        besarPremi = dataSnapshot.child("besarPremi").getValue(int.class);
-                        nomorPolis = dataSnapshot.child("nomorPolisTravel").getValue(String.class);
-                        time = dataSnapshot.child("time").getValue(String.class);
-                        tanggal = dataSnapshot.child("date").getValue(String.class);
+                        final String nik = dataSnapshot.child("nik").getValue(String.class);
+                        final int besarPremi = dataSnapshot.child("besarPremi").getValue(int.class);
+                        final String nomorPolis = dataSnapshot.child("nomorPolisTravel").getValue(String.class);
+                        final String time = dataSnapshot.child("time").getValue(String.class);
+                        final String tanggal = dataSnapshot.child("date").getValue(String.class);
 
                         referenceNamaTravel.child(nik).addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                nama = snapshot.child("name").getValue(String.class);
+                                String nama = snapshot.child("name").getValue(String.class);
                                 BuktiBayar buktiBayar = new BuktiBayar();
                                 buktiBayar.setNik(nik);
                                 buktiBayar.setNama(nama);

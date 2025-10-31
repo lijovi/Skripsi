@@ -179,6 +179,7 @@
     <string name="negara_tujuan_data">Negara Tujuan:</string>
     <string name="tujuan_perjalanan_data">Tujuan Perjalanan:</string>
     <string name="notifikasi_history_asuransi">NOTIFIKASI</string>
+    <string name="waktu_history_asuransi">TANGGAL\nWAKTU</string>
     <string name="status_history_asuransi">STATUS</string>
     <string name="tipe_polis">Tipe Polis:</string>
     <string name="lama_perjalanan">Lama Perjalanan:</string>

@@ -234,6 +234,7 @@
     <string name="tujuan_perjalanan_data">Purpose of Travel:</string>
 
     <string name="notifikasi_history_asuransi">NOTIFICATION</string>
+    <string name="waktu_history_asuransi">DATE\nTIME</string>
     <string name="status_history_asuransi">STATUS</string>
     <string name="tipe_polis">Policy Type:</string>
     <string name="lama_perjalanan">Travel Duration:</string>
