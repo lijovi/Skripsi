@@ -1,5 +1,6 @@
 package com.example.skripsi;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Objects;
 
 public class AdapterRiwayatPembayaran extends RecyclerView.Adapter<AdapterRiwayatPembayaran.ViewHolder> {
 
@@ -37,6 +39,12 @@ public class AdapterRiwayatPembayaran extends RecyclerView.Adapter<AdapterRiwaya
         String text = holder.itemView.getContext().getString(R.string.text);
         holder.notif.setText(pembayaran.getNama() + " " + text + " " + nominalRupiah);
         holder.date.setText(pembayaran.getDate());
+        holder.check.setText(pembayaran.getTime());
+        if (Objects.equals(pembayaran.getTime(), "Success")){
+            holder.check.setTextColor(Color.parseColor("#1E942C"));
+        } else {
+            holder.check.setTextColor(Color.parseColor("#AD9900"));
+        }
     }
 
     @Override
@@ -45,11 +53,12 @@ public class AdapterRiwayatPembayaran extends RecyclerView.Adapter<AdapterRiwaya
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView notif, date;
+        TextView notif, date, check;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             notif = itemView.findViewById(R.id.textNotifikasi);
             date = itemView.findViewById(R.id.time);
+            check = itemView.findViewById(R.id.check);
         }
     }
 }

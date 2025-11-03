@@ -23,13 +23,14 @@ import com.google.firebase.database.ValueEventListener;
 import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class RiwayatPembayaran extends AppCompatActivity {
 
     ArrayList<DataPembayaran> listPembayaran;
     AdapterRiwayatPembayaran adapter;
     RecyclerView recyclerView;
-    DatabaseReference reference;
+    DatabaseReference reference, refHealth, refTravel;
     FirebaseDatabase database;
     String nama, besarPremi, tanggal;
     ImageButton back;
@@ -56,6 +57,8 @@ public class RiwayatPembayaran extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("pembayaran");
+        refHealth = database.getReference("transaksiHealth");
+        refTravel = database.getReference("transaksiTravel");
         back = findViewById(R.id.back);
 
         String NIK = ClientSession.getInstance().getNik();
@@ -64,16 +67,57 @@ public class RiwayatPembayaran extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot data: snapshot.child(NIK).getChildren()){
-                    nama = data.child("nama").getValue(String.class);
-                    besarPremi = data.child("besarPremi").getValue(String.class);
-                    tanggal = data.child("date").getValue(String.class);
+                    final String nama = data.child("nama").getValue(String.class);
+                    final String besarPremi = data.child("besarPremi").getValue(String.class);
+                    final String tanggal = data.child("date").getValue(String.class);
+                    final String noPremi = data.child("nomorPremi").getValue(String.class);
 
                     DataPembayaran dataPembayaran = new DataPembayaran();
                     dataPembayaran.setNama(nama);
                     dataPembayaran.setBesarPremi(besarPremi);
                     dataPembayaran.setDate(tanggal);
-                    listPembayaran.add(dataPembayaran);
-                    adapter.notifyDataSetChanged();
+
+                    refHealth.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (Objects.equals(noPremi, snapshot.child("nomorPolisKesehatan").getValue(String.class))){
+                                if (snapshot.hasChild("check")){
+                                    if (Objects.equals(snapshot.child("check").getValue(String.class), "Approve")){
+                                        dataPembayaran.setTime("Success");
+                                    } else {
+                                        dataPembayaran.setTime("Pending");
+                                    }
+                                }
+                            }
+
+                            refTravel.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if (Objects.equals(noPremi, snapshot.child("nomorPolisTravel").getValue(String.class))){
+                                        if (snapshot.hasChild("check")){
+                                            if (Objects.equals(snapshot.child("check").getValue(String.class), "Approve")){
+                                                dataPembayaran.setTime("Success");
+                                            } else {
+                                                dataPembayaran.setTime("Pending");
+                                            }
+                                        }
+                                    }
+                                    listPembayaran.add(dataPembayaran);
+                                    adapter.notifyDataSetChanged();
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
             }
 
