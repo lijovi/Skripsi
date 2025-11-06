@@ -281,7 +281,7 @@
     <string name="h1">1. Biaya kamar per hari (maks.365 hari)</string>
     <string name="h2">2. Biaya kamar ICU / hari</string>
     <string name="h3">3. Biaya kunjungan dokter per hari (maks.365 hari)</string>
-    <string name="h4">4. Biaya konsultasi dokter ahli per hari (max.365 hari)</string>
+    <string name="h4">4. Biaya konsultasi dokter ahli per hari (maks.365 hari)</string>
     <string name="h5">5. Obat-obatan, Lab, Test, dll (Aneka Perawatan)</string>
     <string name="h6">6. Biaya Dokter Bedah Operasi Khusus (index 100)</string>
     <string name="h7">7. Biaya Dokter Bedah Operasi Besar (index 50)</string>
