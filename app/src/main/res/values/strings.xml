@@ -118,7 +118,7 @@
     <string name="q2">Bagaimana cara melihat detail polis saya di aplikasi ?</string>
     <string name="a2">Pengguna dapat membuka halaman Informasi Asuransi dengan menginput password terlebih dahulu</string>
     <string name="q3">Apa yang harus dilakukan jika lupa password ?</string>
-    <string name="a3">Pengguna dapat melakukan perubahan password melalui dua cara: \n- Klik tombol Lupa passworddi halaman login \n- Klik Ubah passworddi halaman profile</string>
+    <string name="a3">Pengguna dapat melakukan perubahan password melalui dua cara: \n- Klik tombol Lupa passworddi halaman login \n- Klik Ubah password di halaman profile</string>
     <string name="q4">Apa yang dimaksud dengan limit asuransi ?</string>
     <string name="a4">Limit asuransi adalah batas maksimal biaya yang ditanggung oleh perusahaan asuransi sesuai dengan ketentuan pada polis</string>
     <string name="q5">Apakah saya bisa mengajukan perubahan data polis melalu aplikasi ?</string>
