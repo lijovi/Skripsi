@@ -128,7 +128,7 @@ public class HomePageNasabah extends AppCompatActivity {
             infoPassword.setVisibility(View.GONE);
         }
 
-        dataHealth.addListenerForSingleValueEvent(new ValueEventListener() {
+        dataHealth.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
@@ -250,29 +250,35 @@ public class HomePageNasabah extends AppCompatActivity {
 
         });
 
-        dataTravel.addListenerForSingleValueEvent(new ValueEventListener() {
+        dataTravel.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     companyTravel = snapshot.child("company").getValue(int.class);
-                    DatabaseReference refTravel = FirebaseDatabase.getInstance().getReference("company").child(String.valueOf(companyTravel));
-                    Log.d("INTENT", "nama: " + companyTravel);
-                    refTravel.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.exists()){
-                                Log.d("INTENT", "nama: " + snapshot.child("companyName").getValue(String.class));
-                                company_name_travel.setText(snapshot.child("companyName").getValue(String.class));
-                                contact_person_travel.setText(snapshot.child("companyContactPerson").getValue(String.class));
-                                no_asuransi_travel.setText(snapshot.child("companyPhoneNumber").getValue(String.class));
+                    if (companyTravel != companyHealth){
+                        DatabaseReference refTravel = FirebaseDatabase.getInstance().getReference("company").child(String.valueOf(companyTravel));
+                        Log.d("INTENT", "nama: " + companyTravel);
+                        refTravel.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.exists()){
+                                    Log.d("INTENT", "nama: " + snapshot.child("companyName").getValue(String.class));
+                                    company_name_travel.setText(snapshot.child("companyName").getValue(String.class));
+                                    contact_person_travel.setText(snapshot.child("companyContactPerson").getValue(String.class));
+                                    no_asuransi_travel.setText(snapshot.child("companyPhoneNumber").getValue(String.class));
+                                }
                             }
-                        }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
 
-                        }
-                    });
+                            }
+                        });
+                    } else {
+                        perusahaanTravel.setVisibility(View.GONE);
+                        contactTravel.setVisibility(View.GONE);
+                        telpTravel.setVisibility(View.GONE);
+                    }
                 } else {
                     perusahaanTravel.setVisibility(View.GONE);
                     contactTravel.setVisibility(View.GONE);

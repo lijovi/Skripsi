@@ -5,19 +5,19 @@ public class DataPembayaran {
     String nama;
     String besarPremi;
     String time;
-    String nomorPremi;
+    String nomorPolis;
     String date;
 
     public DataPembayaran(){
 
     }
 
-    public DataPembayaran(String nik, String nama, String besarPremi, String time, String nomorPremi, String date) {
+    public DataPembayaran(String nik, String nama, String besarPremi, String time, String nomorPolis, String date) {
         this.nik = nik;
         this.nama = nama;
         this.besarPremi = besarPremi;
         this.time = time;
-        this.nomorPremi = nomorPremi;
+        this.nomorPolis = nomorPolis;
         this.date = date;
     }
 
@@ -30,11 +30,11 @@ public class DataPembayaran {
     }
 
     public String getNomorPremi() {
-        return nomorPremi;
+        return nomorPolis;
     }
 
-    public void setNomorPremi(String nomorPremi) {
-        this.nomorPremi = nomorPremi;
+    public void setNomorPremi(String nomorPolis) {
+        this.nomorPolis = nomorPolis;
     }
 
     public String getNik() {

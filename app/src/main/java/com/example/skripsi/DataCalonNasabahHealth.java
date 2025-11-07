@@ -254,13 +254,13 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                 alertDialog.dismiss();
                 NomorPolis = nomorPolis.getEditText().getText().toString();
 
-                if (Objects.equals(PlanAsuransi, "RI 1000")){
+                if (Objects.equals(PlanAsuransi, "RI 500")){
                     BesarPremi = 7000000;
-                } else if (Objects.equals(PlanAsuransi, "RI 750")) {
+                } else if (Objects.equals(PlanAsuransi, "RI 400")) {
                     BesarPremi = 5000000;
-                } else if (Objects.equals(PlanAsuransi, "RI 500")) {
-                    BesarPremi = 3500000;
                 } else if (Objects.equals(PlanAsuransi, "RI 300")) {
+                    BesarPremi = 3500000;
+                } else if (Objects.equals(PlanAsuransi, "RI 150")) {
                     BesarPremi = 2000000;
                 }
                 String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
