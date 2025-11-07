@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class HistoryHealth extends AppCompatActivity {
 
     Button btnBack;
-    TextView nik, nama, email, jenisKelamin, tanggalLahir, noTelepon, alamat, pekerjaan, periodePertanggungan, planAsuransi, riwayatPenyakit;
+    TextView nik, nama, email, jenisKelamin, tanggalLahir, noTelepon, alamat, pekerjaan, periodePertanggungan, planAsuransi, riwayatPenyakit, namaAhliWaris, hubunganDenganAhliWaris;
     DatabaseReference reference;
 
     @Override
@@ -52,6 +52,8 @@ public class HistoryHealth extends AppCompatActivity {
         periodePertanggungan = findViewById(R.id.periodePertanggungan);
         planAsuransi = findViewById(R.id.planAsuransi);
         riwayatPenyakit = findViewById(R.id.riwayatPenyakit);
+        namaAhliWaris = findViewById(R.id.namaAhliWaris);
+        hubunganDenganAhliWaris = findViewById(R.id.hubunganDenganAhliWaris);
 
         String NIK = getIntent().getStringExtra("nik");
         int Company = getIntent().getIntExtra("company",0);
@@ -71,6 +73,8 @@ public class HistoryHealth extends AppCompatActivity {
                 String Pekerjaan = snapshot.child("pekerjaan").getValue(String.class);
                 String PeriodePertanggungan = snapshot.child("periodePertanggungan").getValue(String.class);
                 String PlanAsuransi = snapshot.child("plan").getValue(String.class);
+                String NamaAhliWaris = snapshot.child("namaAhliWaris").getValue(String.class);
+                String HubunganDenganAhliWaris = snapshot.child("hubunganDenganAhliWaris").getValue(String.class);
                 ArrayList<String> list = (ArrayList<String>) snapshot.child("riwayatPenyakit").getValue();
 
                 StringBuilder sb = new StringBuilder();
@@ -84,6 +88,8 @@ public class HistoryHealth extends AppCompatActivity {
                 pekerjaan.setText(Pekerjaan);
                 periodePertanggungan.setText(PeriodePertanggungan);
                 planAsuransi.setText(PlanAsuransi);
+                namaAhliWaris.setText(NamaAhliWaris);
+                hubunganDenganAhliWaris.setText(HubunganDenganAhliWaris);
                 if (list == null){
                     riwayatPenyakit.setText(null);
                 } else {

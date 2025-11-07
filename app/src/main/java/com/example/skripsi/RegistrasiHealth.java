@@ -659,7 +659,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         }
 
         NasabahHealth nasabah = new NasabahHealth(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Health",
-                Perusahaan, currenttime, currentdate, Limit, BodText, Pekerjaan, PeriodePertanggungan, PilihanPlan, NamaAhliWaris, HubunganDenganAhliWaris, List);
+                Perusahaan, currenttime, currentdate, Limit, NamaAhliWaris, HubunganDenganAhliWaris, BodText, Pekerjaan, PeriodePertanggungan, PilihanPlan, List);
 //        dataref.push().setValue(nasabah);
         reference.child(NIK).setValue(nasabah);
         Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();

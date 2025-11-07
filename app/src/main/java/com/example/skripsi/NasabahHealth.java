@@ -7,19 +7,14 @@ public class NasabahHealth extends Nasabah{
     String pekerjaan;
     String periodePertanggungan;
     String plan;
-    String namaAhliWaris;
-    String hubunganDenganAhliWaris;
     ArrayList<String> riwayatPenyakit;
 
-    public NasabahHealth(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, int company, String time, String date,
-                         int limit, String bod, String pekerjaan, String periodePertanggungan, String plan, String namaAhliWaris, String hubunganDenganAhliWaris, ArrayList<String> riwayatPenyakit) {
-        super(nik, name, email, gender, phoneNumber, address, password, jenisAsuransi ,company, time, date, limit);
+    public NasabahHealth(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, int company, String time, String date, int limit, String namaAhliWaris, String hubunganDenganAhliWaris, String bod, String pekerjaan, String periodePertanggungan, String plan, ArrayList<String> riwayatPenyakit) {
+        super(nik, name, email, gender, phoneNumber, address, password, jenisAsuransi, company, time, date, limit, namaAhliWaris, hubunganDenganAhliWaris);
         this.bod = bod;
         this.pekerjaan = pekerjaan;
         this.periodePertanggungan = periodePertanggungan;
         this.plan = plan;
-        this.namaAhliWaris = namaAhliWaris;
-        this.hubunganDenganAhliWaris = hubunganDenganAhliWaris;
         this.riwayatPenyakit = riwayatPenyakit;
     }
 
@@ -37,14 +32,6 @@ public class NasabahHealth extends Nasabah{
 
     public String getPeriodePertanggungan() {
         return periodePertanggungan;
-    }
-
-    public String getNamaAhliWaris() {
-        return namaAhliWaris;
-    }
-
-    public String getHubunganDenganAhliWaris() {
-        return hubunganDenganAhliWaris;
     }
 
     public ArrayList<String> getRiwayatPenyakit() {

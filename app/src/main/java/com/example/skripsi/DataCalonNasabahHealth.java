@@ -35,7 +35,7 @@ import java.util.Objects;
 public class DataCalonNasabahHealth extends AppCompatActivity {
 
     TextView nik, nama, email, jenisKelamin, tanggalLahir, noTelepon, alamat,
-            pekerjaan, periodePertanggungan, planAsuransi, riwayatPenyakit;
+            pekerjaan, periodePertanggungan, planAsuransi, riwayatPenyakit, namaAhliWaris, hubunganDenganAhliWaris;
 
     Button btnTerima, btnTolak, btnOkPolis, btnOkPremi, btnHistory, btnHome, btnProfile;
 
@@ -49,7 +49,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
     int BesarPremi;
     int Company;
     Calendar calendar, calendarJ;
-    String Nik, Nama, Email, JenisKelamin, TanggalLahir, NoTelp, Alamat, Pekerjaan, PeriodePertanggungan, PlanAsuransi;
+    String Nik, Nama, Email, JenisKelamin, TanggalLahir, NoTelp, Alamat, Pekerjaan, PeriodePertanggungan, PlanAsuransi, NamaAhliWaris, HubunganDenganAhliWaris;
 
     // buat ubah bahasa locale
     @Override
@@ -97,6 +97,8 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
         periodePertanggungan = findViewById(R.id.periodePertanggungan);
         planAsuransi = findViewById(R.id.planAsuransi);
         riwayatPenyakit = findViewById(R.id.riwayatPenyakit);
+        namaAhliWaris = findViewById(R.id.namaAhliWaris);
+        hubunganDenganAhliWaris = findViewById(R.id.hubunganDenganAhliWaris);
 
         btnTerima = findViewById(R.id.btnTerima);
         btnTolak = findViewById(R.id.btnTolak);
@@ -142,6 +144,8 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                 Pekerjaan = snapshot.child("pekerjaan").getValue(String.class);
                 PeriodePertanggungan = snapshot.child("periodePertanggungan").getValue(String.class);
                 PlanAsuransi = snapshot.child("plan").getValue(String.class);
+                NamaAhliWaris = snapshot.child("namaAhliWaris").getValue(String.class);
+                HubunganDenganAhliWaris = snapshot.child("hubunganDenganAhliWaris").getValue(String.class);
                 ArrayList<String> list = (ArrayList<String>) snapshot.child("riwayatPenyakit").getValue();
 
                 StringBuilder sb = new StringBuilder();
@@ -156,6 +160,8 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                 pekerjaan.setText(Pekerjaan);
                 periodePertanggungan.setText(PeriodePertanggungan);
                 planAsuransi.setText(PlanAsuransi);
+                namaAhliWaris.setText(NamaAhliWaris);
+                hubunganDenganAhliWaris.setText(HubunganDenganAhliWaris);
 
                 if (list == null){
                     riwayatPenyakit.setText(null);
