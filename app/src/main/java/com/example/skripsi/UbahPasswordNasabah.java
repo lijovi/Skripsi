@@ -44,6 +44,9 @@ public class UbahPasswordNasabah extends AppCompatActivity {
     Calendar calendar;
     int cek1 = 0;
     int cek2 = 0;
+
+    Nasabah nasabah = new Nasabah();
+
     // buat ubah bahasa locale
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -201,43 +204,11 @@ public class UbahPasswordNasabah extends AppCompatActivity {
 
                 } else {
                     if (Objects.equals(cekPassword, cekPasswordKonfirmasi)){
-                        checkDataHealth.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if (snapshot.exists()){
-//                                    String Password = snapshot.child(NIK).child("password").getValue(String.class);
-                                    databaseHealth.child(NIK).child("password").setValue(cekPassword);
-                                    Toast.makeText(getApplicationContext(), "Password Berhasil Diubah!", Toast.LENGTH_SHORT).show();
-                                    ClientSession.getInstance().setPassword(cekPassword);
-                                    Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
-                                    startActivity(intent);
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
-
-                        checkDataTravel.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if (snapshot.exists()){
-//                                    String Password = snapshot.child(NIK).child("password").getValue(String.class);
-                                    databaseTravel.child(NIK).child("password").setValue(cekPassword);
-                                    Toast.makeText(getApplicationContext(), "Password Berhasil Diubah!", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
-                                    ClientSession.getInstance().setPassword(cekPassword);
-                                    startActivity(intent);
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
+                        nasabah.ChangePassword(NIK, cekPassword);
+                        Toast.makeText(getApplicationContext(), "Password Berhasil Diubah!", Toast.LENGTH_SHORT).show();
+                        ClientSession.getInstance().setPassword(cekPassword);
+                        Intent intent = new Intent(getApplicationContext(), HomePageNasabah.class);
+                        startActivity(intent);
 
                         referenceNotifikasi.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -253,8 +224,7 @@ public class UbahPasswordNasabah extends AppCompatActivity {
                                 String currentdate = day + " - " + month + " - " + year;
                                 String currenttime = hour + " : " + minute + " : " + second;
                                 NotifikasiModel notifikasiModel = new NotifikasiModel("Berhasil", currenttime, currentdate, "Ubah Password", null);
-//                        String id = referenceNotifikasi.push().getKey();
-                                referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
+                                notifikasiModel.NewNotification(notifikasiModel, NIK);
                             }
 
                             @Override

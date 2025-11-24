@@ -41,6 +41,8 @@ public class UbahPasswordAsuransi extends AppCompatActivity {
     TextView jumlahKarakter1, jumlahKarakter2, number1, number2, kapital1, kapital2, symbol1, symbol2;
     int cek1 = 0;
     int cek2 = 0;
+    int id;
+    Asuransi asuransi = new Asuransi();
 
     // buat ubah bahasa locale
     @Override
@@ -62,6 +64,7 @@ public class UbahPasswordAsuransi extends AppCompatActivity {
         });
 
         username = CompanySession.getInstance().getUsername();
+        id = CompanySession.getInstance().getId();
         passwordBaru = findViewById(R.id.passwordBaru);
         konfirmasiPassword = findViewById(R.id.konfirmasiPassword);
         btnUbah = findViewById(R.id.btnUbah);
@@ -199,9 +202,8 @@ public class UbahPasswordAsuransi extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if (snapshot.exists()) {
-//                                    String Password = snapshot.child(NIK).child("password").getValue(String.class);
-                                    reference.child(username).child("companyPassword").setValue(cekPassword);
-                                    Toast.makeText(getApplicationContext(), "Password Sudah Dibuat", Toast.LENGTH_SHORT).show();
+                                    asuransi.ChangePassword(id, cekPassword);
+                                    Toast.makeText(getApplicationContext(), "Password Berhasil Diubah", Toast.LENGTH_SHORT).show();
                                     CompanySession.getInstance().setPassword(cekPassword);
                                     Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
                                     startActivity(intent);

@@ -64,6 +64,8 @@ public class ProfileAsuransi extends AppCompatActivity {
     ActivityResultLauncher<Intent> gallery;
     String image;
 
+    Asuransi asuransi = new Asuransi();
+
     // buat ubah bahasa locale
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -244,16 +246,6 @@ public class ProfileAsuransi extends AppCompatActivity {
                 gallery.launch(intent);
             }
         });
-
-//    private void ResetPassword() {
-//        mAuth.sendPasswordResetEmail(Email).addOnSuccessListener(new OnSuccessListener<Void>() {
-//            @Override
-//            public void onSuccess(Void unused) {
-//                Intent intent = new Intent(ProfileAsuransi.this, LoginAsuransi.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
     }
 
     private void uploadToCloudinary(Uri selectedImage) {
@@ -274,7 +266,7 @@ public class ProfileAsuransi extends AppCompatActivity {
 
                 Glide.with(ProfileAsuransi.this).load(imageuri).circleCrop().into(profile);
 
-                FirebaseDatabase.getInstance().getReference("company").child(String.valueOf(Id)).child("profile").setValue(imageuri);
+                asuransi.ChangeProfilePicture(Id, imageuri);
             }
 
             @Override
@@ -288,45 +280,6 @@ public class ProfileAsuransi extends AppCompatActivity {
             }
         }).dispatch();
     }
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-//            Uri imageUri = data.getData();
-//            profile.setImageURI(imageUri);
-//
-//            StorageReference fileRef = storageRef.child(Id + ".jpg");
-//
-//            fileRef.putFile(imageUri).addOnSuccessListener(taskSnapshot -> {
-//                fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-//                    String downloadurl = uri.toString();
-//
-//                    reference.child(String.valueOf(Id)).setValue(downloadurl).addOnSuccessListener(aVoid -> {
-//                        Toast.makeText(this, "Profile picture has been changed", Toast.LENGTH_SHORT).show();
-//                    });
-//                });
-//            });
-//        }
-//    }
-
-//    private void sendEmail (String send_email, String send_link){
-//        Intent intent = new Intent(Intent.ACTION_SENDTO);
-//        intent.setData(Uri.parse("mailto:" + send_email));
-//        intent.putExtra(Intent.EXTRA_SUBJECT, "Ubah Password");
-//        intent.putExtra(Intent.EXTRA_TEXT, send_link);
-//        if (intent.resolveActivity(getPackageManager()) != null) {
-//            startActivity(Intent.createChooser(intent, ""));
-//            Toast.makeText(this, "Email Sent!", Toast.LENGTH_SHORT).show();
-//        } else {
-//            Toast.makeText(this, "Email tidak terkirim!", Toast.LENGTH_SHORT).show();
-//        }
-//    }
-//
-//    private void showDialog() {
-//        Dialog dialog = new Dialog(this);
-////        dialog.setContentView();
-//    }
 
 }
 

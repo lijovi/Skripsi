@@ -50,8 +50,6 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     Button btnDaftar, bod, plus, periode;
     RadioGroup jenisKelamin;
     RadioButton selectedGender, laki, perempuan;
-    DatabaseReference reference, referenceNotif;
-    FirebaseDatabase database;
     Spinner plan;
     String pilihanPlan;
     TextView riwayatPenyakit, errorJenis;
@@ -61,10 +59,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     View dialogView;
     CheckBox c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19;
     ArrayList<String> list = new ArrayList<>();
-//    ArrayList<String> List;
     Button btnSimpan, close;
-//    LocalTime currentTime;
-//    String date;
     Calendar calendar;
     int limit;
     int cek;
@@ -93,8 +88,6 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
             sb.append("- ").append(item).append("\n");
         }
 
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference("clientSementaraHealth");
         calendar = Calendar.getInstance();
 
         nik = findViewById(R.id.nik);
@@ -129,12 +122,6 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         texthubungan = findViewById(R.id.texthubungan);
         check = findViewById(R.id.check);
         information = findViewById(R.id.information);
-
-//        StringBuilder text = new StringBuilder();
-//        int size = list.size();
-//        for (int i = 0; i<size; i++){
-//            riwayatPenyakit.setText(list.get(i));
-//        }
 
         nik.addTextChangedListener(new TextWatcher() {
             @Override
@@ -380,8 +367,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), PopUpRiwayatPenyakit.class);
-//                startActivity(intent);
+
                 DialogForm();
             }
         });
@@ -390,8 +376,6 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
             riwayatPenyakit.setText("");
         }
 
-//        currentTime = LocalTime.now();
-//        date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
     }
 
     private void DialogFormInfo() {
@@ -521,12 +505,6 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
             }
         });
     }
-
-
-
-
-
-
 
 
     private void DialogForm() {
@@ -660,8 +638,7 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
 
         NasabahHealth nasabah = new NasabahHealth(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Health",
                 Perusahaan, currenttime, currentdate, Limit, NamaAhliWaris, HubunganDenganAhliWaris, BodText, Pekerjaan, PeriodePertanggungan, PilihanPlan, List);
-//        dataref.push().setValue(nasabah);
-        reference.child(NIK).setValue(nasabah);
+        nasabah.RegistrasiHealth(nasabah);
         Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();
     }
 

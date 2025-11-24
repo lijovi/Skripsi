@@ -99,8 +99,6 @@ public class Pembayaran extends AppCompatActivity {
         nik = ClientSession.getInstance().getNik();
 
         database = FirebaseDatabase.getInstance();
-//        besarPremi = database.getReference();
-//        Log.d("INTENT", "COMPANY: " + company);
 
         DialogForm();
 
@@ -151,7 +149,6 @@ public class Pembayaran extends AppCompatActivity {
         NumberFormat idrFormat = NumberFormat.getInstance(locale);
 
         pembayaran = dialogView.findViewById(R.id.pembayaran);
-
 
         pembayaran.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -319,14 +316,12 @@ public class Pembayaran extends AppCompatActivity {
                 String second = String.format("%02d",calendar.get(Calendar.SECOND));
                 String currenttime = hour + " : " + minute + " : " + second;
 
+                Nasabah nasabah = new Nasabah();
+
                 if (check == 1){
-                    FirebaseDatabase.getInstance().getReference("transaksiTravel").child(nik).child("linkBukti").setValue(imageuri);
-                    FirebaseDatabase.getInstance().getReference("transaksiTravel").child(nik).child("check").setValue("Not Approve");
-                    FirebaseDatabase.getInstance().getReference("transaksiTravel").child(nik).child("time").setValue(currenttime);
+                    nasabah.Pembayaran(currenttime, imageuri, nik, "travel");
                 } else if (check == 2) {
-                    FirebaseDatabase.getInstance().getReference("transaksiHealth").child(nik).child("linkBukti").setValue(imageuri);
-                    FirebaseDatabase.getInstance().getReference("transaksiHealth").child(nik).child("check").setValue("Not Approve");
-                    FirebaseDatabase.getInstance().getReference("transaksiHealth").child(nik).child("time").setValue(currenttime);
+                    nasabah.Pembayaran(currenttime, imageuri, nik, "health");
                 }
 
             }
@@ -342,28 +337,4 @@ public class Pembayaran extends AppCompatActivity {
             }
         }).dispatch();
     }
-
-
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-//            Uri imageUri = data.getData();
-//            bukti.setImageURI(imageUri);
-//            bukti.setVisibility(View.VISIBLE);
-//            btnBuktiFoto.setVisibility(View.GONE);
-//            StorageReference fileRef = storageRef.child( Nomor+ ".jpg");
-//
-//            fileRef.putFile(imageUri).addOnSuccessListener(taskSnapshot -> {
-//                fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-//                    String downloadurl = uri.toString();
-//
-////                    reference.child(String.valueOf(NIK)).setValue(downloadurl).addOnSuccessListener(aVoid -> {
-////                        Toast.makeText(this, "Profile picture has been changed", Toast.LENGTH_SHORT).show();
-////                    });
-//                });
-//            });
-//        }
-//    }
 }

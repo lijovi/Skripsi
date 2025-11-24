@@ -70,7 +70,7 @@ public class RiwayatPembayaran extends AppCompatActivity {
                     final String nama = data.child("nama").getValue(String.class);
                     final String besarPremi = data.child("besarPremi").getValue(String.class);
                     final String tanggal = data.child("date").getValue(String.class);
-                    final String noPremi = data.child("nomorPremi").getValue(String.class);
+                    final String noPolis = data.child("nomorPolis").getValue(String.class);
 
                     DataPembayaran dataPembayaran = new DataPembayaran();
                     dataPembayaran.setNama(nama);
@@ -80,12 +80,12 @@ public class RiwayatPembayaran extends AppCompatActivity {
                     refHealth.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (Objects.equals(noPremi, snapshot.child("nomorPolisKesehatan").getValue(String.class))){
+                            if (Objects.equals(noPolis, snapshot.child("nomorPolisKesehatan").getValue(String.class))){
                                 if (snapshot.hasChild("check")){
                                     if (Objects.equals(snapshot.child("check").getValue(String.class), "Approve")){
-                                        dataPembayaran.setTime("Success");
+                                        dataPembayaran.setStatus("Success");
                                     } else {
-                                        dataPembayaran.setTime("Pending");
+                                        dataPembayaran.setStatus("Pending");
                                     }
                                 }
                             }
@@ -93,12 +93,12 @@ public class RiwayatPembayaran extends AppCompatActivity {
                             refTravel.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    if (Objects.equals(noPremi, snapshot.child("nomorPolisTravel").getValue(String.class))){
+                                    if (Objects.equals(noPolis, snapshot.child("nomorPolisTravel").getValue(String.class))){
                                         if (snapshot.hasChild("check")){
                                             if (Objects.equals(snapshot.child("check").getValue(String.class), "Approve")){
-                                                dataPembayaran.setTime("Success");
+                                                dataPembayaran.setStatus("Success");
                                             } else {
-                                                dataPembayaran.setTime("Pending");
+                                                dataPembayaran.setStatus("Pending");
                                             }
                                         }
                                     }

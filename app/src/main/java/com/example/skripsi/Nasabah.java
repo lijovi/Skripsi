@@ -1,6 +1,16 @@
 package com.example.skripsi;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Nasabah implements Serializable {
     String nik;
@@ -17,6 +27,11 @@ public class Nasabah implements Serializable {
     int limit;
     String namaAhliWaris;
     String hubunganDenganAhliWaris;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference databaseHealth = database.getReference("clientHealth");
+    DatabaseReference databaseTravel = database.getReference("clientTravel");
+
 
     public Nasabah(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, int company, String time, String date, int limit, String namaAhliWaris, String hubunganDenganAhliWaris) {
         this.nik = nik;
@@ -149,5 +164,113 @@ public class Nasabah implements Serializable {
 
     public void setHubunganDenganAhliWaris(String hubunganDenganAhliWaris) {
         this.hubunganDenganAhliWaris = hubunganDenganAhliWaris;
+    }
+
+    public void CreatePassword(String nik, String password){
+        databaseHealth.child(nik).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    databaseHealth.child(nik).child("password").setValue(password);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        databaseTravel.child(nik).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    databaseTravel.child(nik).child("password").setValue(password);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public void ChangePassword(String nik, String password){
+        databaseHealth.child(nik).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    databaseHealth.child(nik).child("password").setValue(password);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        databaseTravel.child(nik).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    databaseTravel.child(nik).child("password").setValue(password);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public void ChangeProfilePicture(String imageuri, String nik){
+        databaseHealth.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    if (Objects.equals(nik, snapshot.child(nik).child("nik"))){
+                        FirebaseDatabase.getInstance().getReference("clientHealth").child(nik).child("profile").setValue(imageuri);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        databaseTravel.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    if (Objects.equals(nik, snapshot.child(nik).child("nik"))){
+                        FirebaseDatabase.getInstance().getReference("clientTravel").child(nik).child("profile").setValue(imageuri);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public void Pembayaran(String currentTime, String imageuri, String nik, String jenis){
+        if (Objects.equals(jenis, "travel")){
+            FirebaseDatabase.getInstance().getReference("transaksiTravel").child(nik).child("linkBukti").setValue(imageuri);
+            FirebaseDatabase.getInstance().getReference("transaksiTravel").child(nik).child("check").setValue("Not Approve");
+            FirebaseDatabase.getInstance().getReference("transaksiTravel").child(nik).child("time").setValue(currentTime);
+        } else if (Objects.equals(jenis, "health")) {
+            FirebaseDatabase.getInstance().getReference("transaksiHealth").child(nik).child("linkBukti").setValue(imageuri);
+            FirebaseDatabase.getInstance().getReference("transaksiHealth").child(nik).child("check").setValue("Not Approve");
+            FirebaseDatabase.getInstance().getReference("transaksiHealth").child(nik).child("time").setValue(currentTime);
+
+        }
+
     }
 }

@@ -52,13 +52,9 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
     TextView masaPerjalanan;
     LinearLayout namaKeluargaAll, lamaPerjalananAll;
     int selectedID;
-    FirebaseDatabase database;
-    DatabaseReference reference;
     String JenisPolis, pilihanPlan;
     int perusahaan;
     Spinner plan;
-//    LocalTime currentTime;
-//    String date;
     Calendar calendar;
     int limit;
     TextView textnik, textnama, textemail, textkelamin, textno, textalamat, textjenis, textkeluarga, textmasa, texttipe, textahli, texthubungan, textnegara, texttujuan;
@@ -83,8 +79,6 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
             return insets;
         });
 
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference("clientSementaraTravel");
         calendar = Calendar.getInstance();
 
         nik = findViewById(R.id.nik);
@@ -385,10 +379,6 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
 
 
         btnMasaPerjalanan.setOnClickListener(view-> {
-//                    final Calendar calendar = Calendar.getInstance();
-//                    int year = calendar.get(Calendar.YEAR);
-//                    int month = calendar.get(Calendar.MONTH);
-//                    int day = calendar.get(Calendar.DAY_OF_MONTH);
 
             MaterialDatePicker<Pair<Long, Long>> materialDatePicker = MaterialDatePicker.Builder.dateRangePicker().setSelection(new Pair<>(
                     MaterialDatePicker.thisMonthInUtcMilliseconds(),
@@ -407,11 +397,6 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
             materialDatePicker.show(getSupportFragmentManager(), "tag");
                 }
         );
-
-//        String temp = selectedPolis.getText().toString();
-
-//        currentTime = LocalTime.now();
-//        date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
     }
 
@@ -559,7 +544,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         String Alamat = alamat.getText().toString();
         String NamaKeluarga = namaKeluarga.getText().toString();
         String MasaPerjalanan = masaPerjalanan.getText().toString();
-//        String LamaPerjalanan = lamaPerjalanan.getText().toString();
+
         String TipePolis = selectedPolis.getText().toString();
         String NamaAhliWaris = namaAhliWaris.getText().toString();
         String HubunganDenganAhliWaris = hubunganDenganAhliWaris.getText().toString();
@@ -568,8 +553,7 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         String PlanAsuransi = pilihanPlan.toString();
         int Perusahaan = perusahaan;
         int Limit = limit;
-//        String Time = currentTime.toString();
-//        String Date = date;
+
         String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
         String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
         String second = String.format("%02d", calendar.get(Calendar.SECOND));
@@ -584,13 +568,12 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         if (Objects.equals(JenisPolis, "Family")){
             NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Travel",
                     Perusahaan, currenttime, currentdate, Limit, NamaAhliWaris, HubunganDenganAhliWaris, JenisPolis, NamaKeluarga, PlanAsuransi, MasaPerjalanan, TipePolis, NegaraTujuan, TujuanPerjalanan);
-            reference.child(NIK).setValue(nasabah);
+            nasabah.RegistrasiTravel(nasabah);
         } else {
             NasabahTravel nasabah = new NasabahTravel(NIK, Nama, Email, JenisKelamin, NoTelp, Alamat,"0", "Travel",
                     Perusahaan, currenttime, currentdate, Limit, NamaAhliWaris, HubunganDenganAhliWaris, JenisPolis, null, PlanAsuransi, MasaPerjalanan, TipePolis, NegaraTujuan, TujuanPerjalanan);
-            reference.child(NIK).setValue(nasabah);
+            nasabah.RegistrasiTravel(nasabah);
         }
-//        dataref.push().setValue(nasabah);
 
         Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();
         }
