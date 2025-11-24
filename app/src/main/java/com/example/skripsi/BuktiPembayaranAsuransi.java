@@ -120,7 +120,8 @@ public class BuktiPembayaranAsuransi extends AppCompatActivity {
                 Log.d("Nomor", NomorPolis);
 
                 BuktiBayar pembayaran = new BuktiBayar(NIK, Nama, BesarPremi, NomorPolis, currenttime, currentdate);
-                referencePembayaran.child(NIK).child(NomorPolis).setValue(pembayaran);
+                pembayaran.NewBuktiBayar(NIK, NomorPolis, pembayaran);
+//                referencePembayaran.child(NIK).child(NomorPolis).setValue(pembayaran);
 
 
                 referenceTransaksiHealth.addValueEventListener(new ValueEventListener() {
