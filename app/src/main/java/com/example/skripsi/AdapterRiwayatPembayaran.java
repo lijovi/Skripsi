@@ -42,8 +42,11 @@ public class AdapterRiwayatPembayaran extends RecyclerView.Adapter<AdapterRiwaya
         holder.check.setText(pembayaran.getStatus());
         if (Objects.equals(pembayaran.getStatus(), "Success")){
             holder.check.setTextColor(Color.parseColor("#1E942C"));
-        } else {
+        } else if (Objects.equals(pembayaran.getStatus(), "Pending")){
             holder.check.setTextColor(Color.parseColor("#AD9900"));
+        } else {
+            holder.check.setTextColor(Color.parseColor("#FF0000"));
+            holder.notif.setText("Sudah melewati batas pembayaran");
         }
     }
 
