@@ -46,7 +46,8 @@ public class AdapterRiwayatPembayaran extends RecyclerView.Adapter<AdapterRiwaya
             holder.check.setTextColor(Color.parseColor("#AD9900"));
         } else {
             holder.check.setTextColor(Color.parseColor("#FF0000"));
-            holder.notif.setText("Sudah melewati batas pembayaran");
+            String gagal = holder.itemView.getContext().getString(R.string.gagal);
+            holder.notif.setText(pembayaran.getNama() + " " + gagal + " " + pembayaran.getNomorPolis());
         }
     }
 

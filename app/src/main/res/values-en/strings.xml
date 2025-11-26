@@ -398,4 +398,5 @@
     <string name="ate2">250\n($50/8 hour)</string>
     <string name="ate3">600 ($30/day)</string>
     <string name="atv1">500\n($50/8 hour)</string>
+    <string name="gagal">has passed the payment limit for insurance with policy number</string>
 </resources>
