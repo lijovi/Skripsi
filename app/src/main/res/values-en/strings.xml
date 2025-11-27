@@ -330,7 +330,9 @@
     <string name="textPembayaran">has made a payment of</string>
     <string name="buatPassword">Password created successfully</string>
     <string name="pembayaranHealth">Health insurance payment has been received</string>
+    <string name="pembayaranHealthDitolak">Health insurance payment has been declined</string>
     <string name="pembayaranTravel">Travel insurance payment has been received</string>
+    <string name="pembayaranTravelDitolak">Travel insurance payment has been declined</string>
     <string name="pendaftaranHealth">Health insurance registration has been accepted</string>
     <string name="pendaftaranTravel">Travel insurance registration has been accepted</string>
     <string name="ubahPassword">Password changed successfully</string>

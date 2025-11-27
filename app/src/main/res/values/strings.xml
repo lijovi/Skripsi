@@ -265,7 +265,9 @@
     <string name="textPembayaran">telah melakukan pembayaran sebesar</string>
     <string name="buatPassword">Password berhasil dibuat</string>
     <string name="pembayaranHealth">Pembayaran asuransi health telah diterima</string>
+    <string name="pembayaranHealthDitolak">Pembayaran asuransi health telah ditolak</string>
     <string name="pembayaranTravel">Pembayaran asuransi travel telah diterima</string>
+    <string name="pembayaranTravelDitolak">Pembayaran asuransi travel telah ditolak</string>
     <string name="pendaftaranHealth">Pendaftaran asuransi health telah diterima</string>
     <string name="pendaftaranTravel">Pendaftaran asuransi travel telah diterima</string>
     <string name="ubahPassword">Password berhasil diubah</string>

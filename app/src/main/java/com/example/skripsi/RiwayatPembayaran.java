@@ -71,6 +71,71 @@ public class RiwayatPembayaran extends AppCompatActivity {
         String NIK = ClientSession.getInstance().getNik();
         String Nama = ClientSession.getInstance().getNama();
 
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot data: snapshot.child(NIK).getChildren()){
+                    final String nama = data.child("nama").getValue(String.class);
+                    final String besarPremi = data.child("besarPremi").getValue(String.class);
+                    final String tanggal = data.child("tanggal").getValue(String.class);
+                    final String noPolis = data.child("nomorPolis").getValue(String.class);
+
+                    DataPembayaran dataPembayaran = new DataPembayaran();
+                    dataPembayaran.setNama(nama);
+                    dataPembayaran.setBesarPremi(besarPremi);
+                    dataPembayaran.setDate(tanggal);
+
+                    refHealth.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (Objects.equals(noPolis, snapshot.child("nomorPolisKesehatan").getValue(String.class))){
+                                if (snapshot.hasChild("check")){
+                                    if (Objects.equals(snapshot.child("check").getValue(String.class), "Approve")){
+                                        dataPembayaran.setStatus("Success");
+                                    } else {
+                                        dataPembayaran.setStatus("Pending");
+                                    }
+                                    listPembayaran.add(dataPembayaran);
+                                }
+                            }
+
+                            refTravel.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if (Objects.equals(noPolis, snapshot.child("nomorPolisTravel").getValue(String.class))){
+                                        if (snapshot.hasChild("check")){
+                                            if (Objects.equals(snapshot.child("check").getValue(String.class), "Approve")){
+                                                dataPembayaran.setStatus("Success");
+                                            } else {
+                                                dataPembayaran.setStatus("Pending");
+                                            }
+                                            listPembayaran.add(dataPembayaran);
+                                        }
+                                    }
+                                    adapter.notifyDataSetChanged();
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         refHealth.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -107,7 +172,8 @@ public class RiwayatPembayaran extends AppCompatActivity {
                     DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
                     LocalDate date = LocalDate.parse(jatuhTempo, format);
                     LocalDate current = LocalDate.now();
-
+                    Log.d("CEK", String.valueOf(current));
+                    Log.d("CEK", String.valueOf(date));
                     if (current.isAfter(date)) {
                         String besarPremi = String.valueOf(snapshot.child("besarPremi").getValue(int.class));
                         String noPolis = snapshot.child("nomorPolisTravel").getValue(String.class);
@@ -119,70 +185,6 @@ public class RiwayatPembayaran extends AppCompatActivity {
                         listPembayaran.add(data);
                         adapter.notifyDataSetChanged();
                     }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot data: snapshot.child(NIK).getChildren()){
-                    final String nama = data.child("nama").getValue(String.class);
-                    final String besarPremi = data.child("besarPremi").getValue(String.class);
-                    final String tanggal = data.child("tanggal").getValue(String.class);
-                    final String noPolis = data.child("nomorPolis").getValue(String.class);
-
-                    DataPembayaran dataPembayaran = new DataPembayaran();
-                    dataPembayaran.setNama(nama);
-                    dataPembayaran.setBesarPremi(besarPremi);
-                    dataPembayaran.setDate(tanggal);
-
-                    refHealth.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (Objects.equals(noPolis, snapshot.child("nomorPolisKesehatan").getValue(String.class))){
-                                if (snapshot.hasChild("check")){
-                                    if (Objects.equals(snapshot.child("check").getValue(String.class), "Approve")){
-                                        dataPembayaran.setStatus("Success");
-                                    } else {
-                                        dataPembayaran.setStatus("Pending");
-                                    }
-                                }
-                            }
-
-                            refTravel.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    if (Objects.equals(noPolis, snapshot.child("nomorPolisTravel").getValue(String.class))){
-                                        if (snapshot.hasChild("check")){
-                                            if (Objects.equals(snapshot.child("check").getValue(String.class), "Approve")){
-                                                dataPembayaran.setStatus("Success");
-                                            } else {
-                                                dataPembayaran.setStatus("Pending");
-                                            }
-                                        }
-                                    }
-                                    listPembayaran.add(dataPembayaran);
-                                    adapter.notifyDataSetChanged();
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                }
-                            });
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
                 }
             }
 

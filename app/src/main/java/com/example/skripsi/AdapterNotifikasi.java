@@ -36,10 +36,18 @@ public class AdapterNotifikasi extends RecyclerView.Adapter<AdapterNotifikasi.Vi
             holder.tvDeskripsi.setText(text);
         } else if (Objects.equals(model.getJenis(), "Pembayaran")) {
             if (Objects.equals(model.getAsuransi(), "Health")){
-                text = holder.itemView.getContext().getString(R.string.pembayaranHealth);
+                if (Objects.equals(model.getDeskripsi(), "Diterima")){
+                    text = holder.itemView.getContext().getString(R.string.pembayaranHealth);
+                } else {
+                    text = holder.itemView.getContext().getString(R.string.pembayaranHealthDitolak);
+                }
                 holder.tvDeskripsi.setText(text);
             } else if (Objects.equals(model.getAsuransi(), "Travel")) {
-                text = holder.itemView.getContext().getString(R.string.pembayaranTravel);
+                if (Objects.equals(model.getDeskripsi(), "Diterima")){
+                    text = holder.itemView.getContext().getString(R.string.pembayaranTravel);
+                } else {
+                    text = holder.itemView.getContext().getString(R.string.pembayaranTravelDitolak);
+                }
                 holder.tvDeskripsi.setText(text);
             }
         } else if (Objects.equals(model.getJenis(), "Pendaftaran")) {
