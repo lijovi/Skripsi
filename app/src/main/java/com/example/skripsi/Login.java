@@ -145,7 +145,7 @@ public class Login extends AppCompatActivity {
         checkDataHealth.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
+                if (snapshot.exists() && !snapshot.child(NIK).hasChild("block")){
                     nik.setError(null);
                     String NameFromDB = snapshot.child(NIK).child("name").getValue(String.class);
                     String Email = snapshot.child(NIK).child("email").getValue(String.class);
@@ -196,7 +196,7 @@ public class Login extends AppCompatActivity {
         checkDataTravel.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
+                if (snapshot.exists() && !snapshot.child(NIK).hasChild("block")){
                     nik.setError(null);
                     String NameFromDB = snapshot.child(NIK).child("name").getValue(String.class);
                     String Email = snapshot.child(NIK).child("email").getValue(String.class);
