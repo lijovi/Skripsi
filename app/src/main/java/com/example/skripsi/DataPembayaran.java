@@ -4,7 +4,7 @@ public class DataPembayaran {
     String nik;
     String nama;
     String besarPremi;
-    String time;
+    String status;
     String nomorPolis;
     String date;
 
@@ -12,11 +12,11 @@ public class DataPembayaran {
 
     }
 
-    public DataPembayaran(String nik, String nama, String besarPremi, String time, String nomorPolis, String date) {
+    public DataPembayaran(String nik, String nama, String besarPremi, String status, String nomorPolis, String date) {
         this.nik = nik;
         this.nama = nama;
         this.besarPremi = besarPremi;
-        this.time = time;
+        this.status = status;
         this.nomorPolis = nomorPolis;
         this.date = date;
     }
@@ -29,11 +29,11 @@ public class DataPembayaran {
         this.date = date;
     }
 
-    public String getNomorPremi() {
+    public String getNomorPolis() {
         return nomorPolis;
     }
 
-    public void setNomorPremi(String nomorPolis) {
+    public void setNomorPolis(String nomorPolis) {
         this.nomorPolis = nomorPolis;
     }
 
@@ -61,11 +61,11 @@ public class DataPembayaran {
         this.besarPremi = besarPremi;
     }
 
-    public String getTime() {
-        return time;
+    public String getStatus() {
+        return status;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

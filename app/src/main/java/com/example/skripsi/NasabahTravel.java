@@ -1,5 +1,8 @@
 package com.example.skripsi;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class NasabahTravel extends Nasabah{
     String jenisPolis;
     String namaKeluarga;
@@ -8,6 +11,8 @@ public class NasabahTravel extends Nasabah{
     String tipePolis;
     String negaraTujuan;
     String tujuanPerjalanan;
+    FirebaseDatabase database;
+    DatabaseReference reference;
 
     public NasabahTravel(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, int company, String time, String date, int limit, String namaAhliWaris, String hubunganDenganAhliWaris, String jenisPolis, String namaKeluarga, String planAsuransi, String masaPerjalanan, String tipePolis, String negaraTujuan, String tujuanPerjalanan) {
         super(nik, name, email, gender, phoneNumber, address, password, jenisAsuransi, company, time, date, limit, namaAhliWaris, hubunganDenganAhliWaris);
@@ -74,5 +79,11 @@ public class NasabahTravel extends Nasabah{
 
     public void setTujuanPerjalanan(String tujuanPerjalanan) {
         this.tujuanPerjalanan = tujuanPerjalanan;
+    }
+
+    public void RegistrasiTravel(NasabahTravel nasabah){
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference("clientSementaraTravel");
+        reference.child(nik).setValue(nasabah);
     }
 }

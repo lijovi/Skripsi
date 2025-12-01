@@ -42,6 +42,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 
 import java.text.NumberFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Locale;
@@ -99,8 +101,6 @@ public class Pembayaran extends AppCompatActivity {
         nik = ClientSession.getInstance().getNik();
 
         database = FirebaseDatabase.getInstance();
-//        besarPremi = database.getReference();
-//        Log.d("INTENT", "COMPANY: " + company);
 
         DialogForm();
 
@@ -152,7 +152,6 @@ public class Pembayaran extends AppCompatActivity {
 
         pembayaran = dialogView.findViewById(R.id.pembayaran);
 
-
         pembayaran.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -165,55 +164,67 @@ public class Pembayaran extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()) {
                                 if (!snapshot.child(nik).hasChild("check")){
-                                    int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
-                                    String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
-                                    Nomor = snapshot.child(nik).child("nomorPolisTravel").getValue(String.class);
-                                    jumlah.setText("Rp " + idrFormat.format((double) premi));
-                                    jatuhTempo.setText(JatuhTempo + " !");
-                                    int nocompany = snapshot.child(nik).child("company").getValue(int.class);
-                                    checkVirtual = database.getReference("company");
-                                    Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
-                                    Log.d("INTENT", "COMPANY: " + nocompany);
-                                    checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            if (snapshot.exists()){
-                                                String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
-                                                virtualAccount.setText(virtual);
-                                                check = 1;
+                                    String cek = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
+                                    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
+                                    LocalDate date = LocalDate.parse(cek, format);
+                                    LocalDate current = LocalDate.now();
+                                    if (!current.isAfter(date)){
+                                        int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
+                                        String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
+                                        Nomor = snapshot.child(nik).child("nomorPolisTravel").getValue(String.class);
+                                        jumlah.setText("Rp " + idrFormat.format((double) premi));
+                                        jatuhTempo.setText(JatuhTempo + " !");
+                                        int nocompany = snapshot.child(nik).child("company").getValue(int.class);
+                                        checkVirtual = database.getReference("company");
+                                        Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
+                                        Log.d("INTENT", "COMPANY: " + nocompany);
+                                        checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                if (snapshot.exists()){
+                                                    String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
+                                                    virtualAccount.setText(virtual);
+                                                    check = 1;
+                                                }
                                             }
-                                        }
 
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
 
-                                        }
-                                    });
+                                            }
+                                        });
+                                    }
                                 } else if (Objects.equals(snapshot.child(nik).child("check").getValue(String.class), "Not Approve")) {
-                                    int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
-                                    String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
-                                    Nomor = snapshot.child(nik).child("nomorPolisTravel").getValue(String.class);
-                                    jumlah.setText("Rp " + idrFormat.format((double) premi));
-                                    jatuhTempo.setText(JatuhTempo + " !");
-                                    int nocompany = snapshot.child(nik).child("company").getValue(int.class);
-                                    checkVirtual = database.getReference("company");
-                                    Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
-                                    Log.d("INTENT", "COMPANY: " + nocompany);
-                                    checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            if (snapshot.exists()){
-                                                String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
-                                                virtualAccount.setText(virtual);
-                                                check = 1;
+                                    String cek = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
+                                    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
+                                    LocalDate date = LocalDate.parse(cek, format);
+                                    LocalDate current = LocalDate.now();
+                                    if (!current.isAfter(date)){
+                                        int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
+                                        String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
+                                        Nomor = snapshot.child(nik).child("nomorPolisTravel").getValue(String.class);
+                                        jumlah.setText("Rp " + idrFormat.format((double) premi));
+                                        jatuhTempo.setText(JatuhTempo + " !");
+                                        int nocompany = snapshot.child(nik).child("company").getValue(int.class);
+                                        checkVirtual = database.getReference("company");
+                                        Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
+                                        Log.d("INTENT", "COMPANY: " + nocompany);
+                                        checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                if (snapshot.exists()){
+                                                    String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
+                                                    virtualAccount.setText(virtual);
+                                                    check = 1;
+                                                }
                                             }
-                                        }
 
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
 
-                                        }
-                                    });
+                                            }
+                                        });
+                                    }
                                 }
                             }
                             alertDialog.dismiss();
@@ -231,55 +242,67 @@ public class Pembayaran extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()) {
                                 if (!snapshot.child(nik).hasChild("check")){
-                                    int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
-                                    String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
-                                    Nomor = snapshot.child(nik).child("nomorPolisKesehatan").getValue(String.class);
-                                    jumlah.setText("Rp " + idrFormat.format((double) premi));
-                                    jatuhTempo.setText(JatuhTempo + " !");
-                                    int nocompany = snapshot.child(nik).child("company").getValue(int.class);
-                                    Log.d("INTENT", "COMPANY: " + nocompany);
-                                    checkVirtual = database.getReference("company");
-                                    Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
-                                    checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            if (snapshot.exists()){
-                                                String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
-                                                virtualAccount.setText(virtual);
-                                                check = 2;
+                                    String cek = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
+                                    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
+                                    LocalDate date = LocalDate.parse(cek, format);
+                                    LocalDate current = LocalDate.now();
+                                    if (!current.isAfter(date)){
+                                        int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
+                                        String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
+                                        Nomor = snapshot.child(nik).child("nomorPolisKesehatan").getValue(String.class);
+                                        jumlah.setText("Rp " + idrFormat.format((double) premi));
+                                        jatuhTempo.setText(JatuhTempo + " !");
+                                        int nocompany = snapshot.child(nik).child("company").getValue(int.class);
+                                        Log.d("INTENT", "COMPANY: " + nocompany);
+                                        checkVirtual = database.getReference("company");
+                                        Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
+                                        checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                if (snapshot.exists()){
+                                                    String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
+                                                    virtualAccount.setText(virtual);
+                                                    check = 2;
+                                                }
                                             }
-                                        }
 
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
 
-                                        }
-                                    });
+                                            }
+                                        });
+                                    }
                                 } else if (Objects.equals(snapshot.child(nik).child("check").getValue(String.class), "Not Approve")) {
-                                    int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
-                                    String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
-                                    Nomor = snapshot.child(nik).child("nomorPolisKesehatan").getValue(String.class);
-                                    jumlah.setText("Rp " + idrFormat.format((double) premi));
-                                    jatuhTempo.setText(JatuhTempo + " !");
-                                    int nocompany = snapshot.child(nik).child("company").getValue(int.class);
-                                    Log.d("INTENT", "COMPANY: " + nocompany);
-                                    checkVirtual = database.getReference("company");
-                                    Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
-                                    checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            if (snapshot.exists()){
-                                                String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
-                                                virtualAccount.setText(virtual);
-                                                check = 2;
+                                    String cek = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
+                                    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
+                                    LocalDate date = LocalDate.parse(cek, format);
+                                    LocalDate current = LocalDate.now();
+                                    if (!current.isAfter(date)){
+                                        int premi = snapshot.child(nik).child("besarPremi").getValue(int.class);
+                                        String JatuhTempo = snapshot.child(nik).child("jatuhTempo").getValue(String.class);
+                                        Nomor = snapshot.child(nik).child("nomorPolisKesehatan").getValue(String.class);
+                                        jumlah.setText("Rp " + idrFormat.format((double) premi));
+                                        jatuhTempo.setText(JatuhTempo + " !");
+                                        int nocompany = snapshot.child(nik).child("company").getValue(int.class);
+                                        Log.d("INTENT", "COMPANY: " + nocompany);
+                                        checkVirtual = database.getReference("company");
+                                        Query checkDataVirtual = checkVirtual.orderByChild("companyId").equalTo(nocompany);
+                                        checkDataVirtual.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                if (snapshot.exists()){
+                                                    String virtual = snapshot.child(String.valueOf(nocompany)).child("companyVirtualAccount").getValue(String.class);
+                                                    virtualAccount.setText(virtual);
+                                                    check = 2;
+                                                }
                                             }
-                                        }
 
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
 
-                                        }
-                                    });
+                                            }
+                                        });
+                                    }
                                 }
                             }
                             alertDialog.dismiss();
@@ -319,14 +342,12 @@ public class Pembayaran extends AppCompatActivity {
                 String second = String.format("%02d",calendar.get(Calendar.SECOND));
                 String currenttime = hour + " : " + minute + " : " + second;
 
+                Nasabah nasabah = new Nasabah();
+
                 if (check == 1){
-                    FirebaseDatabase.getInstance().getReference("transaksiTravel").child(nik).child("linkBukti").setValue(imageuri);
-                    FirebaseDatabase.getInstance().getReference("transaksiTravel").child(nik).child("check").setValue("Not Approve");
-                    FirebaseDatabase.getInstance().getReference("transaksiTravel").child(nik).child("time").setValue(currenttime);
+                    nasabah.Pembayaran(currenttime, imageuri, nik, "travel");
                 } else if (check == 2) {
-                    FirebaseDatabase.getInstance().getReference("transaksiHealth").child(nik).child("linkBukti").setValue(imageuri);
-                    FirebaseDatabase.getInstance().getReference("transaksiHealth").child(nik).child("check").setValue("Not Approve");
-                    FirebaseDatabase.getInstance().getReference("transaksiHealth").child(nik).child("time").setValue(currenttime);
+                    nasabah.Pembayaran(currenttime, imageuri, nik, "health");
                 }
 
             }
@@ -342,28 +363,4 @@ public class Pembayaran extends AppCompatActivity {
             }
         }).dispatch();
     }
-
-
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-//            Uri imageUri = data.getData();
-//            bukti.setImageURI(imageUri);
-//            bukti.setVisibility(View.VISIBLE);
-//            btnBuktiFoto.setVisibility(View.GONE);
-//            StorageReference fileRef = storageRef.child( Nomor+ ".jpg");
-//
-//            fileRef.putFile(imageUri).addOnSuccessListener(taskSnapshot -> {
-//                fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-//                    String downloadurl = uri.toString();
-//
-////                    reference.child(String.valueOf(NIK)).setValue(downloadurl).addOnSuccessListener(aVoid -> {
-////                        Toast.makeText(this, "Profile picture has been changed", Toast.LENGTH_SHORT).show();
-////                    });
-//                });
-//            });
-//        }
-//    }
 }

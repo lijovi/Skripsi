@@ -104,6 +104,69 @@ public class BuktiPembayaranAsuransi extends AppCompatActivity {
             }
         });
 
+        btnTolak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                referenceTransaksiHealth.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (Objects.equals(NomorPolis, snapshot.child(NIK).child("nomorPolisKesehatan").getValue(String.class))){
+                            String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
+                            String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
+                            String year = String.valueOf(calendar.get(Calendar.YEAR));
+
+                            String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+                            String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+                            String second = String.format("%02d",calendar.get(Calendar.SECOND));
+
+                            String currentdate = day + " - " + month + " - " + year;
+                            String currenttime = hour + " : " + minute + " : " + second;
+                            NotifikasiModel notifikasiModel = new NotifikasiModel("Ditolak", currenttime, currentdate, "Pembayaran", "Health");
+                            notifikasiModel.NewNotification(notifikasiModel, NIK);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                referenceTransaksiHealth.child(NIK).child("linkBukti").removeValue();
+                referenceTransaksiHealth.child(NIK).child("check").removeValue();
+
+                referenceTransaksiTravel.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (Objects.equals(NomorPolis, snapshot.child(NIK).child("nomorPolisTravel").getValue(String.class))){
+                            String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
+                            String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
+                            String year = String.valueOf(calendar.get(Calendar.YEAR));
+
+                            String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+                            String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+                            String second = String.format("%02d",calendar.get(Calendar.SECOND));
+
+                            String currentdate = day + " - " + month + " - " + year;
+                            String currenttime = hour + " : " + minute + " : " + second;
+                            NotifikasiModel notifikasiModel = new NotifikasiModel("Ditolak", currenttime, currentdate, "Pembayaran", "Travel");
+                            notifikasiModel.NewNotification(notifikasiModel, NIK);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                referenceTransaksiTravel.child(NIK).child("linkBukti").removeValue();
+                referenceTransaksiTravel.child(NIK).child("check").removeValue();
+                Intent intent = new Intent(getApplicationContext(), HomePageAsuransiPembayaran.class);
+                startActivity(intent);
+            }
+        });
+
+
         btnTerima.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,8 +182,9 @@ public class BuktiPembayaranAsuransi extends AppCompatActivity {
                 Log.d("NIK", NIK);
                 Log.d("Nomor", NomorPolis);
 
-                DataPembayaran pembayaran = new DataPembayaran(NIK, Nama, BesarPremi, currenttime, NomorPolis, currentdate);
-                referencePembayaran.child(NIK).child(NomorPolis).setValue(pembayaran);
+                BuktiBayar pembayaran = new BuktiBayar(NIK, Nama, BesarPremi, NomorPolis, currenttime, currentdate);
+                pembayaran.NewBuktiBayar(NIK, NomorPolis, pembayaran);
+//                referencePembayaran.child(NIK).child(NomorPolis).setValue(pembayaran);
 
 
                 referenceTransaksiHealth.addValueEventListener(new ValueEventListener() {
@@ -128,31 +192,18 @@ public class BuktiPembayaranAsuransi extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (Objects.equals(NomorPolis, snapshot.child(NIK).child("nomorPolisKesehatan").getValue(String.class))){
                             referenceTransaksiHealth.child(NIK).child("check").setValue("Approve");
+                            String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
+                            String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
+                            String year = String.valueOf(calendar.get(Calendar.YEAR));
 
-                            referenceNotifikasi.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
-                                    String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
-                                    String year = String.valueOf(calendar.get(Calendar.YEAR));
+                            String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+                            String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+                            String second = String.format("%02d",calendar.get(Calendar.SECOND));
 
-                                    String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
-                                    String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
-                                    String second = String.format("%02d",calendar.get(Calendar.SECOND));
-
-                                    String currentdate = day + " - " + month + " - " + year;
-                                    String currenttime = hour + " : " + minute + " : " + second;
-                                    NotifikasiModel notifikasiModel = new NotifikasiModel("Diterima", currenttime, currentdate, "Pembayaran", "Health");
-//                        String id = referenceNotifikasi.push().getKey();
-                                    referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                }
-                            });
-
+                            String currentdate = day + " - " + month + " - " + year;
+                            String currenttime = hour + " : " + minute + " : " + second;
+                            NotifikasiModel notifikasiModel = new NotifikasiModel("Diterima", currenttime, currentdate, "Pembayaran", "Health");
+                            notifikasiModel.NewNotification(notifikasiModel, NIK);
                         }
                     }
 
@@ -167,31 +218,18 @@ public class BuktiPembayaranAsuransi extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (Objects.equals(NomorPolis, snapshot.child(NIK).child("nomorPolisTravel").getValue(String.class))){
                             referenceTransaksiTravel.child(NIK).child("check").setValue("Approve");
+                            String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
+                            String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
+                            String year = String.valueOf(calendar.get(Calendar.YEAR));
 
-                            referenceNotifikasi.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
-                                    String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
-                                    String year = String.valueOf(calendar.get(Calendar.YEAR));
+                            String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+                            String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
+                            String second = String.format("%02d",calendar.get(Calendar.SECOND));
 
-                                    String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
-                                    String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
-                                    String second = String.format("%02d",calendar.get(Calendar.SECOND));
-
-                                    String currentdate = day + " - " + month + " - " + year;
-                                    String currenttime = hour + " : " + minute + " : " + second;
-                                    NotifikasiModel notifikasiModel = new NotifikasiModel("Diterima", currenttime, currentdate, "Pembayaran", "Travel");
-//                        String id = referenceNotifikasi.push().getKey();
-                                    referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                }
-                            });
-
+                            String currentdate = day + " - " + month + " - " + year;
+                            String currenttime = hour + " : " + minute + " : " + second;
+                            NotifikasiModel notifikasiModel = new NotifikasiModel("Diterima", currenttime, currentdate, "Pembayaran", "Travel");
+                            notifikasiModel.NewNotification(notifikasiModel, NIK);
                         }
                     }
 
@@ -205,37 +243,5 @@ public class BuktiPembayaranAsuransi extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-//        storage = FirebaseStorage.getInstance().getReference().child(NomorPremi + ".jpg");
-//
-//        File localFile = null;
-//        try {
-//            localFile = File.createTempFile("images", "jpg");
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        storage.getFile(localFile).addOnSuccessListener(taskSnapshot -> {
-//
-//        }).addOnFailureListener(exception->{
-//
-//        });
-//
-//        long MEGABYTE = 1024*1024;
-//        storage.getBytes(MEGABYTE).addOnSuccessListener(bytes -> {
-//
-//        }).addOnFailureListener(exception->{
-//
-//        });
-//
-//        storage.getDownloadUrl().addOnSuccessListener(uri -> {
-//            imageurl = uri.toString();
-//        }).addOnFailureListener(exception->{
-//
-//        });
-//
-//        Glide.with(this).load(imageurl).into(buktiPembayaran);
-
-
     }
 }

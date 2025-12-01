@@ -1,5 +1,8 @@
 package com.example.skripsi;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class NasabahHealth extends Nasabah{
@@ -8,6 +11,8 @@ public class NasabahHealth extends Nasabah{
     String periodePertanggungan;
     String plan;
     ArrayList<String> riwayatPenyakit;
+    DatabaseReference reference;
+    FirebaseDatabase database;
 
     public NasabahHealth(String nik, String name, String email, String gender, String phoneNumber, String address, String password, String jenisAsuransi, int company, String time, String date, int limit, String namaAhliWaris, String hubunganDenganAhliWaris, String bod, String pekerjaan, String periodePertanggungan, String plan, ArrayList<String> riwayatPenyakit) {
         super(nik, name, email, gender, phoneNumber, address, password, jenisAsuransi, company, time, date, limit, namaAhliWaris, hubunganDenganAhliWaris);
@@ -40,5 +45,11 @@ public class NasabahHealth extends Nasabah{
 
     public void setRiwayatPenyakit(ArrayList<String> riwayatPenyakit) {
         this.riwayatPenyakit = riwayatPenyakit;
+    }
+
+    public void RegistrasiHealth(NasabahHealth nasabah){
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference("clientSementaraHealth");
+        reference.child(nik).setValue(nasabah);
     }
 }

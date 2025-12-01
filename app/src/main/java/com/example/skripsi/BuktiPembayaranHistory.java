@@ -96,37 +96,5 @@ public class BuktiPembayaranHistory extends AppCompatActivity {
                 Glide.with(this).load(imageuri).into(buktiPembayaran);
             }
         });
-
-
-//        storage = FirebaseStorage.getInstance().getReference().child(NomorPremi + ".jpg");
-//
-//        File localFile = null;
-//        try {
-//            localFile = File.createTempFile("images", "jpg");
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        storage.getFile(localFile).addOnSuccessListener(taskSnapshot -> {
-//
-//        }).addOnFailureListener(exception->{
-//
-//        });
-//
-//        long MEGABYTE = 1024*1024;
-//        storage.getBytes(MEGABYTE).addOnSuccessListener(bytes -> {
-//
-//        }).addOnFailureListener(exception->{
-//
-//        });
-//
-//        storage.getDownloadUrl().addOnSuccessListener(uri -> {
-//            imageurl = uri.toString();
-//        }).addOnFailureListener(exception->{
-//
-//        });
-//
-//        Glide.with(this).load(imageurl).into(buktiPembayaran);
-
-
     }
 }

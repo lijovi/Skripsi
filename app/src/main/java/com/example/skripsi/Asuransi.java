@@ -1,5 +1,8 @@
 package com.example.skripsi;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.io.Serializable;
 
 public class Asuransi implements Serializable {
@@ -12,6 +15,9 @@ public class Asuransi implements Serializable {
     String companyPhoneNumber;
     String companyContactPerson;
 
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference reference = database.getReference("company");
+
     public Asuransi(int companyId, String companyUsername, String companyEmail, String companyPassword, String companyName, String companyVirtualAccount, String companyPhoneNumber, String companyContactPerson) {
         this.companyId = companyId;
         this.companyUsername = companyUsername;
@@ -21,6 +27,10 @@ public class Asuransi implements Serializable {
         this.companyVirtualAccount = companyVirtualAccount;
         this.companyPhoneNumber = companyPhoneNumber;
         this.companyContactPerson = companyContactPerson;
+    }
+
+    public Asuransi(){
+
     }
 
     public int getCompanyId() {
@@ -53,5 +63,13 @@ public class Asuransi implements Serializable {
 
     public String getCompanyContactPerson() {
         return companyContactPerson;
+    }
+
+    public void ChangePassword(int id, String password){
+        reference.child(String.valueOf(id)).child("companyPassword").setValue(password);
+    }
+
+    public void ChangeProfilePicture(int id, String imageuri){
+        FirebaseDatabase.getInstance().getReference("company").child(String.valueOf(id)).child("profile").setValue(imageuri);
     }
 }

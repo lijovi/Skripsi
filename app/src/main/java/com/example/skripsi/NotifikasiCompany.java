@@ -1,5 +1,13 @@
 package com.example.skripsi;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class NotifikasiCompany {
     String NIK;
     String status;
@@ -8,6 +16,9 @@ public class NotifikasiCompany {
     int company;
     String jenisAsuransi;
     String name;
+
+    FirebaseDatabase database;
+    DatabaseReference referenceHistory;
 
     public NotifikasiCompany(){
 
@@ -77,5 +88,35 @@ public class NotifikasiCompany {
 
     public void setJenisAsuransi(String jenisAsuransi) {
         this.jenisAsuransi = jenisAsuransi;
+    }
+
+    public void Decline(NotifikasiCompany notif, int Company){
+        referenceHistory = database.getReference("history");
+        referenceHistory.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                referenceHistory.child(String.valueOf(Company)).child(String.valueOf(snapshot.child(String.valueOf(Company)).getChildrenCount()+1)).setValue(notif);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public void Accept(NotifikasiCompany notif, int Company){
+        referenceHistory = database.getReference("history");
+        referenceHistory.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                referenceHistory.child(String.valueOf(Company)).child(String.valueOf(snapshot.child(String.valueOf(Company)).getChildrenCount()+1)).setValue(notif);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

@@ -207,8 +207,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                         String currentdate = day + " - " + month + " - " + year;
                         String currenttime = hour + " : " + minute + " : " + second;
                         NotifikasiCompany notif = new NotifikasiCompany(NIK, Nama,"DITOLAK", currentdate, currenttime, Company, "Health");
-
-                        referenceUserData.child(NIK).setValue(snapshot.getValue());
+//                        notif.Decline(notif, Company);
                         referenceHistory.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -220,6 +219,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
 
                             }
                         });
+                        referenceUserData.child(NIK).setValue(snapshot.getValue());
                         reference.removeValue();
                         Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
                         startActivity(intent);
@@ -288,6 +288,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                         String Nama = snapshot.child("name").getValue(String.class);
 
                         NotifikasiCompany notif = new NotifikasiCompany(NIK, Nama, "DITERIMA", currentdate, currenttime, Company, "Health");
+//                        notif.Accept(notif, Company);
                         referenceHistory.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -311,7 +312,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         TransaksiHealth transaksi = new TransaksiHealth(NIK, BesarPremi, Company, currentdate, jatuhTempo, NomorPolis);
-                        referenceTransaksi.setValue(transaksi);
+                        transaksi.newTransaction(transaksi, NIK);
                         reference.removeValue();
                     }
 
@@ -335,8 +336,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
                         String currentdate = day + " - " + month + " - " + year;
                         String currenttime = hour + " : " + minute + " : " + second;
                         NotifikasiModel notifikasiModel = new NotifikasiModel("Diterima", currenttime, currentdate, "Pendaftaran", "Health");
-//                        String id = referenceNotifikasi.push().getKey();
-                        referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
+                        notifikasiModel.NewNotification(notifikasiModel, NIK);
                         alertDialog.dismiss();
                         Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
                         startActivity(intent);
@@ -347,115 +347,7 @@ public class DataCalonNasabahHealth extends AppCompatActivity {
 
                     }
                 });
-//                DialogFormPremi();
             }
         });
     }
-
-//    private void DialogFormPremi() {
-//        dialog = new AlertDialog.Builder(DataCalonNasabahHealth.this);
-//        inflater = getLayoutInflater();
-//        dialogView = inflater.inflate(R.layout.pop_up_input_premi, null);
-//        dialog.setView(dialogView);
-//        dialog.setCancelable(true);
-//
-//        AlertDialog alertDialog = dialog.create();
-//        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//        alertDialog.show();
-////
-//        besarPremi = dialogView.findViewById(R.id.besarPremi);
-//        btnOkPremi = dialogView.findViewById(R.id.btnOkPremi);
-//        btnOkPremi.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                BesarPremi = Integer.parseInt(besarPremi.getEditText().getText().toString());
-//                String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
-//                String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
-//                String year = String.valueOf(calendar.get(Calendar.YEAR));
-//                String currentdate = day + " - " + month + " - " + year;
-//
-//                String day1 = String.format("%02d" ,calendarJ.get(Calendar.DAY_OF_MONTH));
-//                String month1 = String.format("%02d",calendarJ.get(Calendar.MONTH)+1);
-//                String year1 = String.valueOf(calendarJ.get(Calendar.YEAR));
-//                String jatuhTempo = day1 + " - " + month1 + " - " + year1;
-//
-//                String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
-//                String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
-//                String second = String.format("%02d",calendar.get(Calendar.SECOND));
-//
-//                String currenttime = hour + " : " + minute + " : " + second;
-//
-//
-//                reference.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        referenceNasabah.setValue(snapshot.getValue());
-//                        referenceUserData.child(NIK).setValue(snapshot.getValue());
-//                        String Nama = snapshot.child("name").getValue(String.class);
-//
-//                        NotifikasiCompany notif = new NotifikasiCompany(NIK, Nama, "DITERIMA", currentdate, currenttime, Company, "Health");
-//                        referenceHistory.addListenerForSingleValueEvent(new ValueEventListener() {
-//                            @Override
-//                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                referenceHistory.child(String.valueOf(Company)).child(String.valueOf(snapshot.child(String.valueOf(Company)).getChildrenCount()+1)).setValue(notif);
-//                            }
-//
-//                            @Override
-//                            public void onCancelled(@NonNull DatabaseError error) {
-//
-//                            }
-//                        });
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-//
-//                referenceTransaksi.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        TransaksiHealth transaksi = new TransaksiHealth(NIK, BesarPremi, Company, currentdate, jatuhTempo, NomorPolis);
-//                        referenceTransaksi.setValue(transaksi);
-//                        reference.removeValue();
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-//
-//                referenceNotifikasi.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        String day = String.format("%02d" ,calendar.get(Calendar.DAY_OF_MONTH));
-//                        String month = String.format("%02d",calendar.get(Calendar.MONTH)+1);
-//                        String year = String.valueOf(calendar.get(Calendar.YEAR));
-//
-//                        String hour = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
-//                        String minute = String.format("%02d", calendar.get(Calendar.MINUTE));
-//                        String second = String.format("%02d",calendar.get(Calendar.SECOND));
-//
-//                        String currentdate = day + " - " + month + " - " + year;
-//                        String currenttime = hour + " : " + minute + " : " + second;
-//                        NotifikasiModel notifikasiModel = new NotifikasiModel("Diterima", currenttime, currentdate, "Pendaftaran", "Health");
-////                        String id = referenceNotifikasi.push().getKey();
-//                        referenceNotifikasi.child(NIK).child(String.valueOf(snapshot.child(NIK).getChildrenCount()+1)).setValue(notifikasiModel);
-//                        alertDialog.dismiss();
-//                        Intent intent = new Intent(getApplicationContext(), HomePageAsuransi.class);
-//                        startActivity(intent);
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-//
-//            }
-//        });
-//
-//    }
 }

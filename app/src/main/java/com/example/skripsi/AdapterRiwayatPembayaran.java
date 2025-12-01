@@ -39,11 +39,15 @@ public class AdapterRiwayatPembayaran extends RecyclerView.Adapter<AdapterRiwaya
         String text = holder.itemView.getContext().getString(R.string.text);
         holder.notif.setText(pembayaran.getNama() + " " + text + " " + nominalRupiah);
         holder.date.setText(pembayaran.getDate());
-        holder.check.setText(pembayaran.getTime());
-        if (Objects.equals(pembayaran.getTime(), "Success")){
+        holder.check.setText(pembayaran.getStatus());
+        if (Objects.equals(pembayaran.getStatus(), "Success")){
             holder.check.setTextColor(Color.parseColor("#1E942C"));
-        } else {
+        } else if (Objects.equals(pembayaran.getStatus(), "Pending")){
             holder.check.setTextColor(Color.parseColor("#AD9900"));
+        } else {
+            holder.check.setTextColor(Color.parseColor("#FF0000"));
+            String gagal = holder.itemView.getContext().getString(R.string.gagal);
+            holder.notif.setText(pembayaran.getNama() + " " + gagal + " " + pembayaran.getNomorPolis());
         }
     }
 

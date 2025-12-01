@@ -52,7 +52,7 @@
         Travel Insurance:\n✔ Coverage for flight cancellations\n✔ Medical cost coverage abroad\n✔ Compensation for lost luggage\n✔ 24/7 emergency assistance during your trip
     </string>
     <string name="warning_icon">!</string>
-    <string name="notifikasi">NOTIFICATION</string>
+    <string name="notifikasi">Notification</string>
     <string name="info_asuransi">Insurance Info</string>
     <string name="waktu">DATE\nTIME</string>
     <string name="profil">Profile</string>
@@ -330,7 +330,9 @@
     <string name="textPembayaran">has made a payment of</string>
     <string name="buatPassword">Password created successfully</string>
     <string name="pembayaranHealth">Health insurance payment has been received</string>
+    <string name="pembayaranHealthDitolak">Health insurance payment has been declined</string>
     <string name="pembayaranTravel">Travel insurance payment has been received</string>
+    <string name="pembayaranTravelDitolak">Travel insurance payment has been declined</string>
     <string name="pendaftaranHealth">Health insurance registration has been accepted</string>
     <string name="pendaftaranTravel">Travel insurance registration has been accepted</string>
     <string name="ubahPassword">Password changed successfully</string>
@@ -398,4 +400,5 @@
     <string name="ate2">250\n($50/8 hour)</string>
     <string name="ate3">600 ($30/day)</string>
     <string name="atv1">500\n($50/8 hour)</string>
+    <string name="gagal">has passed the payment limit for insurance with policy number</string>
 </resources>

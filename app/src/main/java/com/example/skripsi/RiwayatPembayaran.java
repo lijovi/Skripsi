@@ -1,6 +1,7 @@
 package com.example.skripsi;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -22,7 +23,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.checkerframework.checker.units.qual.A;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Objects;
 
 public class RiwayatPembayaran extends AppCompatActivity {
@@ -34,6 +38,7 @@ public class RiwayatPembayaran extends AppCompatActivity {
     FirebaseDatabase database;
     String nama, besarPremi, tanggal;
     ImageButton back;
+    Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +66,10 @@ public class RiwayatPembayaran extends AppCompatActivity {
         refTravel = database.getReference("transaksiTravel");
         back = findViewById(R.id.back);
 
+        calendar = Calendar.getInstance();
+
         String NIK = ClientSession.getInstance().getNik();
+        String Nama = ClientSession.getInstance().getNama();
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -69,8 +77,8 @@ public class RiwayatPembayaran extends AppCompatActivity {
                 for (DataSnapshot data: snapshot.child(NIK).getChildren()){
                     final String nama = data.child("nama").getValue(String.class);
                     final String besarPremi = data.child("besarPremi").getValue(String.class);
-                    final String tanggal = data.child("date").getValue(String.class);
-                    final String noPremi = data.child("nomorPremi").getValue(String.class);
+                    final String tanggal = data.child("tanggal").getValue(String.class);
+                    final String noPolis = data.child("nomorPolis").getValue(String.class);
 
                     DataPembayaran dataPembayaran = new DataPembayaran();
                     dataPembayaran.setNama(nama);
@@ -80,29 +88,30 @@ public class RiwayatPembayaran extends AppCompatActivity {
                     refHealth.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (Objects.equals(noPremi, snapshot.child("nomorPolisKesehatan").getValue(String.class))){
+                            if (Objects.equals(noPolis, snapshot.child("nomorPolisKesehatan").getValue(String.class))){
                                 if (snapshot.hasChild("check")){
                                     if (Objects.equals(snapshot.child("check").getValue(String.class), "Approve")){
-                                        dataPembayaran.setTime("Success");
+                                        dataPembayaran.setStatus("Success");
                                     } else {
-                                        dataPembayaran.setTime("Pending");
+                                        dataPembayaran.setStatus("Pending");
                                     }
+                                    listPembayaran.add(dataPembayaran);
                                 }
                             }
 
                             refTravel.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    if (Objects.equals(noPremi, snapshot.child("nomorPolisTravel").getValue(String.class))){
+                                    if (Objects.equals(noPolis, snapshot.child("nomorPolisTravel").getValue(String.class))){
                                         if (snapshot.hasChild("check")){
                                             if (Objects.equals(snapshot.child("check").getValue(String.class), "Approve")){
-                                                dataPembayaran.setTime("Success");
+                                                dataPembayaran.setStatus("Success");
                                             } else {
-                                                dataPembayaran.setTime("Pending");
+                                                dataPembayaran.setStatus("Pending");
                                             }
+                                            listPembayaran.add(dataPembayaran);
                                         }
                                     }
-                                    listPembayaran.add(dataPembayaran);
                                     adapter.notifyDataSetChanged();
                                 }
 
@@ -118,6 +127,64 @@ public class RiwayatPembayaran extends AppCompatActivity {
 
                         }
                     });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        refHealth.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    String jatuhTempo = snapshot.child("jatuhTempo").getValue(String.class);
+                    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
+                    LocalDate date = LocalDate.parse(jatuhTempo, format);
+                    LocalDate current = LocalDate.now();
+                    if (current.isAfter(date)) {
+                        String besarPremi = String.valueOf(snapshot.child("besarPremi").getValue(int.class));
+                        String noPolis = snapshot.child("nomorPolisKesehatan").getValue(String.class);
+                        DataPembayaran data = new DataPembayaran();
+                        data.setBesarPremi(besarPremi);
+                        data.setNomorPolis(noPolis);
+                        data.setNama(Nama);
+                        data.setStatus("Failed");
+                        listPembayaran.add(data);
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        refTravel.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    String jatuhTempo = snapshot.child("jatuhTempo").getValue(String.class);
+                    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd - MM - yyyy");
+                    LocalDate date = LocalDate.parse(jatuhTempo, format);
+                    LocalDate current = LocalDate.now();
+                    Log.d("CEK", String.valueOf(current));
+                    Log.d("CEK", String.valueOf(date));
+                    if (current.isAfter(date)) {
+                        String besarPremi = String.valueOf(snapshot.child("besarPremi").getValue(int.class));
+                        String noPolis = snapshot.child("nomorPolisTravel").getValue(String.class);
+                        DataPembayaran data = new DataPembayaran();
+                        data.setBesarPremi(besarPremi);
+                        data.setNomorPolis(noPolis);
+                        data.setNama(Nama);
+                        data.setStatus("Failed");
+                        listPembayaran.add(data);
+                        adapter.notifyDataSetChanged();
+                    }
                 }
             }
 

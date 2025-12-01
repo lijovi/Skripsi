@@ -67,6 +67,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
     TableLayout tableKlaimAsuransiHealth;
     TableLayout tableKlaimAsuransiTravel;
     private String NIK;
+    int count;
 
     // buat ubah bahasa locale
     @Override
@@ -132,6 +133,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         riwayatMedisRef = database.getReference("riwayatMedis");
 
         NIK = ClientSession.getInstance().getNik();
+        count = ClientSession.getInstance().getCount();
 
         Query checkTravel = referenceTravel.orderByChild("nik").equalTo(NIK);
         Log.d("INTENT", "NIK: " + NIK);
@@ -485,6 +487,38 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
 
                 } else {
                     password.setError("Wrong Password");
+                    count += 1;
+                    ClientSession.getInstance().setCount(count);
+                    if (count>2){
+                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                        startActivity(intent);
+                        referenceDataTravel.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.exists()){
+                                    referenceDataTravel.child(NIK).child("block").setValue("Yes");
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                        referenceDataHealth.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.exists()){
+                                    referenceDataHealth.child(NIK).child("block").setValue("Yes");
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
                 }
             }
         });

@@ -1,5 +1,8 @@
 package com.example.skripsi;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class BuktiBayar {
     String nik;
     String nama;
@@ -7,6 +10,8 @@ public class BuktiBayar {
     String nomorPolis;
     String time;
     String tanggal;
+
+    DatabaseReference referencePembayaran = FirebaseDatabase.getInstance().getReference("pembayaran");
 
     public BuktiBayar(String nik, String nama, String besarPremi, String nomorPolis, String time, String tanggal) {
         this.nik = nik;
@@ -67,5 +72,9 @@ public class BuktiBayar {
 
     public void setTanggal(String tanggal) {
         this.tanggal = tanggal;
+    }
+
+    public void NewBuktiBayar(String NIK, String NomorPolis, BuktiBayar pembayaran){
+        referencePembayaran.child(NIK).child(NomorPolis).setValue(pembayaran);
     }
 }

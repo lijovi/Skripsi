@@ -142,16 +142,6 @@ public class ProfileNasabah extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), UbahPasswordNasabah.class);
                 startActivity(intent);
-
-//                Intent email = new Intent(Intent.ACTION_SEND);
-//                email.setData(Uri.parse("mailto:"));
-//                email.setType("text/plain");
-//
-//                email.putExtra(Intent.EXTRA_EMAIL, Email);
-//                email.putExtra(Intent.EXTRA_SUBJECT, "Change Password");
-//                email.putExtra(Intent.EXTRA_TEXT, "");
-
-//                mAuth.sendPasswordResetEmail(Email);
             }
         });
 
@@ -257,38 +247,8 @@ public class ProfileNasabah extends AppCompatActivity {
 
                 Glide.with(ProfileNasabah.this).load(imageuri).circleCrop().into(profile);
 
-                referenceHealth.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()){
-                            if (Objects.equals(NIK, snapshot.child(NIK).child("nik"))){
-                                FirebaseDatabase.getInstance().getReference("clientHealth").child(NIK).child("profile").setValue(imageuri);
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-                referenceTravel.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()){
-                            if (Objects.equals(NIK, snapshot.child(NIK).child("nik"))){
-                                FirebaseDatabase.getInstance().getReference("clientTravel").child(NIK).child("profile").setValue(imageuri);
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
+                Nasabah nasabah = new Nasabah();
+                nasabah.ChangeProfilePicture(imageuri, NIK);
 
             }
 
@@ -303,26 +263,4 @@ public class ProfileNasabah extends AppCompatActivity {
             }
         }).dispatch();
     }
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-//            Uri imageUri = data.getData();
-//            profile.setImageURI(imageUri);
-//
-//            StorageReference fileRef = storageRef.child(NIK + ".jpg");
-//
-//            fileRef.putFile(imageUri).addOnSuccessListener(taskSnapshot -> {
-//                fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-//                    String downloadurl = uri.toString();
-//
-////                    reference.child(String.valueOf(NIK)).setValue(downloadurl).addOnSuccessListener(aVoid -> {
-////                        Toast.makeText(this, "Profile picture has been changed", Toast.LENGTH_SHORT).show();
-////                    });
-//                });
-//            });
-//        }
-//
-//    }
 }
