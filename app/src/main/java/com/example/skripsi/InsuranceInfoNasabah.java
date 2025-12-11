@@ -489,7 +489,7 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                     password.setError("Wrong Password");
                     count += 1;
                     ClientSession.getInstance().setCount(count);
-                    if (count>2){
+                    if (count>3){
                         Intent intent = new Intent(getApplicationContext(), Login.class);
                         startActivity(intent);
                         referenceDataTravel.child(NIK).addListenerForSingleValueEvent(new ValueEventListener() {
