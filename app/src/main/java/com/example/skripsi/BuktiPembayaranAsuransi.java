@@ -29,7 +29,9 @@ import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.Objects;
 
 public class BuktiPembayaranAsuransi extends AppCompatActivity {
@@ -81,7 +83,10 @@ public class BuktiPembayaranAsuransi extends AppCompatActivity {
 
         nik.setText(NIK);
         nama.setText(Nama);
-        besarPremi.setText(BesarPremi);
+        int besar = Integer.parseInt(BesarPremi);
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat numberFormat =  NumberFormat.getCurrencyInstance(localeID);
+        besarPremi.setText(numberFormat.format(besar));
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
