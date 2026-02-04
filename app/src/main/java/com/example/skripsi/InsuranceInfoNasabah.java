@@ -331,37 +331,39 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
         DatabaseReference healthRef = klaimRef.child("Health").child(NIK);
         DatabaseReference travelRef = klaimRef.child("Travel").child(NIK);
 
+        DetailKlaim detail1 = new DetailKlaim();
+
         // ================= HEALTH =================
-        healthRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (!snapshot.exists()) {
-                    // Klaim 1 Health
-                    Map<String, Object> klaim1 = new HashMap<>();
-                    klaim1.put("tanggalPengajuan", "2025-09-10");
-                    klaim1.put("klaim", "Klaim Rawat Inap");
-                    klaim1.put("statusKlaimAsuransi", "Disetujui");
-                    Map<String, Object> detail1 = new HashMap<>();
-                    detail1.put("nomorPolis", "H12345678");
-                    detail1.put("nilaiKlaim", "Rp 5.000.000");
-                    detail1.put("keterangan", "Rawat inap 3 hari di RS Bina Sehat");
-                    klaim1.put("detail", detail1);
-                    healthRef.child("Klaim1").setValue(klaim1);
-
-                    // Klaim 2 Health
-                    Map<String, Object> klaim2 = new HashMap<>();
-                    klaim2.put("tanggalPengajuan", "2025-09-15");
-                    klaim2.put("klaim", "Klaim Rawat Jalan");
-                    klaim2.put("statusKlaimAsuransi", "Menunggu Verifikasi");
-                    Map<String, Object> detail2 = new HashMap<>();
-                    detail2.put("nomorPolis", "H87654321");
-                    detail2.put("nilaiKlaim", "Rp 3.000.000");
-                    detail2.put("keterangan", "Rawat jalan 2 hari di RS Bina Sehat");
-                    klaim2.put("detail", detail2);
-                    healthRef.child("Klaim2").setValue(klaim2);
-                }
-
-                // Tampilkan tabel Health
+//        healthRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if (!snapshot.exists()) {
+//                    // Klaim 1 Health
+//                    Map<String, Object> klaim1 = new HashMap<>();
+//                    klaim1.put("tanggalPengajuan", "2025-09-10");
+//                    klaim1.put("klaim", "Klaim Rawat Inap");
+//                    klaim1.put("statusKlaimAsuransi", "Disetujui");
+//                    Map<String, Object> detail1 = new HashMap<>();
+//                    detail1.put("nomorPolis", "H12345678");
+//                    detail1.put("nilaiKlaim", "Rp 5.000.000");
+//                    detail1.put("keterangan", "Rawat inap 3 hari di RS Bina Sehat");
+//                    klaim1.put("detail", detail1);
+//                    healthRef.child("Klaim1").setValue(klaim1);
+//
+//                    // Klaim 2 Health
+//                    Map<String, Object> klaim2 = new HashMap<>();
+//                    klaim2.put("tanggalPengajuan", "2025-09-15");
+//                    klaim2.put("klaim", "Klaim Rawat Jalan");
+//                    klaim2.put("statusKlaimAsuransi", "Menunggu Verifikasi");
+//                    Map<String, Object> detail2 = new HashMap<>();
+//                    detail2.put("nomorPolis", "H87654321");
+//                    detail2.put("nilaiKlaim", "Rp 3.000.000");
+//                    detail2.put("keterangan", "Rawat jalan 2 hari di RS Bina Sehat");
+//                    klaim2.put("detail", detail2);
+//                    healthRef.child("Klaim2").setValue(klaim2);
+//                }
+//
+//                // Tampilkan tabel Health
                 healthRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -378,43 +380,43 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {}
                 });
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {}
-        });
-
-        // ================= TRAVEL =================
-        travelRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (!snapshot.exists()) {
-                    // Klaim 1 Travel
-                    Map<String, Object> klaim1 = new HashMap<>();
-                    klaim1.put("tanggalPengajuan", "2025-08-05");
-                    klaim1.put("klaim", "Klaim Keterlambatan Penerbangan");
-                    klaim1.put("statusKlaimAsuransi", "Disetujui");
-                    Map<String, Object> detail1 = new HashMap<>();
-                    detail1.put("nomorPolis", "T98765432");
-                    detail1.put("nilaiKlaim", "Rp 3.000.000");
-                    detail1.put("keterangan", "Keterlambatan penerbangan 3 jam");
-                    klaim1.put("detail", detail1);
-                    travelRef.child("Klaim1").setValue(klaim1);
-
-                    // Klaim 2 Travel
-                    Map<String, Object> klaim2 = new HashMap<>();
-                    klaim2.put("tanggalPengajuan", "2025-08-10");
-                    klaim2.put("klaim", "Klaim Barang Hilang");
-                    klaim2.put("statusKlaimAsuransi", "Menunggu Verifikasi");
-                    Map<String, Object> detail2 = new HashMap<>();
-                    detail2.put("nomorPolis", "T12345678");
-                    detail2.put("nilaiKlaim", "Rp 2.500.000");
-                    detail2.put("keterangan", "Bagasi hilang di bandara");
-                    klaim2.put("detail", detail2);
-                    travelRef.child("Klaim2").setValue(klaim2);
-                }
-
-                // Tampilkan tabel Travel
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {}
+//        });
+//
+//        // ================= TRAVEL =================
+//        travelRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if (!snapshot.exists()) {
+//                    // Klaim 1 Travel
+//                    Map<String, Object> klaim1 = new HashMap<>();
+//                    klaim1.put("tanggalPengajuan", "2025-08-05");
+//                    klaim1.put("klaim", "Klaim Keterlambatan Penerbangan");
+//                    klaim1.put("statusKlaimAsuransi", "Disetujui");
+//                    Map<String, Object> detail1 = new HashMap<>();
+//                    detail1.put("nomorPolis", "T98765432");
+//                    detail1.put("nilaiKlaim", "Rp 3.000.000");
+//                    detail1.put("keterangan", "Keterlambatan penerbangan 3 jam");
+//                    klaim1.put("detail", detail1);
+//                    travelRef.child("Klaim1").setValue(klaim1);
+//
+//                    // Klaim 2 Travel
+//                    Map<String, Object> klaim2 = new HashMap<>();
+//                    klaim2.put("tanggalPengajuan", "2025-08-10");
+//                    klaim2.put("klaim", "Klaim Barang Hilang");
+//                    klaim2.put("statusKlaimAsuransi", "Menunggu Verifikasi");
+//                    Map<String, Object> detail2 = new HashMap<>();
+//                    detail2.put("nomorPolis", "T12345678");
+//                    detail2.put("nilaiKlaim", "Rp 2.500.000");
+//                    detail2.put("keterangan", "Bagasi hilang di bandara");
+//                    klaim2.put("detail", detail2);
+//                    travelRef.child("Klaim2").setValue(klaim2);
+//                }
+//
+//                // Tampilkan tabel Travel
                 travelRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -431,11 +433,11 @@ public class InsuranceInfoNasabah extends AppCompatActivity {
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {}
                 });
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {}
-        });
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {}
+//        });
 
 
         Locale locale = new Locale("in", "ID");

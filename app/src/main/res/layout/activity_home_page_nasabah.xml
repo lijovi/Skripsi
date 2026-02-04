@@ -460,10 +460,10 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="RS Sari Asih Karawaci"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
+                                android:id="@+id/namaRS1"
                                 />
                         </LinearLayout>
 
@@ -482,16 +482,16 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="- 021-552 2794"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
+                                android:id="@+id/telp1RS1"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="- 021-552 3239"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
+                                android:id="@+id/telp2RS1"
                                 />
                         </LinearLayout>
 
@@ -546,10 +546,10 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="RS Pondok Indah Puri Indah"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
+                                android:id="@+id/namaRS2"
                                 />
                         </LinearLayout>
 
@@ -568,16 +568,16 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="- 021-2569 5222"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
+                                android:id="@+id/telp1RS2"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="- 021-2569 5200"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
+                                android:id="@+id/telp2RS2"
                                 />
                         </LinearLayout>
 
@@ -641,10 +641,10 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="RSAB Harapan Kita"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
+                                android:id="@+id/namaRS3"
                                 />
                         </LinearLayout>
 
@@ -663,16 +663,16 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="- 021-566 8284"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
+                                android:id="@+id/telp1RS3"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="- 021-566 8284"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
+                                android:id="@+id/telp2RS3"
                                 />
                         </LinearLayout>
 
@@ -727,10 +727,10 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="RS Pluit"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
+                                android:id="@+id/namaRS4"
                                 />
                         </LinearLayout>
 
@@ -749,16 +749,16 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="- 021-668 5006"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
+                                android:id="@+id/telp1RS4"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="- 021-668 507"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
+                                android:id="@+id/telp2RS4"
                                 />
                         </LinearLayout>
 

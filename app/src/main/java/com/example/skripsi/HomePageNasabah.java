@@ -34,12 +34,14 @@ import java.util.Objects;
 
 public class HomePageNasabah extends AppCompatActivity {
 
-    TextView nama, disini, company_name_health, contact_person_health, no_asuransi_health, company_name_travel, contact_person_travel, no_asuransi_travel;
+    TextView nama, disini, company_name_health, contact_person_health, no_asuransi_health, company_name_travel, contact_person_travel, no_asuransi_travel,
+    namaRS1, namaRS2, namaRS3, namaRS4, telp1RS1, telp2RS1, telp1RS2, telp2RS2, telp1RS3, telp2RS3, telp1RS4, telp2RS4;
     LinearLayout infoPassword, perusahaanHealth, perusahaanTravel, contactHealth, contactTravel, telpHealth, telpTravel;
     String Nama, Password;
     ImageView bayarPremi, riwayatPembayaran, daftarAsuransi;
     Button btnHome, btnInfo, btnNotifikasi, btnProfile;
-    int companyHealth, companyTravel;
+    int companyHealth = 0;
+    int companyTravel = 0;
     int check = 0;
     TextView sariAsih, pondokIndah, harapanKita, pluit;
     int tipe;
@@ -51,6 +53,7 @@ public class HomePageNasabah extends AppCompatActivity {
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(LocaleHelper.setLocale(newBase, LocaleHelper.getLanguage(newBase)));
     }
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +67,7 @@ public class HomePageNasabah extends AppCompatActivity {
             return insets;
         });
 
-//        String Company = String.valueOf(ClientSession.getInstance().getCompany());
+        String Company = String.valueOf(ClientSession.getInstance().getCompany());
         String NIK = ClientSession.getInstance().getNik();
 
         DatabaseReference dataHealth = FirebaseDatabase.getInstance().getReference("clientHealth").child(NIK);
@@ -103,22 +106,34 @@ public class HomePageNasabah extends AppCompatActivity {
         Nama = ClientSession.getInstance().getNama();
         nama.setText(Nama + " !");
 
+        namaRS1 = findViewById(R.id.namaRS1);
+        namaRS2 = findViewById(R.id.namaRS2);
+        namaRS3 = findViewById(R.id.namaRS3);
+        namaRS4 = findViewById(R.id.namaRS4);
+
+        telp1RS1 = findViewById(R.id.telp1RS1);
+        telp2RS1 = findViewById(R.id.telp2RS1);
+        telp1RS2 = findViewById(R.id.telp1RS2);
+        telp2RS2 = findViewById(R.id.telp2RS2);
+        telp1RS3 = findViewById(R.id.telp1RS3);
+        telp2RS3 = findViewById(R.id.telp2RS3);
+        telp1RS4 = findViewById(R.id.telp1RS4);
+        telp2RS4 = findViewById(R.id.telp2RS4);
+
         sariAsih = findViewById(R.id.sariAsih);
-        sariAsih.setText(Html.fromHtml(getString(R.string.linksariasih), Html.FROM_HTML_MODE_LEGACY));
-        sariAsih.setMovementMethod(LinkMovementMethod.getInstance());
-
-
         pondokIndah = findViewById(R.id.pondokIndah);
-        pondokIndah.setText(Html.fromHtml(getString(R.string.linkpondakindah), Html.FROM_HTML_MODE_LEGACY));
-        pondokIndah.setMovementMethod(LinkMovementMethod.getInstance());
-
         harapanKita = findViewById(R.id.harapanKita);
-        harapanKita.setText(Html.fromHtml(getString(R.string.linkharapankita), Html.FROM_HTML_MODE_LEGACY));
-        harapanKita.setMovementMethod(LinkMovementMethod.getInstance());
-
         pluit = findViewById(R.id.pluit);
-        pluit.setText(Html.fromHtml(getString(R.string.linkpluit), Html.FROM_HTML_MODE_LEGACY));
-        pluit.setMovementMethod(LinkMovementMethod.getInstance());
+
+//        RumahSakit rumahSakit1 = new RumahSakit(4, "RS Sari Asih Karawaci", "021-552 2794", "021-552 3239", "https://maps.app.goo.gl/WmwYuGLUFo5EsNpd7?g_st=ipc");
+//        RumahSakit rumahSakit2 = new RumahSakit(4,"RS Pondok Indah Puri Indah", "021-2569 5222", "021-2569 5200", "https://maps.app.goo.gl/awiAQnrS61opZQ7x6?g_st=ipc");
+//        RumahSakit rumahSakit3 = new RumahSakit(4,"RSAB Harapan Kita", "021-566 8284", "021-566 8284", "https://maps.app.goo.gl/TDUEP1eZ7nwHNNmj7?g_st=ipc");
+//        RumahSakit rumahSakit4 = new RumahSakit(4,"RS Pluit", "021-668 5006", "021-668 507", "https://maps.app.goo.gl/e8h4vF5s4f7AJNr6A?g_st=ipc");
+//
+//        info.child("4").child("1").setValue(rumahSakit1);
+//        info.child("4").child("2").setValue(rumahSakit2);
+//        info.child("4").child("3").setValue(rumahSakit3);
+//        info.child("4").child("4").setValue(rumahSakit4);
 
         Password = ClientSession.getInstance().getPassword();
         Log.d("PASSWORD", "PASSWORD: " + Password);
@@ -134,7 +149,7 @@ public class HomePageNasabah extends AppCompatActivity {
                 if (snapshot.exists()){
                     companyHealth = snapshot.child("company").getValue(int.class);
                     DatabaseReference refHealth = FirebaseDatabase.getInstance().getReference("company").child(String.valueOf(companyHealth));
-
+                    loadRumahSakit(companyHealth, companyTravel);
                     refHealth.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -255,6 +270,7 @@ public class HomePageNasabah extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     companyTravel = snapshot.child("company").getValue(int.class);
+                    loadRumahSakit(companyHealth, companyTravel);
                     if (companyTravel != companyHealth){
                         DatabaseReference refTravel = FirebaseDatabase.getInstance().getReference("company").child(String.valueOf(companyTravel));
                         Log.d("INTENT", "nama: " + companyTravel);
@@ -291,8 +307,6 @@ public class HomePageNasabah extends AppCompatActivity {
 
             }
         });
-
-
 
         disini.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -351,5 +365,100 @@ public class HomePageNasabah extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void loadRumahSakit(int companyHealth, int companyTravel) {
+        DatabaseReference info = FirebaseDatabase.getInstance().getReference("rumahSakit");
+        if (companyHealth!=0){
+            info.child(String.valueOf(companyHealth)).child("1").get().addOnCompleteListener(task -> {
+                DataSnapshot snapshot = task.getResult();
+
+                namaRS1.setText(snapshot.child("nama").getValue(String.class));
+                telp1RS1.setText("- " + snapshot.child("nomorTelp1").getValue(String.class));
+                telp2RS1.setText("- " + snapshot.child("nomorTelp2").getValue(String.class));
+                sariAsih.setText(Html.fromHtml("<a href=\"" + snapshot.child("linkMap").getValue(String.class) + "\">Klik Disini</a>", Html.FROM_HTML_MODE_LEGACY));
+                sariAsih.setMovementMethod(LinkMovementMethod.getInstance());
+
+            });
+
+            info.child(String.valueOf(companyHealth)).child("2").get().addOnCompleteListener(task -> {
+                DataSnapshot snapshot = task.getResult();
+
+                namaRS2.setText(snapshot.child("nama").getValue(String.class));
+                telp1RS2.setText("- " + snapshot.child("nomorTelp1").getValue(String.class));
+                telp2RS2.setText("- " + snapshot.child("nomorTelp2").getValue(String.class));
+                pondokIndah.setText(Html.fromHtml("<a href=\"" + snapshot.child("linkMap").getValue(String.class) + "\">Klik Disini</a>", Html.FROM_HTML_MODE_LEGACY));
+                pondokIndah.setMovementMethod(LinkMovementMethod.getInstance());
+
+            });
+
+            info.child(String.valueOf(companyHealth)).child("3").get().addOnCompleteListener(task -> {
+                DataSnapshot snapshot = task.getResult();
+
+                namaRS3.setText(snapshot.child("nama").getValue(String.class));
+                telp1RS3.setText("- " + snapshot.child("nomorTelp1").getValue(String.class));
+                telp2RS3.setText("- " + snapshot.child("nomorTelp2").getValue(String.class));
+                harapanKita.setText(Html.fromHtml("<a href=\"" + snapshot.child("linkMap").getValue(String.class) + "\">Klik Disini</a>", Html.FROM_HTML_MODE_LEGACY));
+                harapanKita.setMovementMethod(LinkMovementMethod.getInstance());
+
+            });
+
+            info.child(String.valueOf(companyHealth)).child("4").get().addOnCompleteListener(task -> {
+                DataSnapshot snapshot = task.getResult();
+
+                namaRS4.setText(snapshot.child("nama").getValue(String.class));
+                telp1RS4.setText("- " + snapshot.child("nomorTelp1").getValue(String.class));
+                telp2RS4.setText("- " + snapshot.child("nomorTelp2").getValue(String.class));
+                pluit.setText(Html.fromHtml("<a href=\"" + snapshot.child("linkMap").getValue(String.class) + "\">Klik Disini</a>", Html.FROM_HTML_MODE_LEGACY));
+                pluit.setMovementMethod(LinkMovementMethod.getInstance());
+
+            });
+
+        }else if (companyTravel != 0){
+            info.child(String.valueOf(companyTravel)).child("1").get().addOnCompleteListener(task -> {
+                DataSnapshot snapshot = task.getResult();
+
+                namaRS2.setText(snapshot.child("nama").getValue(String.class));
+                telp1RS2.setText("- " + snapshot.child("nomorTelp1").getValue(String.class));
+                telp2RS2.setText("- " + snapshot.child("nomorTelp2").getValue(String.class));
+                pondokIndah.setText(Html.fromHtml("<a href=\"" + snapshot.child("linkMap").getValue(String.class) + "\">Klik Disini</a>", Html.FROM_HTML_MODE_LEGACY));
+                pondokIndah.setMovementMethod(LinkMovementMethod.getInstance());
+
+            });
+
+            info.child(String.valueOf(companyTravel)).child("2").get().addOnCompleteListener(task -> {
+                DataSnapshot snapshot = task.getResult();
+
+                namaRS2.setText(snapshot.child("nama").getValue(String.class));
+                telp1RS2.setText("- " + snapshot.child("nomorTelp1").getValue(String.class));
+                telp2RS2.setText("- " + snapshot.child("nomorTelp2").getValue(String.class));
+                pondokIndah.setText(Html.fromHtml("<a href=\"" + snapshot.child("linkMap").getValue(String.class) + "\">Klik Disini</a>", Html.FROM_HTML_MODE_LEGACY));
+                pondokIndah.setMovementMethod(LinkMovementMethod.getInstance());
+
+            });
+
+            info.child(String.valueOf(companyTravel)).child("3").get().addOnCompleteListener(task -> {
+                DataSnapshot snapshot = task.getResult();
+
+                namaRS3.setText(snapshot.child("nama").getValue(String.class));
+                telp1RS3.setText("- " + snapshot.child("nomorTelp1").getValue(String.class));
+                telp2RS3.setText("- " + snapshot.child("nomorTelp2").getValue(String.class));
+                harapanKita.setText(Html.fromHtml("<a href=\"" + snapshot.child("linkMap").getValue(String.class) + "\">Klik Disini</a>", Html.FROM_HTML_MODE_LEGACY));
+                harapanKita.setMovementMethod(LinkMovementMethod.getInstance());
+
+            });
+
+            info.child(String.valueOf(companyTravel)).child("4").get().addOnCompleteListener(task -> {
+                DataSnapshot snapshot = task.getResult();
+
+                namaRS4.setText(snapshot.child("nama").getValue(String.class));
+                telp1RS4.setText("- " + snapshot.child("nomorTelp1").getValue(String.class));
+                telp2RS4.setText("- " + snapshot.child("nomorTelp2").getValue(String.class));
+                pluit.setText(Html.fromHtml("<a href=\"" + snapshot.child("linkMap").getValue(String.class) + "\">Klik Disini</a>", Html.FROM_HTML_MODE_LEGACY));
+                pluit.setMovementMethod(LinkMovementMethod.getInstance());
+
+            });
+
+        }
     }
 }

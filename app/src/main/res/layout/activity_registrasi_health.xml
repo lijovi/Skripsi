@@ -389,6 +389,7 @@
             android:gravity="left"
             android:text="@string/check"
             android:id="@+id/check"
+            android:textColor="@color/black"
             />
 
 <!--    Button Daftar -->

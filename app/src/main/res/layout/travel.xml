@@ -14,7 +14,7 @@
         >
 
         <LinearLayout
-            android:layout_width="300dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corner_background"
             android:orientation="vertical"
@@ -26,37 +26,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="20dp"
-                android:text="RI 300\n( Rupiah )"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:textAlignment="center"
+                android:id="@+id/judul"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h1"
+                android:text="TRAVEL INCONVENIENCE"
                 android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:paddingBottom="10sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="300,000"
-                android:textColor="@color/black"
-                android:textSize="12dp"
                 android:textAlignment="center"
-                android:paddingBottom="10sp"
+                android:paddingBottom="10dp"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h2"
+                android:text="@string/t1"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -66,17 +55,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="600,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no1"
                 />
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h3"
+                android:text="@string/t2"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -86,17 +76,45 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="180,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
+                android:textStyle="bold"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no2"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h4"
+                android:text="@string/t3"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:paddingBottom="10sp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10sp"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textAlignment="center"
+                    android:id="@+id/no3"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t4"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -106,17 +124,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="480,000"
-                android:textColor="@color/black"
-                android:textSize="12dp"
-                android:textAlignment="center"
-                android:paddingBottom="10sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/h5"
+                android:text="@string/t5"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -126,17 +134,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="9,000,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no4"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h6"
+                android:text="@string/t6"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -146,17 +154,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="27,000,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no5"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h7"
+                android:text="@string/t7"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -166,18 +174,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="13,500,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
-                android:layout_weight="1"
+                android:textSize="14dp"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no6"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h8"
+                android:text="@string/t8"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -187,18 +194,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="6,075,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
-                android:layout_weight="1"
+                android:textSize="14dp"
+                android:textStyle="bold"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no7"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h9"
+                android:text="@string/t9"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -208,17 +215,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2,700,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
+                android:textStyle="bold"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no8"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h10"
+                android:text="@string/t10"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -228,17 +236,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="10,800,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no9"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h11"
+                android:text="@string/t11"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -248,17 +256,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="5,400,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no10"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h12"
+                android:text="@string/t12"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -268,17 +276,26 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2,430,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no11"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h13"
+                android:text="MEDICAL EXPENSES &amp; PERSONAL ACCIDENT"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:paddingBottom="10dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t13"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -288,17 +305,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1,080,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no12"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h14"
+                android:text="@string/t14"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -308,17 +325,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="10,800,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no13"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h15"
+                android:text="@string/t15"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -328,17 +345,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="5,400,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
+                android:textStyle="bold"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no14"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h16"
+                android:text="@string/t16"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -348,17 +366,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2,430,000"
-                android:textColor="@color/black"
-                android:textSize="12dp"
-                android:textAlignment="center"
-                android:paddingBottom="10sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/h17"
+                android:text="@string/t17"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -368,17 +376,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1,080,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no15"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h18"
+                android:text="@string/t18"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -388,17 +396,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="3,600,000"
-                android:textColor="@color/black"
-                android:textSize="12dp"
-                android:textAlignment="center"
-                android:paddingBottom="10sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/h19"
+                android:text="@string/t19"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -408,17 +406,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1,920,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
-                android:textAlignment="center"
+                android:textSize="14dp"
                 android:paddingBottom="10sp"
+                android:id="@+id/no16"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h20"
+                android:text="@string/t20"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -428,17 +425,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="240,000"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
+                android:textStyle="bold"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no17"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/h21"
+                android:text="@string/t21"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -448,112 +446,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="240,000"
-                android:textColor="@color/black"
-                android:textSize="12dp"
-                android:textAlignment="center"
-                android:paddingBottom="10sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/h22"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold"
-                android:paddingBottom="10sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="600,000"
-                android:textColor="@color/black"
-                android:textSize="12dp"
                 android:textAlignment="center"
                 android:paddingBottom="10sp"
+                android:id="@+id/no18"
                 />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/h23"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:paddingBottom="10sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="1,000,000"
-                android:textColor="@color/black"
-                android:textSize="12dp"
-                android:textAlignment="center"
-                android:paddingBottom="10sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/h24"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:paddingBottom="10sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="5,000,000"
-                android:textColor="@color/black"
-                android:textSize="12dp"
-                android:textAlignment="center"
-                android:paddingBottom="10sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/h25"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:paddingBottom="10sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="5,000,000"
-                android:textColor="@color/black"
-                android:textSize="12dp"
-                android:textAlignment="center"
-                android:paddingBottom="10sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/h26"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:paddingBottom="10sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="5,000,000"
-                android:textColor="@color/black"
-                android:textSize="12dp"
-                android:textAlignment="center"
-                android:paddingBottom="10sp"
-                />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
@@ -567,6 +467,7 @@
                 />
 
         </LinearLayout>
+
 
     </LinearLayout>
 

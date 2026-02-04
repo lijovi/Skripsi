@@ -51,6 +51,14 @@ public class Login extends AppCompatActivity {
             return insets;
         });
 
+//        DatabaseReference dataInput = FirebaseDatabase.getInstance().getReference("benefit").child("travel").child("VIP");
+//
+//        ClassInput input = new ClassInput("1,000", "1,000 ($100/hari)", "150", "500 ($50/8 jam)", "100", "5,000", "2,500", "2,500", "100,000",
+//                "1,000 ($50/hari)", "Yes/Berlaku", "100,000", "100,000", "1,000", "Tidak Terbatas", "Biaya tiket ekonomi pulang pergi dan biaya penginapan hingga US 150/hari selama maksimum",
+//                "1,000 ($50/hari)", "2,500");
+//
+//        dataInput.setValue(input);
+
         nik = findViewById(R.id.nik);
         nama = findViewById(R.id.nama);
         btnMasuk = findViewById(R.id.btnMasuk);

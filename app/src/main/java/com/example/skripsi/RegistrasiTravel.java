@@ -32,6 +32,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -65,6 +66,9 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
     LayoutInflater inflater;
     View dialogView;
     TextView superior, deluxe, executive, vip;
+
+    TextView judul, no1, no2, no3, no4, no5, no6, no7, no8, no9, no10, no11, no12, no13, no14, no15, no16, no17, no18;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -415,31 +419,49 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         executive = dialogView.findViewById(R.id.executive);
         vip = dialogView.findViewById(R.id.vip);
 
+//        DatabaseReference Info = FirebaseDatabase.getInstance().getReference("plan").child("travel");
+//        Info.child("1").setValue("Superior");
+//        Info.child("2").setValue("Deluxe");
+//        Info.child("3").setValue("Executive");
+//        Info.child("4").setValue("VIP");
+
+        DatabaseReference InfoData = FirebaseDatabase.getInstance().getReference("plan").child("travel");
+        InfoData.get().addOnCompleteListener(task -> {
+           if (task.isSuccessful()){
+               DataSnapshot snapshot = task.getResult();
+
+               superior.setText(snapshot.child("1").getValue(String.class));
+               deluxe.setText(snapshot.child("2").getValue(String.class));
+               executive.setText(snapshot.child("3").getValue(String.class));
+               vip.setText(snapshot.child("4").getValue(String.class));
+           }
+        });
+
         superior.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFormSuperior();
+                DialogFormTravel("Superior");
             }
         });
 
         deluxe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFormDeluxe();
+                DialogFormTravel("Deluxe");
             }
         });
 
         executive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFormExecutive();
+                DialogFormTravel("Executive");
             }
         });
 
         vip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFormVIP();
+                DialogFormTravel("VIP");
             }
         });
 
@@ -452,72 +474,62 @@ public class RegistrasiTravel extends AppCompatActivity implements AdapterView.O
         });
     }
 
-    private void DialogFormSuperior() {
+    private void DialogFormTravel(String plan) {
         dialog = new AlertDialog.Builder(RegistrasiTravel.this);
         inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.superior, null);
+        dialogView = inflater.inflate(R.layout.travel, null);
         dialog.setView(dialogView);
         dialog.setCancelable(true);
 
         AlertDialog alertDialog = dialog.create();
         alertDialog.show();
 
-        back = dialogView.findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
+        DatabaseReference data = FirebaseDatabase.getInstance().getReference("benefit").child("travel").child(plan);
+
+        judul = dialogView.findViewById(R.id.judul);
+        no1 = dialogView.findViewById(R.id.no1);
+        no2 = dialogView.findViewById(R.id.no2);
+        no3 = dialogView.findViewById(R.id.no3);
+        no4 = dialogView.findViewById(R.id.no4);
+        no5 = dialogView.findViewById(R.id.no5);
+        no6 = dialogView.findViewById(R.id.no6);
+        no7 = dialogView.findViewById(R.id.no7);
+        no8 = dialogView.findViewById(R.id.no8);
+        no9 = dialogView.findViewById(R.id.no9);
+        no10 = dialogView.findViewById(R.id.no10);
+        no11 = dialogView.findViewById(R.id.no11);
+        no12 = dialogView.findViewById(R.id.no12);
+        no13 = dialogView.findViewById(R.id.no13);
+        no14 = dialogView.findViewById(R.id.no14);
+        no15 = dialogView.findViewById(R.id.no15);
+        no16 = dialogView.findViewById(R.id.no16);
+        no17 = dialogView.findViewById(R.id.no17);
+        no18 = dialogView.findViewById(R.id.no18);
+
+        judul.setText(plan + "\n" + "(US Dollar)");
+        data.get().addOnCompleteListener(task -> {
+            DataSnapshot snapshot = task.getResult();
+            no1.setText(snapshot.child("no1").getValue(String.class));
+            no2.setText(snapshot.child("no2").getValue(String.class));
+            no3.setText(snapshot.child("no3").getValue(String.class));
+            no4.setText(snapshot.child("no4").getValue(String.class));
+            no5.setText(snapshot.child("no5").getValue(String.class));
+            no6.setText(snapshot.child("no6").getValue(String.class));
+            no7.setText(snapshot.child("no7").getValue(String.class));
+            no8.setText(snapshot.child("no8").getValue(String.class));
+            no9.setText(snapshot.child("no9").getValue(String.class));
+            no10.setText(snapshot.child("no10").getValue(String.class));
+            no11.setText(snapshot.child("no11").getValue(String.class));
+            no12.setText(snapshot.child("no12").getValue(String.class));
+            no13.setText(snapshot.child("no13").getValue(String.class));
+            no14.setText(snapshot.child("no14").getValue(String.class));
+            no15.setText(snapshot.child("no15").getValue(String.class));
+            no16.setText(snapshot.child("no16").getValue(String.class));
+            no17.setText(snapshot.child("no17").getValue(String.class));
+            no18.setText(snapshot.child("no18").getValue(String.class));
+
         });
-    }
 
-    private void DialogFormDeluxe() {
-        dialog = new AlertDialog.Builder(RegistrasiTravel.this);
-        inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.deluxe, null);
-        dialog.setView(dialogView);
-        dialog.setCancelable(true);
-
-        AlertDialog alertDialog = dialog.create();
-        alertDialog.show();
-
-        back = dialogView.findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
-        });
-    }
-
-    private void DialogFormExecutive() {
-        dialog = new AlertDialog.Builder(RegistrasiTravel.this);
-        inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.executive, null);
-        dialog.setView(dialogView);
-        dialog.setCancelable(true);
-
-        AlertDialog alertDialog = dialog.create();
-        alertDialog.show();
-
-        back = dialogView.findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
-        });
-    }
-
-    private void DialogFormVIP() {
-        dialog = new AlertDialog.Builder(RegistrasiTravel.this);
-        inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.vip, null);
-        dialog.setView(dialogView);
-        dialog.setCancelable(true);
-
-        AlertDialog alertDialog = dialog.create();
-        alertDialog.show();
 
         back = dialogView.findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {

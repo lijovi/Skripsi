@@ -32,6 +32,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -69,6 +70,9 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
     CheckBox check;
     Button information, back;
     TextView ri150, ri300, ri400, ri500;
+
+    TextView judul, no1, no2, no3, no4, no5, no6, no7, no8, no9, no10, no11, no12, no13, no14, no15, no16, no17, no18, no19, no20,
+    no21, no22, no23, no24, no25, no26;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -393,31 +397,48 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         ri400 = dialogView.findViewById(R.id.ri400);
         ri500 = dialogView.findViewById(R.id.ri500);
 
+        DatabaseReference Info = FirebaseDatabase.getInstance().getReference("plan").child("health");
+        Info.child("1").setValue("RI 150");
+        Info.child("2").setValue("RI 300");
+        Info.child("3").setValue("RI 400");
+        Info.child("4").setValue("RI 500");
+
+        DatabaseReference InfoData = FirebaseDatabase.getInstance().getReference("plan").child("health");
+        InfoData.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                DataSnapshot snapshot = task.getResult();
+                ri150.setText(snapshot.child("1").getValue(String.class));
+                ri300.setText(snapshot.child("2").getValue(String.class));
+                ri400.setText(snapshot.child("3").getValue(String.class));
+                ri500.setText(snapshot.child("4").getValue(String.class));
+            }
+        });
+
         ri150.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogForm150();
+                DialogFormRI("RI 150");
             }
         });
 
         ri300.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogForm300();
+                DialogFormRI("RI 300");
             }
         });
 
         ri400.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogForm400();
+                DialogFormRI("RI 400");
             }
         });
 
         ri500.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogForm500();
+                DialogFormRI("RI 500");
             }
         });
 
@@ -430,15 +451,78 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
         });
     }
 
-    private void DialogForm150() {
+    private void DialogFormRI(String plan) {
         dialog = new AlertDialog.Builder(RegistrasiHealth.this);
         inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.ri_150, null);
+        dialogView = inflater.inflate(R.layout.ri, null);
         dialog.setView(dialogView);
         dialog.setCancelable(true);
 
         AlertDialog alertDialog = dialog.create();
         alertDialog.show();
+
+        DatabaseReference data = FirebaseDatabase.getInstance().getReference("benefit").child("health").child(plan);
+
+        judul = dialogView.findViewById(R.id.judul);
+        no1 = dialogView.findViewById(R.id.no1);
+        no2 = dialogView.findViewById(R.id.no2);
+        no3 = dialogView.findViewById(R.id.no3);
+        no4 = dialogView.findViewById(R.id.no4);
+        no5 = dialogView.findViewById(R.id.no5);
+        no6 = dialogView.findViewById(R.id.no6);
+        no7 = dialogView.findViewById(R.id.no7);
+        no8 = dialogView.findViewById(R.id.no8);
+        no9 = dialogView.findViewById(R.id.no9);
+        no10 = dialogView.findViewById(R.id.no10);
+        no11 = dialogView.findViewById(R.id.no11);
+        no12 = dialogView.findViewById(R.id.no12);
+        no13 = dialogView.findViewById(R.id.no13);
+        no14 = dialogView.findViewById(R.id.no14);
+        no15 = dialogView.findViewById(R.id.no15);
+        no16 = dialogView.findViewById(R.id.no16);
+        no17 = dialogView.findViewById(R.id.no17);
+        no18 = dialogView.findViewById(R.id.no18);
+        no19 = dialogView.findViewById(R.id.no19);
+        no20 = dialogView.findViewById(R.id.no20);
+        no21 = dialogView.findViewById(R.id.no21);
+        no22 = dialogView.findViewById(R.id.no22);
+        no23 = dialogView.findViewById(R.id.no23);
+        no24 = dialogView.findViewById(R.id.no24);
+        no25 = dialogView.findViewById(R.id.no25);
+        no26 = dialogView.findViewById(R.id.no26);
+
+        judul.setText(plan + "\n" + "(Rupiah)");
+        data.get().addOnCompleteListener(task -> {
+            DataSnapshot snapshot = task.getResult();
+            no1.setText(snapshot.child("no1").getValue(String.class));
+            no2.setText(snapshot.child("no2").getValue(String.class));
+            no3.setText(snapshot.child("no3").getValue(String.class));
+            no4.setText(snapshot.child("no4").getValue(String.class));
+            no5.setText(snapshot.child("no5").getValue(String.class));
+            no6.setText(snapshot.child("no6").getValue(String.class));
+            no7.setText(snapshot.child("no7").getValue(String.class));
+            no8.setText(snapshot.child("no8").getValue(String.class));
+            no9.setText(snapshot.child("no9").getValue(String.class));
+            no10.setText(snapshot.child("no10").getValue(String.class));
+            no11.setText(snapshot.child("no11").getValue(String.class));
+            no12.setText(snapshot.child("no12").getValue(String.class));
+            no13.setText(snapshot.child("no13").getValue(String.class));
+            no14.setText(snapshot.child("no14").getValue(String.class));
+            no15.setText(snapshot.child("no15").getValue(String.class));
+            no16.setText(snapshot.child("no16").getValue(String.class));
+            no17.setText(snapshot.child("no17").getValue(String.class));
+            no18.setText(snapshot.child("no18").getValue(String.class));
+            no19.setText(snapshot.child("no19").getValue(String.class));
+            no20.setText(snapshot.child("no20").getValue(String.class));
+            no21.setText(snapshot.child("no21").getValue(String.class));
+            no22.setText(snapshot.child("no22").getValue(String.class));
+            no23.setText(snapshot.child("no23").getValue(String.class));
+            no24.setText(snapshot.child("no24").getValue(String.class));
+            no25.setText(snapshot.child("no25").getValue(String.class));
+            no26.setText(snapshot.child("no26").getValue(String.class));
+
+        });
+
 
         back = dialogView.findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -447,65 +531,9 @@ public class RegistrasiHealth extends AppCompatActivity implements AdapterView.O
                 alertDialog.dismiss();
             }
         });
+
+
     }
-
-    private void DialogForm300() {
-        dialog = new AlertDialog.Builder(RegistrasiHealth.this);
-        inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.ri_300, null);
-        dialog.setView(dialogView);
-        dialog.setCancelable(true);
-
-        AlertDialog alertDialog = dialog.create();
-        alertDialog.show();
-
-        back = dialogView.findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
-        });
-    }
-
-    private void DialogForm400() {
-        dialog = new AlertDialog.Builder(RegistrasiHealth.this);
-        inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.ri_400, null);
-        dialog.setView(dialogView);
-        dialog.setCancelable(true);
-
-        AlertDialog alertDialog = dialog.create();
-        alertDialog.show();
-
-        back = dialogView.findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
-        });
-    }
-
-    private void DialogForm500() {
-        dialog = new AlertDialog.Builder(RegistrasiHealth.this);
-        inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.ri_500, null);
-        dialog.setView(dialogView);
-        dialog.setCancelable(true);
-
-        AlertDialog alertDialog = dialog.create();
-        alertDialog.show();
-
-        back = dialogView.findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
-        });
-    }
-
 
     private void DialogForm() {
         dialog = new AlertDialog.Builder(RegistrasiHealth.this);
